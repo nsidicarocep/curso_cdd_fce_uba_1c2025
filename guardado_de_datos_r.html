@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="cómo-guardar-archivos-en-r-usando-write.csv-y-file.path">Cómo guardar archivos en R: Usando write.csv y file.path</h1>
+<h2 id="introducción">Introducción</h2>
+<p>Una de las cosas más importantes cuando laburamos con datos es poder guardar los resultados de nuestros análisis. En R, tenemos varias funciones que nos permiten exportar los datos en distintos formatos. En esta guía, vamos a ver cómo guardar archivos CSV usando la función <code>write.csv()</code> y cómo manejar las rutas de archivos de forma práctica con <code>file.path()</code>.</p>
+<h2 id="directorio-de-trabajo">Directorio de trabajo</h2>
+<p>Antes de arrancar a guardar archivos, es importante saber dónde se van a guardar por defecto. R usa un “directorio de trabajo” (working directory o WD) que podemos chequear y cambiar:</p>
+<pre class=" language-r"><code class="prism  language-r"><span class="token comment"># Ver el directorio de trabajo actual</span>
+getwd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Cambiar el directorio de trabajo</span>
+setwd<span class="token punctuation">(</span><span class="token string">"/ruta/a/mi/carpeta"</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="guardar-un-archivo-csv-básico">Guardar un archivo CSV básico</h2>
+<p>La forma más simple de guardar un dataframe como un archivo CSV es:</p>
+<pre class=" language-r"><code class="prism  language-r"><span class="token comment"># Crear un dataframe de ejemplo</span>
+datos <span class="token operator">&lt;-</span> data.frame<span class="token punctuation">(</span>
+  id <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span>
+  nombre <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token string">"Ana"</span><span class="token punctuation">,</span> <span class="token string">"Carlos"</span><span class="token punctuation">,</span> <span class="token string">"María"</span><span class="token punctuation">,</span> <span class="token string">"Juan"</span><span class="token punctuation">,</span> <span class="token string">"Laura"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  edad <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">35</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment"># Guardar el dataframe como CSV</span>
+write.csv<span class="token punctuation">(</span>datos<span class="token punctuation">,</span> <span class="token string">"datos_personas.csv"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Este comando va a guardar el archivo en el directorio de trabajo que tengamos configurado.</p>
+<h2 id="usando-file.path-para-crear-rutas-de-archivos">Usando file.path() para crear rutas de archivos</h2>
+<p>La función <code>file.path()</code> está buenísima para crear rutas de archivos de manera robusta y compatible con diferentes sistemas operativos:</p>
+<pre class=" language-r"><code class="prism  language-r"><span class="token comment"># Crear una ruta usando file.path()</span>
+mi_ruta <span class="token operator">&lt;-</span> file.path<span class="token punctuation">(</span><span class="token string">"datos"</span><span class="token punctuation">,</span> <span class="token string">"resultados"</span><span class="token punctuation">,</span> <span class="token string">"archivo.csv"</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>mi_ruta<span class="token punctuation">)</span>
+<span class="token comment"># En Windows: "datos\\resultados\\archivo.csv"</span>
+<span class="token comment"># En Unix/Mac: "datos/resultados/archivo.csv"</span>
+</code></pre>
+<p>Lo copado de <code>file.path()</code> es que maneja automáticamente las barras según el sistema operativo donde estés corriendo el código.</p>
+<h2 id="definiendo-una-ruta-de-guardado-con-outstub">Definiendo una ruta de guardado con outstub</h2>
+<p>Una práctica re útil es definir una variable que tenga la ruta base donde queremos guardar nuestros archivos. Esto nos permite:</p>
+<ol>
+<li>Cambiar la ubicación de guardado tocando solo una línea de código</li>
+<li>Mantener una estructura prolija para los archivos exportados</li>
+<li>Hacer que el código sea más fácil de leer</li>
+</ol>
+<p>Veamos cómo hacerlo:</p>
+<pre class=" language-r"><code class="prism  language-r"><span class="token comment"># Definir la variable outstub con la ruta de guardado</span>
+outstub <span class="token operator">&lt;-</span> file.path<span class="token punctuation">(</span><span class="token string">"resultados"</span><span class="token punctuation">,</span> <span class="token string">"proyecto_ventas"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Crear el directorio si no existe</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dir.exists<span class="token punctuation">(</span>outstub<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  dir.create<span class="token punctuation">(</span>outstub<span class="token punctuation">,</span> recursive <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Guardar diferentes archivos usando la misma base</span>
+write.csv<span class="token punctuation">(</span>datos_clientes<span class="token punctuation">,</span> file.path<span class="token punctuation">(</span>outstub<span class="token punctuation">,</span> <span class="token string">"clientes.csv"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> row.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+write.csv<span class="token punctuation">(</span>datos_ventas<span class="token punctuation">,</span> file.path<span class="token punctuation">(</span>outstub<span class="token punctuation">,</span> <span class="token string">"ventas.csv"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> row.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+write.csv<span class="token punctuation">(</span>datos_productos<span class="token punctuation">,</span> file.path<span class="token punctuation">(</span>outstub<span class="token punctuation">,</span> <span class="token string">"productos.csv"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> row.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="ejemplo-completo-flujo-de-trabajo-para-guardar-archivos">Ejemplo completo: Flujo de trabajo para guardar archivos</h2>
+<p>Veamos un ejemplo completo que incluye la creación de datos, procesamiento y guardado en una estructura organizada:</p>
+<pre class=" language-r"><code class="prism  language-r"><span class="token comment"># Cargar librerías</span>
+library<span class="token punctuation">(</span>dplyr<span class="token punctuation">)</span>
+
+<span class="token comment"># Crear algunos datos de ejemplo</span>
+ventas <span class="token operator">&lt;-</span> data.frame<span class="token punctuation">(</span>
+  fecha <span class="token operator">=</span> as.Date<span class="token punctuation">(</span><span class="token string">"2025-01-01"</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">0</span><span class="token operator">:</span><span class="token number">29</span><span class="token punctuation">,</span>
+  producto_id <span class="token operator">=</span> sample<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> replace <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  cantidad <span class="token operator">=</span> sample<span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> replace <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  precio_unitario <span class="token operator">=</span> round<span class="token punctuation">(</span>runif<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment"># Agregar columna de total</span>
+ventas <span class="token operator">&lt;-</span> ventas <span class="token percent-operator operator">%&gt;%</span>
+  mutate<span class="token punctuation">(</span>total <span class="token operator">=</span> cantidad <span class="token operator">*</span> precio_unitario<span class="token punctuation">)</span>
+
+<span class="token comment"># Crear resumen por producto</span>
+resumen_productos <span class="token operator">&lt;-</span> ventas <span class="token percent-operator operator">%&gt;%</span>
+  group_by<span class="token punctuation">(</span>producto_id<span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+  summarise<span class="token punctuation">(</span>
+    ventas_totales <span class="token operator">=</span> sum<span class="token punctuation">(</span>cantidad<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    ingresos <span class="token operator">=</span> sum<span class="token punctuation">(</span>total<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    precio_promedio <span class="token operator">=</span> mean<span class="token punctuation">(</span>precio_unitario<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+
+<span class="token comment"># Definir la estructura de directorios para guardar</span>
+fecha_analisis <span class="token operator">&lt;-</span> format<span class="token punctuation">(</span>Sys.Date<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"%Y%m%d"</span><span class="token punctuation">)</span>
+outstub <span class="token operator">&lt;-</span> file.path<span class="token punctuation">(</span><span class="token string">"analisis"</span><span class="token punctuation">,</span> <span class="token string">"ventas"</span><span class="token punctuation">,</span> fecha_analisis<span class="token punctuation">)</span>
+
+<span class="token comment"># Crear el directorio si no existe</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dir.exists<span class="token punctuation">(</span>outstub<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  dir.create<span class="token punctuation">(</span>outstub<span class="token punctuation">,</span> recursive <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Guardar los diferentes archivos</span>
+write.csv<span class="token punctuation">(</span>ventas<span class="token punctuation">,</span> file.path<span class="token punctuation">(</span>outstub<span class="token punctuation">,</span> <span class="token string">"datos_ventas_completos.csv"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> row.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+write.csv<span class="token punctuation">(</span>resumen_productos<span class="token punctuation">,</span> file.path<span class="token punctuation">(</span>outstub<span class="token punctuation">,</span> <span class="token string">"resumen_por_producto.csv"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> row.names <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Avisar donde quedaron guardados</span>
+cat<span class="token punctuation">(</span><span class="token string">"Archivos guardados en:"</span><span class="token punctuation">,</span> outstub<span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="parámetros-importantes-de-write.csv">Parámetros importantes de write.csv</h2>
+<p>La función <code>write.csv()</code> tiene varios parámetros que pueden venir bien:</p>
+<pre class=" language-r"><code class="prism  language-r">write.csv<span class="token punctuation">(</span>
+  x<span class="token punctuation">,</span>                <span class="token comment"># El dataframe a guardar</span>
+  file <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span>        <span class="token comment"># Nombre o ruta del archivo</span>
+  append <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>   <span class="token comment"># Si es TRUE, agrega al archivo en vez de pisarlo</span>
+  quote <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span>     <span class="token comment"># Si es TRUE, pone comillas en los campos de texto</span>
+  sep <span class="token operator">=</span> <span class="token string">","</span><span class="token punctuation">,</span>        <span class="token comment"># Separador de campos (coma por defecto)</span>
+  row.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token comment"># Si es TRUE, incluye los nombres de las filas</span>
+  col.names <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token comment"># Si es TRUE, incluye los nombres de las columnas</span>
+  na <span class="token operator">=</span> <span class="token string">"NA"</span>         <span class="token comment"># Cómo representar los valores NA</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>Para la mayoría de los casos, te recomiendo usar <code>row.names = FALSE</code> para evitar que te cree una columna extra con los índices de las filas.</p>
+<h2 id="alternativas-a-write.csv">Alternativas a write.csv</h2>
+<p>Además de <code>write.csv()</code>, hay otras funciones para guardar archivos:</p>
+<ul>
+<li><code>write.csv2()</code>: Usa punto y coma como separador (útil para nosotros que usamos la coma como separador decimal)</li>
+<li><code>write_csv()</code> del paquete <code>readr</code>: Es más rápida que <code>write.csv()</code></li>
+<li><code>fwrite()</code> del paquete <code>data.table</code>: Rapidísima para archivos grandes</li>
+<li><code>write_excel_csv()</code> del paquete <code>readr</code>: Pensada para que Excel la abra bien</li>
+</ul>
+<h2 id="buenas-prácticas">Buenas prácticas</h2>
+<ol>
+<li><strong>Usar variables para rutas</strong>: Definí las rutas base como variables.</li>
+<li><strong>Incluir fechas en los nombres</strong>: Te ayuda a mantener un control de versiones.</li>
+<li><strong>Verificar directorios</strong>: Siempre fijate si el directorio existe antes de intentar guardar.</li>
+<li><strong>Nombres descriptivos</strong>: Usá nombres de archivo que muestren claramente qué contienen.</li>
+<li><strong>Documentar la estructura</strong>: Comentá en tu código qué archivos estás generando y por qué.</li>
+<li><strong>Ser coherente</strong>: Mantené una estructura consistente para todas tus exportaciones.</li>
+</ol>
+<h2 id="conclusión">Conclusión</h2>
+<p>Manejar bien los archivos es clave en el análisis de datos. Usando <code>write.csv()</code> junto con <code>file.path()</code> y variables como <code>outstub</code>, podés armar un sistema ordenado y práctico para guardar tus resultados.</p>
+<p>Acordate que la organización de archivos que implementes al principio de un proyecto te puede ahorrar un montón de tiempo a medida que el proyecto crece, sobre todo cuando necesites encontrar y reusar análisis anteriores.</p>
+</div>
+</body>
+
+</html>
