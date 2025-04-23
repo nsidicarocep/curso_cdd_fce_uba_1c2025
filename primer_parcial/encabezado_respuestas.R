@@ -26,6 +26,7 @@ guardar_datos_examen(datos)
 
 # Rutas archivos 
 instub <- 'datos_examen'
+outstub <- 'resultados'
 
 # Cargar datos (asumimos que ya están generados)
 transacciones <- read.csv(file.path(instub,"transacciones.csv"))
