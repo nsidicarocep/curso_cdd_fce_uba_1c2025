@@ -1,0 +1,1791 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scraping_clase_1</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="¿qué-es-web-scraping-una-introducción-formal">¿Qué es Web Scraping? Una introducción formal</h1>
+<h2 id="introducción">Introducción</h2>
+<p>Imagine que necesita buscar el precio de un producto en diferentes tiendas online, o que debe recopilar datos de cientos de páginas de resultados. Realizar esta tarea manualmente sería extremadamente ineficiente. Aquí es donde el web scraping resulta una solución óptima.</p>
+<p>El <strong>web scraping</strong> (también conocido como “extracción de datos web” o “cosecha web”) es una técnica que permite <strong>extraer información de sitios web de manera automatizada</strong>. En lugar de navegar manualmente por páginas web y copiar datos, un programa realiza todo el trabajo, ahorrando horas de esfuerzo y reduciendo la posibilidad de errores humanos.</p>
+<h2 id="¿para-qué-sirve-el-web-scraping">¿Para qué sirve el web scraping?</h2>
+<p>El web scraping funciona como un asistente virtual que puede visitar miles de páginas web, extraer precisamente la información requerida y organizarla en un formato estructurado. Todo esto se realiza a una velocidad que sería imposible lograr manualmente.</p>
+<h3 id="aplicaciones-comunes">Aplicaciones comunes:</h3>
+<ol>
+<li>
+<p><strong>Monitoreo de precios</strong>: Seguimiento de precios de productos en diferentes sitios para detectar ofertas o analizar la competencia.</p>
+</li>
+<li>
+<p><strong>Investigación de mercado</strong>: Obtención de datos sobre productos, servicios, opiniones y tendencias del mercado.</p>
+</li>
+<li>
+<p><strong>Generación de leads</strong>: Extracción de información de contacto de potenciales clientes.</p>
+</li>
+<li>
+<p><strong>Análisis de contenido</strong>: Recopilación de noticias, artículos o publicaciones para análisis de sentimiento o minería de texto.</p>
+</li>
+<li>
+<p><strong>Agregación de datos</strong>: Combinación de información de múltiples fuentes en un único conjunto de datos.</p>
+</li>
+<li>
+<p><strong>Enriquecimiento de bases de datos</strong>: Complementación de datos existentes con información adicional de la web.</p>
+</li>
+<li>
+<p><strong>Seguimiento de redes sociales</strong>: Monitoreo de menciones, comentarios o actividad en plataformas sociales.</p>
+</li>
+<li>
+<p><strong>Investigación académica</strong>: Recopilación de datos para estudios en ciencias sociales, economía, etc.</p>
+</li>
+</ol>
+<h2 id="tipos-de-web-scraping">Tipos de web scraping</h2>
+<h3 id="según-el-nivel-de-automatización">Según el nivel de automatización:</h3>
+<ol>
+<li>
+<p><strong>Scraping manual asistido</strong>: Utilización de herramientas como extensiones de navegador que facilitan la extracción, pero requieren intervención humana.</p>
+</li>
+<li>
+<p><strong>Scraping semi-automatizado</strong>: Programación de scripts para extraer datos de sitios específicos, que requieren supervisión o intervención ocasional.</p>
+</li>
+<li>
+<p><strong>Scraping totalmente automatizado</strong>: Creación de sistemas que pueden funcionar de forma autónoma, navegando entre páginas, superando obstáculos y extrayendo datos sin intervención humana.</p>
+</li>
+</ol>
+<h3 id="según-la-complejidad-técnica">Según la complejidad técnica:</h3>
+<ol>
+<li>
+<p><strong>Scraping estático</strong>: Extracción de sitios web donde toda la información está en el HTML inicial que se descarga. Es el más simple y se puede realizar con herramientas básicas.</p>
+</li>
+<li>
+<p><strong>Scraping dinámico</strong>: Para sitios que cargan contenido mediante JavaScript después de la carga inicial. Requiere herramientas más avanzadas que puedan ejecutar JavaScript y simular un navegador real.</p>
+</li>
+<li>
+<p><strong>Scraping de APIs</strong>: Técnicamente no es scraping puro, sino el uso de interfaces programáticas que ofrecen los sitios. Es más estable y eficiente cuando está disponible.</p>
+</li>
+</ol>
+<h2 id="el-proceso-de-web-scraping">El proceso de web scraping</h2>
+<p>Un proyecto típico de web scraping sigue estos pasos:</p>
+<h3 id="planificación-y-reconocimiento">1. Planificación y reconocimiento</h3>
+<p>Antes de comenzar a programar, es fundamental entender bien el sitio web objetivo:</p>
+<ul>
+<li>
+<p><strong>Análisis de la estructura</strong>: ¿Cómo está organizada la información? ¿Existen patrones claros?</p>
+</li>
+<li>
+<p><strong>Identificación de datos objetivo</strong>: ¿Exactamente qué datos se necesitan extraer?</p>
+</li>
+<li>
+<p><strong>Evaluación de dificultad</strong>: ¿Es un sitio estático simple o una aplicación dinámica compleja?</p>
+</li>
+<li>
+<p><strong>Verificación legal y ética</strong>: ¿El sitio permite scraping? (robots.txt, términos de servicio)</p>
+</li>
+</ul>
+<h3 id="selección-de-herramientas">2. Selección de herramientas</h3>
+<p>Dependiendo de la complejidad, se puede elegir entre:</p>
+<ul>
+<li>
+<p><strong>Herramientas sin código</strong>: Como extensiones de navegador (Web Scraper, Data Miner)</p>
+</li>
+<li>
+<p><strong>Librerías y frameworks de programación</strong>: Disponibles en varios lenguajes como Python, R, Java, etc.</p>
+</li>
+<li>
+<p><strong>Servicios en la nube</strong>: Soluciones como Octoparse, ParseHub o ScrapingBee</p>
+</li>
+</ul>
+<h3 id="desarrollo-del-scraper">3. Desarrollo del scraper</h3>
+<p>Aquí se implementa la lógica principal:</p>
+<ul>
+<li>
+<p><strong>Identificación de selectores</strong>: Encontrar patrones en el HTML para localizar los datos (CSS, XPath)</p>
+</li>
+<li>
+<p><strong>Escritura del código</strong>: Programar la lógica de extracción</p>
+</li>
+<li>
+<p><strong>Manejo de paginación</strong>: Navegar entre múltiples páginas</p>
+</li>
+<li>
+<p><strong>Gestión de errores</strong>: Preparación para casos excepcionales</p>
+</li>
+<li>
+<p><strong>Control de frecuencia</strong>: Implementación de retrasos para no sobrecargar el servidor</p>
+</li>
+</ul>
+<h3 id="ejecución-y-almacenamiento">4. Ejecución y almacenamiento</h3>
+<p>Una vez que el scraper está funcionando:</p>
+<ul>
+<li>
+<p><strong>Ejecución</strong>: Puesta en marcha del proceso, idealmente con monitoreo</p>
+</li>
+<li>
+<p><strong>Limpieza de datos</strong>: Procesamiento de los datos crudos para hacerlos utilizables</p>
+</li>
+<li>
+<p><strong>Almacenamiento</strong>: Guardado de los datos en archivos CSV, bases de datos, etc.</p>
+</li>
+<li>
+<p><strong>Documentación</strong>: Registro del proceso para mantenimiento futuro</p>
+</li>
+</ul>
+<h3 id="mantenimiento">5. Mantenimiento</h3>
+<p>Los sitios web cambian, por lo que el scraper también debe evolucionar:</p>
+<ul>
+<li>
+<p><strong>Monitoreo</strong>: Verificación regular de su funcionamiento</p>
+</li>
+<li>
+<p><strong>Adaptación</strong>: Actualización del código cuando cambia la estructura del sitio</p>
+</li>
+<li>
+<p><strong>Optimización</strong>: Mejora del rendimiento y la eficiencia</p>
+</li>
+</ul>
+<h2 id="consideraciones-éticas-y-legales">Consideraciones éticas y legales</h2>
+<p>El web scraping es una herramienta poderosa, pero debe utilizarse con responsabilidad. No todo lo que es técnicamente posible es legal o ético.</p>
+<h3 id="aspectos-legales-a-considerar">Aspectos legales a considerar:</h3>
+<ol>
+<li>
+<p><strong>Términos de servicio</strong>: Muchos sitios prohíben explícitamente el scraping en sus términos de uso.</p>
+</li>
+<li>
+<p><strong>Robots.txt</strong>: Este archivo indica qué partes de un sitio pueden ser accedidas por bots.</p>
+</li>
+<li>
+<p><strong>Propiedad intelectual</strong>: Los datos pueden estar protegidos por derechos de autor.</p>
+</li>
+<li>
+<p><strong>Leyes de privacidad</strong>: El GDPR y otras regulaciones limitan cómo se pueden recopilar y usar datos personales.</p>
+</li>
+<li>
+<p><strong>Jurisprudencia</strong>: Casos como LinkedIn vs. hiQ Labs han establecido precedentes importantes.</p>
+</li>
+</ol>
+<h3 id="buenas-prácticas-éticas">Buenas prácticas éticas:</h3>
+<ol>
+<li>
+<p><strong>Identificación adecuada</strong>: Uso de un User-Agent que identifique el bot.</p>
+</li>
+<li>
+<p><strong>Respeto de límites</strong>: Evitar bombardear el servidor con solicitudes; implementar retrasos razonables.</p>
+</li>
+<li>
+<p><strong>Minimización del impacto</strong>: Extraer solo lo necesario, en el momento menos disruptivo.</p>
+</li>
+<li>
+<p><strong>Consideración de los usuarios</strong>: El scraping no debería afectar la experiencia de otros usuarios del sitio.</p>
+</li>
+<li>
+<p><strong>Evaluación de alternativas</strong>: Si existe una API oficial, utilizarla en lugar de scraping.</p>
+</li>
+</ol>
+<h2 id="desafíos-comunes-en-web-scraping">Desafíos comunes en web scraping</h2>
+<h3 id="bloqueos-y-detección-de-bots">1. Bloqueos y detección de bots</h3>
+<p>Los sitios web están cada vez más atentos a actividades de scraping y emplean varias técnicas para detectar y bloquear bots:</p>
+<ul>
+<li>
+<p><strong>CAPTCHAs</strong>: Desafíos diseñados para distinguir humanos de máquinas.</p>
+</li>
+<li>
+<p><strong>Rate limiting</strong>: Bloqueo temporal después de demasiadas solicitudes.</p>
+</li>
+<li>
+<p><strong>Fingerprinting del navegador</strong>: Detección de patrones de comportamiento no humanos.</p>
+</li>
+<li>
+<p><strong>Bloqueo de IP</strong>: Prohibición completa de acceso desde ciertas direcciones IP.</p>
+</li>
+</ul>
+<h3 id="sitios-dinámicos">2. Sitios dinámicos</h3>
+<p>Muchos sitios modernos cargan contenido dinámicamente:</p>
+<ul>
+<li>
+<p><strong>JavaScript</strong>: Contenido renderizado en el cliente que no aparece en el HTML inicial.</p>
+</li>
+<li>
+<p><strong>AJAX</strong>: Carga asincrónica de datos después de la carga de la página.</p>
+</li>
+<li>
+<p><strong>Scroll infinito</strong>: Contenido que se carga al desplazarse hacia abajo.</p>
+</li>
+<li>
+<p><strong>Single-Page Applications (SPAs)</strong>: Sitios que modifican su contenido sin recargar la página.</p>
+</li>
+</ul>
+<h3 id="estructuras-inconsistentes">3. Estructuras inconsistentes</h3>
+<p>No todos los sitios tienen una estructura perfectamente consistente:</p>
+<ul>
+<li>
+<p><strong>Diferentes diseños</strong>: Variaciones en cómo se muestra la misma información.</p>
+</li>
+<li>
+<p><strong>Contenido faltante</strong>: Algunos elementos pueden no estar presentes en todas las páginas.</p>
+</li>
+<li>
+<p><strong>Cambios de formato</strong>: El mismo dato puede aparecer en diferentes formatos.</p>
+</li>
+</ul>
+<h3 id="mantenimiento-1">4. Mantenimiento</h3>
+<p>Los sitios web evolucionan constantemente:</p>
+<ul>
+<li>
+<p><strong>Cambios de diseño</strong>: Rediseños completos que alteran todos los selectores.</p>
+</li>
+<li>
+<p><strong>Pequeñas modificaciones</strong>: Cambios sutiles en clases CSS o estructura HTML.</p>
+</li>
+<li>
+<p><strong>Nuevas medidas anti-scraping</strong>: Implementación de nuevas protecciones.</p>
+</li>
+</ul>
+<h2 id="ejemplos-de-aplicación-en-argentina">Ejemplos de aplicación en Argentina</h2>
+<p>El web scraping tiene múltiples aplicaciones en el contexto rioplatense:</p>
+<h3 id="monitoreo-de-precios-e-inflación">Monitoreo de precios e inflación</h3>
+<p>En economías como la argentina, con fluctuaciones en los precios, el scraping permite:</p>
+<ul>
+<li>
+<p>Seguimiento de precios de productos básicos en supermercados online (Coto, Disco, Jumbo)</p>
+</li>
+<li>
+<p>Comparación de precios de electrónicos entre distintos retailers (Frávega, Garbarino, Mercado Libre)</p>
+</li>
+<li>
+<p>Creación de índices de precios alternativos para categorías específicas</p>
+</li>
+</ul>
+<h3 id="mercado-inmobiliario">Mercado inmobiliario</h3>
+<p>El análisis del mercado inmobiliario se beneficia enormemente del scraping:</p>
+<ul>
+<li>
+<p>Recopilación de precios de alquileres y ventas de propiedades (ZonaProp, Argenprop, Mercado Libre)</p>
+</li>
+<li>
+<p>Análisis de tendencias de precios por barrio o zona</p>
+</li>
+<li>
+<p>Detección de oportunidades de inversión</p>
+</li>
+</ul>
+<h3 id="análisis-de-opinión-pública">Análisis de opinión pública</h3>
+<p>Para investigadores sociales y políticos:</p>
+<ul>
+<li>
+<p>Extracción de comentarios de noticias de medios importantes (Clarín, La Nación, El País)</p>
+</li>
+<li>
+<p>Análisis de tendencias en redes sociales sobre temas de actualidad</p>
+</li>
+<li>
+<p>Monitoreo de menciones de figuras políticas y la reacción del público</p>
+</li>
+</ul>
+<h3 id="seguimiento-de-ofertas-y-descuentos">Seguimiento de ofertas y descuentos</h3>
+<p>Para estudios de consumo y análisis de retail:</p>
+<ul>
+<li>
+<p>Monitoreo de promociones bancarias y descuentos</p>
+</li>
+<li>
+<p>Seguimiento de precios en Hot Sale, Black Friday y otras fechas especiales</p>
+</li>
+<li>
+<p>Comparación de promociones entre diferentes cadenas</p>
+</li>
+</ul>
+<h2 id="conclusión">Conclusión</h2>
+<p>El web scraping es una habilidad extremadamente valiosa en el arsenal de cualquier científico de datos o analista. Permite obtener datos que de otra forma serían inaccesibles o requerirían un tiempo excesivo para recopilar manualmente.</p>
+<p>Con las herramientas adecuadas y un enfoque ético, es posible automatizar la extracción de información de la web para alimentar análisis, investigaciones o aplicaciones. Ya sea para monitorear precios de la competencia, investigar tendencias de mercado o recopilar datos para entrenamiento de modelos de machine learning, el web scraping abre un mundo de posibilidades.</p>
+<p>La extracción de datos web se ha convertido en una habilidad fundamental para los profesionales de datos, permitiendo transformar la información no estructurada disponible en Internet en recursos valiosos para la toma de decisiones basada en datos.</p>
+<h1 id="¿qué-necesitamos-saber-para-scrapear">¿Qué necesitamos saber para scrapear?</h1>
+<h2 id="html-la-estructura-básica">HTML: La estructura básica</h2>
+<p>HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web. Proporciona la estructura fundamental de cualquier sitio web.</p>
+<h3 id="características-principales">Características principales:</h3>
+<ul>
+<li>
+<p><strong>Basado en etiquetas</strong>: Elementos definidos por etiquetas de apertura y cierre <code>&lt;etiqueta&gt;contenido&lt;/etiqueta&gt;</code></p>
+</li>
+<li>
+<p><strong>Estructura jerárquica</strong>: Los elementos se anidan unos dentro de otros formando un árbol</p>
+</li>
+<li>
+<p><strong>Semántico</strong>: Las etiquetas describen el tipo de contenido (encabezado, párrafo, lista, etc.)</p>
+</li>
+</ul>
+<h3 id="ejemplo-básico-de-html">Ejemplo básico de HTML:</h3>
+<pre class=" language-html"><code class="prism  language-html">
+<span class="token doctype">&lt;!DOCTYPE  html&gt;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Mi página web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Título principal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Este es un párrafo con <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://ejemplo.com<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>un enlace<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>contenedor<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Subtítulo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>Primer elemento<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>Segundo elemento<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+<h3 id="elementos-html-clave-para-scraping">Elementos HTML clave para scraping:</h3>
+<ul>
+<li>
+<p><strong><code>&lt;div&gt;</code> y <code>&lt;span&gt;</code></strong>: Contenedores genéricos para agrupar contenido</p>
+</li>
+<li>
+<p><strong><code>&lt;a&gt;</code></strong>: Enlaces con atributo <code>href</code> que contiene URLs</p>
+</li>
+<li>
+<p><strong><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code></strong>: Estructura tabular de datos</p>
+</li>
+<li>
+<p><strong><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></strong>: Listas que suelen contener colecciones de datos</p>
+</li>
+<li>
+<p><strong><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code></strong>: Encabezados que suelen identificar secciones</p>
+</li>
+<li>
+<p><strong><code>&lt;p&gt;</code></strong>: Párrafos de texto</p>
+</li>
+<li>
+<p><strong><code>&lt;img&gt;</code></strong>: Imágenes con atributos <code>src</code> (fuente) y <code>alt</code> (texto alternativo)</p>
+</li>
+</ul>
+<h3 id="importancia-para-scraping">Importancia para scraping:</h3>
+<ul>
+<li>
+<p>El HTML define la estructura que tendrás que navegar para extraer datos</p>
+</li>
+<li>
+<p>Los atributos como <code>id</code> y <code>class</code> son fundamentales para identificar elementos</p>
+</li>
+<li>
+<p>Entender la jerarquía de elementos te permite encontrar relaciones entre datos</p>
+</li>
+</ul>
+<h2 id="css-la-apariencia-y-selectores">CSS: La apariencia y selectores</h2>
+<p>CSS (Cascading Style Sheets) es el lenguaje que define la presentación visual de una página HTML.</p>
+<h3 id="características-principales-1">Características principales:</h3>
+<ul>
+<li>
+<p>Define estilos como color, tamaño, posición, etc.</p>
+</li>
+<li>
+<p>Utiliza selectores para aplicar estilos a elementos específicos</p>
+</li>
+<li>
+<p>Permite separar contenido (HTML) de presentación (CSS)</p>
+</li>
+</ul>
+<h3 id="ejemplo-básico-de-css">Ejemplo básico de CSS:</h3>
+<pre class=" language-css"><code class="prism  language-css">
+<span class="token comment">/* Estilo para todos los párrafos */</span>
+
+<span class="token selector">p </span><span class="token punctuation">{</span>
+
+<span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+
+<span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">16</span>px<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+  
+
+<span class="token comment">/* Estilo para elementos con clase "contenedor" */</span>
+
+<span class="token selector"><span class="token class">.contenedor</span> </span><span class="token punctuation">{</span>
+
+<span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#f0f0f0</span><span class="token punctuation">;</span>
+
+<span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+  
+
+<span class="token comment">/* Estilo para elemento con ID "principal" */</span>
+
+<span class="token selector"><span class="token id">#principal</span> </span><span class="token punctuation">{</span>
+
+<span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid black<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="selectores-css-clave-para-scraping">Selectores CSS clave para scraping:</h3>
+<ul>
+<li>
+<p><strong>Selector de tipo</strong>: <code>p</code> (selecciona todos los párrafos)</p>
+</li>
+<li>
+<p><strong>Selector de clase</strong>: <code>.producto</code> (selecciona elementos con class=“producto”)</p>
+</li>
+<li>
+<p><strong>Selector de ID</strong>: <code>#titulo</code> (selecciona el elemento con id=“titulo”)</p>
+</li>
+<li>
+<p><strong>Selector de atributo</strong>: <code>[href]</code> (elementos con atributo href)</p>
+</li>
+<li>
+<p><strong>Selector específico de atributo</strong>: <code>[href="https://ejemplo.com"]</code></p>
+</li>
+<li>
+<p><strong>Selectores combinados</strong>: <code>.producto .precio</code> (elementos con clase “precio” dentro de elementos con clase “producto”)</p>
+</li>
+</ul>
+<h3 id="importancia-para-scraping-1">Importancia para scraping:</h3>
+<ul>
+<li>
+<p>Los selectores CSS son la principal forma de localizar elementos en el scraping</p>
+</li>
+<li>
+<p>Las herramientas como <code>rvest</code> usan estos selectores para extraer datos</p>
+</li>
+<li>
+<p>Permiten identificar patrones en la estructura para automatizar la extracción</p>
+</li>
+</ul>
+<h2 id="javascript-interactividad-y-contenido-dinámico">JavaScript: Interactividad y contenido dinámico</h2>
+<p>JavaScript es el lenguaje de programación que hace que las páginas web sean interactivas.</p>
+<h3 id="características-principales-2">Características principales:</h3>
+<ul>
+<li>
+<p>Se ejecuta en el navegador del cliente (lado del cliente)</p>
+</li>
+<li>
+<p>Puede modificar el HTML y CSS en tiempo real</p>
+</li>
+<li>
+<p>Permite cargar datos sin recargar la página (AJAX)</p>
+</li>
+<li>
+<p>Habilita la interacción del usuario (clics, formularios, etc.)</p>
+</li>
+</ul>
+<h3 id="ejemplo-básico-de-javascript">Ejemplo básico de JavaScript:</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+<span class="token comment">// Cambiar el texto de un elemento</span>
+
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"titulo"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token string">"Nuevo título"</span><span class="token punctuation">;</span>
+
+  
+
+<span class="token comment">// Añadir un evento de clic</span>
+
+document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".boton"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Botón pulsado"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  
+
+<span class="token comment">// Cargar datos de un servidor</span>
+
+<span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">"https://api.ejemplo.com/datos"</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>response <span class="token operator">=&gt;</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>data <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token comment">// Crear elementos HTML con los datos recibidos</span>
+
+<span class="token keyword">const</span> lista <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".lista-productos"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>producto <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">const</span> item <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"li"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+item<span class="token punctuation">.</span>textContent <span class="token operator">=</span> producto<span class="token punctuation">.</span>nombre<span class="token punctuation">;</span>
+
+lista<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="importancia-para-scraping-2">Importancia para scraping:</h3>
+<ul>
+<li>
+<p>Muchos sitios cargan datos mediante JavaScript después de la carga inicial</p>
+</li>
+<li>
+<p>El contenido generado por JavaScript no aparece en el HTML fuente original</p>
+</li>
+<li>
+<p>Para scrapear sitios con JavaScript extensivo, necesitas herramientas como RSelenium que puedan interpretar JavaScript</p>
+</li>
+</ul>
+<h2 id="sitios-estáticos-vs.-dinámicos">Sitios estáticos vs. dinámicos</h2>
+<h3 id="sitios-estáticos">Sitios estáticos:</h3>
+<ul>
+<li>
+<p><strong>Definición</strong>: El contenido viene completamente renderizado desde el servidor</p>
+</li>
+<li>
+<p><strong>Características</strong>:</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Todo el contenido está en el HTML inicial</p>
+</li>
+<li>
+<p>El código fuente (ver-fuente) contiene todos los datos visibles</p>
+</li>
+<li>
+<p>No requiere JavaScript para mostrar el contenido principal</p>
+</li>
+<li>
+<p>Lo que ves es lo que hay en el HTML</p>
+</li>
+</ul>
+<ul>
+<li><strong>Ejemplo</strong>: Blogs sencillos, páginas informativas, documentación</li>
+</ul>
+<h3 id="sitios-dinámicos-1">Sitios dinámicos:</h3>
+<ul>
+<li>
+<p><strong>Definición</strong>: El contenido se genera o modifica en el navegador mediante JavaScript</p>
+</li>
+<li>
+<p><strong>Características</strong>:</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>El HTML inicial es solo un “esqueleto”</p>
+</li>
+<li>
+<p>Los datos se cargan posteriormente mediante peticiones AJAX/fetch</p>
+</li>
+<li>
+<p>Requiere JavaScript para mostrar el contenido completo</p>
+</li>
+<li>
+<p>El código fuente no contiene todos los datos visibles</p>
+</li>
+</ul>
+<ul>
+<li><strong>Ejemplos</strong>: Redes sociales, aplicaciones web modernas, dashboards interactivos</li>
+</ul>
+<h3 id="cómo-distinguirlos">Cómo distinguirlos:</h3>
+<ol>
+<li>
+<p><strong>Desactivar JavaScript</strong>: Si la página pierde contenido importante, es dinámica</p>
+</li>
+<li>
+<p><strong>Comparar fuente vs. inspección</strong>: Si hay diferencias significativas, es dinámica</p>
+</li>
+<li>
+<p><strong>Observar la pestaña Network</strong>: Muchas peticiones XHR/fetch indican sitio dinámico</p>
+</li>
+</ol>
+<h3 id="implicaciones-para-scraping">Implicaciones para scraping:</h3>
+<ul>
+<li>
+<p><strong>Sitios estáticos</strong>: Puedes usar herramientas simples como <code>rvest</code> en R</p>
+</li>
+<li>
+<p><strong>Sitios dinámicos</strong>: Necesitas herramientas que ejecuten JavaScript como <code>RSelenium</code></p>
+</li>
+</ul>
+<h2 id="elementos-web-comunes-para-scraping">Elementos web comunes para scraping</h2>
+<h3 id="componentes-estructurales">Componentes estructurales:</h3>
+<ul>
+<li>
+<p><strong>Headers/cabeceras</strong>: Suelen contener navegación y logo</p>
+</li>
+<li>
+<p><strong>Footers/pies de página</strong>: Contienen enlaces secundarios e información legal</p>
+</li>
+<li>
+<p><strong>Sidebars/barras laterales</strong>: Filtros, categorías, enlaces relacionados</p>
+</li>
+<li>
+<p><strong>Main content/contenido principal</strong>: Área central con la información principal</p>
+</li>
+</ul>
+<h3 id="elementos-interactivos">Elementos interactivos:</h3>
+<ul>
+<li>
+<p><strong>Navegación</strong>: Menús, breadcrumbs (migas de pan), paginación</p>
+</li>
+<li>
+<p><strong>Formularios</strong>: Campos de entrada, botones, selectores</p>
+</li>
+<li>
+<p><strong>Botones</strong>: Para acciones del usuario</p>
+</li>
+<li>
+<p><strong>Filtros y ordenación</strong>: Para refinar resultados</p>
+</li>
+</ul>
+<h3 id="patrones-comunes-en-sitios-web">Patrones comunes en sitios web:</h3>
+<ul>
+<li>
+<p><strong>Listados de productos</strong>: Grids/cuadrículas de elementos similares</p>
+</li>
+<li>
+<p><strong>Fichas de detalle</strong>: Páginas detalladas de un elemento individual</p>
+</li>
+<li>
+<p><strong>Tablas de datos</strong>: Información estructurada en filas y columnas</p>
+</li>
+<li>
+<p><strong>Infinite scroll/scroll infinito</strong>: Carga más contenido al llegar al final</p>
+</li>
+<li>
+<p><strong>Tabs/pestañas</strong>: Agrupa contenido relacionado</p>
+</li>
+<li>
+<p><strong>Modals/modales</strong>: Ventanas emergentes con contenido adicional</p>
+</li>
+</ul>
+<h3 id="atributos-importantes-para-identificar">Atributos importantes para identificar:</h3>
+<ul>
+<li>
+<p><strong>id</strong>: Identificador único (ideal para scraping)</p>
+</li>
+<li>
+<p><strong>class</strong>: Clasificación de estilo (útil para identificar patrones)</p>
+</li>
+<li>
+<p><strong>data-</strong>*: Atributos personalizados (a menudo contienen información valiosa)</p>
+</li>
+<li>
+<p><strong>href</strong>: Destino de enlaces</p>
+</li>
+<li>
+<p><strong>src</strong>: Fuente de imágenes y scripts</p>
+</li>
+<li>
+<p><strong>alt</strong>: Texto alternativo para imágenes</p>
+</li>
+</ul>
+<h1 id="códigos-de-estado-http-y-su-significado-en-scraping">Códigos de estado HTTP y su significado en scraping</h1>
+<p>Los códigos de estado HTTP son respuestas numéricas estandarizadas que el servidor web envía al cliente cuando procesa una solicitud. En web scraping, entender estos códigos es crucial para diagnosticar problemas y adaptar nuestro scraper.</p>
+<h2 id="categorías-principales-y-su-relevancia-para-scraping">Categorías principales y su relevancia para scraping</h2>
+<h3 id="códigos-2xx---éxito">Códigos 2xx - Éxito</h3>
+<ul>
+<li>
+<p><strong>200 OK</strong>: La solicitud fue exitosa. Este es el resultado esperado para la mayoría de las solicitudes de scraping.</p>
+</li>
+<li>
+<p><strong>201 Created</strong>: La solicitud fue exitosa y se creó un recurso (común después de formularios POST).</p>
+</li>
+<li>
+<p><strong>204 No Content</strong>: La solicitud fue exitosa pero no hay contenido que devolver.</p>
+</li>
+</ul>
+<h3 id="códigos-3xx---redirección">Códigos 3xx - Redirección</h3>
+<ul>
+<li>
+<p><strong>301 Moved Permanently</strong>: El recurso se ha movido permanentemente a otra URL. El scraper debe actualizar sus referencias.</p>
+</li>
+<li>
+<p><strong>302 Found</strong>: Redirección temporal. El scraper debe seguir la nueva URL sin actualizar permanentemente sus referencias.</p>
+</li>
+<li>
+<p><strong>304 Not Modified</strong>: El contenido no ha cambiado desde la última solicitud. Útil para implementar caché.</p>
+</li>
+</ul>
+<h3 id="códigos-4xx---errores-del-cliente">Códigos 4xx - Errores del cliente</h3>
+<ul>
+<li>
+<p><strong>400 Bad Request</strong>: La solicitud tiene una sintaxis incorrecta. Podría indicar un problema en la forma de construir las solicitudes.</p>
+</li>
+<li>
+<p><strong>401 Unauthorized</strong>: Requiere autenticación. El scraper necesita implementar un mecanismo de login.</p>
+</li>
+<li>
+<p><strong>403 Forbidden</strong>: El servidor entiende la solicitud pero se niega a autorizarla. <strong>Señal clave</strong>: posible detección y bloqueo del scraper.</p>
+</li>
+<li>
+<p><strong>404 Not Found</strong>: El recurso no existe. Podría indicar URL incorrecta o cambios en la estructura del sitio.</p>
+</li>
+<li>
+<p><strong>429 Too Many Requests</strong>: Demasiadas solicitudes en poco tiempo. <strong>Crítico para scraping</strong>: indica que debes reducir la frecuencia de solicitudes.</p>
+</li>
+</ul>
+<h3 id="códigos-5xx---errores-del-servidor">Códigos 5xx - Errores del servidor</h3>
+<ul>
+<li>
+<p><strong>500 Internal Server Error</strong>: Error genérico del servidor.</p>
+</li>
+<li>
+<p><strong>502 Bad Gateway</strong>: Problemas con el servidor upstream.</p>
+</li>
+<li>
+<p><strong>503 Service Unavailable</strong>: Servidor temporalmente sobrecargado o en mantenimiento.</p>
+</li>
+<li>
+<p><strong>504 Gateway Timeout</strong>: Tiempo de espera agotado para respuesta upstream.</p>
+</li>
+</ul>
+<h1 id="planificación-documentación-preliminar-y-modelado-de-datos">Planificación: Documentación preliminar y modelado de datos</h1>
+<h2 id="documentación-preliminar">Documentación preliminar</h2>
+<p>La documentación preliminar es un proceso estructurado para entender y mapear el sitio web antes de escribir código, y es crucial para crear scrapers robustos y mantenibles.</p>
+<h3 id="componentes-clave">Componentes clave:</h3>
+<h4 id="mapa-del-sitio">1. Mapa del sitio</h4>
+<ul>
+<li>
+<p>Estructura de navegación</p>
+</li>
+<li>
+<p>Jerarquía de páginas</p>
+</li>
+<li>
+<p>Patrones de URL (listados, detalles, filtros)</p>
+</li>
+<li>
+<p>Puntos de entrada para diferentes tipos de datos</p>
+</li>
+</ul>
+<h4 id="inventario-de-datos">2. Inventario de datos</h4>
+<ul>
+<li>
+<p>Identificación de todos los datos objetivo</p>
+</li>
+<li>
+<p>Ubicación precisa de cada dato en la estructura HTML</p>
+</li>
+<li>
+<p>Variaciones en la presentación de datos</p>
+</li>
+<li>
+<p>Datos obligatorios vs. opcionales</p>
+</li>
+</ul>
+<h4 id="esquemas-de-html">3. Esquemas de HTML</h4>
+<ul>
+<li>
+<p>Estructura típica de las páginas objetivo</p>
+</li>
+<li>
+<p>Selectores CSS o XPath para elementos clave</p>
+</li>
+<li>
+<p>Patrones recurrentes en cada tipo de página</p>
+</li>
+<li>
+<p>Excepciones y casos especiales documentados</p>
+</li>
+</ul>
+<h4 id="dinámica-del-sitio">4. Dinámica del sitio</h4>
+<ul>
+<li>
+<p>Comportamiento con/sin JavaScript</p>
+</li>
+<li>
+<p>Mecanismos de paginación (enlaces estándar, scroll infinito, botón “cargar más”)</p>
+</li>
+<li>
+<p>Sistemas de filtrado y ordenación</p>
+</li>
+<li>
+<p>Técnicas de carga dinámica de contenido</p>
+</li>
+</ul>
+<h4 id="requisitos-de-autenticación">5. Requisitos de autenticación</h4>
+<ul>
+<li>
+<p>Necesidad de iniciar sesión</p>
+</li>
+<li>
+<p>Mecanismo de inicio de sesión (formulario, OAuth)</p>
+</li>
+<li>
+<p>Duración y gestión de la sesión</p>
+</li>
+<li>
+<p>Tokens CSRF u otros mecanismos de seguridad</p>
+</li>
+</ul>
+<h3 id="ejemplo-de-documento-de-mapeo-para-un-e-commerce">Ejemplo de documento de mapeo para un e-commerce:</h3>
+<pre class=" language-markdown"><code class="prism  language-markdown">
+<span class="token title important"><span class="token punctuation">#</span> Documentación preliminar: Scraping de Ejemplo.com</span>
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Estructura del sitio</span>
+
+<span class="token list punctuation">-</span> Página principal: https://ejemplo.com/
+
+<span class="token list punctuation">-</span> Listado de categorías: https://ejemplo.com/categorias/
+
+<span class="token list punctuation">-</span> Listado de productos por categoría: https://ejemplo.com/categoria/{nombre-categoria}/
+
+<span class="token list punctuation">-</span> Página de producto: https://ejemplo.com/producto/{id-producto}/{slug-producto}/
+
+<span class="token list punctuation">-</span> Paginación: https://ejemplo.com/categoria/{nombre-categoria}/?pagina={numero}
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Patrones de URL</span>
+
+<span class="token list punctuation">-</span> ID de producto: Siempre numérico, presente en la URL como /producto/{id}/
+
+<span class="token list punctuation">-</span> Slugs: Contienen solo letras minúsculas, números y guiones
+
+<span class="token list punctuation">-</span> Parámetros de filtro: ?marca={marca}&amp;precio-min={min}&amp;precio-max={max}
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Datos objetivo</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Listado de productos</span>
+
+<span class="token list punctuation">-</span> Contenedor principal: <span class="token code keyword" spellcheck="false">`.productos-grid`</span>
+
+<span class="token list punctuation">-</span> Cada producto: <span class="token code keyword" spellcheck="false">`.producto-item`</span>
+
+<span class="token list punctuation">-</span> Título: <span class="token code keyword" spellcheck="false">`.producto-item .titulo`</span>
+
+<span class="token list punctuation">-</span> Precio: <span class="token code keyword" spellcheck="false">`.producto-item .precio-actual`</span>
+
+<span class="token list punctuation">-</span> Precio anterior (si hay descuento): <span class="token code keyword" spellcheck="false">`.producto-item .precio-anterior`</span>
+
+<span class="token list punctuation">-</span> Imagen: <span class="token code keyword" spellcheck="false">`.producto-item img`</span> (atributo <span class="token code keyword" spellcheck="false">`src`</span>)
+
+<span class="token list punctuation">-</span> URL del producto: <span class="token code keyword" spellcheck="false">`.producto-item a.titulo`</span> (atributo <span class="token code keyword" spellcheck="false">`href`</span>)
+
+<span class="token list punctuation">-</span> Disponibilidad: <span class="token code keyword" spellcheck="false">`.producto-item .disponibilidad`</span>
+
+  
+
+<span class="token title important"><span class="token punctuation">###</span> Página de producto</span>
+
+<span class="token list punctuation">-</span> Título: <span class="token code keyword" spellcheck="false">`h1.producto-titulo`</span>
+
+<span class="token list punctuation">-</span> Descripción: <span class="token code keyword" spellcheck="false">`.producto-descripcion p`</span>
+
+<span class="token list punctuation">-</span> Precio: <span class="token code keyword" spellcheck="false">`.precio-compra`</span>
+
+<span class="token list punctuation">-</span> SKU/Código: <span class="token code keyword" spellcheck="false">`.producto-codigo`</span>
+
+<span class="token list punctuation">-</span> Características: <span class="token code keyword" spellcheck="false">`.caracteristicas li`</span>
+
+<span class="token list punctuation">-</span> Imágenes: <span class="token code keyword" spellcheck="false">`.galeria-producto img`</span> (atributo <span class="token code keyword" spellcheck="false">`src`</span> o <span class="token code keyword" spellcheck="false">`data-src`</span>)
+
+<span class="token list punctuation">-</span> Opiniones: <span class="token code keyword" spellcheck="false">`.opiniones-producto .opinion`</span>
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Comportamiento dinámico</span>
+
+<span class="token list punctuation">-</span> Filtros: Actualiza la URL y recarga la página (no AJAX)
+
+<span class="token list punctuation">-</span> Paginación: Enlaces estándar, no scroll infinito
+
+<span class="token list punctuation">-</span> Imágenes: Algunas utilizan lazy loading con atributos <span class="token code keyword" spellcheck="false">`data-src`</span>
+
+<span class="token list punctuation">-</span> Opiniones: Cargadas vía AJAX al hacer clic en pestaña
+
+</code></pre>
+<h2 id="modelado-de-datos">Modelado de datos</h2>
+<p>El modelado de datos es el proceso de diseñar la estructura que almacenará la información extraída. Un buen modelo facilita el análisis posterior y garantiza la integridad.</p>
+<h3 id="principios-del-modelado">Principios del modelado:</h3>
+<ol>
+<li>
+<p><strong>Correspondencia con la estructura del sitio</strong>: El modelo debe reflejar la organización natural de los datos en el sitio.</p>
+</li>
+<li>
+<p><strong>Normalización cuando sea apropiada</strong>: Dividir datos en tablas relacionadas para minimizar redundancia.</p>
+</li>
+<li>
+<p><strong>Preservación de relaciones</strong>: Mantener conexiones entre entidades (productos y sus categorías, reviews y productos).</p>
+</li>
+<li>
+<p><strong>Flexibilidad para datos inconsistentes</strong>: Adaptarse a la presentación irregular de datos.</p>
+</li>
+<li>
+<p><strong>Metadatos del scraping</strong>: Registrar información como fecha de extracción, URL fuente, versión del scraper.</p>
+</li>
+</ol>
+<h3 id="ejemplo-de-modelo-de-datos-para-un-e-commerce">Ejemplo de modelo de datos para un e-commerce:</h3>
+<pre class=" language-r"><code class="prism  language-r">
+<span class="token comment"># Estructura de ejemplo en R (conceptual)</span>
+
+  
+
+<span class="token comment"># Modelo para categoría</span>
+
+categoria <span class="token operator">&lt;-</span>  list<span class="token punctuation">(</span>
+
+id  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># ID o slug de la categoría</span>
+
+nombre  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Nombre de la categoría</span>
+
+url  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># URL de la categoría</span>
+
+categoria_padre  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># ID de categoría padre (si existe)</span>
+
+fecha_scraping  <span class="token operator">=</span>  POSIXct<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Timestamp del scraping</span>
+
+<span class="token punctuation">)</span>
+
+  
+
+<span class="token comment"># Modelo para listado de productos</span>
+
+producto_listado <span class="token operator">&lt;-</span>  list<span class="token punctuation">(</span>
+
+id  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># ID extraído de la URL</span>
+
+titulo  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Título del producto</span>
+
+precio_actual  <span class="token operator">=</span>  numeric<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Precio actual</span>
+
+precio_anterior  <span class="token operator">=</span>  numeric<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Precio antes de descuento (si aplica)</span>
+
+descuento_porcentaje  <span class="token operator">=</span>  numeric<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Porcentaje de descuento</span>
+
+url_producto  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># URL a la página detallada</span>
+
+url_imagen  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># URL de la imagen principal</span>
+
+disponibilidad  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Estado de disponibilidad</span>
+
+categoria_id  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Referencia a la categoría</span>
+
+posicion  <span class="token operator">=</span>  integer<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Posición en el listado</span>
+
+pagina  <span class="token operator">=</span>  integer<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Número de página donde apareció</span>
+
+fecha_scraping  <span class="token operator">=</span>  POSIXct<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Timestamp del scraping</span>
+
+<span class="token punctuation">)</span>
+
+  
+
+<span class="token comment"># Modelo para detalle de producto</span>
+
+producto_detalle <span class="token operator">&lt;-</span>  list<span class="token punctuation">(</span>
+
+id  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># ID del producto</span>
+
+titulo  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Título completo</span>
+
+descripcion  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Descripción completa</span>
+
+precio  <span class="token operator">=</span>  numeric<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Precio actual</span>
+
+precio_anterior  <span class="token operator">=</span>  numeric<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Precio anterior (si hay descuento)</span>
+
+marca  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Marca del producto</span>
+
+caracteristicas  <span class="token operator">=</span>  list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Lista de características clave-valor</span>
+
+especificaciones  <span class="token operator">=</span>  list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Especificaciones técnicas</span>
+
+imagenes  <span class="token operator">=</span>  list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Lista de URLs de imágenes</span>
+
+disponibilidad  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># Estado detallado de disponibilidad</span>
+
+url  <span class="token operator">=</span>  character<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># URL donde se extrajo la información</span>
+
+fecha_scraping  <span class="token operator">=</span>  POSIXct<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># Timestamp del scraping</span>
+
+<span class="token punctuation">)</span>
+
+</code></pre>
+<h3 id="buenas-prácticas">Buenas prácticas:</h3>
+<ol>
+<li><strong>Guardar datos en bruto</strong>: Almacenar el HTML original permite reextraer datos si el modelo cambia.</li>
+</ol>
+<pre class=" language-r"><code class="prism  language-r">
+<span class="token comment"># Guardar HTML original</span>
+
+save_raw_html  <span class="token operator">&lt;-</span>  <span class="token keyword">function</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> html_content<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token comment"># Generar nombre de archivo basado en URL</span>
+
+filename <span class="token operator">&lt;-</span>  generate_filename_from_url<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+<span class="token comment"># Guardar contenido</span>
+
+write<span class="token punctuation">(</span>html_content<span class="token punctuation">,</span> file  <span class="token operator">=</span>  paste0<span class="token punctuation">(</span><span class="token string">"raw_html/"</span><span class="token punctuation">,</span> filename<span class="token punctuation">,</span> <span class="token string">".html"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Registrar en índice</span>
+
+append_to_index<span class="token punctuation">(</span>data.frame<span class="token punctuation">(</span>
+
+url  <span class="token operator">=</span> url<span class="token punctuation">,</span>
+
+filename  <span class="token operator">=</span> filename<span class="token punctuation">,</span>
+
+timestamp  <span class="token operator">=</span>  Sys.time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="2">
+<li>
+<p><strong>Comenzar amplio, refinar después</strong>: Es más fácil eliminar campos que añadirlos posteriormente.</p>
+</li>
+<li>
+<p><strong>Considerar el uso final</strong>: El modelo debe facilitar el análisis que se planea realizar.</p>
+</li>
+</ol>
+<h1 id="análisis-preliminar-de-sitios-web">Análisis preliminar de sitios web</h1>
+<h2 id="técnicas-para-identificar-patrones-en-la-estructura-del-sitio">Técnicas para identificar patrones en la estructura del sitio</h2>
+<h3 id="análisis-de-consistencia">1. Análisis de consistencia</h3>
+<ul>
+<li>
+<p>Comparar múltiples páginas del mismo tipo (5-10 páginas de producto)</p>
+</li>
+<li>
+<p>Identificar elementos comunes y variables</p>
+</li>
+<li>
+<p>Documentar variaciones (algunos productos tienen características adicionales)</p>
+</li>
+</ul>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+<span class="token comment">// En la consola del navegador:</span>
+
+<span class="token comment">// Comprobar si un selector captura lo esperado</span>
+
+document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.producto'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length
+
+  
+
+<span class="token comment">// Ver todos los valores de un atributo para detectar patrones</span>
+
+Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.producto'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>el  <span class="token operator">=&gt;</span>  el<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-id'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  
+
+<span class="token comment">// Examinar la estructura de varios productos a la vez</span>
+
+Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.producto'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>p  <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+titulo<span class="token punctuation">:</span>  p<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.titulo'</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">.</span>textContent<span class="token punctuation">,</span>
+
+clases<span class="token punctuation">:</span>  p<span class="token punctuation">.</span>className<span class="token punctuation">,</span>
+
+cantidadHijos<span class="token punctuation">:</span>  p<span class="token punctuation">.</span>children<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
+
+tieneDescuento<span class="token punctuation">:</span>  p<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.descuento'</span><span class="token punctuation">)</span> <span class="token operator">!==</span>  <span class="token keyword">null</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h3 id="mapeo-de-plantillas">2. Mapeo de plantillas</h3>
+<ul>
+<li>
+<p>La mayoría de sitios usan sistemas de plantillas (templates)</p>
+</li>
+<li>
+<p>Identificar las plantillas principales y sus variantes</p>
+</li>
+<li>
+<p>Documentar la estructura DOM específica de cada plantilla</p>
+</li>
+<li>
+<p>Buscar comentarios HTML que puedan indicar nombres de plantillas</p>
+</li>
+</ul>
+<h3 id="análisis-de-clases-css">3. Análisis de clases CSS</h3>
+<ul>
+<li>
+<p>Buscar patrones en nombres de clases (BEM, Bootstrap, etc.)</p>
+</li>
+<li>
+<p>Identificar clases que indican estados (<code>.producto--agotado</code>, <code>.precio--oferta</code>)</p>
+</li>
+<li>
+<p>Verificar si las clases son estáticas o generadas dinámicamente</p>
+</li>
+</ul>
+<h2 id="identificación-de-fuentes-de-datos">Identificación de fuentes de datos</h2>
+<p>A menudo, los datos visibles en el sitio web provienen de fuentes más estructuradas que el HTML.</p>
+<h3 id="análisis-de-respuestas-xhrfetch">1. Análisis de respuestas XHR/Fetch</h3>
+<ul>
+<li>
+<p>Abrir DevTools y cambiar a la pestaña Network</p>
+</li>
+<li>
+<p>Filtrar por XHR/Fetch para ver peticiones AJAX</p>
+</li>
+<li>
+<p>Interactuar con el sitio (cambiar página, filtrar) y observar nuevas solicitudes</p>
+</li>
+<li>
+<p>Examinar las respuestas JSON o XML que contienen datos estructurados</p>
+</li>
+</ul>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+<span class="token comment">// En la consola después de encontrar una API interna:</span>
+
+<span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://ejemplo.com/api/productos?categoria=electronica'</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>response  <span class="token operator">=&gt;</span>  response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>data  <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Estructura de datos:'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Campos en cada producto:'</span><span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>productos<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Total de productos:'</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>total<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="búsqueda-de-datos-incrustados">2. Búsqueda de datos incrustados</h3>
+<ul>
+<li>
+<p>Muchos sitios incrustan datos iniciales en el HTML como JSON</p>
+</li>
+<li>
+<p>Buscar en el código fuente patrones como:</p>
+</li>
+</ul>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+window<span class="token punctuation">.</span>__INITIAL_STATE__  <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+
+window<span class="token punctuation">.</span>__PRELOADED_DATA__  <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>
+
+</code></pre>
+<ul>
+<li>Estos objetos suelen contener datos ya estructurados</li>
+</ul>
+<h3 id="apis-internas">3. APIs internas</h3>
+<ul>
+<li>
+<p>Los sitios modernos suelen tener APIs internas para su propio funcionamiento</p>
+</li>
+<li>
+<p>Identificar patrones de URL de estas APIs</p>
+</li>
+<li>
+<p>Analizar formato de solicitud/respuesta</p>
+</li>
+<li>
+<p>Verificar si requieren tokens de autenticación especiales</p>
+</li>
+</ul>
+<h3 id="análisis-de-graphql">4. Análisis de GraphQL</h3>
+<ul>
+<li>
+<p>Sites modernos a menudo utilizan GraphQL en lugar de REST</p>
+</li>
+<li>
+<p>Buscar peticiones POST a un único endpoint (normalmente /graphql)</p>
+</li>
+<li>
+<p>Examinar la estructura de consulta y respuesta</p>
+</li>
+</ul>
+<h2 id="detección-de-obstáculos-para-el-scraping">Detección de obstáculos para el scraping</h2>
+<h3 id="mecanismos-anti-bot">1. Mecanismos anti-bot</h3>
+<ul>
+<li>
+<p><strong>CAPTCHA y reCAPTCHA</strong>: Requieren interacción humana o servicios especializados</p>
+</li>
+<li>
+<p><strong>Verificaciones de JavaScript</strong>: Comprobación de ejecución de scripts</p>
+</li>
+<li>
+<p><strong>Honeypots</strong>: Campos ocultos que solo un bot completaría</p>
+</li>
+<li>
+<p><strong>Fingerprinting</strong>: Detección de entorno de navegador no estándar</p>
+</li>
+</ul>
+<h3 id="elementos-que-dificultan-la-selección">2. Elementos que dificultan la selección</h3>
+<ul>
+<li>
+<p><strong>Clases dinámicas</strong>: <code>.producto_a4f3b2</code> en lugar de <code>.producto</code></p>
+</li>
+<li>
+<p><strong>DOM cambiante</strong>: Estructura que varía entre visitas</p>
+</li>
+<li>
+<p><strong>Shadow DOM</strong>: Encapsulamiento que dificulta selección estándar</p>
+</li>
+<li>
+<p><strong>iframes</strong>: Contenido en contextos separados</p>
+</li>
+</ul>
+<h3 id="barreras-técnicas">3. Barreras técnicas</h3>
+<ul>
+<li>
+<p><strong>Interacción compleja</strong>: Elementos que requieren arrastrar, clicks múltiples</p>
+</li>
+<li>
+<p><strong>SPA complejas</strong>: Aplicaciones con estado difícil de manipular</p>
+</li>
+<li>
+<p><strong>Lazy loading</strong>: Contenido que solo se carga al visualizarse</p>
+</li>
+<li>
+<p><strong>Sitios con alta latencia</strong>: Tiempos de carga variables que complican las esperas</p>
+</li>
+</ul>
+<h2 id="workflow-de-análisis-sistemático">Workflow de análisis sistemático</h2>
+<p>Un enfoque paso a paso para analizar un sitio antes de comenzar a programar:</p>
+<h3 id="exploración-inicial">1. Exploración inicial</h3>
+<ul>
+<li>
+<p>Navegar manualmente el sitio como usuario normal</p>
+</li>
+<li>
+<p>Identificar secciones principales y tipos de contenido</p>
+</li>
+<li>
+<p>Comprender el modelo de negocio y objetivo del sitio</p>
+</li>
+</ul>
+<h3 id="análisis-técnico-preliminar">2. Análisis técnico preliminar</h3>
+<ul>
+<li>
+<p>Verificar robots.txt y términos de servicio</p>
+</li>
+<li>
+<p>Determinar si el sitio es estático o dinámico</p>
+</li>
+<li>
+<p>Evaluar presencia de mecanismos anti-scraping</p>
+</li>
+</ul>
+<h3 id="análisis-estructural">3. Análisis estructural</h3>
+<ul>
+<li>
+<p>Examinar diferentes tipos de páginas</p>
+</li>
+<li>
+<p>Identificar patrones en URLs</p>
+</li>
+<li>
+<p>Analizar estructura HTML para cada tipo de página</p>
+</li>
+</ul>
+<h3 id="análisis-de-interacción">4. Análisis de interacción</h3>
+<ul>
+<li>
+<p>Documentar secuencias de navegación necesarias</p>
+</li>
+<li>
+<p>Identificar puntos donde se requiere interacción (clic, scroll)</p>
+</li>
+<li>
+<p>Determinar mecanismos de paginación y filtrado</p>
+</li>
+</ul>
+<h3 id="diseño-de-estrategia">5. Diseño de estrategia</h3>
+<ul>
+<li>
+<p>Seleccionar herramientas apropiadas (rvest vs. RSelenium)</p>
+</li>
+<li>
+<p>Determinar enfoque (scraping HTML vs. API interna)</p>
+</li>
+<li>
+<p>Establecer políticas de control de frecuencia</p>
+</li>
+</ul>
+<h3 id="checklist-de-análisis-preliminar">Checklist de análisis preliminar:</h3>
+<pre class=" language-markdown"><code class="prism  language-markdown">
+<span class="token title important"><span class="token punctuation">#</span> Checklist para análisis de sitio web</span>
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Aspectos básicos del sitio</span>
+
+<span class="token list punctuation">-</span> [ ] URL base: <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>_
+
+<span class="token list punctuation">-</span> [ ] Verificado robots.txt: (Sí/No) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+<span class="token list punctuation">-</span> [ ] Tipo de sitio: (Estático/Dinámico/Mixto) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+<span class="token list punctuation">-</span> [ ] ¿Requiere JavaScript?: (Sí/No) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+<span class="token list punctuation">-</span> [ ] ¿Tiene API pública o interna?: (Sí/No) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Estructura de navegación</span>
+
+<span class="token list punctuation">-</span> [ ] Patrón de URL para listados: <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>_
+
+<span class="token list punctuation">-</span> [ ] Patrón de URL para detalles: <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>_
+
+<span class="token list punctuation">-</span> [ ] Mecanismo de paginación: (Enlaces/Infinito/Botón) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+<span class="token list punctuation">-</span> [ ] ¿Requiere autenticación?: (Sí/No) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Estructura HTML</span>
+
+<span class="token list punctuation">-</span> [ ] Selector para contenedor principal: <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>_
+
+<span class="token list punctuation">-</span> [ ] Selector para items individuales: <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>_
+
+<span class="token list punctuation">-</span> [ ] ¿Uso de clases dinámicas?: (Sí/No) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+<span class="token list punctuation">-</span> [ ] Consistencia de estructura: (Alta/Media/Baja) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Protección anti-scraping</span>
+
+<span class="token list punctuation">-</span> [ ] ¿Detecta scrapers?: (Sí/No/Desconocido) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+<span class="token list punctuation">-</span> [ ] Técnicas anti-scraping detectadas: <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>_
+
+<span class="token list punctuation">-</span> [ ] Límite de frecuencia detectado: <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>_
+
+  
+
+<span class="token title important"><span class="token punctuation">##</span> Estrategia recomendada</span>
+
+<span class="token list punctuation">-</span> [ ] Herramienta principal: (rvest/RSelenium/API) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+<span class="token list punctuation">-</span> [ ] Estrategia de control de frecuencia: <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span><span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>_
+
+<span class="token list punctuation">-</span> [ ] Complejidad estimada: (Baja/Media/Alta) <span class="token bold"><span class="token punctuation">__</span><span class="token punctuation">__</span>_</span>__
+
+</code></pre>
+<p>Este enfoque sistemático ayuda a anticipar problemas, diseñar soluciones adecuadas y evitar sorpresas durante el desarrollo del scraper.</p>
+<h2 id="sitios-adicionales-para-practicar">Sitios adicionales para practicar</h2>
+<ol>
+<li>Práctica de HTML: <a href="https://www.w3schools.com/html/default.asp">https://www.w3schools.com/html/default.asp</a></li>
+<li>Práctica de CSS: <a href="https://www.w3schools.com/css/default.asp">https://www.w3schools.com/css/default.asp</a></li>
+<li>Práctica de JavaScript: <a href="https://www.w3schools.com/js/default.asp">https://www.w3schools.com/js/default.asp</a></li>
+<li>Para probar HTML, CSS y JavaScript: <a href="https://codepen.io/eafon/pen/rLzXaq">https://codepen.io/eafon/pen/rLzXaq</a></li>
+</ol>
+<blockquote>
+<p><strong>Aclaración</strong>: recordá que no es tan importante dominar esto, solo tenés que entender lo suficiente como para poder levantar información de una página</p>
+</blockquote>
+<h2 id="ejercitación-para-fin-de-semana-largo">Ejercitación para fin de semana largo</h2>
+<ol>
+<li>Explorar cómo aparecen los productos en MercadoLibre ¿se puede llenar todo el modelo de datos? ¿Es posible hacerlo desde la lista de productos (ej: <a href="https://listado.mercadolibre.com.ar/television#D%5BA:television%5D">https://listado.mercadolibre.com.ar/television#D[A:television]</a>) o es necesario entrar producto por producto? ¿cuál es el elemento base que permite identificar los productos?</li>
+<li>Hacer lo mismo en <a href="https://www.espaciovino.com.ar/">https://www.espaciovino.com.ar/</a> ¿cómo estructurarían una bajada de información de la página?</li>
+<li>No todos los sitios son E-commerce. ¿Qué información se puede extraer de cuitonline? (<a href="https://www.cuitonline.com/">https://www.cuitonline.com/</a>) ¿qué variables deberían ver? Pista: buscar algunos CUITs para ver la información disponible</li>
+<li>¿Qué sucede si quisieran scrapear Twitter?</li>
+<li>¿Qué sucede si quieren scrapear LinkedIn? ¿Podés entrar en incógnito a LinkedIn? ¿Qué sugiere eso?</li>
+</ol>
+<h1 id="xpath-para-web-scraping-guía-completa">XPath para Web Scraping: Guía Completa</h1>
+<h2 id="introducción-a-xpath">1. Introducción a XPath</h2>
+<p>XPath (XML Path Language) es un lenguaje de consulta diseñado para seleccionar nodos en documentos XML y HTML. Aunque los selectores CSS son populares por su simplicidad, XPath ofrece mayor potencia y flexibilidad, convirtiéndolo en una herramienta indispensable para el web scraping avanzado.</p>
+<h3 id="¿por-qué-aprender-xpath">¿Por qué aprender XPath?</h3>
+<ul>
+<li>
+<p><strong>Mayor poder expresivo</strong>: Permite selecciones que CSS no puede realizar</p>
+</li>
+<li>
+<p><strong>Navegación bidireccional</strong>: Puede moverse hacia arriba y abajo en el árbol DOM</p>
+</li>
+<li>
+<p><strong>Selección por contenido</strong>: Puede encontrar elementos basados en su texto</p>
+</li>
+<li>
+<p><strong>Condiciones lógicas</strong>: Soporta operaciones AND, OR y NOT</p>
+</li>
+<li>
+<p><strong>Funciones integradas</strong>: Cuenta con funciones como <code>contains()</code>, <code>starts-with()</code>, etc.</p>
+</li>
+</ul>
+<h3 id="contexto-histórico">Contexto histórico</h3>
+<p>XPath fue desarrollado como parte de la familia de tecnologías XML. Aunque originalmente se diseñó para XML, se ha convertido en un estándar para navegar cualquier documento con estructura jerárquica, incluyendo HTML.</p>
+<h2 id="sintaxis-básica-de-xpath">2. Sintaxis básica de XPath</h2>
+<h3 id="expresiones-de-ruta">Expresiones de ruta</h3>
+<ul>
+<li>
+<p><code>/</code> - Selección desde la raíz. Ejemplo: <code>/html/body/div</code></p>
+</li>
+<li>
+<p><code>//</code> - Selección en cualquier nivel. Ejemplo: <code>//div</code></p>
+</li>
+<li>
+<p><code>.</code> - Nodo actual. Ejemplo: <code>.//p</code></p>
+</li>
+<li>
+<p><code>..</code> - Nodo padre. Ejemplo: <code>//li/..</code></p>
+</li>
+<li>
+<p><code>@</code> - Atributo. Ejemplo: <code>//img/@src</code></p>
+</li>
+</ul>
+<h3 id="predicados-filtros">Predicados (filtros)</h3>
+<p>Los predicados se colocan entre corchetes <code>[]</code> y filtran los nodos seleccionados:</p>
+<pre><code>
+//div[1] # Primer div (en XPath, los índices empiezan en 1)
+
+//div[@class='producto'] # Divs con clase exacta "producto"
+
+//div[@id='header'] # Div con id "header"
+
+//a[@href='https://ejemplo.com'] # Enlaces a ejemplo.com
+
+</code></pre>
+<h3 id="caracteres-comodín-y-operadores">Caracteres comodín y operadores</h3>
+<pre><code>
+//* # Cualquier elemento (asterisco como comodín)
+
+//div[*] # Divs que tienen al menos un hijo
+
+//div[@*] # Divs que tienen al menos un atributo
+
+//div | //span # Todos los divs y todos los spans (operador OR)
+
+//div[position() &lt; 3] # Los primeros dos divs
+
+</code></pre>
+<h3 id="ejes">Ejes</h3>
+<p>XPath utiliza ejes para definir un conjunto de nodos en relación con el nodo actual:</p>
+<pre><code>
+//div/child::p # Elementos p que son hijos directos de div
+
+//div/descendant::span # Spans dentro de div (a cualquier nivel)
+
+//p/ancestor::div # Divs que son ancestros de p
+
+//h2/following-sibling::p # Párrafos que son hermanos siguientes a h2
+
+//h2/preceding-sibling::div # Divs que son hermanos anteriores a h2
+
+</code></pre>
+<h2 id="xpath-vs.-selectores-css">3. XPath vs. Selectores CSS</h2>
+<h3 id="comparación-de-sintaxis-básica">Comparación de sintaxis básica</h3>
+<p><strong>Elemento por tipo</strong></p>
+<ul>
+<li>
+<p>CSS: <code>p</code></p>
+</li>
+<li>
+<p>XPath: <code>//p</code></p>
+</li>
+</ul>
+<p><strong>Elemento por ID</strong></p>
+<ul>
+<li>
+<p>CSS: <code>#header</code></p>
+</li>
+<li>
+<p>XPath: <code>//*[@id="header"]</code></p>
+</li>
+</ul>
+<p><strong>Elemento por clase</strong></p>
+<ul>
+<li>
+<p>CSS: <code>.producto</code></p>
+</li>
+<li>
+<p>XPath: <code>//*[contains(@class, "producto")]</code></p>
+</li>
+</ul>
+<p><strong>Descendiente</strong></p>
+<ul>
+<li>
+<p>CSS: <code>div p</code></p>
+</li>
+<li>
+<p>XPath: <code>//div//p</code></p>
+</li>
+</ul>
+<p><strong>Hijo directo</strong></p>
+<ul>
+<li>
+<p>CSS: <code>div &gt; p</code></p>
+</li>
+<li>
+<p>XPath: <code>//div/p</code></p>
+</li>
+</ul>
+<p><strong>Elementos hermanos</strong></p>
+<ul>
+<li>
+<p>CSS: <code>h2 ~ p</code></p>
+</li>
+<li>
+<p>XPath: <code>//h2/following-sibling::p</code></p>
+</li>
+</ul>
+<p><strong>Enésimo hijo</strong></p>
+<ul>
+<li>
+<p>CSS: <code>li:nth-child(2)</code></p>
+</li>
+<li>
+<p>XPath: <code>//li[2]</code></p>
+</li>
+</ul>
+<p><strong>Múltiples elementos</strong></p>
+<ul>
+<li>
+<p>CSS: <code>h1, h2, h3</code></p>
+</li>
+<li>
+<p>XPath: <code>//h1 | //h2 | //h3</code></p>
+</li>
+</ul>
+<p><strong>Atributo específico</strong></p>
+<ul>
+<li>
+<p>CSS: <code>[data-id="123"]</code></p>
+</li>
+<li>
+<p>XPath: <code>//*[@data-id="123"]</code></p>
+</li>
+</ul>
+<p><strong>Atributo que contiene</strong></p>
+<ul>
+<li>
+<p>CSS: <code>[src*="thumb"]</code></p>
+</li>
+<li>
+<p>XPath: <code>//*[contains(@src, "thumb")]</code></p>
+</li>
+</ul>
+<h3 id="capacidades-únicas-de-xpath">Capacidades únicas de XPath</h3>
+<p><strong>Seleccionar por texto</strong></p>
+<ul>
+<li>
+<p>XPath: <code>//p[text()="Hola mundo"]</code></p>
+</li>
+<li>
+<p>CSS: No posible directamente</p>
+</li>
+</ul>
+<p><strong>Texto que contiene</strong></p>
+<ul>
+<li>
+<p>XPath: <code>//p[contains(text(), "oferta")]</code></p>
+</li>
+<li>
+<p>CSS: No posible directamente</p>
+</li>
+</ul>
+<p><strong>Elemento padre</strong></p>
+<ul>
+<li>
+<p>XPath: <code>//a[@id="link"]/..</code></p>
+</li>
+<li>
+<p>CSS: No posible directamente</p>
+</li>
+</ul>
+<p><strong>Elemento con múltiples condiciones</strong></p>
+<ul>
+<li>
+<p>XPath: <code>//div[@class="producto" and @data-id="123"]</code></p>
+</li>
+<li>
+<p>CSS: <code>div.producto[data-id="123"]</code></p>
+</li>
+</ul>
+<p><strong>Elemento sin cierto atributo</strong></p>
+<ul>
+<li>
+<p>XPath: <code>//div[not(@class)]</code></p>
+</li>
+<li>
+<p>CSS: <code>:not([class])</code> (con limitaciones)</p>
+</li>
+</ul>
+<p><strong>Elementos con exactamente N hijos</strong></p>
+<ul>
+<li>
+<p>XPath: <code>//ul[count(li)=3]</code></p>
+</li>
+<li>
+<p>CSS: No posible directamente</p>
+</li>
+</ul>
+<p><strong>Elementos con cierto texto y clase</strong></p>
+<ul>
+<li>
+<p>XPath: <code>//p[contains(@class, "precio") and contains(text(), "$")]</code></p>
+</li>
+<li>
+<p>CSS: No posible directamente</p>
+</li>
+</ul>
+<h2 id="xpath-avanzado-para-web-scraping">4. XPath avanzado para web scraping</h2>
+<h3 id="funciones-útiles">Funciones útiles</h3>
+<pre><code>
+//p[contains(text(), "oferta")] # Párrafos que contienen "oferta"
+
+//a[starts-with(@href, "https")] # Enlaces que comienzan con https
+
+//p[string-length() &gt; 100] # Párrafos con texto largo
+
+//div[count(p) &gt; 5] # Divs con más de 5 párrafos
+
+//div[position() = last()] # Último div
+
+//table[tbody/tr[position() mod 2 = 1]] # Tablas con filas impares
+
+</code></pre>
+<h3 id="navegando-hacia-arriba-en-el-dom">Navegando hacia arriba en el DOM</h3>
+<p>Una de las grandes ventajas de XPath es la capacidad de navegar hacia arriba en el árbol DOM:</p>
+<pre><code>
+# Encontrar la sección que contiene un título específico
+
+//h2[text()="Ofertas especiales"]/ancestor::section
+
+  
+
+# Encontrar la tabla que contiene una celda con cierto texto
+
+//td[contains(text(), "Agotado")]/ancestor::table
+
+  
+
+# Encontrar el div padre de un elemento específico
+
+//input[@id="email"]/parent::div
+
+  
+
+# Todos los divs que son padres de algún párrafo
+
+//p/parent::div
+
+</code></pre>
+<h3 id="uso-de-funciones-condicionales">Uso de funciones condicionales</h3>
+<pre><code>
+# Elementos con clase que contiene "precio" Y texto que contiene "$"
+
+//span[contains(@class, "precio") and contains(text(), "$")]
+
+  
+
+# Elementos de precio que no están tachados
+
+//span[contains(@class, "precio") and not(contains(@class, "tachado"))]
+
+  
+
+# Productos en stock O con envío gratis
+
+//div[contains(@class, "producto")][.//span[contains(text(), "En stock")] or .//span[contains(text(), "Envío gratis")]]
+
+</code></pre>
+
+<h2 id="casos-de-uso-donde-xpath-es-esencial">6. Casos de uso donde XPath es esencial</h2>
+<h3 id="extracción-basada-en-contenido-textual">1. Extracción basada en contenido textual</h3>
+<p>Imagina un sitio web de noticias donde necesitas extraer solo artículos que mencionan cierto tema:</p>
+<pre class=" language-r"><code class="prism  language-r">
+<span class="token comment"># Extraer solo títulos de noticias que contienen la palabra "economía"</span>
+
+titulos_economia <span class="token operator">&lt;-</span>  html_nodes<span class="token punctuation">(</span>pagina<span class="token punctuation">,</span>
+
+xpath  <span class="token operator">=</span>  <span class="token string">"//h2[contains(text(), 'economía') or contains(text(), 'Economía')]"</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+
+html_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  
+
+<span class="token comment"># Extraer párrafos que contienen ciertas palabras clave</span>
+
+parrafos_relevantes <span class="token operator">&lt;-</span>  html_nodes<span class="token punctuation">(</span>pagina<span class="token punctuation">,</span>
+
+xpath  <span class="token operator">=</span>  <span class="token string">"//p[contains(text(), 'crisis') or contains(text(), 'inflación')]"</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+
+html_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h3 id="navegación-compleja-de-tablas">2. Navegación compleja de tablas</h3>
+<p>Las tablas complejas a menudo requieren XPath para su correcta navegación:</p>
+<pre class=" language-r"><code class="prism  language-r">
+<span class="token comment"># Extraer el precio de un producto específico en una tabla de comparación</span>
+
+precio_producto_x <span class="token operator">&lt;-</span>  html_nodes<span class="token punctuation">(</span>pagina<span class="token punctuation">,</span>
+
+xpath  <span class="token operator">=</span>  <span class="token string">"//table[@id='comparativa']//tr[./td[1][contains(text(), 'Producto X')]]//td[3]"</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+
+html_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  
+
+<span class="token comment"># Extraer valores de celdas en filas que cumplen cierta condición</span>
+
+valores_especiales <span class="token operator">&lt;-</span>  html_nodes<span class="token punctuation">(</span>pagina<span class="token punctuation">,</span>
+
+xpath  <span class="token operator">=</span>  <span class="token string">"//table//tr[.//td[contains(@class, 'destacado')]]//td[2]"</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+
+html_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h3 id="identificación-de-elementos-sin-atributos-consistentes">3. Identificación de elementos sin atributos consistentes</h3>
+<p>Cuando un sitio no tiene una estructura HTML consistente con clases o IDs predecibles:</p>
+<pre class=" language-r"><code class="prism  language-r">
+<span class="token comment"># Encontrar el contenedor que tiene un título específico</span>
+
+contenedor <span class="token operator">&lt;-</span>  html_nodes<span class="token punctuation">(</span>pagina<span class="token punctuation">,</span>
+
+xpath  <span class="token operator">=</span>  <span class="token string">"//div[.//h3[text()='Ofertas del día']]"</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+
+html_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  
+
+<span class="token comment"># Extraer el precio que aparece después de la etiqueta "Precio:"</span>
+
+precio <span class="token operator">&lt;-</span>  html_nodes<span class="token punctuation">(</span>pagina<span class="token punctuation">,</span>
+
+xpath  <span class="token operator">=</span>  <span class="token string">"//span[contains(text(), 'Precio:')]/following-sibling::span[1]"</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+
+html_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h3 id="extracción-condicionada-a-otros-elementos">4. Extracción condicionada a otros elementos</h3>
+<pre class=" language-r"><code class="prism  language-r">
+<span class="token comment"># Extraer solo imágenes de productos que están en oferta</span>
+
+imagenes_ofertas <span class="token operator">&lt;-</span>  html_nodes<span class="token punctuation">(</span>pagina<span class="token punctuation">,</span>
+
+xpath  <span class="token operator">=</span>  <span class="token string">"//div[contains(@class, 'producto') and .//span[contains(@class, 'oferta')]]//img"</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+
+html_attr<span class="token punctuation">(</span><span class="token string">"src"</span><span class="token punctuation">)</span>
+
+  
+
+<span class="token comment"># Extraer títulos de productos que tienen calificación de 5 estrellas</span>
+
+titulos_5estrellas <span class="token operator">&lt;-</span>  html_nodes<span class="token punctuation">(</span>pagina<span class="token punctuation">,</span>
+
+xpath  <span class="token operator">=</span>  <span class="token string">"//div[contains(@class, 'producto')][.//div[@data-rating='5']]//h3"</span><span class="token punctuation">)</span> <span class="token percent-operator operator">%&gt;%</span>
+
+html_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre>
