@@ -1,0 +1,1073 @@
+"id_casa","tipo_vivienda","provincia_ubicacion","precio_base_noche","categoria_precio","calificacion_general"
+12,"Cabaña","Tucumán",27843,"Alto",1
+171,"Cabaña","Santiago del Estero",20591,"Alto",1
+208,"Cabaña","Santiago del Estero",41608,"Premium",1
+221,"Departamento","Chubut",51174,"Premium",1
+462,"Cabaña","Entre Ríos",29286,"Alto",1
+608,"Loft","Entre Ríos",28452,"Alto",1
+666,"Departamento","Catamarca",34110,"Alto",1
+1165,"Loft","Catamarca",42851,"Premium",1
+1444,"Casa","San Juan",57775,"Premium",1
+1474,"Loft","Entre Ríos",21933,"Alto",1
+1953,"Departamento","San Juan",31567,"Alto",1
+2258,"Loft","Santa Cruz",28683,"Alto",1
+2387,"Loft","Misiones",20142,"Alto",1
+2510,"Loft","Salta",50003,"Premium",1
+2523,"Departamento","Chubut",50740,"Premium",1
+2625,"Chalet","Neuquén",30990,"Alto",1
+2869,"Casa","San Luis",26611,"Alto",1
+118,"Chalet","Buenos Aires",56060,"Premium",1.1
+336,"Departamento","CABA",50765,"Premium",1.1
+352,"Casa","Formosa",36572,"Premium",1.1
+395,"Chalet","Entre Ríos",27493,"Alto",1.1
+407,"Casa","Entre Ríos",38568,"Premium",1.1
+433,"Casa","Formosa",37877,"Premium",1.1
+492,"Departamento","CABA",28782,"Alto",1.1
+548,"Casa","Corrientes",56999,"Premium",1.1
+555,"Casa","Santa Cruz",47338,"Premium",1.1
+653,"Loft","Misiones",39297,"Premium",1.1
+668,"Loft","Buenos Aires",38109,"Premium",1.1
+760,"Chalet","Santa Cruz",29504,"Alto",1.1
+855,"Departamento","San Luis",37860,"Premium",1.1
+927,"Chalet","Mendoza",28059,"Alto",1.1
+978,"Departamento","Río Negro",39189,"Premium",1.1
+1074,"Chalet","Santa Cruz",28690,"Alto",1.1
+1082,"Cabaña","Chubut",41383,"Premium",1.1
+1139,"Chalet","Santa Fe",35962,"Premium",1.1
+1334,"Loft","La Pampa",49644,"Premium",1.1
+1368,"Chalet","Formosa",22899,"Alto",1.1
+1395,"Casa","Salta",43059,"Premium",1.1
+1521,"Casa","Santa Fe",22191,"Alto",1.1
+1692,"Departamento","Mendoza",43238,"Premium",1.1
+1738,"Cabaña","Río Negro",39147,"Premium",1.1
+1751,"Cabaña","Salta",34097,"Alto",1.1
+1896,"Chalet","Tucumán",44357,"Premium",1.1
+2007,"Casa","Santiago del Estero",21683,"Alto",1.1
+2009,"Cabaña","San Juan",49505,"Premium",1.1
+2062,"Casa","Río Negro",27290,"Alto",1.1
+2296,"Loft","Corrientes",26215,"Alto",1.1
+2336,"Loft","Chubut",52507,"Premium",1.1
+2398,"Departamento","Salta",38092,"Premium",1.1
+2560,"Casa","San Juan",33266,"Alto",1.1
+2595,"Cabaña","Buenos Aires",42505,"Premium",1.1
+2636,"Loft","Córdoba",52611,"Premium",1.1
+2642,"Chalet","La Rioja",35587,"Premium",1.1
+2703,"Departamento","Salta",37360,"Premium",1.1
+2709,"Casa","Tucumán",54631,"Premium",1.1
+2711,"Departamento","Jujuy",37410,"Premium",1.1
+2782,"Cabaña","La Pampa",20228,"Alto",1.1
+2861,"Cabaña","Neuquén",54917,"Premium",1.1
+10,"Loft","Mendoza",39377,"Premium",1.2
+124,"Chalet","Santa Cruz",27606,"Alto",1.2
+209,"Departamento","Mendoza",29554,"Alto",1.2
+280,"Chalet","Entre Ríos",27405,"Alto",1.2
+353,"Casa","Santiago del Estero",23752,"Alto",1.2
+427,"Loft","Misiones",36829,"Premium",1.2
+441,"Casa","La Rioja",35789,"Premium",1.2
+562,"Chalet","Formosa",26000,"Alto",1.2
+635,"Cabaña","Misiones",32482,"Alto",1.2
+652,"Departamento","Buenos Aires",24424,"Alto",1.2
+796,"Loft","La Pampa",43863,"Premium",1.2
+821,"Departamento","Buenos Aires",28977,"Alto",1.2
+846,"Chalet","Chubut",34436,"Alto",1.2
+919,"Cabaña","Catamarca",30724,"Alto",1.2
+935,"Loft","La Rioja",39957,"Premium",1.2
+1261,"Cabaña","Jujuy",20810,"Alto",1.2
+1272,"Chalet","CABA",34350,"Alto",1.2
+1366,"Cabaña","Santa Cruz",38569,"Premium",1.2
+1441,"Departamento","La Pampa",37672,"Premium",1.2
+1470,"Casa","Tierra del Fuego",24655,"Alto",1.2
+1594,"Departamento","Buenos Aires",32696,"Alto",1.2
+1678,"Chalet","Entre Ríos",37549,"Premium",1.2
+1769,"Departamento","Santa Cruz",26164,"Alto",1.2
+1871,"Cabaña","La Pampa",48629,"Premium",1.2
+1919,"Casa","Córdoba",29359,"Alto",1.2
+1933,"Departamento","Tucumán",37182,"Premium",1.2
+1965,"Cabaña","Salta",41382,"Premium",1.2
+2303,"Cabaña","Buenos Aires",23216,"Alto",1.2
+2364,"Cabaña","Chubut",40818,"Premium",1.2
+2379,"Cabaña","Entre Ríos",35340,"Premium",1.2
+2409,"Loft","San Luis",50079,"Premium",1.2
+2450,"Casa","Salta",37292,"Premium",1.2
+2484,"Chalet","CABA",54546,"Premium",1.2
+2717,"Cabaña","Río Negro",58965,"Premium",1.2
+2809,"Departamento","Neuquén",29016,"Alto",1.2
+2902,"Chalet","Jujuy",42810,"Premium",1.2
+35,"Casa","Chubut",37944,"Premium",1.3
+62,"Cabaña","San Luis",26879,"Alto",1.3
+73,"Loft","Santa Cruz",21156,"Alto",1.3
+88,"Casa","Salta",41954,"Premium",1.3
+89,"Chalet","Formosa",39045,"Premium",1.3
+236,"Chalet","Santiago del Estero",30772,"Alto",1.3
+497,"Chalet","San Luis",33754,"Alto",1.3
+515,"Chalet","Córdoba",42898,"Premium",1.3
+541,"Cabaña","Río Negro",22674,"Alto",1.3
+574,"Chalet","Catamarca",37944,"Premium",1.3
+747,"Loft","Misiones",44346,"Premium",1.3
+769,"Departamento","Río Negro",35525,"Premium",1.3
+829,"Loft","Córdoba",34720,"Alto",1.3
+893,"Cabaña","Salta",41054,"Premium",1.3
+944,"Departamento","Córdoba",41183,"Premium",1.3
+970,"Departamento","Entre Ríos",56221,"Premium",1.3
+987,"Chalet","San Juan",55863,"Premium",1.3
+1048,"Departamento","Santa Cruz",52423,"Premium",1.3
+1081,"Departamento","Chubut",23411,"Alto",1.3
+1097,"Chalet","Jujuy",25123,"Alto",1.3
+1213,"Departamento","Chubut",53345,"Premium",1.3
+1215,"Cabaña","Chaco",46543,"Premium",1.3
+1329,"Loft","San Juan",49294,"Premium",1.3
+1466,"Loft","Tucumán",21514,"Alto",1.3
+1510,"Cabaña","La Pampa",29519,"Alto",1.3
+1562,"Casa","Tierra del Fuego",37988,"Premium",1.3
+1691,"Casa","Chaco",29545,"Alto",1.3
+1815,"Loft","Neuquén",42679,"Premium",1.3
+1858,"Departamento","Buenos Aires",25972,"Alto",1.3
+1884,"Chalet","La Rioja",36517,"Premium",1.3
+1994,"Cabaña","CABA",35160,"Premium",1.3
+2024,"Loft","Chaco",58448,"Premium",1.3
+2040,"Cabaña","Neuquén",34503,"Alto",1.3
+2079,"Loft","Chaco",27934,"Alto",1.3
+2113,"Departamento","Santiago del Estero",28028,"Alto",1.3
+2129,"Casa","Chaco",33436,"Alto",1.3
+2220,"Cabaña","Buenos Aires",51171,"Premium",1.3
+2223,"Chalet","Neuquén",41943,"Premium",1.3
+2285,"Cabaña","La Rioja",43847,"Premium",1.3
+2370,"Casa","Corrientes",20938,"Alto",1.3
+2377,"Cabaña","Neuquén",41846,"Premium",1.3
+2437,"Loft","Santa Fe",56234,"Premium",1.3
+2527,"Casa","La Rioja",27195,"Alto",1.3
+2532,"Casa","Santa Cruz",34944,"Alto",1.3
+2723,"Cabaña","Chubut",29115,"Alto",1.3
+2746,"Departamento","Chubut",55940,"Premium",1.3
+2848,"Loft","La Pampa",31829,"Alto",1.3
+2943,"Cabaña","Catamarca",48033,"Premium",1.3
+116,"Loft","Río Negro",36683,"Premium",1.4
+143,"Departamento","Río Negro",26266,"Alto",1.4
+153,"Casa","Misiones",29835,"Alto",1.4
+198,"Chalet","La Rioja",37183,"Premium",1.4
+219,"Chalet","Misiones",58741,"Premium",1.4
+410,"Cabaña","Salta",44648,"Premium",1.4
+519,"Chalet","Entre Ríos",37618,"Premium",1.4
+600,"Loft","Santiago del Estero",31357,"Alto",1.4
+665,"Departamento","CABA",56243,"Premium",1.4
+675,"Casa","San Luis",22400,"Alto",1.4
+1041,"Departamento","Río Negro",24508,"Alto",1.4
+1138,"Departamento","La Pampa",24556,"Alto",1.4
+1163,"Departamento","La Pampa",57529,"Premium",1.4
+1280,"Cabaña","Chubut",28004,"Alto",1.4
+1512,"Casa","Buenos Aires",58824,"Premium",1.4
+1531,"Chalet","Chaco",35331,"Premium",1.4
+1556,"Cabaña","Mendoza",27265,"Alto",1.4
+1732,"Cabaña","Chubut",27423,"Alto",1.4
+1795,"Loft","Santa Cruz",41193,"Premium",1.4
+1966,"Departamento","Corrientes",36437,"Premium",1.4
+2044,"Cabaña","Santiago del Estero",25811,"Alto",1.4
+2050,"Chalet","Tierra del Fuego",25592,"Alto",1.4
+2143,"Departamento","San Juan",25551,"Alto",1.4
+2181,"Loft","Corrientes",28621,"Alto",1.4
+2207,"Loft","San Luis",39807,"Premium",1.4
+2264,"Casa","Santiago del Estero",47894,"Premium",1.4
+2493,"Chalet","Salta",52170,"Premium",1.4
+2495,"Cabaña","Formosa",28735,"Alto",1.4
+2577,"Chalet","San Juan",27718,"Alto",1.4
+2593,"Cabaña","Chaco",29000,"Alto",1.4
+2599,"Departamento","Salta",40197,"Premium",1.4
+2833,"Departamento","Santa Fe",21055,"Alto",1.4
+2845,"Loft","Santa Cruz",25186,"Alto",1.4
+2867,"Departamento","San Juan",23261,"Alto",1.4
+2894,"Casa","La Pampa",25896,"Alto",1.4
+2913,"Cabaña","Corrientes",28907,"Alto",1.4
+61,"Casa","Mendoza",38323,"Premium",1.5
+94,"Departamento","Corrientes",25238,"Alto",1.5
+233,"Casa","San Luis",44397,"Premium",1.5
+362,"Chalet","Salta",26673,"Alto",1.5
+517,"Casa","Río Negro",20877,"Alto",1.5
+591,"Loft","Catamarca",38158,"Premium",1.5
+650,"Cabaña","Chubut",39582,"Premium",1.5
+663,"Cabaña","Tucumán",28957,"Alto",1.5
+708,"Departamento","Río Negro",51661,"Premium",1.5
+817,"Cabaña","Santiago del Estero",40372,"Premium",1.5
+857,"Casa","Tierra del Fuego",35236,"Premium",1.5
+887,"Cabaña","Santa Cruz",28616,"Alto",1.5
+888,"Departamento","La Pampa",28347,"Alto",1.5
+1059,"Cabaña","Santa Fe",26612,"Alto",1.5
+1093,"Chalet","Córdoba",27811,"Alto",1.5
+1112,"Casa","San Luis",26513,"Alto",1.5
+1149,"Casa","Formosa",39255,"Premium",1.5
+1151,"Casa","Río Negro",54862,"Premium",1.5
+1187,"Departamento","La Pampa",50327,"Premium",1.5
+1345,"Casa","Santiago del Estero",35088,"Premium",1.5
+1404,"Cabaña","Chubut",35826,"Premium",1.5
+1409,"Loft","La Rioja",42644,"Premium",1.5
+1611,"Cabaña","Córdoba",48901,"Premium",1.5
+1705,"Cabaña","Corrientes",58090,"Premium",1.5
+1711,"Loft","Entre Ríos",28179,"Alto",1.5
+1822,"Loft","Chaco",39069,"Premium",1.5
+1866,"Cabaña","Corrientes",27318,"Alto",1.5
+1867,"Loft","Tucumán",27181,"Alto",1.5
+1885,"Cabaña","Catamarca",54813,"Premium",1.5
+2031,"Departamento","Jujuy",53894,"Premium",1.5
+2091,"Loft","Santa Cruz",20864,"Alto",1.5
+2095,"Chalet","San Luis",53685,"Premium",1.5
+2099,"Casa","Buenos Aires",38245,"Premium",1.5
+2194,"Chalet","Mendoza",30114,"Alto",1.5
+2294,"Chalet","Chaco",42962,"Premium",1.5
+2309,"Cabaña","CABA",39065,"Premium",1.5
+2346,"Departamento","Santa Cruz",44025,"Premium",1.5
+2548,"Loft","Córdoba",20655,"Alto",1.5
+2620,"Cabaña","Santa Fe",57729,"Premium",1.5
+2755,"Casa","Chaco",26425,"Alto",1.5
+2849,"Chalet","Jujuy",43361,"Premium",1.5
+2945,"Departamento","Entre Ríos",36053,"Premium",1.5
+151,"Departamento","CABA",28965,"Alto",1.6
+210,"Loft","Córdoba",25922,"Alto",1.6
+531,"Casa","Buenos Aires",55287,"Premium",1.6
+549,"Casa","Río Negro",20559,"Alto",1.6
+553,"Loft","Entre Ríos",59529,"Premium",1.6
+727,"Chalet","CABA",24921,"Alto",1.6
+786,"Cabaña","Mendoza",46111,"Premium",1.6
+826,"Casa","Chubut",41114,"Premium",1.6
+1000,"Loft","Jujuy",56262,"Premium",1.6
+1062,"Casa","Catamarca",21397,"Alto",1.6
+1069,"Departamento","Neuquén",50752,"Premium",1.6
+1218,"Loft","Mendoza",31181,"Alto",1.6
+1426,"Loft","Río Negro",23913,"Alto",1.6
+1429,"Chalet","Neuquén",27593,"Alto",1.6
+1687,"Cabaña","Chubut",23132,"Alto",1.6
+1719,"Loft","Catamarca",32665,"Alto",1.6
+1771,"Casa","San Luis",41272,"Premium",1.6
+1798,"Casa","San Luis",57107,"Premium",1.6
+1914,"Departamento","Neuquén",45101,"Premium",1.6
+2198,"Departamento","Neuquén",28713,"Alto",1.6
+2242,"Chalet","Tierra del Fuego",50738,"Premium",1.6
+2252,"Cabaña","CABA",33103,"Alto",1.6
+2255,"Casa","Santa Cruz",22858,"Alto",1.6
+2283,"Cabaña","La Pampa",36017,"Premium",1.6
+2320,"Loft","Tucumán",23385,"Alto",1.6
+2410,"Casa","Mendoza",23571,"Alto",1.6
+2621,"Casa","Chubut",58790,"Premium",1.6
+2698,"Casa","Catamarca",28951,"Alto",1.6
+2828,"Cabaña","Santa Cruz",56694,"Premium",1.6
+2862,"Departamento","La Rioja",39448,"Premium",1.6
+2896,"Departamento","CABA",28098,"Alto",1.6
+2965,"Departamento","Jujuy",46886,"Premium",1.6
+2993,"Casa","Río Negro",27786,"Alto",1.6
+70,"Chalet","Neuquén",48652,"Premium",1.7
+122,"Casa","Chaco",28363,"Alto",1.7
+154,"Departamento","Santa Cruz",38050,"Premium",1.7
+222,"Cabaña","Santa Fe",25400,"Alto",1.7
+292,"Chalet","Tucumán",46209,"Premium",1.7
+314,"Departamento","La Rioja",30448,"Alto",1.7
+343,"Chalet","Chubut",33342,"Alto",1.7
+346,"Loft","Río Negro",20164,"Alto",1.7
+506,"Departamento","Buenos Aires",37585,"Premium",1.7
+580,"Cabaña","Tierra del Fuego",39270,"Premium",1.7
+592,"Departamento","Corrientes",45753,"Premium",1.7
+609,"Departamento","Neuquén",23815,"Alto",1.7
+633,"Departamento","Mendoza",34735,"Alto",1.7
+898,"Chalet","Córdoba",35578,"Premium",1.7
+920,"Chalet","La Pampa",25372,"Alto",1.7
+996,"Cabaña","La Rioja",39295,"Premium",1.7
+1007,"Chalet","Córdoba",29458,"Alto",1.7
+1103,"Loft","La Pampa",28827,"Alto",1.7
+1147,"Casa","La Pampa",58513,"Premium",1.7
+1252,"Chalet","Chubut",39737,"Premium",1.7
+1306,"Chalet","CABA",27391,"Alto",1.7
+1309,"Loft","Neuquén",28016,"Alto",1.7
+1361,"Cabaña","Tucumán",23472,"Alto",1.7
+1373,"Loft","Corrientes",25054,"Alto",1.7
+1475,"Cabaña","Corrientes",31728,"Alto",1.7
+1486,"Loft","Neuquén",30334,"Alto",1.7
+1624,"Loft","Catamarca",33702,"Alto",1.7
+1652,"Casa","Santa Fe",47542,"Premium",1.7
+1656,"Chalet","Salta",26664,"Alto",1.7
+1760,"Departamento","Río Negro",37347,"Premium",1.7
+1803,"Departamento","La Pampa",24166,"Alto",1.7
+1923,"Cabaña","Santa Fe",26632,"Alto",1.7
+1927,"Cabaña","Entre Ríos",22865,"Alto",1.7
+1938,"Loft","Jujuy",20904,"Alto",1.7
+1977,"Loft","Entre Ríos",36648,"Premium",1.7
+2080,"Cabaña","Formosa",31056,"Alto",1.7
+2121,"Loft","CABA",33557,"Alto",1.7
+2135,"Departamento","San Luis",20709,"Alto",1.7
+2278,"Chalet","CABA",21026,"Alto",1.7
+2328,"Casa","Córdoba",42830,"Premium",1.7
+2498,"Casa","San Juan",38693,"Premium",1.7
+2710,"Casa","Buenos Aires",38558,"Premium",1.7
+2860,"Cabaña","Córdoba",33913,"Alto",1.7
+2910,"Loft","Santa Fe",20170,"Alto",1.7
+7,"Loft","Jujuy",26254,"Alto",1.8
+112,"Chalet","Misiones",28825,"Alto",1.8
+127,"Loft","Corrientes",34496,"Alto",1.8
+133,"Loft","Neuquén",21310,"Alto",1.8
+290,"Chalet","Corrientes",41816,"Premium",1.8
+458,"Cabaña","San Juan",58786,"Premium",1.8
+470,"Loft","La Rioja",23123,"Alto",1.8
+554,"Departamento","Tucumán",37249,"Premium",1.8
+589,"Chalet","La Rioja",29834,"Alto",1.8
+627,"Departamento","Entre Ríos",36538,"Premium",1.8
+704,"Chalet","Formosa",24432,"Alto",1.8
+969,"Loft","Santiago del Estero",29208,"Alto",1.8
+1009,"Casa","Catamarca",35078,"Premium",1.8
+1099,"Casa","Córdoba",36596,"Premium",1.8
+1219,"Casa","Santiago del Estero",40020,"Premium",1.8
+1269,"Chalet","Chaco",25231,"Alto",1.8
+1326,"Cabaña","Tierra del Fuego",49292,"Premium",1.8
+1493,"Departamento","Neuquén",43896,"Premium",1.8
+1494,"Loft","Mendoza",33208,"Alto",1.8
+1509,"Casa","La Pampa",28026,"Alto",1.8
+1543,"Loft","Tierra del Fuego",24177,"Alto",1.8
+1801,"Casa","CABA",25446,"Alto",1.8
+1951,"Departamento","Buenos Aires",59226,"Premium",1.8
+1979,"Casa","Corrientes",33565,"Alto",1.8
+2036,"Chalet","San Luis",27034,"Alto",1.8
+2043,"Departamento","Neuquén",32546,"Alto",1.8
+2307,"Cabaña","Corrientes",20198,"Alto",1.8
+2375,"Chalet","San Juan",25553,"Alto",1.8
+2433,"Departamento","La Pampa",20823,"Alto",1.8
+2531,"Departamento","Chubut",28745,"Alto",1.8
+2558,"Departamento","Catamarca",32865,"Alto",1.8
+2634,"Casa","Santa Fe",34358,"Alto",1.8
+2652,"Departamento","Santa Cruz",23956,"Alto",1.8
+2816,"Casa","Chubut",26878,"Alto",1.8
+2899,"Loft","Chaco",35264,"Premium",1.8
+2900,"Chalet","Mendoza",26886,"Alto",1.8
+2926,"Loft","Jujuy",38084,"Premium",1.8
+2958,"Departamento","Río Negro",29957,"Alto",1.8
+2971,"Departamento","Tierra del Fuego",21919,"Alto",1.8
+2979,"Cabaña","La Pampa",34676,"Alto",1.8
+2984,"Loft","Corrientes",38502,"Premium",1.8
+4,"Casa","Tierra del Fuego",39894,"Premium",1.9
+27,"Casa","Tucumán",36043,"Premium",1.9
+147,"Loft","Formosa",24535,"Alto",1.9
+183,"Casa","Córdoba",23416,"Alto",1.9
+199,"Loft","Formosa",22702,"Alto",1.9
+259,"Loft","Santa Fe",59331,"Premium",1.9
+279,"Cabaña","San Juan",26267,"Alto",1.9
+360,"Departamento","Jujuy",35331,"Premium",1.9
+430,"Casa","CABA",41919,"Premium",1.9
+535,"Cabaña","Neuquén",54582,"Premium",1.9
+557,"Loft","Entre Ríos",24005,"Alto",1.9
+703,"Casa","Chaco",32780,"Alto",1.9
+775,"Cabaña","San Luis",28657,"Alto",1.9
+916,"Chalet","Catamarca",29110,"Alto",1.9
+1134,"Cabaña","Buenos Aires",34335,"Alto",1.9
+1160,"Chalet","La Pampa",36466,"Premium",1.9
+1397,"Chalet","Buenos Aires",31502,"Alto",1.9
+1399,"Cabaña","Santiago del Estero",37145,"Premium",1.9
+1401,"Chalet","CABA",37876,"Premium",1.9
+1539,"Casa","Santa Cruz",38454,"Premium",1.9
+1618,"Departamento","CABA",43677,"Premium",1.9
+1640,"Departamento","Entre Ríos",29361,"Alto",1.9
+1793,"Casa","Tucumán",33545,"Alto",1.9
+1845,"Cabaña","Chaco",33201,"Alto",1.9
+1887,"Cabaña","Neuquén",57057,"Premium",1.9
+1989,"Loft","Santiago del Estero",22927,"Alto",1.9
+2047,"Casa","Santa Cruz",25594,"Alto",1.9
+2077,"Casa","Santiago del Estero",41468,"Premium",1.9
+2078,"Chalet","Chaco",36145,"Premium",1.9
+2132,"Loft","Tucumán",40523,"Premium",1.9
+2168,"Cabaña","Entre Ríos",53199,"Premium",1.9
+2212,"Cabaña","Formosa",21081,"Alto",1.9
+2218,"Cabaña","Mendoza",26855,"Alto",1.9
+2311,"Chalet","Tucumán",31867,"Alto",1.9
+2436,"Cabaña","San Juan",45418,"Premium",1.9
+2492,"Cabaña","Santa Fe",26131,"Alto",1.9
+2502,"Chalet","Catamarca",35175,"Premium",1.9
+2550,"Departamento","Santiago del Estero",43029,"Premium",1.9
+2743,"Chalet","San Juan",21432,"Alto",1.9
+2843,"Departamento","Formosa",43091,"Premium",1.9
+2944,"Departamento","Formosa",21871,"Alto",1.9
+80,"Cabaña","Formosa",35860,"Premium",2
+96,"Casa","Córdoba",20050,"Alto",2
+146,"Loft","Jujuy",28487,"Alto",2
+245,"Departamento","Tierra del Fuego",53579,"Premium",2
+257,"Chalet","Entre Ríos",21925,"Alto",2
+442,"Cabaña","Corrientes",45651,"Premium",2
+457,"Loft","Jujuy",28147,"Alto",2
+465,"Departamento","Catamarca",41015,"Premium",2
+530,"Cabaña","Catamarca",25355,"Alto",2
+610,"Loft","Catamarca",34687,"Alto",2
+745,"Loft","Santa Fe",25104,"Alto",2
+806,"Loft","Chaco",26492,"Alto",2
+910,"Loft","San Juan",48984,"Premium",2
+958,"Chalet","Santiago del Estero",33857,"Alto",2
+1010,"Loft","Entre Ríos",26457,"Alto",2
+1121,"Departamento","Neuquén",32480,"Alto",2
+1148,"Departamento","Jujuy",50378,"Premium",2
+1172,"Chalet","Mendoza",53352,"Premium",2
+1380,"Departamento","Tierra del Fuego",46301,"Premium",2
+1532,"Cabaña","Chubut",23125,"Alto",2
+1542,"Departamento","Misiones",33228,"Alto",2
+1578,"Loft","Santa Cruz",40136,"Premium",2
+1660,"Cabaña","Córdoba",51923,"Premium",2
+1723,"Chalet","Catamarca",50104,"Premium",2
+1773,"Chalet","Córdoba",29530,"Alto",2
+1882,"Casa","Catamarca",22752,"Alto",2
+1974,"Chalet","San Juan",37874,"Premium",2
+2018,"Departamento","La Rioja",35653,"Premium",2
+2120,"Departamento","Santa Fe",44411,"Premium",2
+2204,"Casa","Buenos Aires",26509,"Alto",2
+2208,"Casa","Santa Fe",37971,"Premium",2
+2222,"Departamento","Córdoba",26839,"Alto",2
+2300,"Loft","Mendoza",32233,"Alto",2
+2350,"Loft","San Juan",52821,"Premium",2
+2481,"Departamento","CABA",53968,"Premium",2
+2486,"Loft","Chubut",26079,"Alto",2
+2501,"Chalet","CABA",52439,"Premium",2
+2563,"Cabaña","Neuquén",23591,"Alto",2
+2787,"Cabaña","Jujuy",29541,"Alto",2
+2793,"Casa","Formosa",27432,"Alto",2
+2818,"Chalet","Misiones",49571,"Premium",2
+2997,"Chalet","Formosa",31259,"Alto",2
+2999,"Loft","Buenos Aires",29819,"Alto",2
+85,"Chalet","Santa Cruz",26432,"Alto",2.1
+170,"Departamento","San Juan",44742,"Premium",2.1
+193,"Departamento","Entre Ríos",38211,"Premium",2.1
+265,"Casa","Neuquén",36124,"Premium",2.1
+329,"Cabaña","Mendoza",32065,"Alto",2.1
+345,"Chalet","La Pampa",38063,"Premium",2.1
+388,"Cabaña","CABA",34549,"Alto",2.1
+496,"Departamento","Salta",38911,"Premium",2.1
+533,"Loft","Formosa",26016,"Alto",2.1
+552,"Loft","Santa Cruz",27948,"Alto",2.1
+710,"Casa","Córdoba",59720,"Premium",2.1
+734,"Casa","Tierra del Fuego",42436,"Premium",2.1
+804,"Casa","Tierra del Fuego",25977,"Alto",2.1
+814,"Chalet","San Luis",29065,"Alto",2.1
+1023,"Casa","Catamarca",25263,"Alto",2.1
+1050,"Casa","Catamarca",57422,"Premium",2.1
+1071,"Departamento","San Juan",25301,"Alto",2.1
+1090,"Chalet","Entre Ríos",26611,"Alto",2.1
+1141,"Cabaña","Mendoza",35522,"Premium",2.1
+1159,"Loft","Mendoza",25333,"Alto",2.1
+1161,"Loft","Formosa",24020,"Alto",2.1
+1248,"Loft","San Luis",26378,"Alto",2.1
+1372,"Chalet","Salta",27709,"Alto",2.1
+1443,"Cabaña","Tucumán",26385,"Alto",2.1
+1491,"Departamento","Chubut",27412,"Alto",2.1
+1498,"Chalet","Formosa",47174,"Premium",2.1
+1648,"Departamento","Río Negro",22988,"Alto",2.1
+1669,"Loft","Mendoza",37845,"Premium",2.1
+1828,"Departamento","Río Negro",37585,"Premium",2.1
+1963,"Departamento","Entre Ríos",27449,"Alto",2.1
+1998,"Cabaña","La Pampa",33258,"Alto",2.1
+2029,"Cabaña","Jujuy",53688,"Premium",2.1
+2116,"Chalet","Chubut",58539,"Premium",2.1
+2141,"Chalet","Santa Cruz",53689,"Premium",2.1
+2534,"Departamento","La Rioja",23696,"Alto",2.1
+2565,"Casa","Misiones",31608,"Alto",2.1
+2573,"Casa","Chaco",48572,"Premium",2.1
+2589,"Chalet","Río Negro",30780,"Alto",2.1
+2624,"Loft","Jujuy",25263,"Alto",2.1
+2675,"Casa","Salta",55378,"Premium",2.1
+2690,"Casa","Jujuy",35878,"Premium",2.1
+2796,"Departamento","Misiones",57239,"Premium",2.1
+2825,"Departamento","Tucumán",37304,"Premium",2.1
+2855,"Cabaña","San Juan",59210,"Premium",2.1
+2949,"Cabaña","La Pampa",29339,"Alto",2.1
+14,"Departamento","Entre Ríos",34422,"Alto",2.2
+114,"Loft","Formosa",28694,"Alto",2.2
+242,"Casa","Santa Cruz",27691,"Alto",2.2
+291,"Departamento","Buenos Aires",24031,"Alto",2.2
+334,"Loft","Misiones",43611,"Premium",2.2
+445,"Departamento","Tucumán",26699,"Alto",2.2
+468,"Cabaña","La Rioja",32024,"Alto",2.2
+510,"Departamento","La Rioja",35182,"Premium",2.2
+570,"Departamento","Buenos Aires",50091,"Premium",2.2
+575,"Chalet","La Rioja",29192,"Alto",2.2
+597,"Casa","Tucumán",20180,"Alto",2.2
+740,"Departamento","Salta",26418,"Alto",2.2
+790,"Departamento","La Pampa",27894,"Alto",2.2
+941,"Cabaña","Río Negro",30944,"Alto",2.2
+1028,"Loft","Chubut",36180,"Premium",2.2
+1212,"Chalet","Neuquén",29505,"Alto",2.2
+1247,"Loft","Santa Cruz",28553,"Alto",2.2
+1250,"Casa","Chaco",25390,"Alto",2.2
+1307,"Chalet","Entre Ríos",27127,"Alto",2.2
+1364,"Loft","La Pampa",25760,"Alto",2.2
+1405,"Chalet","Córdoba",29295,"Alto",2.2
+1450,"Loft","Mendoza",33701,"Alto",2.2
+1488,"Departamento","Catamarca",37310,"Premium",2.2
+1513,"Cabaña","Catamarca",24904,"Alto",2.2
+1515,"Casa","Santiago del Estero",31433,"Alto",2.2
+1519,"Cabaña","Buenos Aires",32267,"Alto",2.2
+1520,"Cabaña","San Juan",26150,"Alto",2.2
+1592,"Cabaña","Misiones",28641,"Alto",2.2
+1762,"Cabaña","Santiago del Estero",22351,"Alto",2.2
+1869,"Casa","Santa Fe",29162,"Alto",2.2
+1892,"Departamento","Chaco",54518,"Premium",2.2
+1962,"Chalet","Neuquén",53166,"Premium",2.2
+2028,"Chalet","Neuquén",27953,"Alto",2.2
+2166,"Loft","Entre Ríos",57190,"Premium",2.2
+2185,"Chalet","Corrientes",42169,"Premium",2.2
+2240,"Casa","Buenos Aires",25482,"Alto",2.2
+2274,"Cabaña","Río Negro",52675,"Premium",2.2
+2491,"Loft","Misiones",26597,"Alto",2.2
+2582,"Loft","Santa Cruz",58885,"Premium",2.2
+2708,"Casa","San Juan",50644,"Premium",2.2
+2918,"Chalet","Entre Ríos",39545,"Premium",2.2
+2924,"Loft","San Luis",29451,"Alto",2.2
+2983,"Departamento","Neuquén",25481,"Alto",2.2
+47,"Chalet","Buenos Aires",53447,"Premium",2.3
+136,"Cabaña","Santiago del Estero",45038,"Premium",2.3
+181,"Loft","Río Negro",51011,"Premium",2.3
+303,"Chalet","Río Negro",55385,"Premium",2.3
+306,"Departamento","Neuquén",32840,"Alto",2.3
+348,"Departamento","CABA",54176,"Premium",2.3
+402,"Casa","Santa Fe",26802,"Alto",2.3
+404,"Loft","Buenos Aires",57154,"Premium",2.3
+508,"Casa","Río Negro",34459,"Alto",2.3
+573,"Loft","CABA",55808,"Premium",2.3
+577,"Cabaña","Santa Fe",40243,"Premium",2.3
+640,"Loft","Misiones",25076,"Alto",2.3
+648,"Loft","Chaco",29581,"Alto",2.3
+750,"Departamento","CABA",58571,"Premium",2.3
+1004,"Chalet","CABA",31043,"Alto",2.3
+1115,"Departamento","Santa Cruz",45330,"Premium",2.3
+1129,"Casa","Santa Cruz",26751,"Alto",2.3
+1208,"Casa","Buenos Aires",25802,"Alto",2.3
+1220,"Loft","Santa Cruz",21738,"Alto",2.3
+1227,"Cabaña","Santa Fe",29400,"Alto",2.3
+1384,"Casa","La Pampa",36718,"Premium",2.3
+1387,"Chalet","Corrientes",39249,"Premium",2.3
+1432,"Casa","Santiago del Estero",37088,"Premium",2.3
+1496,"Departamento","Río Negro",31552,"Alto",2.3
+1557,"Departamento","Neuquén",36248,"Premium",2.3
+1590,"Casa","San Juan",28006,"Alto",2.3
+1737,"Departamento","Santiago del Estero",27874,"Alto",2.3
+1805,"Departamento","Buenos Aires",29198,"Alto",2.3
+1824,"Casa","Chubut",36072,"Premium",2.3
+1901,"Cabaña","Tucumán",33697,"Alto",2.3
+1948,"Chalet","Neuquén",23972,"Alto",2.3
+1959,"Loft","Entre Ríos",49968,"Premium",2.3
+2073,"Departamento","Corrientes",57476,"Premium",2.3
+2126,"Cabaña","Tucumán",29745,"Alto",2.3
+2235,"Chalet","Córdoba",33271,"Alto",2.3
+2247,"Loft","Tucumán",29098,"Alto",2.3
+2323,"Chalet","Chubut",46475,"Premium",2.3
+2343,"Departamento","Santa Fe",38647,"Premium",2.3
+2348,"Chalet","Buenos Aires",36883,"Premium",2.3
+2406,"Cabaña","CABA",51384,"Premium",2.3
+2716,"Cabaña","Córdoba",35504,"Premium",2.3
+2739,"Cabaña","Neuquén",26669,"Alto",2.3
+2806,"Chalet","Tucumán",34733,"Alto",2.3
+2829,"Departamento","Neuquén",48129,"Premium",2.3
+2852,"Departamento","Santa Cruz",58849,"Premium",2.3
+2991,"Casa","Buenos Aires",35206,"Premium",2.3
+16,"Cabaña","Santa Cruz",49258,"Premium",2.4
+20,"Casa","San Juan",36280,"Premium",2.4
+37,"Loft","Neuquén",37489,"Premium",2.4
+63,"Cabaña","San Luis",35253,"Premium",2.4
+123,"Loft","Tucumán",29011,"Alto",2.4
+144,"Departamento","San Juan",57375,"Premium",2.4
+168,"Cabaña","San Juan",36655,"Premium",2.4
+207,"Casa","Santiago del Estero",27651,"Alto",2.4
+282,"Departamento","Misiones",27109,"Alto",2.4
+368,"Departamento","Misiones",47133,"Premium",2.4
+405,"Departamento","Santa Fe",28360,"Alto",2.4
+472,"Cabaña","Mendoza",34462,"Alto",2.4
+489,"Chalet","Chaco",30683,"Alto",2.4
+619,"Casa","Catamarca",26547,"Alto",2.4
+692,"Loft","Mendoza",47108,"Premium",2.4
+709,"Cabaña","Mendoza",20498,"Alto",2.4
+742,"Casa","Tucumán",24888,"Alto",2.4
+917,"Casa","San Juan",35027,"Premium",2.4
+982,"Loft","Mendoza",32690,"Alto",2.4
+1109,"Casa","Misiones",46417,"Premium",2.4
+1154,"Chalet","Salta",24071,"Alto",2.4
+1232,"Loft","Tierra del Fuego",36166,"Premium",2.4
+1233,"Departamento","Santiago del Estero",34279,"Alto",2.4
+1279,"Cabaña","Mendoza",36468,"Premium",2.4
+1381,"Casa","Misiones",52467,"Premium",2.4
+1502,"Cabaña","Misiones",26335,"Alto",2.4
+1524,"Loft","Córdoba",31625,"Alto",2.4
+1634,"Cabaña","San Juan",36513,"Premium",2.4
+1664,"Cabaña","Buenos Aires",36423,"Premium",2.4
+1757,"Departamento","Santa Cruz",21484,"Alto",2.4
+2101,"Casa","Chubut",35911,"Premium",2.4
+2114,"Casa","Tucumán",22687,"Alto",2.4
+2411,"Departamento","CABA",27830,"Alto",2.4
+2414,"Cabaña","Formosa",22874,"Alto",2.4
+2500,"Cabaña","La Pampa",44825,"Premium",2.4
+2518,"Departamento","Buenos Aires",30773,"Alto",2.4
+2535,"Casa","Tierra del Fuego",28556,"Alto",2.4
+2614,"Casa","Catamarca",30885,"Alto",2.4
+2687,"Departamento","Tierra del Fuego",35292,"Premium",2.4
+2759,"Casa","La Pampa",45999,"Premium",2.4
+2764,"Cabaña","San Luis",25948,"Alto",2.4
+2844,"Loft","San Luis",38881,"Premium",2.4
+28,"Loft","Chaco",48695,"Premium",2.5
+78,"Casa","CABA",45935,"Premium",2.5
+165,"Loft","Salta",28915,"Alto",2.5
+186,"Chalet","Entre Ríos",25513,"Alto",2.5
+428,"Casa","Salta",24666,"Alto",2.5
+461,"Loft","Mendoza",59270,"Premium",2.5
+511,"Casa","Río Negro",23367,"Alto",2.5
+539,"Cabaña","Buenos Aires",27319,"Alto",2.5
+571,"Casa","Salta",22996,"Alto",2.5
+584,"Loft","Santa Fe",36762,"Premium",2.5
+660,"Casa","Río Negro",24689,"Alto",2.5
+784,"Chalet","La Pampa",56248,"Premium",2.5
+930,"Loft","Córdoba",32812,"Alto",2.5
+997,"Cabaña","Chubut",31493,"Alto",2.5
+1064,"Chalet","Santa Cruz",45202,"Premium",2.5
+1175,"Chalet","Río Negro",32303,"Alto",2.5
+1207,"Cabaña","San Luis",27572,"Alto",2.5
+1236,"Chalet","Mendoza",20784,"Alto",2.5
+1301,"Chalet","Mendoza",24112,"Alto",2.5
+1323,"Loft","Formosa",57569,"Premium",2.5
+1348,"Loft","San Luis",20422,"Alto",2.5
+1478,"Loft","Catamarca",54469,"Premium",2.5
+1617,"Departamento","Buenos Aires",26000,"Alto",2.5
+1690,"Loft","Formosa",27677,"Alto",2.5
+1697,"Loft","La Pampa",22641,"Alto",2.5
+1721,"Casa","Salta",28742,"Alto",2.5
+1744,"Cabaña","Chubut",59503,"Premium",2.5
+1747,"Departamento","Tucumán",38169,"Premium",2.5
+1872,"Casa","Entre Ríos",53504,"Premium",2.5
+1888,"Loft","Misiones",29763,"Alto",2.5
+2097,"Loft","Jujuy",24158,"Alto",2.5
+2150,"Loft","Chubut",24629,"Alto",2.5
+2192,"Departamento","Formosa",20944,"Alto",2.5
+2224,"Loft","Misiones",38629,"Premium",2.5
+2260,"Departamento","Santa Cruz",24056,"Alto",2.5
+2298,"Chalet","Chubut",25965,"Alto",2.5
+2344,"Loft","Santa Fe",52628,"Premium",2.5
+2374,"Departamento","Chubut",23709,"Alto",2.5
+2380,"Casa","Mendoza",50657,"Premium",2.5
+2381,"Loft","San Luis",54746,"Premium",2.5
+2382,"Chalet","Mendoza",26524,"Alto",2.5
+2441,"Loft","Catamarca",24645,"Alto",2.5
+2472,"Chalet","Tierra del Fuego",24311,"Alto",2.5
+2630,"Cabaña","Misiones",24608,"Alto",2.5
+2794,"Loft","Río Negro",57051,"Premium",2.5
+2822,"Cabaña","Salta",27167,"Alto",2.5
+2889,"Loft","Tierra del Fuego",31231,"Alto",2.5
+40,"Departamento","Catamarca",23530,"Alto",2.6
+79,"Departamento","Entre Ríos",37034,"Premium",2.6
+125,"Cabaña","Córdoba",23642,"Alto",2.6
+140,"Chalet","Misiones",48308,"Premium",2.6
+150,"Loft","Santa Fe",40371,"Premium",2.6
+273,"Casa","Salta",49889,"Premium",2.6
+330,"Chalet","Salta",54551,"Premium",2.6
+383,"Cabaña","Santa Fe",24265,"Alto",2.6
+413,"Casa","Salta",37206,"Premium",2.6
+509,"Departamento","San Luis",37455,"Premium",2.6
+754,"Cabaña","La Rioja",40748,"Premium",2.6
+867,"Chalet","Misiones",41891,"Premium",2.6
+875,"Casa","Misiones",35894,"Premium",2.6
+895,"Chalet","La Pampa",39703,"Premium",2.6
+966,"Casa","Misiones",56247,"Premium",2.6
+998,"Chalet","Chaco",30323,"Alto",2.6
+1135,"Loft","Mendoza",22310,"Alto",2.6
+1260,"Cabaña","La Rioja",23182,"Alto",2.6
+1277,"Loft","Corrientes",21985,"Alto",2.6
+1622,"Cabaña","Entre Ríos",28364,"Alto",2.6
+1683,"Departamento","Chaco",20754,"Alto",2.6
+1704,"Departamento","Chubut",26029,"Alto",2.6
+1729,"Departamento","Jujuy",26847,"Alto",2.6
+1743,"Chalet","Córdoba",41263,"Premium",2.6
+1813,"Casa","Chubut",28966,"Alto",2.6
+1837,"Cabaña","Entre Ríos",30743,"Alto",2.6
+1852,"Departamento","La Rioja",23392,"Alto",2.6
+1894,"Cabaña","Córdoba",48032,"Premium",2.6
+1952,"Departamento","Corrientes",55620,"Premium",2.6
+2197,"Chalet","Salta",35719,"Premium",2.6
+2256,"Cabaña","Córdoba",21899,"Alto",2.6
+2315,"Casa","Santiago del Estero",21126,"Alto",2.6
+2541,"Casa","Santa Cruz",23368,"Alto",2.6
+2552,"Casa","San Juan",33184,"Alto",2.6
+2572,"Chalet","CABA",31480,"Alto",2.6
+2611,"Loft","Misiones",29700,"Alto",2.6
+2612,"Departamento","Corrientes",46243,"Premium",2.6
+2729,"Casa","Catamarca",43185,"Premium",2.6
+2737,"Loft","Catamarca",24475,"Alto",2.6
+2853,"Casa","Santa Fe",49782,"Premium",2.6
+2863,"Departamento","CABA",37507,"Premium",2.6
+2865,"Departamento","La Pampa",22750,"Alto",2.6
+2875,"Cabaña","Tucumán",26948,"Alto",2.6
+2941,"Loft","Tucumán",45175,"Premium",2.6
+103,"Loft","Buenos Aires",21878,"Alto",2.7
+176,"Chalet","Santa Fe",50341,"Premium",2.7
+317,"Departamento","Catamarca",43945,"Premium",2.7
+409,"Loft","Misiones",25608,"Alto",2.7
+466,"Cabaña","San Juan",33938,"Alto",2.7
+487,"Chalet","La Rioja",49174,"Premium",2.7
+542,"Cabaña","Catamarca",25252,"Alto",2.7
+563,"Chalet","Mendoza",42763,"Premium",2.7
+651,"Casa","CABA",24188,"Alto",2.7
+684,"Casa","Entre Ríos",23007,"Alto",2.7
+685,"Departamento","Santiago del Estero",37779,"Premium",2.7
+711,"Loft","Tucumán",50278,"Premium",2.7
+725,"Casa","Entre Ríos",32931,"Alto",2.7
+729,"Chalet","La Pampa",40832,"Premium",2.7
+789,"Cabaña","Misiones",27345,"Alto",2.7
+940,"Chalet","Córdoba",54041,"Premium",2.7
+1002,"Loft","Mendoza",32507,"Alto",2.7
+1065,"Chalet","Chubut",28214,"Alto",2.7
+1136,"Casa","Santa Cruz",38607,"Premium",2.7
+1152,"Loft","Mendoza",26770,"Alto",2.7
+1392,"Departamento","Río Negro",29153,"Alto",2.7
+1604,"Cabaña","CABA",31437,"Alto",2.7
+1663,"Loft","Catamarca",31298,"Alto",2.7
+1928,"Casa","San Luis",39772,"Premium",2.7
+2013,"Loft","Santa Cruz",58352,"Premium",2.7
+2046,"Departamento","Tierra del Fuego",28673,"Alto",2.7
+2145,"Departamento","Tierra del Fuego",44843,"Premium",2.7
+2246,"Departamento","CABA",28117,"Alto",2.7
+2257,"Cabaña","La Rioja",22238,"Alto",2.7
+2367,"Departamento","La Rioja",46496,"Premium",2.7
+2449,"Cabaña","Entre Ríos",24189,"Alto",2.7
+2469,"Loft","Córdoba",29592,"Alto",2.7
+2473,"Casa","Mendoza",31656,"Alto",2.7
+2511,"Chalet","Buenos Aires",30121,"Alto",2.7
+2539,"Loft","Tierra del Fuego",29636,"Alto",2.7
+2617,"Loft","Tierra del Fuego",44545,"Premium",2.7
+2662,"Chalet","Formosa",39434,"Premium",2.7
+2873,"Cabaña","Entre Ríos",24396,"Alto",2.7
+2876,"Loft","Catamarca",41076,"Premium",2.7
+2930,"Loft","Catamarca",22247,"Alto",2.7
+2957,"Departamento","La Pampa",25289,"Alto",2.7
+2969,"Cabaña","Corrientes",44554,"Premium",2.7
+9,"Loft","CABA",48482,"Premium",2.8
+69,"Casa","Mendoza",32004,"Alto",2.8
+180,"Chalet","CABA",37183,"Premium",2.8
+244,"Chalet","La Rioja",33535,"Alto",2.8
+566,"Loft","La Rioja",28513,"Alto",2.8
+617,"Chalet","Río Negro",49619,"Premium",2.8
+624,"Departamento","Buenos Aires",21285,"Alto",2.8
+721,"Casa","Córdoba",45973,"Premium",2.8
+870,"Departamento","Jujuy",50809,"Premium",2.8
+889,"Casa","Río Negro",27666,"Alto",2.8
+961,"Departamento","Corrientes",59771,"Premium",2.8
+1098,"Chalet","San Juan",38435,"Premium",2.8
+1120,"Casa","San Luis",35124,"Premium",2.8
+1209,"Cabaña","Santa Cruz",26134,"Alto",2.8
+1243,"Chalet","La Pampa",57753,"Premium",2.8
+1262,"Cabaña","Córdoba",46133,"Premium",2.8
+1288,"Chalet","Tucumán",54031,"Premium",2.8
+1298,"Loft","Jujuy",52070,"Premium",2.8
+1353,"Chalet","Catamarca",58470,"Premium",2.8
+1363,"Cabaña","Corrientes",44511,"Premium",2.8
+1437,"Chalet","Río Negro",39208,"Premium",2.8
+1447,"Cabaña","Chubut",38315,"Premium",2.8
+1495,"Casa","Mendoza",28546,"Alto",2.8
+1516,"Loft","Tierra del Fuego",31301,"Alto",2.8
+1537,"Loft","Catamarca",30280,"Alto",2.8
+1544,"Loft","Entre Ríos",28244,"Alto",2.8
+1582,"Casa","Neuquén",26289,"Alto",2.8
+1603,"Loft","Río Negro",24770,"Alto",2.8
+1630,"Cabaña","La Rioja",47598,"Premium",2.8
+1935,"Casa","Chubut",23040,"Alto",2.8
+1946,"Chalet","Corrientes",45823,"Premium",2.8
+2279,"Chalet","Río Negro",37022,"Premium",2.8
+2438,"Casa","Río Negro",26222,"Alto",2.8
+2509,"Loft","Corrientes",36479,"Premium",2.8
+2513,"Departamento","Catamarca",27093,"Alto",2.8
+2530,"Casa","Santa Fe",45874,"Premium",2.8
+2546,"Casa","Córdoba",25271,"Alto",2.8
+2553,"Loft","Jujuy",26874,"Alto",2.8
+2590,"Cabaña","San Juan",24508,"Alto",2.8
+2594,"Loft","Tierra del Fuego",39857,"Premium",2.8
+2700,"Casa","Santa Fe",58816,"Premium",2.8
+2744,"Loft","Santa Cruz",26602,"Alto",2.8
+2775,"Loft","Buenos Aires",28877,"Alto",2.8
+2777,"Loft","Santiago del Estero",24833,"Alto",2.8
+2797,"Loft","Chaco",39160,"Premium",2.8
+2810,"Cabaña","Santa Cruz",31470,"Alto",2.8
+2824,"Departamento","Río Negro",29132,"Alto",2.8
+2826,"Chalet","Santa Cruz",22127,"Alto",2.8
+2962,"Departamento","Entre Ríos",34401,"Alto",2.8
+134,"Casa","San Juan",36029,"Premium",2.9
+234,"Chalet","Córdoba",27872,"Alto",2.9
+460,"Chalet","Jujuy",27378,"Alto",2.9
+481,"Chalet","Catamarca",49449,"Premium",2.9
+499,"Departamento","Corrientes",49506,"Premium",2.9
+569,"Loft","San Luis",24307,"Alto",2.9
+579,"Casa","CABA",47808,"Premium",2.9
+655,"Departamento","Santa Cruz",38845,"Premium",2.9
+670,"Loft","Buenos Aires",25527,"Alto",2.9
+674,"Casa","San Juan",51107,"Premium",2.9
+783,"Departamento","Tucumán",32723,"Alto",2.9
+844,"Casa","Chaco",26150,"Alto",2.9
+869,"Loft","Chaco",38433,"Premium",2.9
+954,"Chalet","Neuquén",37586,"Premium",2.9
+1046,"Cabaña","Misiones",36176,"Premium",2.9
+1053,"Loft","Neuquén",29773,"Alto",2.9
+1111,"Casa","Tucumán",57646,"Premium",2.9
+1244,"Chalet","Buenos Aires",31818,"Alto",2.9
+1286,"Chalet","Mendoza",30117,"Alto",2.9
+1291,"Loft","Catamarca",38952,"Premium",2.9
+1300,"Departamento","Entre Ríos",25618,"Alto",2.9
+1369,"Chalet","Entre Ríos",38710,"Premium",2.9
+1449,"Casa","Entre Ríos",31337,"Alto",2.9
+1565,"Loft","Chaco",43999,"Premium",2.9
+1628,"Casa","Córdoba",25132,"Alto",2.9
+1642,"Departamento","Córdoba",26598,"Alto",2.9
+1654,"Casa","La Pampa",32436,"Alto",2.9
+1746,"Casa","Jujuy",25083,"Alto",2.9
+1848,"Casa","San Juan",28198,"Alto",2.9
+1870,"Chalet","Santa Fe",25566,"Alto",2.9
+1955,"Chalet","Formosa",59792,"Premium",2.9
+2014,"Loft","Misiones",28182,"Alto",2.9
+2030,"Loft","Santiago del Estero",39062,"Premium",2.9
+2035,"Casa","Mendoza",43912,"Premium",2.9
+2151,"Chalet","Buenos Aires",58548,"Premium",2.9
+2155,"Chalet","Catamarca",42673,"Premium",2.9
+2210,"Departamento","Río Negro",23235,"Alto",2.9
+2277,"Casa","Tierra del Fuego",37634,"Premium",2.9
+2463,"Loft","Neuquén",26167,"Alto",2.9
+2497,"Departamento","Río Negro",43817,"Premium",2.9
+2529,"Casa","Catamarca",43429,"Premium",2.9
+2616,"Departamento","CABA",36729,"Premium",2.9
+2851,"Chalet","Formosa",37467,"Premium",2.9
+2854,"Chalet","La Pampa",50200,"Premium",2.9
+2917,"Chalet","Misiones",29898,"Alto",2.9
+2921,"Casa","Chubut",39279,"Premium",2.9
+2968,"Chalet","CABA",36125,"Premium",2.9
+185,"Loft","La Rioja",33215,"Alto",3
+241,"Chalet","Salta",53733,"Premium",3
+304,"Cabaña","Buenos Aires",30597,"Alto",3
+355,"Cabaña","Salta",31158,"Alto",3
+365,"Loft","Chaco",56511,"Premium",3
+366,"Casa","La Rioja",53313,"Premium",3
+367,"Cabaña","Buenos Aires",35171,"Premium",3
+379,"Departamento","Córdoba",37199,"Premium",3
+477,"Departamento","Formosa",26530,"Alto",3
+682,"Cabaña","San Juan",30114,"Alto",3
+819,"Loft","Neuquén",28853,"Alto",3
+827,"Departamento","Misiones",30425,"Alto",3
+960,"Departamento","Misiones",37556,"Premium",3
+1084,"Loft","Mendoza",21447,"Alto",3
+1282,"Chalet","Jujuy",26398,"Alto",3
+1331,"Loft","Tierra del Fuego",45181,"Premium",3
+1418,"Chalet","Santa Fe",22101,"Alto",3
+1453,"Loft","Chaco",39406,"Premium",3
+1461,"Departamento","Río Negro",26398,"Alto",3
+1540,"Loft","Córdoba",54123,"Premium",3
+1549,"Departamento","Santa Cruz",21109,"Alto",3
+1649,"Cabaña","CABA",24314,"Alto",3
+1716,"Departamento","Jujuy",27430,"Alto",3
+1821,"Chalet","Entre Ríos",28144,"Alto",3
+1906,"Departamento","Tierra del Fuego",38596,"Premium",3
+1925,"Cabaña","Tucumán",26221,"Alto",3
+2076,"Chalet","Jujuy",58212,"Premium",3
+2369,"Cabaña","Santiago del Estero",29100,"Alto",3
+2402,"Casa","La Rioja",39871,"Premium",3
+2459,"Casa","Chubut",49270,"Premium",3
+2482,"Loft","CABA",20411,"Alto",3
+2592,"Casa","Río Negro",36468,"Premium",3
+2922,"Cabaña","Entre Ríos",26452,"Alto",3
+5,"Loft","Formosa",49899,"Premium",3.1
+53,"Loft","Neuquén",25770,"Alto",3.1
+100,"Cabaña","Tierra del Fuego",28549,"Alto",3.1
+121,"Departamento","Neuquén",25717,"Alto",3.1
+129,"Cabaña","San Juan",56182,"Premium",3.1
+139,"Cabaña","Jujuy",44704,"Premium",3.1
+238,"Departamento","Chubut",22812,"Alto",3.1
+419,"Casa","CABA",35811,"Premium",3.1
+422,"Chalet","San Luis",48100,"Premium",3.1
+480,"Chalet","CABA",39570,"Premium",3.1
+547,"Chalet","Neuquén",25500,"Alto",3.1
+564,"Cabaña","Salta",44535,"Premium",3.1
+603,"Cabaña","CABA",37076,"Premium",3.1
+612,"Departamento","Corrientes",25569,"Alto",3.1
+636,"Cabaña","Santiago del Estero",36266,"Premium",3.1
+751,"Cabaña","Buenos Aires",29876,"Alto",3.1
+788,"Loft","Chaco",33768,"Alto",3.1
+800,"Casa","Buenos Aires",22203,"Alto",3.1
+836,"Cabaña","Jujuy",22077,"Alto",3.1
+850,"Casa","Santa Cruz",49909,"Premium",3.1
+866,"Casa","Salta",37256,"Premium",3.1
+884,"Chalet","Jujuy",28595,"Alto",3.1
+985,"Cabaña","Entre Ríos",40629,"Premium",3.1
+1020,"Cabaña","Chaco",38973,"Premium",3.1
+1092,"Departamento","Mendoza",35420,"Premium",3.1
+1137,"Chalet","Santiago del Estero",29608,"Alto",3.1
+1155,"Loft","Chaco",43386,"Premium",3.1
+1246,"Loft","Jujuy",31605,"Alto",3.1
+1367,"Departamento","Santiago del Estero",53559,"Premium",3.1
+1394,"Departamento","Santa Cruz",38327,"Premium",3.1
+1430,"Loft","Santa Cruz",48612,"Premium",3.1
+1455,"Loft","Buenos Aires",34580,"Alto",3.1
+1522,"Casa","Neuquén",28387,"Alto",3.1
+1709,"Casa","Salta",42183,"Premium",3.1
+1930,"Cabaña","Chubut",26760,"Alto",3.1
+1931,"Casa","Chaco",53387,"Premium",3.1
+1937,"Chalet","Catamarca",26292,"Alto",3.1
+1970,"Departamento","Salta",27419,"Alto",3.1
+1987,"Cabaña","Mendoza",58501,"Premium",3.1
+2041,"Departamento","Salta",32475,"Alto",3.1
+2051,"Departamento","Santa Cruz",33874,"Alto",3.1
+2087,"Cabaña","Santa Cruz",22566,"Alto",3.1
+2157,"Cabaña","La Rioja",39411,"Premium",3.1
+2178,"Casa","La Rioja",31158,"Alto",3.1
+2189,"Chalet","Corrientes",30095,"Alto",3.1
+2221,"Chalet","Río Negro",56732,"Premium",3.1
+2233,"Departamento","Corrientes",28597,"Alto",3.1
+2267,"Cabaña","Jujuy",26586,"Alto",3.1
+2347,"Loft","CABA",43675,"Premium",3.1
+2385,"Departamento","Neuquén",56740,"Premium",3.1
+2543,"Departamento","Santa Cruz",29909,"Alto",3.1
+2551,"Departamento","CABA",35848,"Premium",3.1
+2606,"Casa","La Pampa",22986,"Alto",3.1
+2649,"Loft","CABA",24355,"Alto",3.1
+2731,"Departamento","Corrientes",39499,"Premium",3.1
+2754,"Loft","Santa Fe",24718,"Alto",3.1
+2767,"Chalet","Chaco",59322,"Premium",3.1
+2982,"Loft","Santiago del Estero",55911,"Premium",3.1
+59,"Departamento","Tucumán",27675,"Alto",3.2
+71,"Loft","Tierra del Fuego",22796,"Alto",3.2
+135,"Casa","Catamarca",36678,"Premium",3.2
+420,"Casa","Córdoba",25897,"Alto",3.2
+491,"Loft","San Juan",34279,"Alto",3.2
+718,"Chalet","Santa Cruz",36572,"Premium",3.2
+951,"Chalet","Corrientes",26775,"Alto",3.2
+955,"Loft","San Luis",33005,"Alto",3.2
+1037,"Chalet","Buenos Aires",21148,"Alto",3.2
+1095,"Chalet","Chubut",28922,"Alto",3.2
+1132,"Casa","Entre Ríos",34751,"Alto",3.2
+1217,"Loft","CABA",33461,"Alto",3.2
+1340,"Departamento","Neuquén",22027,"Alto",3.2
+1424,"Casa","Buenos Aires",51364,"Premium",3.2
+1530,"Casa","La Pampa",45399,"Premium",3.2
+1553,"Chalet","San Juan",47706,"Premium",3.2
+1595,"Loft","Santa Fe",24402,"Alto",3.2
+1733,"Loft","Chubut",28251,"Alto",3.2
+1774,"Chalet","La Rioja",20979,"Alto",3.2
+1873,"Cabaña","Santiago del Estero",40434,"Premium",3.2
+1874,"Loft","Tucumán",38507,"Premium",3.2
+1910,"Loft","Santa Fe",29850,"Alto",3.2
+1949,"Chalet","Jujuy",35466,"Premium",3.2
+1961,"Casa","La Pampa",21774,"Alto",3.2
+2107,"Cabaña","Córdoba",33135,"Alto",3.2
+2124,"Cabaña","Jujuy",36363,"Premium",3.2
+2131,"Departamento","Santa Fe",52082,"Premium",3.2
+2139,"Departamento","Catamarca",55458,"Premium",3.2
+2215,"Loft","Córdoba",36656,"Premium",3.2
+2304,"Chalet","Chaco",51012,"Premium",3.2
+2337,"Departamento","CABA",25191,"Alto",3.2
+2428,"Casa","La Rioja",48545,"Premium",3.2
+2432,"Chalet","Jujuy",37295,"Premium",3.2
+2444,"Chalet","Río Negro",50225,"Premium",3.2
+2691,"Departamento","Entre Ríos",27101,"Alto",3.2
+2728,"Casa","Córdoba",33959,"Alto",3.2
+2792,"Casa","Entre Ríos",32567,"Alto",3.2
+2939,"Casa","Chaco",33132,"Alto",3.2
+2952,"Chalet","Formosa",39877,"Premium",3.2
+49,"Casa","Entre Ríos",32562,"Alto",3.3
+54,"Loft","Santa Fe",35649,"Premium",3.3
+56,"Loft","Formosa",59607,"Premium",3.3
+192,"Departamento","Neuquén",25682,"Alto",3.3
+227,"Departamento","Jujuy",30653,"Alto",3.3
+263,"Chalet","Entre Ríos",24408,"Alto",3.3
+639,"Cabaña","Santiago del Estero",26353,"Alto",3.3
+642,"Cabaña","Santa Cruz",56458,"Premium",3.3
+672,"Casa","Córdoba",49196,"Premium",3.3
+818,"Departamento","Corrientes",46505,"Premium",3.3
+871,"Cabaña","La Rioja",30210,"Alto",3.3
+928,"Chalet","Corrientes",27157,"Alto",3.3
+957,"Cabaña","Entre Ríos",22060,"Alto",3.3
+1177,"Chalet","Chaco",44339,"Premium",3.3
+1302,"Cabaña","CABA",32727,"Alto",3.3
+1518,"Departamento","CABA",23977,"Alto",3.3
+1631,"Chalet","CABA",35038,"Premium",3.3
+1685,"Casa","Río Negro",39960,"Premium",3.3
+1693,"Casa","Santiago del Estero",30105,"Alto",3.3
+1696,"Cabaña","Formosa",49642,"Premium",3.3
+1921,"Casa","Formosa",29301,"Alto",3.3
+1944,"Cabaña","Corrientes",26784,"Alto",3.3
+1964,"Loft","Neuquén",27320,"Alto",3.3
+2054,"Loft","Córdoba",37615,"Premium",3.3
+2070,"Casa","Misiones",27758,"Alto",3.3
+2106,"Cabaña","San Luis",26811,"Alto",3.3
+2118,"Departamento","Chaco",33848,"Alto",3.3
+2169,"Chalet","La Rioja",56821,"Premium",3.3
+2376,"Chalet","Córdoba",28636,"Alto",3.3
+2425,"Departamento","Chubut",29269,"Alto",3.3
+2430,"Casa","Mendoza",25110,"Alto",3.3
+2487,"Loft","La Pampa",31323,"Alto",3.3
+2504,"Loft","La Rioja",46478,"Premium",3.3
+2623,"Departamento","CABA",44885,"Premium",3.3
+2627,"Loft","Neuquén",53523,"Premium",3.3
+2713,"Casa","Chaco",43485,"Premium",3.3
+2795,"Cabaña","Jujuy",26293,"Alto",3.3
+38,"Cabaña","Entre Ríos",46621,"Premium",3.4
+115,"Departamento","Entre Ríos",39189,"Premium",3.4
+132,"Loft","La Pampa",26265,"Alto",3.4
+452,"Chalet","San Juan",28781,"Alto",3.4
+578,"Loft","Córdoba",29008,"Alto",3.4
+752,"Chalet","Santa Fe",54912,"Premium",3.4
+779,"Departamento","San Juan",37533,"Premium",3.4
+781,"Departamento","Entre Ríos",58213,"Premium",3.4
+843,"Departamento","Misiones",57060,"Premium",3.4
+872,"Departamento","La Pampa",32482,"Alto",3.4
+913,"Departamento","Santa Fe",45084,"Premium",3.4
+931,"Cabaña","Tucumán",50821,"Premium",3.4
+989,"Casa","Catamarca",35740,"Premium",3.4
+1158,"Casa","Chubut",36220,"Premium",3.4
+1214,"Chalet","Santa Fe",26087,"Alto",3.4
+1265,"Chalet","Chaco",55317,"Premium",3.4
+1318,"Loft","Corrientes",54611,"Premium",3.4
+1327,"Loft","Santa Fe",40861,"Premium",3.4
+1736,"Chalet","Tierra del Fuego",28886,"Alto",3.4
+1742,"Cabaña","San Juan",58051,"Premium",3.4
+1843,"Loft","Jujuy",35895,"Premium",3.4
+1980,"Loft","La Pampa",35970,"Premium",3.4
+1997,"Loft","Misiones",36137,"Premium",3.4
+2011,"Loft","Santa Cruz",29562,"Alto",3.4
+2105,"Loft","San Luis",25343,"Alto",3.4
+2111,"Chalet","Tierra del Fuego",27828,"Alto",3.4
+2154,"Cabaña","Santa Fe",57660,"Premium",3.4
+2228,"Chalet","Entre Ríos",22623,"Alto",3.4
+2231,"Casa","Mendoza",25548,"Alto",3.4
+2276,"Chalet","CABA",33253,"Alto",3.4
+2293,"Cabaña","Santa Cruz",20962,"Alto",3.4
+2329,"Departamento","Chaco",36861,"Premium",3.4
+2335,"Departamento","La Pampa",47311,"Premium",3.4
+2451,"Cabaña","Tierra del Fuego",27502,"Alto",3.4
+2489,"Departamento","CABA",27329,"Alto",3.4
+2521,"Cabaña","Chaco",38418,"Premium",3.4
+2557,"Cabaña","Entre Ríos",48033,"Premium",3.4
+2668,"Departamento","Jujuy",20803,"Alto",3.4
+2702,"Loft","Salta",56281,"Premium",3.4
+2817,"Chalet","San Juan",33094,"Alto",3.4
+2966,"Casa","Santa Fe",50840,"Premium",3.4
+2989,"Loft","Buenos Aires",27202,"Alto",3.4
+36,"Loft","Neuquén",36459,"Premium",3.5
+91,"Chalet","Neuquén",35269,"Premium",3.5
+212,"Loft","Catamarca",25258,"Alto",3.5
+285,"Loft","San Juan",34363,"Alto",3.5
+286,"Departamento","Santa Fe",29380,"Alto",3.5
+298,"Departamento","La Rioja",20552,"Alto",3.5
+316,"Loft","Santa Cruz",23117,"Alto",3.5
+376,"Chalet","Santiago del Estero",38407,"Premium",3.5
+526,"Casa","Formosa",26702,"Alto",3.5
+659,"Loft","Catamarca",57665,"Premium",3.5
+787,"Departamento","Jujuy",27369,"Alto",3.5
+924,"Loft","Misiones",49064,"Premium",3.5
+937,"Cabaña","Río Negro",27668,"Alto",3.5
+963,"Loft","La Pampa",26679,"Alto",3.5
+1008,"Casa","Formosa",37147,"Premium",3.5
+1012,"Loft","Neuquén",42896,"Premium",3.5
+1036,"Cabaña","La Rioja",41895,"Premium",3.5
+1118,"Chalet","CABA",42118,"Premium",3.5
+1239,"Casa","Catamarca",48668,"Premium",3.5
+1391,"Casa","Catamarca",37664,"Premium",3.5
+1420,"Chalet","Buenos Aires",51285,"Premium",3.5
+1485,"Departamento","Chubut",38721,"Premium",3.5
+1576,"Cabaña","Córdoba",34337,"Alto",3.5
+1587,"Departamento","Catamarca",57928,"Premium",3.5
+1748,"Cabaña","Santiago del Estero",21975,"Alto",3.5
+1802,"Cabaña","Catamarca",46326,"Premium",3.5
+1875,"Loft","Río Negro",36702,"Premium",3.5
+1920,"Chalet","Mendoza",35301,"Premium",3.5
+1986,"Loft","Córdoba",27448,"Alto",3.5
+2445,"Departamento","Entre Ríos",30166,"Alto",3.5
+2640,"Chalet","CABA",52133,"Premium",3.5
+2938,"Loft","Santa Cruz",30775,"Alto",3.5
+2950,"Departamento","Buenos Aires",44817,"Premium",3.5
+2960,"Departamento","Misiones",53692,"Premium",3.5
+2980,"Cabaña","La Rioja",28070,"Alto",3.5
+2981,"Loft","Santiago del Estero",55661,"Premium",3.5

@@ -1,0 +1,198 @@
+"id_casa","tipo_vivienda","provincia_ubicacion","precio_base_noche","categoria_precio","calificacion_general"
+162,"Casa","Santa Cruz",10951,"Moderado",5
+167,"Loft","Chaco",11745,"Moderado",5
+856,"Casa","San Juan",11193,"Moderado",5
+1176,"Casa","Formosa",14575,"Moderado",5
+1202,"Cabaña","Santa Fe",12876,"Moderado",5
+1375,"Chalet","San Juan",9104,"Económico",5
+1433,"Chalet","Neuquén",19891,"Moderado",5
+1586,"Casa","Río Negro",6365,"Económico",5
+1701,"Casa","Mendoza",15721,"Moderado",5
+1740,"Chalet","Córdoba",6273,"Económico",5
+1778,"Chalet","Mendoza",13195,"Moderado",5
+1780,"Casa","CABA",8800,"Económico",5
+2431,"Loft","Mendoza",6410,"Económico",5
+2526,"Departamento","Río Negro",19649,"Moderado",5
+2665,"Casa","Santa Fe",8492,"Económico",5
+2697,"Casa","Catamarca",11892,"Moderado",5
+2756,"Casa","Jujuy",5981,"Económico",5
+2804,"Casa","Córdoba",19543,"Moderado",5
+2953,"Cabaña","Tucumán",14448,"Moderado",5
+2975,"Cabaña","CABA",5867,"Económico",5
+23,"Chalet","Salta",7947,"Económico",4.9
+43,"Casa","La Pampa",17192,"Moderado",4.9
+138,"Loft","Buenos Aires",12767,"Moderado",4.9
+312,"Departamento","Neuquén",10904,"Moderado",4.9
+318,"Chalet","Santa Fe",12287,"Moderado",4.9
+490,"Loft","Córdoba",9085,"Económico",4.9
+536,"Casa","San Juan",5074,"Económico",4.9
+551,"Departamento","Salta",5950,"Económico",4.9
+885,"Cabaña","Córdoba",16070,"Moderado",4.9
+918,"Departamento","Misiones",9151,"Económico",4.9
+1459,"Departamento","San Juan",18133,"Moderado",4.9
+1471,"Loft","Chaco",10663,"Moderado",4.9
+1476,"Cabaña","Córdoba",7857,"Económico",4.9
+1596,"Chalet","Río Negro",6915,"Económico",4.9
+1681,"Cabaña","Salta",10187,"Moderado",4.9
+1831,"Chalet","Jujuy",5575,"Económico",4.9
+1973,"Loft","Formosa",6425,"Económico",4.9
+2025,"Cabaña","Catamarca",7310,"Económico",4.9
+2085,"Casa","Neuquén",9123,"Económico",4.9
+2127,"Casa","Tucumán",11009,"Moderado",4.9
+2170,"Departamento","Chubut",18774,"Moderado",4.9
+2206,"Casa","Formosa",10257,"Moderado",4.9
+2209,"Departamento","Buenos Aires",16150,"Moderado",4.9
+2216,"Casa","Chaco",18153,"Moderado",4.9
+2356,"Casa","San Luis",15868,"Moderado",4.9
+2418,"Loft","Tucumán",18215,"Moderado",4.9
+2464,"Chalet","CABA",5162,"Económico",4.9
+2580,"Chalet","Formosa",7145,"Económico",4.9
+2681,"Loft","La Rioja",14896,"Moderado",4.9
+2686,"Cabaña","CABA",16677,"Moderado",4.9
+2704,"Cabaña","Buenos Aires",10195,"Moderado",4.9
+2881,"Chalet","Salta",14799,"Moderado",4.9
+64,"Loft","Jujuy",5984,"Económico",4.8
+99,"Chalet","Santiago del Estero",12185,"Moderado",4.8
+179,"Chalet","Tierra del Fuego",14328,"Moderado",4.8
+202,"Chalet","Entre Ríos",9706,"Económico",4.8
+218,"Chalet","Santa Fe",18587,"Moderado",4.8
+369,"Casa","Chaco",18393,"Moderado",4.8
+418,"Chalet","Río Negro",11715,"Moderado",4.8
+421,"Cabaña","Entre Ríos",14605,"Moderado",4.8
+456,"Loft","Chaco",10054,"Moderado",4.8
+464,"Chalet","Santa Fe",13584,"Moderado",4.8
+771,"Casa","Corrientes",8510,"Económico",4.8
+778,"Casa","Formosa",5137,"Económico",4.8
+983,"Cabaña","San Luis",5993,"Económico",4.8
+1033,"Chalet","Santa Fe",7185,"Económico",4.8
+1164,"Loft","Santa Cruz",5305,"Económico",4.8
+1249,"Loft","Córdoba",10667,"Moderado",4.8
+1407,"Casa","CABA",11586,"Moderado",4.8
+1548,"Departamento","Entre Ríos",5678,"Económico",4.8
+1633,"Departamento","San Luis",13726,"Moderado",4.8
+1666,"Casa","Tierra del Fuego",6640,"Económico",4.8
+1707,"Loft","Entre Ríos",19483,"Moderado",4.8
+1754,"Cabaña","Buenos Aires",7485,"Económico",4.8
+1807,"Casa","Santa Fe",19808,"Moderado",4.8
+1829,"Departamento","La Pampa",18452,"Moderado",4.8
+1891,"Loft","Mendoza",9597,"Económico",4.8
+1934,"Casa","Neuquén",18458,"Moderado",4.8
+1956,"Loft","La Rioja",9846,"Económico",4.8
+2010,"Loft","La Pampa",16361,"Moderado",4.8
+2112,"Departamento","Corrientes",5115,"Económico",4.8
+2205,"Loft","Tucumán",18144,"Moderado",4.8
+2219,"Departamento","Río Negro",10530,"Moderado",4.8
+2262,"Chalet","CABA",8255,"Económico",4.8
+2386,"Departamento","Catamarca",8403,"Económico",4.8
+2422,"Departamento","Santa Fe",5812,"Económico",4.8
+2427,"Chalet","Jujuy",11871,"Moderado",4.8
+2479,"Chalet","Catamarca",5563,"Económico",4.8
+2693,"Cabaña","Santa Cruz",19868,"Moderado",4.8
+2912,"Chalet","CABA",18533,"Moderado",4.8
+2964,"Loft","Tierra del Fuego",5363,"Económico",4.8
+288,"Casa","Misiones",6166,"Económico",4.7
+358,"Chalet","Misiones",6115,"Económico",4.7
+435,"Departamento","Río Negro",9800,"Económico",4.7
+440,"Casa","Tierra del Fuego",12981,"Moderado",4.7
+583,"Chalet","Santa Fe",11056,"Moderado",4.7
+631,"Loft","Chaco",18250,"Moderado",4.7
+671,"Cabaña","Formosa",7454,"Económico",4.7
+723,"Casa","San Juan",11277,"Moderado",4.7
+835,"Chalet","Tucumán",19645,"Moderado",4.7
+1045,"Departamento","Jujuy",11613,"Moderado",4.7
+1049,"Cabaña","Córdoba",7785,"Económico",4.7
+1114,"Cabaña","Formosa",19292,"Moderado",4.7
+1180,"Cabaña","Chaco",19848,"Moderado",4.7
+1322,"Casa","Formosa",15683,"Moderado",4.7
+1337,"Cabaña","Santa Cruz",18115,"Moderado",4.7
+1385,"Departamento","Formosa",18823,"Moderado",4.7
+1464,"Chalet","Santa Cruz",10915,"Moderado",4.7
+1841,"Chalet","Córdoba",12832,"Moderado",4.7
+1940,"Casa","Catamarca",5624,"Económico",4.7
+2034,"Casa","CABA",8035,"Económico",4.7
+2074,"Cabaña","Entre Ríos",13420,"Moderado",4.7
+2075,"Cabaña","Misiones",16380,"Moderado",4.7
+2254,"Chalet","CABA",5920,"Económico",4.7
+2313,"Loft","Neuquén",10448,"Moderado",4.7
+2317,"Cabaña","Tucumán",18558,"Moderado",4.7
+2631,"Chalet","Chaco",11045,"Moderado",4.7
+2644,"Casa","Mendoza",6707,"Económico",4.7
+2722,"Chalet","La Pampa",10515,"Moderado",4.7
+2762,"Loft","Córdoba",19376,"Moderado",4.7
+87,"Departamento","Neuquén",10743,"Moderado",4.6
+187,"Departamento","La Pampa",15232,"Moderado",4.6
+190,"Loft","Entre Ríos",7282,"Económico",4.6
+310,"Departamento","Mendoza",12176,"Moderado",4.6
+333,"Chalet","Neuquén",16662,"Moderado",4.6
+347,"Cabaña","La Rioja",5734,"Económico",4.6
+453,"Cabaña","Río Negro",10084,"Moderado",4.6
+514,"Chalet","Entre Ríos",11832,"Moderado",4.6
+585,"Casa","Santa Cruz",8711,"Económico",4.6
+623,"Loft","San Luis",18951,"Moderado",4.6
+669,"Casa","La Pampa",18780,"Moderado",4.6
+722,"Loft","Tierra del Fuego",19538,"Moderado",4.6
+861,"Loft","Formosa",11002,"Moderado",4.6
+988,"Departamento","Buenos Aires",18369,"Moderado",4.6
+1198,"Chalet","Salta",11720,"Moderado",4.6
+1237,"Cabaña","Misiones",11117,"Moderado",4.6
+1377,"Loft","Jujuy",6668,"Económico",4.6
+1501,"Casa","La Pampa",18663,"Moderado",4.6
+1569,"Cabaña","Córdoba",6991,"Económico",4.6
+1621,"Loft","Formosa",17894,"Moderado",4.6
+1655,"Loft","Buenos Aires",15789,"Moderado",4.6
+1772,"Loft","Buenos Aires",18971,"Moderado",4.6
+1779,"Chalet","Mendoza",10527,"Moderado",4.6
+2403,"Chalet","CABA",11876,"Moderado",4.6
+2705,"Chalet","Salta",12475,"Moderado",4.6
+3000,"Chalet","Mendoza",8486,"Económico",4.6
+1,"Casa","La Pampa",17146,"Moderado",4.5
+2,"Loft","Entre Ríos",10619,"Moderado",4.5
+93,"Cabaña","Neuquén",10147,"Moderado",4.5
+166,"Casa","Misiones",6424,"Económico",4.5
+174,"Loft","San Juan",11045,"Moderado",4.5
+188,"Departamento","Entre Ríos",19196,"Moderado",4.5
+225,"Departamento","La Pampa",7122,"Económico",4.5
+228,"Cabaña","Catamarca",11797,"Moderado",4.5
+520,"Cabaña","Formosa",14197,"Moderado",4.5
+527,"Departamento","La Rioja",15945,"Moderado",4.5
+540,"Departamento","Chaco",11606,"Moderado",4.5
+645,"Cabaña","Tierra del Fuego",7693,"Económico",4.5
+693,"Cabaña","Catamarca",6762,"Económico",4.5
+697,"Departamento","Corrientes",8214,"Económico",4.5
+816,"Cabaña","Misiones",14313,"Moderado",4.5
+864,"Casa","Catamarca",17808,"Moderado",4.5
+897,"Departamento","Misiones",16495,"Moderado",4.5
+967,"Cabaña","Entre Ríos",10439,"Moderado",4.5
+993,"Chalet","Buenos Aires",19966,"Moderado",4.5
+1119,"Loft","Corrientes",5787,"Económico",4.5
+1171,"Loft","Misiones",10483,"Moderado",4.5
+1182,"Departamento","Santa Fe",8584,"Económico",4.5
+1403,"Chalet","San Luis",18713,"Moderado",4.5
+1460,"Cabaña","Santiago del Estero",15483,"Moderado",4.5
+1545,"Chalet","Chaco",5121,"Económico",4.5
+1588,"Chalet","Río Negro",8281,"Económico",4.5
+1665,"Departamento","Formosa",18425,"Moderado",4.5
+1689,"Chalet","Salta",12915,"Moderado",4.5
+1718,"Casa","Entre Ríos",15829,"Moderado",4.5
+1832,"Chalet","Santiago del Estero",14863,"Moderado",4.5
+1903,"Loft","Entre Ríos",13903,"Moderado",4.5
+1922,"Departamento","Chubut",13749,"Moderado",4.5
+2002,"Casa","Córdoba",12448,"Moderado",4.5
+2020,"Chalet","Neuquén",19797,"Moderado",4.5
+2033,"Chalet","San Juan",7852,"Económico",4.5
+2071,"Loft","Entre Ríos",11530,"Moderado",4.5
+2104,"Chalet","Tierra del Fuego",12950,"Moderado",4.5
+2122,"Chalet","San Luis",14427,"Moderado",4.5
+2138,"Departamento","La Rioja",7770,"Económico",4.5
+2232,"Departamento","Salta",12585,"Moderado",4.5
+2244,"Cabaña","Tierra del Fuego",18326,"Moderado",4.5
+2263,"Departamento","Buenos Aires",5114,"Económico",4.5
+2284,"Casa","Río Negro",5298,"Económico",4.5
+2442,"Chalet","Santiago del Estero",11965,"Moderado",4.5
+2499,"Cabaña","Córdoba",11064,"Moderado",4.5
+2597,"Casa","Santiago del Estero",5537,"Económico",4.5
+2663,"Departamento","Mendoza",15406,"Moderado",4.5
+2819,"Cabaña","CABA",10675,"Moderado",4.5
+2830,"Casa","Tierra del Fuego",11914,"Moderado",4.5
+2832,"Loft","Entre Ríos",11517,"Moderado",4.5
+2986,"Loft","Entre Ríos",11699,"Moderado",4.5

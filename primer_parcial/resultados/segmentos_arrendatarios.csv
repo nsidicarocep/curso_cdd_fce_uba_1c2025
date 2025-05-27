@@ -1,0 +1,1001 @@
+"id_arrendatario","segmento_volumen","segmento_precio","segmento_experiencia","segmento_calidad","segmento_compuesto","num_propiedades","precio_promedio","calificacion_media","es_superanfitrion","antiguedad_anos","tiempo_respuesta_hrs"
+1,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,15614.75,2.6,FALSE,6.95687885010267,24
+2,"Muy grande","Premium","Experimentado","Básico","Muy grande Premium Básico",6,26139.8333333333,1.2,FALSE,2.64750171115674,1
+3,"Mediano","Lujo","Veterano","Muy bueno","Mediano Lujo Muy bueno",2,40535.5,4.5,FALSE,6.76522929500342,8
+4,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,19500.6666666667,1.3,FALSE,6.5242984257358,1
+5,"Grande","Lujo","Experimentado","Excelente","Grande Lujo Excelente",5,41430.6,4.7,TRUE,2.94866529774127,4
+6,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,19098.3333333333,1.6,TRUE,5.94113620807666,1
+7,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,29518.25,1.4,FALSE,5.33607118412047,4
+8,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,14897.5,2.1,FALSE,4.24366872005476,12
+9,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,16763,1.4,TRUE,2.17659137577002,1
+10,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,19366,1.5,FALSE,4.73921971252567,2
+11,"Pequeño","Premium","Experimentado","Muy bueno","Pequeño Premium Muy bueno",1,26457,4.1,FALSE,2.97604380561259,4
+12,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,53039,1.3,FALSE,3.08008213552361,12
+13,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,34030.5,2,FALSE,4.64613278576318,1
+14,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,25293.8,4,FALSE,5.47296372347707,24
+15,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",2,22914,2.3,FALSE,1.68651608487337,4
+16,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,25645.3333333333,3.6,FALSE,4.10130047912389,8
+17,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,36593.5,2.7,FALSE,7.80013689253936,1
+18,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,32963.5,2.3,FALSE,7.50718685831622,8
+19,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,37768,1.3,TRUE,3.96440793976728,12
+20,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",5,30402.8,3.9,TRUE,2.02874743326489,2
+21,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,1.3,FALSE,5.27036276522929,24
+22,"Mediano","Lujo","Experimentado","Bueno","Mediano Lujo Bueno",2,43264.5,3.8,FALSE,1.22108145106092,24
+23,"Grande","Estándar","Novato","Básico","Grande Estándar Básico",5,18184.4,2.2,FALSE,0.804928131416838,4
+24,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,19648,1.3,FALSE,4.09582477754962,4
+25,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,21653.3333333333,4.4,FALSE,4.31485284052019,2
+26,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,34971,1.2,FALSE,6.62833675564682,12
+27,"Mediano","Estándar","Experimentado","Excelente","Mediano Estándar Excelente",3,16337.6666666667,4.6,TRUE,1.48939082819986,48
+28,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,18292.6666666667,4.9,FALSE,4.58590006844627,4
+29,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,26639.4,1.9,FALSE,3.69609856262834,8
+30,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,33037,3.2,FALSE,6.12731006160164,24
+31,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,24212.3333333333,4.2,FALSE,4.39425051334702,24
+32,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",3,40220.6666666667,3.5,FALSE,8.15058179329227,4
+33,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,39377,1.7,FALSE,4.42984257357974,12
+34,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",2,31849,2.8,FALSE,1.4839151266256,24
+35,"Muy grande","Estándar","Veterano","Bueno","Muy grande Estándar Bueno",6,15547.8333333333,4,FALSE,6.44216290212183,12
+36,"Grande","Lujo","Veterano","Básico","Grande Lujo Básico",5,42815.2,1.1,FALSE,5.4154688569473,4
+37,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,20697,3.5,FALSE,5.30869267624914,12
+38,"Pequeño","Premium","Veterano","Excelente","Pequeño Premium Excelente",1,25572,4.8,TRUE,7.96440793976728,12
+39,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,43386,1.3,FALSE,4.59958932238193,2
+40,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,14896,2.2,FALSE,7.98357289527721,48
+41,"Mediano","Premium","Experimentado","Excelente","Mediano Premium Excelente",3,20427.6666666667,4.6,FALSE,2.4394250513347,2
+42,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,26052.6666666667,4.3,FALSE,6.31622176591376,24
+43,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,20972.75,3.1,FALSE,1.98767967145791,48
+44,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,21705.25,5,FALSE,5.54140999315537,4
+45,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,25544.25,3.8,FALSE,6.83367556468172,4
+46,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,25220,1.3,FALSE,3.79466119096509,12
+47,"Grande","Estándar","Veterano","Excelente","Grande Estándar Excelente",4,15908.25,4.7,FALSE,5.46748802190281,8
+48,"Pequeño","Estándar","Veterano","Excelente","Pequeño Estándar Excelente",1,14155,4.9,FALSE,4.145106091718,48
+49,"Mediano","Estándar","Veterano","Muy bueno","Mediano Estándar Muy bueno",3,19545.3333333333,4.1,FALSE,6.02600958247776,1
+50,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,24591.5,5,TRUE,4.88432580424367,8
+51,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,30848.5,2.8,FALSE,3.67419575633128,4
+52,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,25544.3333333333,3.5,FALSE,2.2258726899384,24
+53,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,37455,1.3,FALSE,6.82546201232033,2
+54,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,17353.6,1.7,FALSE,6.39835728952772,24
+55,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,16739.3333333333,3.1,FALSE,7.23066392881588,24
+56,"Pequeño","Lujo","Veterano","Excelente","Pequeño Lujo Excelente",1,46505,4.6,FALSE,5.60711841204654,4
+57,"Mediano","Estándar","Experimentado","Bueno","Mediano Estándar Bueno",3,14791,3.9,FALSE,2.44216290212183,24
+58,"Mediano","Premium","Experimentado","Excelente","Mediano Premium Excelente",2,26813,4.7,TRUE,1.46201232032854,4
+59,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,25322.5,1.8,FALSE,4.03011635865845,8
+60,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",5,32827.6,3.6,FALSE,1.16358658453114,2
+61,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",NA,NA,2,TRUE,1.33333333333333,12
+62,"Muy grande","Premium","Experimentado","Bueno","Muy grande Premium Bueno",6,29989.1666666667,3.8,TRUE,1.25119780971937,8
+63,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,25972,2.4,FALSE,5.60985626283368,8
+64,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,27133.5,4.8,FALSE,7.50171115674196,12
+65,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,30022,4.1,TRUE,3.20876112251882,4
+66,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,20740,2.9,FALSE,5.55783709787817,2
+67,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,28387,2.7,FALSE,6.34086242299795,2
+68,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",5,12902.8,3.9,FALSE,5.14168377823409,2
+69,"Pequeño","Estándar","Veterano","Muy bueno","Pequeño Estándar Muy bueno",1,12950,4.1,FALSE,7.13483915126626,8
+70,"Muy grande","Premium","Experimentado","Básico","Muy grande Premium Básico",6,34995.5,2,FALSE,2.48323066392882,4
+71,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,20170,2.3,FALSE,7.51266255989049,24
+72,"Mediano","Estándar","Novato","Bueno","Mediano Estándar Bueno",3,19167.6666666667,4,FALSE,0.594113620807666,8
+73,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",2,16978.5,1.7,FALSE,2.69678302532512,1
+74,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,24589.4,3.8,FALSE,4.07939767282683,4
+75,"Pequeño","Lujo","Veterano","Excelente","Pequeño Lujo Excelente",1,52508,4.8,FALSE,4.63518138261465,24
+76,"Pequeño","Económico","Experimentado","Excelente","Pequeño Económico Excelente",1,9271,4.7,FALSE,2.02053388090349,12
+77,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,14269,2.7,FALSE,5.24298425735797,24
+78,"Pequeño","Lujo","Veterano","Excelente","Pequeño Lujo Excelente",1,39820,5,FALSE,8.33675564681725,24
+79,"Mediano","Lujo","Experimentado","Básico","Mediano Lujo Básico",3,36598.6666666667,3,TRUE,1.61533196440794,2
+80,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",3,16093.6666666667,3,TRUE,1.4757015742642,2
+81,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.9,FALSE,5.22929500342231,24
+82,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,25242.5,3.4,FALSE,3.68514715947981,8
+83,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,30046.6666666667,3.4,FALSE,1.21286789869952,1
+84,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,22245.5,2.9,TRUE,7.66050650239562,24
+85,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,13968.6666666667,3.7,TRUE,5.34976043805613,8
+86,"Mediano","Estándar","Novato","Básico","Mediano Estándar Básico",2,14993.5,2.3,FALSE,0.91170431211499,2
+87,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,23766,2.4,FALSE,2.26420260095825,2
+88,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",2,30759.5,1.1,FALSE,2.41752224503765,2
+89,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,32574.75,2.2,FALSE,7.44421629021218,12
+90,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,21650,4.3,FALSE,5.94934976043806,24
+91,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,33381.5,2,FALSE,5.21013004791239,2
+92,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,25621.3333333333,1,FALSE,3.20602327173169,24
+93,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,39578,1.3,TRUE,5.30869267624914,2
+94,"Pequeño","Económico","Veterano","Bueno","Pequeño Económico Bueno",1,8880,3.7,TRUE,3.76180698151951,4
+95,"Mediano","Estándar","Experimentado","Bueno","Mediano Estándar Bueno",3,17799.3333333333,3.3,TRUE,2.77891854893908,8
+96,"Pequeño","Premium","Experimentado","Excelente","Pequeño Premium Excelente",1,27517,4.7,FALSE,1.69199178644764,12
+97,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,36963.3333333333,1.8,FALSE,8.39698836413415,4
+98,"Mediano","Estándar","Novato","Muy bueno","Mediano Estándar Muy bueno",3,16351.3333333333,4.4,FALSE,0.591375770020534,48
+99,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",2,17686.5,1.3,TRUE,2.28062970568104,2
+100,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,20717,1.8,TRUE,3.44969199178645,24
+101,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,14734.6666666667,1.2,FALSE,4.9555099247091,48
+102,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",2,34564.5,2.6,FALSE,1.32511978097194,8
+103,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,24034.8333333333,3.5,FALSE,6.78439425051335,4
+104,"Muy grande","Premium","Novato","Básico","Muy grande Premium Básico",6,32240.8333333333,1.2,FALSE,0.728268309377139,2
+105,"Grande","Lujo","Veterano","Básico","Grande Lujo Básico",4,45375,2.8,FALSE,5.637234770705,24
+106,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,24778.8,3.7,FALSE,4.49281314168378,1
+107,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,20117,2.6,FALSE,2.17932922655715,2
+108,"Pequeño","Lujo","Veterano","Bueno","Pequeño Lujo Bueno",1,36468,3.1,FALSE,3.54004106776181,8
+109,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,32693,4.4,FALSE,5.782340862423,48
+110,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",2,26910,4.1,TRUE,1.37987679671458,8
+111,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,27601.2,3.9,TRUE,6.52977412731006,48
+112,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,24206.5,2,TRUE,7.48528405201917,4
+113,"Pequeño","Económico","Novato","Excelente","Pequeño Económico Excelente",1,9888,4.7,FALSE,0.63791923340178,2
+114,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,14418,1.1,FALSE,4.40246406570842,4
+115,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,19345.3333333333,4.7,FALSE,3.57837097878166,4
+116,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,22043,1,FALSE,3.27173169062286,4
+117,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,31528.3333333333,3.6,FALSE,3.7700205338809,2
+118,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,27976.6666666667,4.4,FALSE,7.78918548939083,4
+119,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,23492.5,1.7,FALSE,8.01368925393566,12
+120,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,18371,2.7,FALSE,4.19438740588638,48
+121,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,17071.3333333333,3.4,TRUE,3.95619438740589,24
+122,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,18572.3333333333,3.7,FALSE,3.42505133470226,24
+123,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,18938.5,1.5,FALSE,4.92813141683778,2
+124,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,27214.5,3.9,FALSE,7.12936344969199,4
+125,"Muy grande","Lujo","Novato","Muy bueno","Muy grande Lujo Muy bueno",NA,NA,4.2,FALSE,0.657084188911704,48
+126,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,31836.5,1.5,FALSE,7.33744010951403,1
+127,"Mediano","Premium","Novato","Excelente","Mediano Premium Excelente",2,23822,4.8,TRUE,0.654346338124572,2
+128,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,16260,1.8,TRUE,6.51060917180014,4
+129,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,57086.5,1.1,FALSE,3.23340177960301,2
+130,"Mediano","Estándar","Veterano","Muy bueno","Mediano Estándar Muy bueno",2,17366,4.4,FALSE,3.14852840520192,2
+131,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,39643.5,1.5,FALSE,8.02464065708419,4
+132,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,17821.6666666667,3.9,FALSE,4.19438740588638,48
+133,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,20872,3.1,FALSE,6.57905544147844,2
+134,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",5,19008.2,3.5,FALSE,7.37029431895962,8
+135,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,30875.6666666667,3.6,FALSE,3.46885694729637,1
+136,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",7,25328.1428571429,3,FALSE,7.91238877481177,4
+137,"Grande","Premium","Experimentado","Excelente","Grande Premium Excelente",4,26954,5,FALSE,1.90828199863107,12
+138,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,25504,1.8,FALSE,2.75975359342916,24
+139,"Pequeño","Estándar","Experimentado","Muy bueno","Pequeño Estándar Muy bueno",1,11125,4.1,FALSE,2.32717316906229,8
+140,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,18115.75,1.5,FALSE,4.47091033538672,1
+141,"Grande","Estándar","Experimentado","Básico","Grande Estándar Básico",5,14918.6,3,FALSE,2.57084188911704,8
+142,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2,FALSE,4.98015058179329,2
+143,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,24707.6666666667,1.8,FALSE,6.78165639972621,2
+144,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,42898,2.3,TRUE,8.09582477754962,24
+145,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,14153.2,1.8,TRUE,6.6611909650924,1
+146,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,12170,1.6,FALSE,7.38672142368241,8
+147,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,31650,2.2,FALSE,7.16221765913758,1
+148,"Muy grande","Lujo","Veterano","Excelente","Muy grande Lujo Excelente",NA,NA,5,FALSE,6.02874743326489,48
+149,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,20749.75,4.8,FALSE,3.41683778234086,1
+150,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,19656.5,3,FALSE,8.15605749486653,24
+151,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,28447.25,3.1,FALSE,2.362765229295,12
+152,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,20497,3.6,FALSE,3.76728268309377,4
+153,"Mediano","Económico","Experimentado","Básico","Mediano Económico Básico",2,8361,1.9,FALSE,1.54688569472964,2
+154,"Pequeño","Lujo","Veterano","Bueno","Pequeño Lujo Bueno",1,57529,3.5,FALSE,4.28747433264887,12
+155,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,19045,1,FALSE,8.23545516769336,2
+156,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,18017.25,1.5,FALSE,3.83846680355921,12
+157,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",8,32162.5,1,TRUE,6.32717316906229,48
+158,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",3,20995.3333333333,4.5,TRUE,2.98425735797399,1
+159,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,23185.3333333333,1.8,FALSE,2.54346338124572,24
+160,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,23041,4.8,FALSE,5.77138945927447,12
+161,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,22540.75,1.5,FALSE,2.77070499657769,12
+162,"Grande","Lujo","Experimentado","Básico","Grande Lujo Básico",4,37109,1.9,FALSE,1.05133470225873,4
+163,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,32522,1.5,TRUE,5.74674880219028,1
+164,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,10078.5,3.5,FALSE,6.49965776865161,8
+165,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,16256.6666666667,4.8,FALSE,4.19438740588638,24
+166,"Grande","Estándar","Novato","Básico","Grande Estándar Básico",5,16992,1.8,FALSE,0.511978097193703,1
+167,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,27564.8333333333,3.5,FALSE,4.88432580424367,24
+168,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,25927.5,1.6,FALSE,6.55715263518138,4
+169,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,35800.3333333333,2.2,FALSE,4.5201916495551,2
+170,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,17555.25,2.5,FALSE,4.94729637234771,8
+171,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,14836,2.6,FALSE,4.64887063655031,12
+172,"Pequeño","Estándar","Veterano","Bueno","Pequeño Estándar Bueno",1,11651,3.4,FALSE,7.37850787132101,24
+173,"Mediano","Lujo","Experimentado","Básico","Mediano Lujo Básico",3,38471.3333333333,2.3,FALSE,1.23750855578371,8
+174,"Grande","Premium","Experimentado","Excelente","Grande Premium Excelente",4,28943.5,4.9,TRUE,2.47775496235455,1
+175,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,21689,1.5,FALSE,3.4880219028063,2
+176,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,30827.3333333333,1.2,FALSE,1.20191649555099,12
+177,"Pequeño","Estándar","Experimentado","Bueno","Pequeño Estándar Bueno",1,19906,3.3,FALSE,1.52224503764545,4
+178,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,33034.6666666667,4.6,FALSE,7.68514715947981,4
+179,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,25247.25,1.6,FALSE,3.35386721423682,48
+180,"Muy grande","Premium","Novato","Bueno","Muy grande Premium Bueno",6,22663.5,3.7,TRUE,0.531143052703628,1
+181,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,10719.3333333333,4.8,FALSE,3.86310746064339,1
+182,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,31395.2,2.1,FALSE,1.50855578370979,8
+183,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,19735.3333333333,4,TRUE,6.2861054072553,2
+184,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,35182,2.9,FALSE,7.73716632443532,1
+185,"Mediano","Lujo","Experimentado","Básico","Mediano Lujo Básico",2,35591.5,2.2,FALSE,1.82340862422998,8
+186,"Muy grande","Premium","Novato","Básico","Muy grande Premium Básico",7,29373.7142857143,2.8,FALSE,0.659822039698836,2
+187,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,21947,1.3,FALSE,6.35455167693361,8
+188,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",3,20851.3333333333,4.1,FALSE,1.34702258726899,48
+189,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",2,29219.5,2.2,TRUE,2.46680355920602,8
+190,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,23296.3333333333,4.3,FALSE,3.07734428473648,2
+191,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,33242,5,FALSE,8.00547570157426,8
+192,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,14659.75,3.6,FALSE,6.43394934976044,48
+193,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",5,23636.6,4.9,FALSE,7.20054757015743,24
+194,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,29589.25,2.2,TRUE,6.47227926078029,12
+195,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",8,28396.875,2.9,FALSE,4.16153319644079,8
+196,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,32875,1.9,FALSE,5.63449691991786,8
+197,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",4,24074,4.2,FALSE,3.47707049965777,48
+198,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,30355,4.9,FALSE,7.76728268309377,12
+199,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,23283,2.7,FALSE,7.48254620123203,12
+200,"Muy grande","Lujo","Veterano","Muy bueno","Muy grande Lujo Muy bueno",NA,NA,4.5,TRUE,5.81245722108145,24
+201,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,16911,2.1,FALSE,3.91512662559891,48
+202,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,32633.6666666667,3.9,TRUE,1.10335386721424,48
+203,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,27345.5,3.9,FALSE,1.59616700889802,48
+204,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,17332,2.3,FALSE,3.9917864476386,8
+205,"Mediano","Estándar","Veterano","Muy bueno","Mediano Estándar Muy bueno",3,17258.6666666667,4.1,FALSE,6.507871321013,12
+206,"Pequeño","Estándar","Veterano","Muy bueno","Pequeño Estándar Muy bueno",1,11080,4.3,FALSE,6.98699520876112,12
+207,"Muy grande","Lujo","Veterano","Muy bueno","Muy grande Lujo Muy bueno",NA,NA,4.3,FALSE,6.84188911704312,2
+208,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,19519.6666666667,3.7,FALSE,5.96577686516085,48
+209,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,21378.5,1.8,TRUE,5.19096509240246,1
+210,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,31950.6666666667,1.9,FALSE,1.25941136208077,4
+211,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,24803.3333333333,3.7,TRUE,4.79671457905544,4
+212,"Muy grande","Estándar","Veterano","Bueno","Muy grande Estándar Bueno",7,10615.1428571429,3.9,FALSE,4.14236824093087,1
+213,"Muy grande","Premium","Veterano","Muy bueno","Muy grande Premium Muy bueno",6,22677.1666666667,4.2,FALSE,3.21971252566735,24
+214,"Grande","Estándar","Veterano","Excelente","Grande Estándar Excelente",4,19600.25,4.8,FALSE,3.00616016427105,48
+215,"Mediano","Económico","Experimentado","Excelente","Mediano Económico Excelente",2,8566.5,4.8,TRUE,1.47843942505133,4
+216,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,20077.5,3.9,FALSE,1.49760438056126,4
+217,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,32373.3333333333,1.3,FALSE,4.32580424366872,8
+218,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,21834,2.7,TRUE,8.2299794661191,2
+219,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",5,25196,3.4,FALSE,2.64202600958248,2
+220,"Muy grande","Lujo","Veterano","Muy bueno","Muy grande Lujo Muy bueno",NA,NA,4.1,TRUE,3.46064339493498,24
+221,"Muy grande","Lujo","Novato","Básico","Muy grande Lujo Básico",NA,NA,2,TRUE,0.843258042436687,4
+222,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,37601.5,2.2,FALSE,5.15537303216975,8
+223,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,24618,2.8,FALSE,8.20807665982204,1
+224,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,24627.3333333333,2.8,FALSE,1.75770020533881,8
+225,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,11361,3,FALSE,2.84188911704312,4
+226,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,31227.4,2.5,TRUE,2.42847364818617,12
+227,"Mediano","Económico","Veterano","Muy bueno","Mediano Económico Muy bueno",2,9795,4.1,FALSE,3.22518822724162,48
+228,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,28686,1.7,FALSE,4.10677618069815,12
+229,"Muy grande","Estándar","Veterano","Muy bueno","Muy grande Estándar Muy bueno",6,13835.8333333333,4.1,FALSE,4.90622861054073,1
+230,"Mediano","Estándar","Veterano","Muy bueno","Mediano Estándar Muy bueno",2,10139,4.1,FALSE,8.07939767282683,12
+231,"Muy grande","Lujo","Experimentado","Bueno","Muy grande Lujo Bueno",6,38155.1666666667,3.9,FALSE,2.0643394934976,4
+232,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,33173.8,2.3,FALSE,8.21081451060917,1
+233,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",5,20542.6,3.9,FALSE,2.94318959616701,12
+234,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,19590,1.2,TRUE,1.57700205338809,4
+235,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",3,14301.6666666667,2,FALSE,2.58726899383984,1
+236,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,29431.25,1.1,TRUE,1.1170431211499,4
+237,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,32139,2.2,FALSE,5.53867214236824,24
+238,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,29882.5,3.4,FALSE,7.38945927446954,24
+239,"Mediano","Estándar","Veterano","Muy bueno","Mediano Estándar Muy bueno",2,12336,4.1,FALSE,4.80219028062971,8
+240,"Muy grande","Lujo","Veterano","Muy bueno","Muy grande Lujo Muy bueno",NA,NA,4.4,FALSE,4.04106776180698,12
+241,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,16005.75,1.9,FALSE,3.12388774811773,2
+242,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,19798.5,1.5,TRUE,3.81930184804928,24
+243,"Muy grande","Lujo","Novato","Bueno","Muy grande Lujo Bueno",NA,NA,3.4,FALSE,0.621492128678987,48
+244,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,43691,1.3,TRUE,5.11978097193703,1
+245,"Grande","Premium","Experimentado","Excelente","Grande Premium Excelente",5,22860.6,4.9,FALSE,2.13826146475017,8
+246,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,14698,1.9,FALSE,6.76522929500342,48
+247,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,21335.3333333333,4.2,FALSE,6.87200547570157,2
+248,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,33240.25,4,TRUE,3.18685831622177,48
+249,"Pequeño","Premium","Veterano","Muy bueno","Pequeño Premium Muy bueno",1,29400,4.1,FALSE,8.37782340862423,12
+250,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,31567,2.5,TRUE,6.8993839835729,12
+251,"Mediano","Económico","Veterano","Muy bueno","Mediano Económico Muy bueno",3,9117,4.5,FALSE,4.58316221765914,24
+252,"Mediano","Estándar","Veterano","Muy bueno","Mediano Estándar Muy bueno",3,17794.6666666667,4.4,FALSE,5.20465434633812,4
+253,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,13800.5,2.6,TRUE,7.4031485284052,12
+254,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,28351,4.9,FALSE,8.32854209445585,24
+255,"Pequeño","Lujo","Veterano","Muy bueno","Pequeño Lujo Muy bueno",1,46621,4.2,TRUE,6.59548254620123,48
+256,"Mediano","Lujo","Veterano","Muy bueno","Mediano Lujo Muy bueno",3,42665.6666666667,4.4,FALSE,6.17932922655715,2
+257,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,34780,2.6,FALSE,2.06707734428474,4
+258,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,25071,1.5,TRUE,1.12251882272416,48
+259,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",3,7216.66666666667,1.2,TRUE,6.04243668720055,8
+260,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,21524.5,4.7,FALSE,8.33949349760438,24
+261,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,20826.4,3.5,TRUE,5.69199178644764,8
+262,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,21106.3333333333,3.2,FALSE,5.59069130732375,1
+263,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,13486.5,2.5,TRUE,4.94455852156057,8
+264,"Mediano","Estándar","Novato","Básico","Mediano Estándar Básico",3,12303,1.6,FALSE,0.982888432580424,12
+265,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",5,23717.2,4.7,FALSE,4.73100616016427,4
+266,"Grande","Premium","Novato","Básico","Grande Premium Básico",4,23117,2,FALSE,0.53388090349076,12
+267,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.7,FALSE,7.12936344969199,12
+268,"Pequeño","Lujo","Experimentado","Bueno","Pequeño Lujo Bueno",1,43796,3.6,FALSE,1.90554414784394,4
+269,"Grande","Lujo","Novato","Básico","Grande Lujo Básico",5,38235.2,2.7,FALSE,0.692676249144422,4
+270,"Mediano","Lujo","Experimentado","Básico","Mediano Lujo Básico",2,37165,2,FALSE,2.5845311430527,8
+271,"Muy grande","Premium","Veterano","Excelente","Muy grande Premium Excelente",7,28131.7142857143,5,FALSE,7.52908966461328,4
+272,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,32372.6,3.6,FALSE,4.10951403148528,4
+273,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,44746,1.6,FALSE,5.09787816563997,1
+274,"Muy grande","Premium","Experimentado","Muy bueno","Muy grande Premium Muy bueno",7,28215.2857142857,4.2,FALSE,2.71047227926078,1
+275,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,30036,1.9,TRUE,3.84394250513347,4
+276,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,18123,1.6,FALSE,1.92197125256674,8
+277,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,22841,1.5,FALSE,5.73579739904175,1
+278,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,22164.5,3.9,FALSE,4.17248459958932,4
+279,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,28344.3333333333,1.9,FALSE,8.22724161533196,4
+280,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,14786.75,1.4,TRUE,5.00752908966461,4
+281,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,26597.6666666667,3.6,FALSE,4.7419575633128,12
+282,"Grande","Premium","Experimentado","Muy bueno","Grande Premium Muy bueno",4,23613,4.3,FALSE,1.16632443531828,24
+283,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,21455.3333333333,3.6,FALSE,3.35660506502396,1
+284,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,28154,1.4,FALSE,7.01711156741958,8
+285,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,29295,1.7,FALSE,5.07323750855578,24
+286,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",2,13373.5,5,FALSE,3.18685831622177,4
+287,"Muy grande","Premium","Experimentado","Excelente","Muy grande Premium Excelente",6,21030.5,4.8,FALSE,2.69952087611225,1
+288,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,28975.5,4.3,FALSE,6.06160164271047,4
+289,"Pequeño","Premium","Experimentado","Básico","Pequeño Premium Básico",1,29562,2.4,FALSE,1.27857631759069,1
+290,"Pequeño","Lujo","Experimentado","Excelente","Pequeño Lujo Excelente",1,43485,5,FALSE,2.38740588637919,1
+291,"Muy grande","Premium","Experimentado","Bueno","Muy grande Premium Bueno",7,29639.2857142857,3.9,FALSE,2.77891854893908,8
+292,"Grande","Premium","Experimentado","Excelente","Grande Premium Excelente",5,23949.6,4.6,FALSE,1.54962354551677,8
+293,"Mediano","Económico","Experimentado","Básico","Mediano Económico Básico",3,8668,2.5,FALSE,1.77686516084873,4
+294,"Pequeño","Estándar","Experimentado","Excelente","Pequeño Estándar Excelente",1,18769,5,FALSE,1.73305954825462,1
+295,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,36572,2.2,FALSE,8.34223134839151,24
+296,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,30934.5,3.8,TRUE,2.38740588637919,1
+297,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,16478.75,4,FALSE,3.29911019849418,12
+298,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,30324,1.9,FALSE,3.0362765229295,24
+299,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,23391,1.7,FALSE,5.26488706365503,4
+300,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,34690,2.7,FALSE,6.2861054072553,12
+301,"Grande","Premium","Experimentado","Muy bueno","Grande Premium Muy bueno",4,31297.25,4.5,FALSE,2.66392881587953,12
+302,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,32523.25,3.4,TRUE,2.66392881587953,4
+303,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,23610,1,FALSE,7.38672142368241,8
+304,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,23702.6,3,FALSE,5.48117727583847,8
+305,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,33395.3333333333,1.2,FALSE,3.83846680355921,4
+306,"Pequeño","Premium","Experimentado","Básico","Pequeño Premium Básico",1,29458,2.5,TRUE,2.92128678986995,8
+307,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,25561.5,5,TRUE,5.40999315537303,4
+308,"Pequeño","Estándar","Experimentado","Bueno","Pequeño Estándar Bueno",1,14021,3.4,FALSE,1.30595482546201,8
+309,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.7,FALSE,6.86926762491444,48
+310,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,23553,4.9,FALSE,6.69952087611225,8
+311,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,32035.2,4,TRUE,7.67145790554415,4
+312,"Pequeño","Económico","Veterano","Bueno","Pequeño Económico Bueno",1,8492,3.5,FALSE,3.67419575633128,48
+313,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,31730.5,1.6,FALSE,5.59616700889802,1
+314,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,14938,1.2,FALSE,5.54688569472964,8
+315,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,51966.5,1.5,FALSE,3.06365503080082,24
+316,"Grande","Premium","Novato","Básico","Grande Premium Básico",4,20676,2.4,FALSE,0.752908966461328,12
+317,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,13582.3333333333,3.2,FALSE,5.68651608487337,48
+318,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,27315.75,3.1,FALSE,6.58726899383984,1
+319,"Pequeño","Económico","Veterano","Bueno","Pequeño Económico Bueno",1,5718,3.9,FALSE,8.0684462696783,12
+320,"Pequeño","Lujo","Veterano","Bueno","Pequeño Lujo Bueno",1,53407,4,TRUE,4.40520191649555,48
+321,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,27348,1.3,FALSE,8.10677618069815,2
+322,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",5,31396,3.6,FALSE,2.60643394934976,8
+323,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,18414.25,3,FALSE,5.64818617385353,1
+324,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",8,31858.875,1.6,TRUE,3.9233401779603,24
+325,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,26402.75,2.2,FALSE,7.13210130047912,1
+326,"Muy grande","Lujo","Novato","Bueno","Muy grande Lujo Bueno",NA,NA,3.7,TRUE,0.955509924709103,2
+327,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,35292,1.1,FALSE,6.03696098562628,1
+328,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,26681.6,2,FALSE,2.39014373716632,2
+329,"Pequeño","Lujo","Experimentado","Bueno","Pequeño Lujo Bueno",1,35420,3.7,FALSE,2.10266940451745,4
+330,"Grande","Estándar","Experimentado","Excelente","Grande Estándar Excelente",4,17979.75,4.7,FALSE,2.6694045174538,1
+331,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,27363,2.8,FALSE,7.8466803559206,4
+332,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,27894.6,3.5,FALSE,3.87132101300479,1
+333,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,24008.6666666667,2.3,FALSE,8.24366872005476,48
+334,"Muy grande","Premium","Experimentado","Bueno","Muy grande Premium Bueno",7,21017.7142857143,3.8,FALSE,2.25051334702259,24
+335,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,27187.5,1.1,FALSE,1.64271047227926,1
+336,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,30054.3333333333,3.1,TRUE,1.15811088295688,24
+337,"Mediano","Lujo","Veterano","Excelente","Mediano Lujo Excelente",2,36134.5,4.7,FALSE,6.50239561943874,1
+338,"Pequeño","Premium","Experimentado","Bueno","Pequeño Premium Bueno",1,25551,3.8,FALSE,2.87200547570157,1
+339,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,26764,4,FALSE,3.65229295003422,12
+340,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,28085.8,2.9,FALSE,3.87953456536619,48
+341,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,28968.6666666667,1.1,FALSE,3.59479808350445,4
+342,"Muy grande","Premium","Novato","Muy bueno","Muy grande Premium Muy bueno",6,29641.5,4.2,FALSE,0.670773442847365,12
+343,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,19141,1.3,TRUE,4.07939767282683,8
+344,"Mediano","Estándar","Novato","Básico","Mediano Estándar Básico",3,10769.6666666667,2.5,FALSE,0.63791923340178,2
+345,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,29305,4.7,TRUE,8.30937713894593,48
+346,"Muy grande","Premium","Veterano","Excelente","Muy grande Premium Excelente",8,32630.75,4.9,FALSE,6.6694045174538,4
+347,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.4,FALSE,7.98904859685147,48
+348,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,32356.5,3.9,FALSE,7.04722792607803,4
+349,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.7,FALSE,7.7015742642026,4
+350,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,31056,2.7,FALSE,7.09924709103354,48
+351,"Mediano","Estándar","Novato","Básico","Mediano Estándar Básico",3,10509.3333333333,1.2,TRUE,0.462696783025325,4
+352,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.5,FALSE,4.05749486652977,24
+353,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,20667,4.9,FALSE,7.04175222450376,12
+354,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,18137,2.7,FALSE,3.20328542094456,4
+355,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",4,30599.25,4.5,FALSE,6.84736481861739,4
+356,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,17943.5,3.4,TRUE,4.71731690622861,48
+357,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,24402.6666666667,3,FALSE,4.4435318275154,2
+358,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,30204,4.9,FALSE,7.23887748117728,8
+359,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,21636,1.1,FALSE,4.45722108145106,12
+360,"Muy grande","Estándar","Experimentado","Básico","Muy grande Estándar Básico",6,13305,2.9,TRUE,1.11978097193703,12
+361,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,22663.25,3.1,FALSE,5.19096509240246,1
+362,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,20340,2.9,FALSE,1.00205338809035,8
+363,"Pequeño","Lujo","Veterano","Excelente","Pequeño Lujo Excelente",1,39249,4.9,FALSE,5.51950718685832,12
+364,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,13163,1.6,FALSE,7.23340177960301,8
+365,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,24810.6,1.7,FALSE,1.7741273100616,1
+366,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,25539.5,3.4,FALSE,5.87268993839836,8
+367,"Mediano","Lujo","Veterano","Muy bueno","Mediano Lujo Muy bueno",2,35018,4.2,FALSE,3.29363449691992,24
+368,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",2,8308,2.8,FALSE,4.63791923340178,8
+369,"Pequeño","Estándar","Veterano","Excelente","Pequeño Estándar Excelente",1,12006,4.7,FALSE,3.72073921971253,4
+370,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,15485.6666666667,3.2,FALSE,7.12388774811773,1
+371,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",8,23083.875,2.4,FALSE,5.13347022587269,2
+372,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,16696.3333333333,4.8,FALSE,4.63791923340178,12
+373,"Grande","Estándar","Novato","Bueno","Grande Estándar Bueno",4,18067.5,3.7,TRUE,0.826830937713895,1
+374,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,18741,1.6,FALSE,7.28268309377139,24
+375,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,40658.3333333333,1.4,FALSE,6.18754277891855,12
+376,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,23671.5,3.4,FALSE,7.71252566735113,24
+377,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,18159.25,3.8,FALSE,4.9555099247091,1
+378,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,26496,3.8,FALSE,7.90965092402464,48
+379,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,23156,2.5,FALSE,1.22381930184805,1
+380,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",2,6819.5,1.1,TRUE,6.1492128678987,8
+381,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,26543.1666666667,2.5,FALSE,4.01368925393566,8
+382,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,27510,1.7,TRUE,7.20054757015743,8
+383,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",2,46321,3.1,TRUE,7.35112936344969,8
+384,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,27935.6666666667,3.1,FALSE,4.2299794661191,12
+385,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,32068.5,4.8,TRUE,5.3388090349076,8
+386,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,13093,2.4,FALSE,8.10677618069815,1
+387,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,41795.5,2,FALSE,5.10609171800137,1
+388,"Mediano","Estándar","Novato","Básico","Mediano Estándar Básico",2,15822.5,2.8,FALSE,0.818617385352498,12
+389,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,18916.3333333333,4.6,FALSE,8.12320328542094,48
+390,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,27791.6666666667,2.7,FALSE,3.93702943189596,12
+391,"Grande","Lujo","Veterano","Bueno","Grande Lujo Bueno",4,39243,4,FALSE,6.83915126625599,48
+392,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,25288.75,3.2,FALSE,7.0362765229295,12
+393,"Pequeño","Premium","Veterano","Bueno","Pequeño Premium Bueno",1,27046,3.3,FALSE,8.1533196440794,2
+394,"Mediano","Lujo","Novato","Muy bueno","Mediano Lujo Muy bueno",3,35388.3333333333,4.1,FALSE,0.536618754277892,4
+395,"Pequeño","Lujo","Veterano","Muy bueno","Pequeño Lujo Muy bueno",1,36286,4.3,FALSE,7.34839151266256,12
+396,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",3,35606,3.7,FALSE,6.88021902806297,8
+397,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,27940,1.2,TRUE,1.97399041752225,24
+398,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,24366.3333333333,3.9,FALSE,3.35660506502396,8
+399,"Grande","Lujo","Veterano","Básico","Grande Lujo Básico",4,37877.5,1.8,FALSE,5.90280629705681,1
+400,"Pequeño","Premium","Experimentado","Básico","Pequeño Premium Básico",1,32696,1.7,TRUE,2.69678302532512,24
+401,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,28895,2.9,TRUE,6.10814510609172,48
+402,"Pequeño","Estándar","Veterano","Excelente","Pequeño Estándar Excelente",1,15358,4.6,FALSE,7.3264887063655,48
+403,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,20388,2.4,FALSE,1.76317590691307,2
+404,"Mediano","Estándar","Experimentado","Bueno","Mediano Estándar Bueno",2,19710.5,3.6,FALSE,1.2703627652293,12
+405,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",5,13547.6,3.9,FALSE,5.7056810403833,24
+406,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",4,27996.75,4.3,FALSE,4.77481177275838,12
+407,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,22743,4,FALSE,3.35386721423682,2
+408,"Mediano","Estándar","Novato","Básico","Mediano Estándar Básico",2,19376,1.6,FALSE,0.854209445585216,8
+409,"Grande","Lujo","Veterano","Bueno","Grande Lujo Bueno",4,40709.75,3.7,FALSE,7.80013689253936,2
+410,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",NA,NA,1.2,FALSE,1.65092402464066,1
+411,"Mediano","Premium","Novato","Bueno","Mediano Premium Bueno",3,22192,3.6,FALSE,0.928131416837782,2
+412,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,30292.2,3.7,FALSE,3.00889801505818,48
+413,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",2,28473.5,4.1,FALSE,1.90006844626968,4
+414,"Mediano","Económico","Experimentado","Básico","Mediano Económico Básico",2,6748.5,3,TRUE,2.57084188911704,12
+415,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,29866.25,4.8,FALSE,6.5160848733744,8
+416,"Pequeño","Lujo","Veterano","Excelente","Pequeño Lujo Excelente",1,44704,4.7,FALSE,5.1088295687885,8
+417,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,10021,1.7,FALSE,2.85010266940452,2
+418,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,24381.5,4,TRUE,4.58316221765914,48
+419,"Grande","Estándar","Novato","Muy bueno","Grande Estándar Muy bueno",4,10757.5,4.1,FALSE,0.862422997946612,12
+420,"Mediano","Lujo","Veterano","Excelente","Mediano Lujo Excelente",2,42969,4.7,FALSE,3.03080082135524,12
+421,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,20795.8333333333,1.3,FALSE,5.90280629705681,4
+422,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.7,TRUE,5.87542778918549,8
+423,"Pequeño","Estándar","Novato","Excelente","Pequeño Estándar Excelente",1,14709,4.8,FALSE,0.947296372347707,12
+424,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,31662.5,2.3,FALSE,6.84188911704312,12
+425,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.1,FALSE,7.60848733744011,1
+426,"Pequeño","Estándar","Novato","Muy bueno","Pequeño Estándar Muy bueno",1,10465,4.2,TRUE,0.87337440109514,4
+427,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,34364,3.7,TRUE,1.24298425735797,1
+428,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",4,33938,4.2,FALSE,5.81519507186858,2
+429,"Grande","Lujo","Experimentado","Bueno","Grande Lujo Bueno",5,41775.4,3.4,FALSE,1.47296372347707,1
+430,"Muy grande","Premium","Veterano","Excelente","Muy grande Premium Excelente",7,23666.4285714286,4.8,FALSE,4.48733744010951,1
+431,"Pequeño","Estándar","Veterano","Muy bueno","Pequeño Estándar Muy bueno",1,18232,4.2,FALSE,4.37234770704997,12
+432,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,23262.4,1.1,TRUE,2.74058863791923,1
+433,"Pequeño","Estándar","Experimentado","Bueno","Pequeño Estándar Bueno",1,14333,3.3,TRUE,1.8425735797399,12
+434,"Pequeño","Estándar","Experimentado","Bueno","Pequeño Estándar Bueno",1,12979,3.1,FALSE,2.04791238877481,1
+435,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,31115.5,3.3,FALSE,1.22929500342231,12
+436,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",7,28414.7142857143,2.9,FALSE,6.0643394934976,8
+437,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,21699,1.4,FALSE,3.45516769336071,2
+438,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,45534,1.1,FALSE,3.56194387405886,24
+439,"Pequeño","Lujo","Experimentado","Básico","Pequeño Lujo Básico",1,42851,1.6,FALSE,2.40930869267625,8
+440,"Pequeño","Económico","Veterano","Básico","Pequeño Económico Básico",1,8161,2,FALSE,4.33401779603012,48
+441,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,31931.3333333333,3.4,FALSE,4.05201916495551,12
+442,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,24397.75,2,FALSE,1.26762491444216,48
+443,"Grande","Estándar","Veterano","Muy bueno","Grande Estándar Muy bueno",5,17764.4,4.1,TRUE,6.04517453798768,48
+444,"Grande","Lujo","Veterano","Bueno","Grande Lujo Bueno",5,36499.4,3.3,FALSE,7.57289527720739,2
+445,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.8,FALSE,6.35455167693361,2
+446,"Grande","Lujo","Veterano","Muy bueno","Grande Lujo Muy bueno",4,37234,4.3,TRUE,8.290212183436,48
+447,"Pequeño","Premium","Experimentado","Básico","Pequeño Premium Básico",1,32919,3,TRUE,2.03422313483915,1
+448,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",3,40254.3333333333,3.5,FALSE,7.97809719370294,24
+449,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,17592.5,2.7,FALSE,4.75564681724846,4
+450,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,26486.5,1.6,FALSE,3.19507186858316,24
+451,"Grande","Estándar","Experimentado","Básico","Grande Estándar Básico",5,14969.4,2.6,TRUE,1.27583846680356,12
+452,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,19757,1.9,FALSE,4.85968514715948,12
+453,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,17998.3333333333,1,FALSE,3.89048596851472,2
+454,"Muy grande","Estándar","Experimentado","Excelente","Muy grande Estándar Excelente",7,19004.4285714286,4.9,FALSE,1.24845995893224,48
+455,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.7,FALSE,5.24572210814511,12
+456,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,32628.3333333333,1.4,TRUE,5.85352498288843,4
+457,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,33788.5,3.9,FALSE,3.81382614647502,2
+458,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,44122.3333333333,2.9,FALSE,3.81382614647502,4
+459,"Mediano","Estándar","Novato","Básico","Mediano Estándar Básico",2,17662.5,2.5,FALSE,0.731006160164271,1
+460,"Pequeño","Lujo","Novato","Básico","Pequeño Lujo Básico",1,50965,2.3,FALSE,0.48186173853525,12
+461,"Pequeño","Premium","Experimentado","Bueno","Pequeño Premium Bueno",1,26356,3.9,FALSE,1.82888432580424,1
+462,"Grande","Premium","Novato","Bueno","Grande Premium Bueno",4,25212.25,3.5,FALSE,0.544832306639288,48
+463,"Mediano","Lujo","Novato","Básico","Mediano Lujo Básico",2,36603,1.3,FALSE,0.887063655030801,48
+464,"Muy grande","Lujo","Veterano","Excelente","Muy grande Lujo Excelente",NA,NA,4.7,FALSE,6.9678302532512,8
+465,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,22970,5,FALSE,3.72347707049966,4
+466,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,25321.3333333333,1.9,FALSE,3.71252566735113,8
+467,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,14335,2.9,TRUE,5.74401095140315,4
+468,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",NA,NA,1,FALSE,2.05612594113621,8
+469,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",7,25397.1428571429,2.7,FALSE,3.5482546201232,48
+470,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,15967,2.2,FALSE,4.08761122518823,2
+471,"Mediano","Premium","Novato","Muy bueno","Mediano Premium Muy bueno",3,34525,4.2,FALSE,0.936344969199179,2
+472,"Grande","Premium","Novato","Básico","Grande Premium Básico",5,25749,1.6,FALSE,0.969199178644764,24
+473,"Mediano","Lujo","Experimentado","Muy bueno","Mediano Lujo Muy bueno",3,35406,4.3,FALSE,1.36618754277892,2
+474,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,12578,2.3,TRUE,3.53456536618754,4
+475,"Grande","Lujo","Experimentado","Bueno","Grande Lujo Bueno",5,46086.4,3.3,FALSE,2.66666666666667,8
+476,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,53968,1.4,FALSE,4.84599589322382,4
+477,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",6,35118.6666666667,1.8,FALSE,5.91101984941821,2
+478,"Muy grande","Estándar","Experimentado","Muy bueno","Muy grande Estándar Muy bueno",7,19435.5714285714,4.5,TRUE,2.50239561943874,1
+479,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",3,9532.33333333333,2.7,FALSE,7.79466119096509,48
+480,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",3,16410.6666666667,2,FALSE,1.85352498288843,4
+481,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,22756.75,4,FALSE,3.46611909650924,8
+482,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,25109.6666666667,2.7,TRUE,7.29637234770705,48
+483,"Pequeño","Estándar","Novato","Bueno","Pequeño Estándar Bueno",1,15086,4,FALSE,0.405201916495551,1
+484,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,26546.6666666667,2.3,FALSE,2.41752224503765,12
+485,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,25237.4,3.9,FALSE,4.06297056810404,1
+486,"Pequeño","Económico","Experimentado","Básico","Pequeño Económico Básico",1,8233,1.4,TRUE,2.40657084188912,24
+487,"Grande","Premium","Experimentado","Muy bueno","Grande Premium Muy bueno",4,24797.25,4.5,FALSE,2.74332648870637,1
+488,"Muy grande","Premium","Veterano","Excelente","Muy grande Premium Excelente",6,27474.5,5,FALSE,3.78918548939083,1
+489,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,24106,1.7,FALSE,7.42505133470226,24
+490,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,27963,3.6,FALSE,4.85420944558522,2
+491,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,22962.5,2.5,FALSE,5.80971937029432,8
+492,"Pequeño","Premium","Experimentado","Bueno","Pequeño Premium Bueno",1,28621,3.4,FALSE,1.6208076659822,8
+493,"Grande","Estándar","Experimentado","Básico","Grande Estándar Básico",5,19259.8,1.3,TRUE,1.06502395619439,1
+494,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",3,22199.3333333333,4.3,FALSE,2.11635865845311,8
+495,"Mediano","Premium","Novato","Básico","Mediano Premium Básico",2,22953.5,2.2,FALSE,0.728268309377139,12
+496,"Pequeño","Estándar","Experimentado","Bueno","Pequeño Estándar Bueno",1,12559,3.7,FALSE,1.96577686516085,24
+497,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,10757,1.6,TRUE,6.73237508555784,12
+498,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,1.1,TRUE,6.3791923340178,2
+499,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,25423.3333333333,3.6,TRUE,1.68925393566051,24
+500,"Pequeño","Estándar","Experimentado","Bueno","Pequeño Estándar Bueno",1,19328,3.3,FALSE,1.27857631759069,1
+501,"Grande","Estándar","Experimentado","Básico","Grande Estándar Básico",4,15972,1,FALSE,2.17932922655715,4
+502,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,21328.75,1.1,FALSE,5.90006844626968,8
+503,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,14104,2,FALSE,5.13073237508556,24
+504,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",2,10066,3,TRUE,2.52156057494867,48
+505,"Grande","Lujo","Veterano","Básico","Grande Lujo Básico",5,41082,2.8,FALSE,6.18206707734428,12
+506,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.9,FALSE,7.25256673511294,48
+507,"Muy grande","Estándar","Experimentado","Básico","Muy grande Estándar Básico",6,13701.6666666667,1.5,FALSE,2.81998631074606,8
+508,"Grande","Premium","Experimentado","Muy bueno","Grande Premium Muy bueno",4,23791,4.3,FALSE,1.51950718685832,1
+509,"Pequeño","Estándar","Veterano","Excelente","Pequeño Estándar Excelente",1,10351,4.7,FALSE,3.64134154688569,12
+510,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,24422.1666666667,3.9,FALSE,8.38877481177276,12
+511,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,33101.5,2.7,FALSE,3.02258726899384,2
+512,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,23211.3333333333,1.1,TRUE,1.08692676249144,48
+513,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,21297.25,4.7,TRUE,3.60027378507871,2
+514,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,26538,2.3,FALSE,2.63107460643395,48
+515,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,24206.5,3,FALSE,6.072553045859,4
+516,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,21260.5,4.2,FALSE,5.49760438056126,24
+517,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,19843,1,TRUE,2.99794661190965,12
+518,"Muy grande","Lujo","Veterano","Excelente","Muy grande Lujo Excelente",NA,NA,4.9,FALSE,4.68446269678302,48
+519,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,37145,2.4,FALSE,7.25256673511294,4
+520,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,29014,1.2,FALSE,3.72621492128679,48
+521,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",5,28000,4.1,FALSE,7.67145790554415,4
+522,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,17595.25,4,FALSE,5.02395619438741,1
+523,"Mediano","Premium","Experimentado","Excelente","Mediano Premium Excelente",2,25110.5,4.7,FALSE,1.11156741957563,24
+524,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,29525,2.8,FALSE,3.11841204654346,1
+525,"Pequeño","Lujo","Veterano","Bueno","Pequeño Lujo Bueno",1,37556,3.9,FALSE,4.0766598220397,2
+526,"Muy grande","Premium","Experimentado","Excelente","Muy grande Premium Excelente",7,23804.4285714286,4.9,FALSE,2.02600958247776,12
+527,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,34850,3.1,FALSE,7.25256673511294,4
+528,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,24991.3333333333,4.4,TRUE,6.55715263518138,48
+529,"Pequeño","Estándar","Experimentado","Excelente","Pequeño Estándar Excelente",1,17296,5,FALSE,2.2943189596167,48
+530,"Grande","Premium","Experimentado","Excelente","Grande Premium Excelente",5,20517.8,4.7,TRUE,1.65639972621492,24
+531,"Grande","Lujo","Veterano","Muy bueno","Grande Lujo Muy bueno",4,35335.25,4.3,FALSE,7.23340177960301,8
+532,"Mediano","Lujo","Veterano","Muy bueno","Mediano Lujo Muy bueno",2,51273.5,4.3,FALSE,5.6974674880219,4
+533,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,24548.6666666667,3.3,FALSE,6.95414099931554,2
+534,"Muy grande","Premium","Experimentado","Bueno","Muy grande Premium Bueno",6,27438,3.1,TRUE,2.8911704312115,2
+535,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,49406,2.1,FALSE,7.20054757015743,48
+536,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",5,21467.4,4.2,TRUE,4.65982203969884,48
+537,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,28171.4,2.8,FALSE,8.07118412046543,4
+538,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,24160.2,1.1,TRUE,7.61396303901437,12
+539,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,10422.5,1.4,FALSE,6.25051334702259,2
+540,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,35522,1.2,TRUE,5.65639972621492,24
+541,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,16447.25,3.6,TRUE,5.79329226557153,24
+542,"Grande","Premium","Experimentado","Muy bueno","Grande Premium Muy bueno",5,23976.6,4.3,FALSE,1.01574264202601,8
+543,"Muy grande","Estándar","Veterano","Básico","Muy grande Estándar Básico",6,17022.3333333333,2.2,TRUE,7.2662559890486,12
+544,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",5,23281.2,4.4,TRUE,7.0280629705681,2
+545,"Mediano","Lujo","Experimentado","Básico","Mediano Lujo Básico",3,37929.3333333333,1.9,FALSE,2.8227241615332,4
+546,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",2,27830,4,TRUE,1.73853524982888,4
+547,"Muy grande","Lujo","Experimentado","Excelente","Muy grande Lujo Excelente",NA,NA,4.9,TRUE,2.4476386036961,8
+548,"Grande","Estándar","Novato","Bueno","Grande Estándar Bueno",5,16636.8,3.6,FALSE,0.75564681724846,2
+549,"Pequeño","Económico","Veterano","Básico","Pequeño Económico Básico",1,6277,2.2,FALSE,7.00342231348391,8
+550,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",4,29911.75,4.5,FALSE,7.45242984257358,12
+551,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,26004.5,3.9,FALSE,7.86858316221766,2
+552,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",2,32782,4,FALSE,2.40109514031485,12
+553,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,23071.6,1.7,FALSE,7.67967145790554,12
+554,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,17852.75,3,FALSE,5.56331279945243,2
+555,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,23116,1.9,FALSE,1.47843942505133,2
+556,"Grande","Estándar","Veterano","Muy bueno","Grande Estándar Muy bueno",5,16972.2,4.4,FALSE,4.290212183436,8
+557,"Pequeño","Económico","Experimentado","Básico","Pequeño Económico Básico",1,7814,2.1,FALSE,2.81177275838467,8
+558,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",2,8632,2.4,FALSE,7.71800136892539,2
+559,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",NA,NA,1.3,TRUE,2.10540725530459,24
+560,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,31469.6666666667,2.4,TRUE,2.71047227926078,48
+561,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,17964,1.7,FALSE,7.88501026694045,48
+562,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,30067.3333333333,2.6,TRUE,3.36481861738535,12
+563,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,34964.25,1.7,FALSE,4.45448323066393,2
+564,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.6,FALSE,5.46475017111567,2
+565,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",5,15634,3.9,TRUE,5.83436002737851,1
+566,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,33324.3333333333,2.3,FALSE,4.51471594798083,1
+567,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,23715.8333333333,3,FALSE,6.26146475017112,48
+568,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,16400,2.6,FALSE,1.73032169746749,4
+569,"Grande","Premium","Novato","Bueno","Grande Premium Bueno",4,22674.25,3.5,FALSE,0.922655715263518,24
+570,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,22223,4.3,FALSE,5.73853524982888,1
+571,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,20676.4,2.8,FALSE,5.62354551676934,2
+572,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,16266.5,3.1,FALSE,4.73100616016427,4
+573,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,21427.3333333333,1.2,FALSE,4.76112251882272,12
+574,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,21904,2.6,FALSE,4.12046543463381,1
+575,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,34442.2,1.8,FALSE,4.04928131416838,12
+576,"Mediano","Estándar","Veterano","Muy bueno","Mediano Estándar Muy bueno",2,13526.5,4.1,FALSE,6.507871321013,1
+577,"Grande","Premium","Experimentado","Excelente","Grande Premium Excelente",4,29627,4.8,TRUE,2.03696098562628,2
+578,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",5,24114.2,4.6,FALSE,3.48254620123203,4
+579,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,34430.5,1.3,TRUE,5.68925393566051,1
+580,"Muy grande","Premium","Veterano","Excelente","Muy grande Premium Excelente",7,30401.2857142857,4.8,FALSE,3.11841204654346,24
+581,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",2,11527.5,1.2,FALSE,1.31964407939767,48
+582,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",5,32524.6,4.4,FALSE,4.98836413415469,1
+583,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,19330,2.8,FALSE,3.32922655715264,2
+584,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,27501,1.6,FALSE,1.60164271047228,8
+585,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,28232.6666666667,1.2,FALSE,7.71526351813826,24
+586,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",2,9285.5,1.4,FALSE,7.40041067761807,24
+587,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,56092,2.1,TRUE,8.06297056810404,8
+588,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",NA,NA,1.6,TRUE,2.94592744695414,1
+589,"Grande","Premium","Novato","Básico","Grande Premium Básico",5,24862.6,2.5,TRUE,0.684462696783025,2
+590,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,29598.8,2.2,FALSE,4.07118412046543,8
+591,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,15452.6666666667,4.7,TRUE,4.67898699520876,4
+592,"Mediano","Económico","Novato","Bueno","Mediano Económico Bueno",2,9606.5,3.6,FALSE,0.97741273100616,1
+593,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,21333,1.6,FALSE,4.6735112936345,4
+594,"Pequeño","Premium","Veterano","Bueno","Pequeño Premium Bueno",1,26980,3.8,FALSE,3.63586584531143,8
+595,"Grande","Premium","Novato","Básico","Grande Premium Básico",4,30884,1.5,FALSE,0.884325804243669,4
+596,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,23385,1.3,FALSE,3.68514715947981,48
+597,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,24728.5,2.1,FALSE,3.55920602327173,48
+598,"Pequeño","Premium","Veterano","Bueno","Pequeño Premium Bueno",1,22996,3.3,FALSE,6.46132785763176,24
+599,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,22252.5,1.8,FALSE,1.25119780971937,4
+600,"Grande","Estándar","Veterano","Muy bueno","Grande Estándar Muy bueno",4,14653.5,4.2,FALSE,5.37440109514031,48
+601,"Pequeño","Lujo","Novato","Básico","Pequeño Lujo Básico",1,37879,2.4,FALSE,0.878850102669405,1
+602,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,20403.25,2.2,FALSE,3.12936344969199,48
+603,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,30374.3333333333,1,FALSE,7.78370978781656,1
+604,"Muy grande","Estándar","Veterano","Muy bueno","Muy grande Estándar Muy bueno",7,17866.5714285714,4.4,FALSE,5.48665297741273,48
+605,"Muy grande","Estándar","Veterano","Bueno","Muy grande Estándar Bueno",6,17311.1666666667,3.7,FALSE,3.04175222450376,24
+606,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,30773,2.3,FALSE,5.3305954825462,2
+607,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,25544.3333333333,3.6,FALSE,5.21286789869952,4
+608,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,51980,1.8,FALSE,4.05475701574264,2
+609,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,31377.5,3.7,FALSE,8.3668720054757,4
+610,"Pequeño","Lujo","Veterano","Excelente","Pequeño Lujo Excelente",1,54002,4.7,TRUE,5.83162217659138,2
+611,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,32714,3.8,FALSE,8.02737850787132,8
+612,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,21441,1.5,FALSE,3.31827515400411,48
+613,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,11958,2.1,FALSE,5.4839151266256,12
+614,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,32577,3,TRUE,3.9917864476386,48
+615,"Pequeño","Estándar","Veterano","Muy bueno","Pequeño Estándar Muy bueno",1,17447,4.5,FALSE,4.92539356605065,2
+616,"Grande","Premium","Experimentado","Excelente","Grande Premium Excelente",5,24086,5,FALSE,1.55783709787817,24
+617,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,18586.25,3.1,FALSE,7.79466119096509,48
+618,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",7,35170.8571428571,1.8,FALSE,4.27104722792608,24
+619,"Grande","Estándar","Veterano","Muy bueno","Grande Estándar Muy bueno",5,19720.6,4.5,FALSE,4.08761122518823,2
+620,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,3,FALSE,7.54004106776181,4
+621,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,20875.6666666667,2.6,TRUE,3.44695414099932,12
+622,"Mediano","Lujo","Veterano","Muy bueno","Mediano Lujo Muy bueno",2,37575,4.5,TRUE,4.53388090349076,8
+623,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,22095.5,2.7,FALSE,7.25530458590007,1
+624,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,1.2,FALSE,8.02464065708419,24
+625,"Mediano","Económico","Veterano","Muy bueno","Mediano Económico Muy bueno",2,9509,4.4,FALSE,5.46201232032854,1
+626,"Grande","Económico","Experimentado","Muy bueno","Grande Económico Muy bueno",4,8522.75,4.2,TRUE,1.927446954141,4
+627,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,29748.6666666667,2.4,FALSE,4.41889117043121,4
+628,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,31792.5,3.2,FALSE,4.67077344284736,48
+629,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",2,41998,3.6,FALSE,6.17932922655715,4
+630,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,11139,3.1,FALSE,6.8829568788501,2
+631,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.4,TRUE,7.80561259411362,1
+632,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,13195,1.3,TRUE,1.7138945927447,12
+633,"Grande","Estándar","Experimentado","Básico","Grande Estándar Básico",4,18405.75,2.1,FALSE,1.53319644079398,4
+634,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,23522,2.4,FALSE,5.28405201916496,12
+635,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,44714,1.3,FALSE,4.04654346338125,12
+636,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",2,33178.5,3.8,TRUE,1.94661190965092,1
+637,"Muy grande","Premium","Experimentado","Básico","Muy grande Premium Básico",6,34192.8333333333,2.7,FALSE,1.46748802190281,8
+638,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,10012.5,2,FALSE,4.55852156057495,1
+639,"Mediano","Premium","Experimentado","Excelente","Mediano Premium Excelente",2,24096,4.7,FALSE,2.63107460643395,4
+640,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",2,25435,1.1,FALSE,2.75427789185489,48
+641,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,31977.5,2.3,FALSE,7.3264887063655,2
+642,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,33535.4,1.6,FALSE,2.92128678986995,4
+643,"Grande","Lujo","Novato","Bueno","Grande Lujo Bueno",4,46581.5,4,FALSE,0.955509924709103,4
+644,"Grande","Lujo","Veterano","Excelente","Grande Lujo Excelente",5,47750.8,4.7,FALSE,3.26078028747433,4
+645,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,22595,4.1,FALSE,7.40041067761807,12
+646,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",2,23011,3.7,FALSE,2.39288158795346,2
+647,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.2,FALSE,5.85352498288843,2
+648,"Grande","Premium","Experimentado","Excelente","Grande Premium Excelente",5,28949.2,4.6,FALSE,2.54893908281999,8
+649,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",NA,NA,2.9,FALSE,1.29500342231348,4
+650,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,27118.75,2,TRUE,1.96851471594798,12
+651,"Grande","Premium","Novato","Básico","Grande Premium Básico",4,29360.75,1.9,FALSE,0.435318275154004,2
+652,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,30082,2,FALSE,6.57084188911704,1
+653,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,23452.6666666667,3.2,TRUE,1.44284736481862,48
+654,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,20725.75,1.9,FALSE,3.61943874058864,4
+655,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,19798,2.9,FALSE,4.19712525667351,24
+656,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",8,24182.875,3.4,TRUE,7.4880219028063,2
+657,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,23302.2,2.8,FALSE,8.12320328542094,48
+658,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,34754.2,1.6,FALSE,6.99794661190965,48
+659,"Muy grande","Estándar","Veterano","Básico","Muy grande Estándar Básico",6,18454.1666666667,1.7,FALSE,8.12594113620808,8
+660,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,26299.25,2.3,TRUE,4.23271731690623,12
+661,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",2,15413,1.8,TRUE,1.68104038329911,1
+662,"Mediano","Lujo","Experimentado","Bueno","Mediano Lujo Bueno",2,46682,3.2,FALSE,2.78713210130048,4
+663,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,29225.6666666667,3.9,FALSE,5.24845995893224,8
+664,"Pequeño","Estándar","Veterano","Bueno","Pequeño Estándar Bueno",1,11193,3.3,FALSE,6.63655030800821,4
+665,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,27315.5,2.5,FALSE,4.93086926762491,2
+666,"Mediano","Lujo","Experimentado","Básico","Mediano Lujo Básico",2,47236.5,1.5,FALSE,1.10609171800137,2
+667,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,16965.5,3.7,FALSE,4.2217659137577,12
+668,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,24810,4.9,FALSE,5.4072553045859,48
+669,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,31630.75,2.3,FALSE,1.1854893908282,48
+670,"Mediano","Lujo","Veterano","Excelente","Mediano Lujo Excelente",2,36654,4.9,TRUE,6.83915126625599,12
+671,"Pequeño","Económico","Novato","Básico","Pequeño Económico Básico",1,5026,2.9,FALSE,0.824093086926763,12
+672,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,23377.3333333333,2.6,FALSE,5.4757015742642,4
+673,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,34739,3.5,FALSE,5.31964407939767,8
+674,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,20241.5,3.9,FALSE,3.22518822724162,8
+675,"Pequeño","Estándar","Experimentado","Excelente","Pequeño Estándar Excelente",1,11047,4.7,FALSE,1.54688569472964,4
+676,"Grande","Estándar","Experimentado","Básico","Grande Estándar Básico",5,13996.8,1.5,FALSE,2.56810403832991,8
+677,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,10522.5,1.9,FALSE,3.33196440793977,48
+678,"Pequeño","Estándar","Veterano","Excelente","Pequeño Estándar Excelente",1,15789,4.7,FALSE,4.24093086926762,8
+679,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,11184.6666666667,4.8,FALSE,7.80835044490075,1
+680,"Pequeño","Estándar","Experimentado","Bueno","Pequeño Estándar Bueno",1,12184,3.5,FALSE,2.99794661190965,2
+681,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,13676,3.3,FALSE,6.76522929500342,2
+682,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,28252.5,3.1,FALSE,2.23134839151266,48
+683,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,24814,1.8,FALSE,5.05133470225873,1
+684,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,19296.25,1.4,FALSE,3.06639288158795,2
+685,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,22665,4.1,TRUE,6.25325119780972,4
+686,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",2,8072,3,FALSE,5.59342915811088,24
+687,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,30495,3.6,FALSE,2.51334702258727,2
+688,"Mediano","Premium","Experimentado","Excelente","Mediano Premium Excelente",2,31477,4.9,TRUE,1.2539356605065,4
+689,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,30191.6666666667,1.1,FALSE,3.58110882956879,2
+690,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,25294.6666666667,4.6,FALSE,5.03490759753593,1
+691,"Mediano","Lujo","Experimentado","Básico","Mediano Lujo Básico",2,36031,3,FALSE,2.56536618754278,24
+692,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,24503.25,3.8,TRUE,4.71457905544148,24
+693,"Mediano","Estándar","Experimentado","Bueno","Mediano Estándar Bueno",2,17295.5,3.8,FALSE,2.75154004106776,24
+694,"Grande","Lujo","Experimentado","Excelente","Grande Lujo Excelente",5,35111.6,4.8,FALSE,1.91101984941821,8
+695,"Grande","Premium","Novato","Excelente","Grande Premium Excelente",4,28596,4.9,FALSE,0.939082819986311,4
+696,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,23493.5,2.6,FALSE,8.38877481177276,24
+697,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",7,26972.5714285714,1.9,FALSE,5.63175906913073,4
+698,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,26961,4.2,FALSE,3.50444900752909,12
+699,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,35753,1.1,FALSE,4.84873374401095,8
+700,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,27991,2.1,FALSE,6.3025325119781,48
+701,"Grande","Lujo","Veterano","Bueno","Grande Lujo Bueno",4,38842.75,3.2,FALSE,4.61875427789186,1
+702,"Mediano","Estándar","Experimentado","Bueno","Mediano Estándar Bueno",3,17959.3333333333,3.7,FALSE,2.39835728952772,48
+703,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,20565.25,4,FALSE,6.28884325804244,8
+704,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.7,FALSE,6.74880219028063,12
+705,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,21744.75,2.1,FALSE,7.73442847364819,4
+706,"Grande","Estándar","Veterano","Muy bueno","Grande Estándar Muy bueno",4,13536.75,4.1,FALSE,5.09787816563997,12
+707,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,31946.4,2.2,FALSE,2.2861054072553,1
+708,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",2,29696.5,3.3,FALSE,1.63175906913073,2
+709,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,21799,2.8,TRUE,7.74264202600958,2
+710,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,25550.75,2,TRUE,1.99041752224504,8
+711,"Pequeño","Premium","Veterano","Bueno","Pequeño Premium Bueno",1,24655,3.1,FALSE,7.86584531143053,2
+712,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,18715.3333333333,2.5,FALSE,4.04380561259411,24
+713,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",3,33090,4.1,FALSE,1.36344969199179,48
+714,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,22222,1.7,FALSE,5.49760438056126,48
+715,"Muy grande","Premium","Experimentado","Muy bueno","Muy grande Premium Muy bueno",6,32996.3333333333,4.1,FALSE,2.65297741273101,24
+716,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.9,FALSE,8.0766598220397,2
+717,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,23002.5,4.1,FALSE,8.39698836413415,2
+718,"Pequeño","Económico","Veterano","Básico","Pequeño Económico Básico",1,9737,2.1,FALSE,4.06023271731691,1
+719,"Pequeño","Premium","Novato","Básico","Pequeño Premium Básico",1,27668,1.3,FALSE,0.813141683778234,8
+720,"Grande","Premium","Novato","Básico","Grande Premium Básico",5,29704.8,2.7,FALSE,0.903490759753593,4
+721,"Grande","Estándar","Experimentado","Bueno","Grande Estándar Bueno",5,18591.2,3.9,FALSE,2.94318959616701,48
+722,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,32047,1.1,FALSE,1.1854893908282,1
+723,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",2,32307,1.7,FALSE,1.25119780971937,48
+724,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",3,14404.6666666667,1.7,TRUE,2.91033538672142,4
+725,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,1.6,TRUE,7.16221765913758,1
+726,"Pequeño","Estándar","Veterano","Muy bueno","Pequeño Estándar Muy bueno",1,10515,4.4,FALSE,3.62765229295003,2
+727,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",5,25887.6,4.4,FALSE,6.0041067761807,8
+728,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,22159.5,4,FALSE,4.71731690622861,12
+729,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,18791,2.5,TRUE,1.01848049281314,8
+730,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,25986,5,FALSE,5.82614647501711,1
+731,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",2,20947,3.8,FALSE,1.14715947980835,1
+732,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",3,17190.3333333333,3.4,FALSE,4.64887063655031,24
+733,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,35850,1.3,FALSE,5.68651608487337,4
+734,"Grande","Premium","Experimentado","Muy bueno","Grande Premium Muy bueno",4,21412,4.2,FALSE,2.43394934976044,2
+735,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,37126,2.5,FALSE,7.12662559890486,2
+736,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,22067.5,2.5,FALSE,2.00136892539357,8
+737,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,23371.5,1.2,TRUE,6.02327173169062,1
+738,"Pequeño","Económico","Veterano","Excelente","Pequeño Económico Excelente",1,9312,4.9,FALSE,5.73579739904175,4
+739,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,15685.5,1.2,TRUE,5.12251882272416,8
+740,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,22432,4.9,FALSE,5.07323750855578,8
+741,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,19809,2.6,FALSE,5.02395619438741,12
+742,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,13677.6666666667,2.5,FALSE,6.09445585215606,24
+743,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",2,22026.5,3.7,FALSE,2.77070499657769,48
+744,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",NA,NA,1.2,TRUE,2.26146475017112,48
+745,"Pequeño","Premium","Veterano","Bueno","Pequeño Premium Bueno",1,28951,3.3,FALSE,7.38398357289528,2
+746,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2,FALSE,6.74058863791923,1
+747,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,19216.25,2.2,TRUE,4.98562628336756,1
+748,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,20633.25,1.2,FALSE,5.73032169746749,48
+749,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,18803,1.8,FALSE,6.67488021902806,48
+750,"Pequeño","Económico","Veterano","Básico","Pequeño Económico Básico",1,7092,2.2,TRUE,3.854893908282,48
+751,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,27615.4,2.8,FALSE,7.76728268309377,12
+752,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,20664,4,FALSE,5.36071184120465,24
+753,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,23037.75,1.8,FALSE,1.36344969199179,24
+754,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,24843.3333333333,4.8,TRUE,7.68240930869268,2
+755,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,14520.4,2.4,FALSE,8.290212183436,1
+756,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,21384.4,3.5,TRUE,5.30869267624914,1
+757,"Muy grande","Lujo","Veterano","Excelente","Muy grande Lujo Excelente",NA,NA,4.9,FALSE,8.26830937713895,1
+758,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",3,24874.3333333333,4.1,FALSE,1.53593429158111,12
+759,"Mediano","Lujo","Veterano","Excelente","Mediano Lujo Excelente",2,37327.5,4.6,FALSE,7.09103353867214,48
+760,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",2,15910,4.7,FALSE,3.8466803559206,48
+761,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,43728,1.2,FALSE,5.51403148528405,1
+762,"Pequeño","Lujo","Novato","Bueno","Pequeño Lujo Bueno",1,45232,3.6,FALSE,0.993839835728953,12
+763,"Muy grande","Lujo","Experimentado","Muy bueno","Muy grande Lujo Muy bueno",NA,NA,4.5,FALSE,1.71663244353183,2
+764,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",3,16935.3333333333,1.9,FALSE,7.66598220396988,48
+765,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,18115.2,1.2,FALSE,5.81793292265572,1
+766,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,24188.5,1.3,FALSE,8.35865845311431,12
+767,"Mediano","Premium","Novato","Básico","Mediano Premium Básico",3,30946.6666666667,2.4,FALSE,0.632443531827515,1
+768,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,3,FALSE,3.8466803559206,12
+769,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,21747.5,1.9,TRUE,3.17043121149897,2
+770,"Mediano","Económico","Novato","Bueno","Mediano Económico Bueno",2,7719.5,3.2,FALSE,0.457221081451061,4
+771,"Pequeño","Lujo","Experimentado","Muy bueno","Pequeño Lujo Muy bueno",1,40832,4.3,FALSE,1.12251882272416,1
+772,"Grande","Premium","Novato","Básico","Grande Premium Básico",4,34901,2.6,FALSE,0.459958932238193,4
+773,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,26854.6,2.6,TRUE,1.23477070499658,8
+774,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,11655.5,3.6,FALSE,7.86584531143053,1
+775,"Muy grande","Premium","Veterano","Muy bueno","Muy grande Premium Muy bueno",6,30196.3333333333,4.5,FALSE,7.41409993155373,24
+776,"Pequeño","Estándar","Experimentado","Bueno","Pequeño Estándar Bueno",1,15208,3.4,FALSE,2.03148528405202,2
+777,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,13805.2,1.6,FALSE,5.89185489390828,2
+778,"Muy grande","Lujo","Veterano","Excelente","Muy grande Lujo Excelente",6,38190.5,4.8,FALSE,3.28815879534565,12
+779,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,23591,1.3,FALSE,7.00342231348391,24
+780,"Pequeño","Lujo","Experimentado","Básico","Pequeño Lujo Básico",1,41943,2.8,FALSE,2.0643394934976,24
+781,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,35392,1.8,FALSE,4.9555099247091,2
+782,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.8,TRUE,3.63039014373717,24
+783,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,26753.3333333333,2.2,FALSE,1.16084873374401,4
+784,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,23067.6666666667,3,FALSE,6.64202600958248,48
+785,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,27677,2.8,FALSE,4.63244353182752,24
+786,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,20856.25,4.9,FALSE,6.08624229979466,4
+787,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,31443,3.8,TRUE,5.35797399041752,2
+788,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",8,25055.75,1.6,TRUE,7.19780971937029,24
+789,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,17493.75,3.5,FALSE,7.54277891854894,4
+790,"Pequeño","Económico","Veterano","Básico","Pequeño Económico Básico",1,7132,1.8,FALSE,6.49691991786448,2
+791,"Grande","Lujo","Veterano","Bueno","Grande Lujo Bueno",4,42226.75,3.6,FALSE,5.90828199863107,12
+792,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.1,FALSE,6.06707734428474,2
+793,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,18515.25,3.6,FALSE,4.98562628336756,48
+794,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",7,20100.8571428571,3.9,FALSE,6.5927446954141,2
+795,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,22772.2,4,FALSE,5.89185489390828,4
+796,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",5,20856,4.4,TRUE,3.66050650239562,24
+797,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,28117.25,4.6,FALSE,8.12594113620808,12
+798,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,32282.5,4.4,TRUE,4.70088980150582,24
+799,"Pequeño","Lujo","Veterano","Muy bueno","Pequeño Lujo Muy bueno",1,51011,4.1,FALSE,5.03764544832307,24
+800,"Grande","Estándar","Experimentado","Bueno","Grande Estándar Bueno",5,18913.2,3.7,FALSE,1.30595482546201,1
+801,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,32923.6666666667,4.3,TRUE,5.59616700889802,1
+802,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,34051,1.5,FALSE,2.70773442847365,24
+803,"Grande","Económico","Veterano","Excelente","Grande Económico Excelente",4,8467.25,4.9,FALSE,4.04654346338125,2
+804,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,29089.5,2.3,FALSE,4.59958932238193,12
+805,"Pequeño","Premium","Experimentado","Bueno","Pequeño Premium Bueno",1,33874,3.2,FALSE,2.7460643394935,1
+806,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,27458.6666666667,3,FALSE,3.01163586584531,1
+807,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,24816.25,2.6,FALSE,7.69062286105407,4
+808,"Pequeño","Premium","Novato","Muy bueno","Pequeño Premium Muy bueno",1,33961,4.2,FALSE,0.681724845995893,12
+809,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,23858,2.1,FALSE,4.2299794661191,8
+810,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",3,26633.3333333333,4.3,TRUE,5.54962354551677,24
+811,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,31606.6666666667,3.7,FALSE,4.55578370978782,4
+812,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,37147,1.5,FALSE,4.68446269678302,48
+813,"Grande","Premium","Novato","Básico","Grande Premium Básico",4,24197.5,2.7,FALSE,0.59958932238193,24
+814,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,4,FALSE,4.15879534565366,24
+815,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,30819,1.8,FALSE,3.88227241615332,48
+816,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,1.1,FALSE,3.08281998631075,4
+817,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,35239.5,1.2,FALSE,8.05201916495551,1
+818,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,30090.6666666667,2.5,FALSE,7.37029431895962,1
+819,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,28144,1.3,TRUE,5.24845995893224,48
+820,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,30883.5,3.2,FALSE,2.89390828199863,4
+821,"Mediano","Lujo","Veterano","Excelente","Mediano Lujo Excelente",3,35068,4.9,TRUE,4.76659822039699,1
+822,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,25720.3333333333,4,FALSE,7.11841204654346,48
+823,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",5,27717.6,3.5,FALSE,1.68377823408624,12
+824,"Pequeño","Estándar","Veterano","Bueno","Pequeño Estándar Bueno",1,10190,3.2,TRUE,7.7864476386037,48
+825,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,24510.8333333333,2.3,FALSE,5.56331279945243,24
+826,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",3,37685.6666666667,3.3,FALSE,4.90075290896646,2
+827,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,27381,1.5,FALSE,4.30116358658453,1
+828,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,21483.2,2.6,FALSE,2.18754277891855,24
+829,"Mediano","Estándar","Experimentado","Muy bueno","Mediano Estándar Muy bueno",2,12158.5,4.3,FALSE,1.76317590691307,12
+830,"Mediano","Lujo","Veterano","Excelente","Mediano Lujo Excelente",3,35109.3333333333,4.8,FALSE,6.15468856947296,24
+831,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,20011,3.7,FALSE,7.5482546201232,8
+832,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",2,26339,4.7,FALSE,8.15058179329227,2
+833,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,21035.25,2.7,FALSE,1.02943189596167,12
+834,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,12000.25,3.1,FALSE,8.36139630390144,12
+835,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,18396.5,3.3,TRUE,3.55920602327173,4
+836,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,26262,3.4,FALSE,7.48254620123203,4
+837,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,33417.4,3.4,FALSE,5.91375770020534,12
+838,"Muy grande","Estándar","Veterano","Básico","Muy grande Estándar Básico",6,16200.1666666667,1,TRUE,7.49623545516769,4
+839,"Mediano","Lujo","Novato","Básico","Mediano Lujo Básico",2,39831.5,1.7,FALSE,0.947296372347707,8
+840,"Mediano","Lujo","Novato","Básico","Mediano Lujo Básico",3,35414.3333333333,2.6,FALSE,0.616016427104723,2
+841,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",8,27176.875,3.3,TRUE,7.19507186858316,1
+842,"Pequeño","Estándar","Veterano","Bueno","Pequeño Estándar Bueno",1,17079,3.4,FALSE,5.81793292265572,1
+843,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,31988.3333333333,1.6,FALSE,8.2299794661191,8
+844,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,16863,2.7,FALSE,6.56536618754278,2
+845,"Grande","Lujo","Veterano","Básico","Grande Lujo Básico",4,39215.5,2.5,FALSE,5.54962354551677,4
+846,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,18278.8,2.3,TRUE,8.22450376454483,1
+847,"Grande","Estándar","Novato","Bueno","Grande Estándar Bueno",4,14534,3.2,FALSE,0.733744010951403,1
+848,"Mediano","Premium","Novato","Muy bueno","Mediano Premium Muy bueno",3,22463,4.5,FALSE,0.528405201916496,8
+849,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",3,12740.3333333333,2.4,TRUE,2.7378507871321,2
+850,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,25986,3.9,FALSE,4.23819301848049,2
+851,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,16148,3.9,FALSE,5.1088295687885,4
+852,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,18982.25,1.5,FALSE,6.28884325804244,24
+853,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,19995,2.4,FALSE,1.26488706365503,12
+854,"Pequeño","Estándar","Novato","Excelente","Pequeño Estándar Excelente",1,10378,4.7,FALSE,0.42984257357974,48
+855,"Muy grande","Lujo","Veterano","Muy bueno","Muy grande Lujo Muy bueno",NA,NA,4.5,FALSE,3.68788501026694,4
+856,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,28372,2.3,FALSE,7.08281998631075,24
+857,"Pequeño","Lujo","Experimentado","Bueno","Pequeño Lujo Bueno",1,41830,4,TRUE,1.09240246406571,1
+858,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,31855.8,3.6,FALSE,6.13278576317591,1
+859,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,22798,4.9,TRUE,7.88501026694045,8
+860,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,19928.25,2.4,FALSE,8.22724161533196,12
+861,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,17356,2.3,FALSE,2.69952087611225,48
+862,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,27670.5,4.6,FALSE,7.57289527720739,2
+863,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,20619,1.3,FALSE,1.85352498288843,1
+864,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,24845,1.2,FALSE,3.15126625598905,2
+865,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",3,15213.6666666667,2.4,FALSE,1.14715947980835,2
+866,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,25522.5,3.9,FALSE,8.10403832991102,8
+867,"Muy grande","Premium","Experimentado","Básico","Muy grande Premium Básico",6,20479.5,2.2,FALSE,2.88843258042437,24
+868,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,30357,2.7,FALSE,1.64544832306639,1
+869,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",5,18948.2,3.5,FALSE,5.58521560574949,4
+870,"Grande","Premium","Veterano","Excelente","Grande Premium Excelente",4,25873.25,5,FALSE,7.98631074606434,4
+871,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,34308.5,1.7,FALSE,4.20533880903491,4
+872,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,29831,1.2,FALSE,4.79397672826831,4
+873,"Grande","Estándar","Veterano","Bueno","Grande Estándar Bueno",4,19127.25,3.8,FALSE,5.30321697467488,4
+874,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",3,38487,1.4,FALSE,3.94798083504449,4
+875,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",5,21383.8,3.7,FALSE,1.37987679671458,4
+876,"Pequeño","Estándar","Experimentado","Básico","Pequeño Estándar Básico",1,18777,1.9,FALSE,1.53867214236824,2
+877,"Mediano","Estándar","Experimentado","Muy bueno","Mediano Estándar Muy bueno",3,10432,4.1,FALSE,1.42094455852156,24
+878,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,21548.5,4.4,FALSE,3.22245037645448,4
+879,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",2,19982,2.7,FALSE,1.94934976043806,48
+880,"Mediano","Económico","Experimentado","Muy bueno","Mediano Económico Muy bueno",3,8026.33333333333,4.3,FALSE,2.08898015058179,24
+881,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,24427.8,1.8,FALSE,7.54004106776181,4
+882,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",4,25077,4.3,FALSE,7.38398357289528,48
+883,"Pequeño","Lujo","Veterano","Bueno","Pequeño Lujo Bueno",1,39824,3.6,FALSE,3.19233401779603,12
+884,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",8,35822.875,1.4,FALSE,1.76591375770021,1
+885,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,33316.6666666667,1.6,FALSE,6.54346338124572,12
+886,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",2,40099,3.8,FALSE,5.50581793292266,1
+887,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",2,22727.5,1.3,FALSE,1.75770020533881,4
+888,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,22726.25,2.2,FALSE,7.83299110198494,1
+889,"Grande","Premium","Experimentado","Muy bueno","Grande Premium Muy bueno",4,27201,4.1,FALSE,1.09240246406571,48
+890,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",7,21594,4,FALSE,5.37440109514031,12
+891,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,23781,1.1,FALSE,6.17932922655715,48
+892,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,32413,2.1,FALSE,6.27515400410678,12
+893,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,20053.6666666667,1.4,FALSE,6.79534565366188,4
+894,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,32038.5,1.8,FALSE,5.31143052703628,24
+895,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,57742,1.2,FALSE,7.90691307323751,48
+896,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,27648,1.6,FALSE,7.78097193702943,12
+897,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,29818.5,2.5,FALSE,6.28884325804244,24
+898,"Muy grande","Premium","Veterano","Básico","Muy grande Premium Básico",6,26358.1666666667,2,FALSE,5.47022587268994,4
+899,"Grande","Premium","Experimentado","Bueno","Grande Premium Bueno",4,30612.5,4,TRUE,2.09719370294319,48
+900,"Mediano","Estándar","Experimentado","Excelente","Mediano Estándar Excelente",2,11543.5,4.8,FALSE,1.20191649555099,8
+901,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",4,19430.75,2.7,FALSE,5.60711841204654,1
+902,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,23741.2,3,FALSE,4.99383983572895,48
+903,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,24293.5,4,TRUE,5.79329226557153,12
+904,"Mediano","Lujo","Veterano","Básico","Mediano Lujo Básico",2,42281,2.4,FALSE,5.09514031485284,24
+905,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,23237.5,1.2,FALSE,4.0082135523614,24
+906,"Grande","Premium","Novato","Bueno","Grande Premium Bueno",4,20103.25,3.4,FALSE,0.736481861738535,1
+907,"Grande","Lujo","Veterano","Muy bueno","Grande Lujo Muy bueno",5,37595.6,4.2,FALSE,5.55509924709103,4
+908,"Mediano","Premium","Experimentado","Excelente","Mediano Premium Excelente",2,20241,4.9,FALSE,2.83093771389459,4
+909,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,34844.25,3.5,TRUE,7.79466119096509,24
+910,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,14730.5,3.2,FALSE,6.80355920602327,12
+911,"Mediano","Estándar","Experimentado","Bueno","Mediano Estándar Bueno",2,10027,3.4,FALSE,2.79260780287474,4
+912,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,23711,3.4,FALSE,5.41273100616016,8
+913,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,23940,3.9,TRUE,4.97467488021903,2
+914,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,12558.5,2.5,FALSE,3.17043121149897,48
+915,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,29946.5,2,FALSE,8.07118412046543,2
+916,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,56740,1.8,FALSE,6.74880219028063,24
+917,"Muy grande","Premium","Novato","Básico","Muy grande Premium Básico",7,23267.1428571429,2,FALSE,0.525667351129363,12
+918,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",2,22127,4.2,FALSE,1.96851471594798,12
+919,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",4,20976,4.3,TRUE,3.83572895277207,12
+920,"Pequeño","Premium","Experimentado","Excelente","Pequeño Premium Excelente",1,25790,4.6,FALSE,2.77618069815195,1
+921,"Grande","Estándar","Veterano","Excelente","Grande Estándar Excelente",4,14959.5,4.8,FALSE,4.5886379192334,2
+922,"Pequeño","Lujo","Veterano","Básico","Pequeño Lujo Básico",1,54469,2.5,FALSE,6.51060917180014,24
+923,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,22466.3333333333,3.3,FALSE,8.05749486652977,1
+924,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,32970.75,3.6,FALSE,3.98357289527721,1
+925,"Pequeño","Estándar","Veterano","Básico","Pequeño Estándar Básico",1,11286,1.4,TRUE,3.9315537303217,8
+926,"Pequeño","Económico","Veterano","Muy bueno","Pequeño Económico Muy bueno",1,6668,4.3,FALSE,4.86516084873374,12
+927,"Pequeño","Premium","Experimentado","Básico","Pequeño Premium Básico",1,22697,1.3,FALSE,2.217659137577,8
+928,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",2,19854.5,4.7,FALSE,6.91033538672142,2
+929,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",4,32742.5,4.1,FALSE,7.21697467488022,12
+930,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,20961.6666666667,3.2,FALSE,1.68925393566051,2
+931,"Mediano","Premium","Experimentado","Muy bueno","Mediano Premium Muy bueno",3,22423.3333333333,4.3,FALSE,2.09719370294319,2
+932,"Muy grande","Premium","Novato","Bueno","Muy grande Premium Bueno",6,27187.8333333333,3.1,FALSE,0.906228610540726,12
+933,"Pequeño","Económico","Novato","Básico","Pequeño Económico Básico",1,9504,2.9,TRUE,0.747433264887064,24
+934,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,26593.25,4,FALSE,8.2299794661191,12
+935,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",3,36031.6666666667,3.9,FALSE,5.97125256673511,24
+936,"Grande","Lujo","Veterano","Excelente","Grande Lujo Excelente",4,35453.75,4.9,FALSE,5.41273100616016,24
+937,"Pequeño","Estándar","Veterano","Bueno","Pequeño Estándar Bueno",1,16289,3.4,FALSE,7.46885694729637,2
+938,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,24830,3.8,FALSE,3.69883641341547,4
+939,"Muy grande","Lujo","Experimentado","Básico","Muy grande Lujo Básico",NA,NA,2.9,TRUE,1.90280629705681,1
+940,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,29145.5,4.1,TRUE,5.08966461327858,1
+941,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,31717.3333333333,1.1,FALSE,1.68925393566051,8
+942,"Mediano","Lujo","Experimentado","Muy bueno","Mediano Lujo Muy bueno",2,37309.5,4.3,FALSE,1.49760438056126,12
+943,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",3,9078.33333333333,1.3,TRUE,4.77754962354552,4
+944,"Grande","Lujo","Novato","Básico","Grande Lujo Básico",4,42711,2.8,FALSE,0.684462696783025,24
+945,"Pequeño","Lujo","Novato","Básico","Pequeño Lujo Básico",1,54611,1.2,FALSE,0.741957563312799,4
+946,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,25032.5,2.4,FALSE,3.93976728268309,2
+947,"Grande","Estándar","Veterano","Básico","Grande Estándar Básico",5,17226.6,3,FALSE,6.92402464065708,12
+948,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,28427.5,4,FALSE,5.68925393566051,1
+949,"Pequeño","Lujo","Veterano","Muy bueno","Pequeño Lujo Muy bueno",1,39105,4.5,FALSE,4.89253935660506,4
+950,"Grande","Premium","Veterano","Muy bueno","Grande Premium Muy bueno",5,25975.6,4.1,FALSE,4.23271731690623,24
+951,"Pequeño","Económico","Experimentado","Bueno","Pequeño Económico Bueno",1,7053,3.6,TRUE,1.01300479123888,1
+952,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,23142.1666666667,3.6,FALSE,4.67077344284736,4
+953,"Muy grande","Lujo","Experimentado","Excelente","Muy grande Lujo Excelente",NA,NA,4.6,FALSE,2.76796714579055,2
+954,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,1.3,TRUE,6.30800821355236,1
+955,"Grande","Lujo","Veterano","Muy bueno","Grande Lujo Muy bueno",5,36416,4.4,FALSE,5.07323750855578,2
+956,"Mediano","Premium","Experimentado","Básico","Mediano Premium Básico",3,33272.6666666667,2.4,FALSE,2.47775496235455,2
+957,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,30373.3333333333,4.6,TRUE,3.14305270362765,12
+958,"Muy grande","Premium","Veterano","Bueno","Muy grande Premium Bueno",6,28156.3333333333,3.6,FALSE,4.84052019164956,24
+959,"Mediano","Estándar","Veterano","Excelente","Mediano Estándar Excelente",3,17838,4.8,TRUE,5.8425735797399,8
+960,"Mediano","Premium","Veterano","Excelente","Mediano Premium Excelente",3,28542.3333333333,4.7,TRUE,3.36208076659822,2
+961,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,33414.4,1.7,FALSE,1.52498288843258,8
+962,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",2,20906.5,3.1,FALSE,5.07871321013005,12
+963,"Mediano","Premium","Veterano","Muy bueno","Mediano Premium Muy bueno",2,20081.5,4.3,FALSE,3.09103353867214,24
+964,"Pequeño","Lujo","Veterano","Excelente","Pequeño Lujo Excelente",1,37664,4.8,FALSE,4.44079397672827,4
+965,"Pequeño","Lujo","Experimentado","Básico","Pequeño Lujo Básico",1,40523,2.1,FALSE,2.16016427104723,1
+966,"Pequeño","Premium","Experimentado","Bueno","Pequeño Premium Bueno",1,26509,3.3,FALSE,2.12183436002738,12
+967,"Mediano","Premium","Veterano","Bueno","Mediano Premium Bueno",3,20707.3333333333,3.3,FALSE,7.38945927446954,8
+968,"Grande","Lujo","Experimentado","Básico","Grande Lujo Básico",4,37480.75,2.6,FALSE,2.29979466119096,4
+969,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,17464,1,FALSE,4.70362765229295,24
+970,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,29689.3333333333,3.3,FALSE,2.9596167008898,24
+971,"Grande","Premium","Veterano","Básico","Grande Premium Básico",5,20745.2,1.5,FALSE,7.63039014373717,12
+972,"Muy grande","Lujo","Veterano","Básico","Muy grande Lujo Básico",NA,NA,2.5,FALSE,3.90965092402464,2
+973,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.4,FALSE,3.9315537303217,24
+974,"Mediano","Premium","Experimentado","Excelente","Mediano Premium Excelente",3,20905.3333333333,4.6,TRUE,2.84462696783025,12
+975,"Pequeño","Económico","Experimentado","Básico","Pequeño Económico Básico",1,6621,1.1,TRUE,1.49760438056126,8
+976,"Mediano","Económico","Veterano","Básico","Mediano Económico Básico",2,8495,2,FALSE,7.72895277207392,12
+977,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,19046.5,3.9,FALSE,5.29500342231348,8
+978,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",5,27576.4,1.1,FALSE,1.42642026009582,12
+979,"Grande","Premium","Experimentado","Básico","Grande Premium Básico",4,28420.25,1.8,FALSE,2.03969883641342,12
+980,"Mediano","Estándar","Veterano","Muy bueno","Mediano Estándar Muy bueno",3,14372.6666666667,4.4,FALSE,4.81314168377823,4
+981,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,32417.25,2.8,FALSE,7.42778918548939,4
+982,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",2,25546.5,1.5,FALSE,3.50171115674196,1
+983,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,21274,3.7,FALSE,5.87268993839836,12
+984,"Pequeño","Económico","Veterano","Básico","Pequeño Económico Básico",1,6573,2.5,FALSE,3.01711156741958,8
+985,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,28267,4,TRUE,3.01437371663244,12
+986,"Mediano","Premium","Experimentado","Bueno","Mediano Premium Bueno",3,24813.3333333333,3.3,TRUE,2.74058863791923,24
+987,"Muy grande","Lujo","Veterano","Bueno","Muy grande Lujo Bueno",NA,NA,3.9,FALSE,6.5242984257358,4
+988,"Grande","Lujo","Veterano","Básico","Grande Lujo Básico",4,37808.75,3,FALSE,5.73853524982888,1
+989,"Mediano","Estándar","Veterano","Básico","Mediano Estándar Básico",2,12681.5,1.1,TRUE,6.31074606433949,4
+990,"Mediano","Lujo","Veterano","Bueno","Mediano Lujo Bueno",3,38078.6666666667,3.4,FALSE,5.73305954825462,12
+991,"Mediano","Estándar","Experimentado","Básico","Mediano Estándar Básico",3,18629.3333333333,2.6,FALSE,1.43463381245722,12
+992,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,33604.25,3.2,FALSE,5.15811088295688,8
+993,"Mediano","Estándar","Veterano","Bueno","Mediano Estándar Bueno",2,11652.5,4,FALSE,8.2217659137577,12
+994,"Pequeño","Premium","Veterano","Básico","Pequeño Premium Básico",1,29198,1.9,FALSE,6.33812457221081,48
+995,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,28407,1.6,FALSE,3.31553730321697,4
+996,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",4,24917.5,3.8,TRUE,6.94318959616701,1
+997,"Mediano","Premium","Veterano","Básico","Mediano Premium Básico",3,21009.3333333333,2.3,TRUE,7.77275838466804,1
+998,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,22538,2.6,FALSE,6.55441478439425,12
+999,"Grande","Premium","Veterano","Básico","Grande Premium Básico",4,25646.75,1,FALSE,8.28473648186174,8
+1000,"Grande","Premium","Veterano","Bueno","Grande Premium Bueno",5,24650.6,3.8,FALSE,4.11498973305955,8

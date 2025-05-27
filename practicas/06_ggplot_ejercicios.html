@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scraping_clase_1</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="🎯-ejercicios-de-clase---ggplot2">🎯 Ejercicios de Clase - ggplot2</h1>
+<h2 id="📚-preparación">📚 Preparación</h2>
+<p>Antes de arrancar, ejecutá este código para cargar todo lo necesario:</p>
+<p>r</p>
+<pre class=" language-r"><code class="prism  language-r"><span class="token comment"># Cargar librerías</span>
+library<span class="token punctuation">(</span>ggplot2<span class="token punctuation">)</span>
+library<span class="token punctuation">(</span>dplyr<span class="token punctuation">)</span>
+library<span class="token punctuation">(</span>wooldridge<span class="token punctuation">)</span>
+library<span class="token punctuation">(</span>scales<span class="token punctuation">)</span>
+
+<span class="token comment"># Cargar datos</span>
+data<span class="token punctuation">(</span><span class="token string">"mtcars"</span><span class="token punctuation">)</span>
+data<span class="token punctuation">(</span><span class="token string">"wage1"</span><span class="token punctuation">)</span>
+data<span class="token punctuation">(</span><span class="token string">"hprice1"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Ver estructura de los datos</span>
+str<span class="token punctuation">(</span>mtcars<span class="token punctuation">)</span>
+str<span class="token punctuation">(</span>wage1<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2 id="🌟-nivel-1-primeros-pasos-15-20-minutos">🌟 NIVEL 1: PRIMEROS PASOS (15-20 minutos)</h2>
+<h3 id="ejercicio-1.1-tu-primer-gráfico">Ejercicio 1.1: Tu primer gráfico</h3>
+<p><strong>Objetivo:</strong> Crear un scatter plot básico</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Usá el dataset <code>mtcars</code></li>
+<li>Creá un gráfico de puntos con <code>mpg</code> en X y <code>hp</code> en Y</li>
+<li>Agregale un título apropiado</li>
+<li>Cambiá las etiquetas de los ejes al español</li>
+</ol>
+<p><strong>Pistas:</strong></p>
+<ul>
+<li>Usá <code>ggplot()</code> + <code>aes()</code> + <code>geom_point()</code></li>
+<li>Usá <code>labs()</code> para títulos y etiquetas</li>
+</ul>
+<hr>
+<h3 id="ejercicio-1.2-agregando-color">Ejercicio 1.2: Agregando color</h3>
+<p><strong>Objetivo:</strong> Entender la diferencia entre mapeo y configuración</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Tomá el gráfico anterior</li>
+<li>Hacé que todos los puntos sean de color azul</li>
+<li>Después, cambiá para que el color represente el número de cilindros (<code>cyl</code>)</li>
+<li>¿Cuál es la diferencia entre los dos enfoques?</li>
+</ol>
+<hr>
+<h3 id="ejercicio-1.3-personalización-básica">Ejercicio 1.3: Personalización básica</h3>
+<p><strong>Objetivo:</strong> Aprender parámetros básicos de geom_point</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Creá un scatter plot de <code>wt</code> (peso) vs <code>mpg</code> (eficiencia)</li>
+<li>Hacé los puntos más grandes (<code>size = 3</code>)</li>
+<li>Hacelos semi-transparentes (<code>alpha = 0.7</code>)</li>
+<li>Cambiá el tema a <code>theme_minimal()</code></li>
+</ol>
+<hr>
+<h2 id="🚀-nivel-2-explorando-geometrías-20-25-minutos">🚀 NIVEL 2: EXPLORANDO GEOMETRÍAS (20-25 minutos)</h2>
+<h3 id="ejercicio-2.1-histograma-informativo">Ejercicio 2.1: Histograma informativo</h3>
+<p><strong>Objetivo:</strong> Crear histogramas y agregar líneas de referencia</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Creá un histograma de la variable <code>mpg</code> de mtcars</li>
+<li>Usá 15 bins</li>
+<li>Agregá una línea vertical roja que muestre la media de <code>mpg</code></li>
+<li>Agregá una línea vertical azul que muestre la mediana de <code>mpg</code></li>
+<li>Incluí una leyenda que explique qué representa cada línea</li>
+</ol>
+<p><strong>Pistas:</strong></p>
+<ul>
+<li>Usá <code>geom_histogram()</code> y <code>geom_vline()</code></li>
+<li><code>mean(mtcars$mpg)</code> y <code>median(mtcars$mpg)</code></li>
+</ul>
+<hr>
+<h3 id="ejercicio-2.2-boxplots-comparativos">Ejercicio 2.2: Boxplots comparativos</h3>
+<p><strong>Objetivo:</strong> Comparar distribuciones entre grupos</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Usando <code>mtcars</code>, creá boxplots de <code>mpg</code> para cada número de cilindros</li>
+<li>Coloreá cada boxplot según el número de cilindros</li>
+<li>Ordená los grupos de menor a mayor número de cilindros</li>
+<li>Agregá un título descriptivo</li>
+</ol>
+<p><strong>Pistas:</strong></p>
+<ul>
+<li>Usá <code>factor(cyl)</code> para tratar cilindros como categórica</li>
+<li>El color va en <code>fill = factor(cyl)</code></li>
+</ul>
+<hr>
+<h3 id="ejercicio-2.3-scatter-plot-con-tendencia">Ejercicio 2.3: Scatter plot con tendencia</h3>
+<p><strong>Objetivo:</strong> Combinar geometrías y entender métodos de suavizado</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Creá un scatter plot de <code>wt</code> vs <code>mpg</code></li>
+<li>Agregá una línea de tendencia lineal (<code>method = "lm"</code>)</li>
+<li>Hacé que la línea sea roja y sin banda de confianza</li>
+<li>Coloreá los puntos según el número de cilindros</li>
+<li>¿Qué observás sobre la relación peso-eficiencia?</li>
+</ol>
+<hr>
+<h2 id="🎨-nivel-3-escalas-y-temas-25-30-minutos">🎨 NIVEL 3: ESCALAS Y TEMAS (25-30 minutos)</h2>
+<h3 id="ejercicio-3.1-personalizando-escalas-de-color">Ejercicio 3.1: Personalizando escalas de color</h3>
+<p><strong>Objetivo:</strong> Controlar paletas de colores manualmente</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Creá un scatter plot de <code>hp</code> vs <code>mpg</code> coloreado por <code>cyl</code></li>
+<li>Definí colores manuales: 4 cilindros = verde, 6 = naranja, 8 = rojo</li>
+<li>Cambiá el nombre de la leyenda a “Número de Cilindros”</li>
+<li>Mové la leyenda abajo del gráfico</li>
+</ol>
+<p><strong>Pistas:</strong></p>
+<ul>
+<li>Usá <code>scale_color_manual()</code></li>
+<li><code>legend.position = "bottom"</code> en theme()</li>
+</ul>
+<hr>
+<h3 id="ejercicio-3.2-tema-personalizado">Ejercicio 3.2: Tema personalizado</h3>
+<p><strong>Objetivo:</strong> Crear un tema personalizado</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Tomá cualquier gráfico que hayas hecho</li>
+<li>Personalizá los siguientes elementos:
+<ul>
+<li>Título: tamaño 16, negrita, centrado</li>
+<li>Texto de ejes: tamaño 12</li>
+<li>Fondo del panel: gris muy claro</li>
+<li>Líneas de grilla: solo las principales, color gris claro</li>
+<li>Quitar grilla menor</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="ejercicio-3.3-escalas-de-ejes">Ejercicio 3.3: Escalas de ejes</h3>
+<p><strong>Objetivo:</strong> Controlar límites y etiquetas de ejes</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Usando datos de <code>wage1</code>, creá un scatter plot de <code>educ</code> vs <code>wage</code></li>
+<li>Limitá el eje Y para mostrar solo salarios entre 0 y 20</li>
+<li>Hacé que el eje X muestre solo los valores 8, 12, 16, 18 años de educación</li>
+<li>Formateá el eje Y para mostrar valores como dólares (ej: $15)</li>
+</ol>
+<p><strong>Pistas:</strong></p>
+<ul>
+<li>Usá <code>scale_y_continuous()</code> y <code>scale_x_continuous()</code></li>
+<li><code>scales::dollar</code> es útil para formato de moneda</li>
+</ul>
+<hr>
+<h2 id="🔥-nivel-4-facetas-y-múltiples-variables-30-35-minutos">🔥 NIVEL 4: FACETAS Y MÚLTIPLES VARIABLES (30-35 minutos)</h2>
+<h3 id="ejercicio-4.1-explorando-con-facetas">Ejercicio 4.1: Explorando con facetas</h3>
+<p><strong>Objetivo:</strong> Usar facetas para comparar subgrupos</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Usando <code>mtcars</code>, creá un dataset que incluya una variable de transmisión:
+<ul>
+<li><code>am = 0</code> → “Automática”</li>
+<li><code>am = 1</code> → “Manual”</li>
+</ul>
+</li>
+<li>Creá scatter plots de <code>wt</code> vs <code>mpg</code> separados por tipo de transmisión</li>
+<li>Permití que las escalas sean independientes en cada faceta</li>
+<li>Coloreá los puntos según el número de cilindros</li>
+</ol>
+<hr>
+<h3 id="ejercicio-4.2-gráfico-multivariado-complejo">Ejercicio 4.2: Gráfico multivariado complejo</h3>
+<p><strong>Objetivo:</strong> Mapear múltiples variables a diferentes aesthetics</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Creá un scatter plot con las siguientes características:
+<ul>
+<li>X: <code>wt</code> (peso)</li>
+<li>Y: <code>hp</code> (potencia)</li>
+<li>Color: <code>cyl</code> (cilindros)</li>
+<li>Tamaño: <code>mpg</code> (eficiencia)</li>
+</ul>
+</li>
+<li>Agregá una línea de tendencia</li>
+<li>Personalizá la escala de tamaño para que vaya de 2 a 8</li>
+<li>Usá la paleta de colores viridis</li>
+<li>¿Qué patrones observás?</li>
+</ol>
+<hr>
+<h3 id="ejercicio-4.3-análisis-de-distribuciones">Ejercicio 4.3: Análisis de distribuciones</h3>
+<p><strong>Objetivo:</strong> Comparar distribuciones de múltiples maneras</p>
+<p><strong>Consignas:</strong></p>
+<ol>
+<li>Usando <code>wage1</code>, compará la distribución de salarios entre hombres y mujeres</li>
+<li>Creá TRES gráficos diferentes:
+<ul>
+<li>Histogramas superpuestos (con transparencia)</li>
+<li>Boxplots lado a lado</li>
+<li>Gráficos de densidad superpuestos</li>
+</ul>
+</li>
+<li>¿Cuál comunica mejor las diferencias?</li>
+</ol>
+<hr>
+<h2 id="🏆-nivel-5-proyecto-libre-30-40-minutos">🏆 NIVEL 5: PROYECTO LIBRE (30-40 minutos)</h2>
+<h3 id="ejercicio-5.1-análisis-exploratorio-completo">Ejercicio 5.1: Análisis exploratorio completo</h3>
+<p><strong>Objetivo:</strong> Combinar todo lo aprendido en un análisis</p>
+<p><strong>Consignas:</strong> Elegí UNO de estos datasets y realizá un análisis visual completo:</p>
+<p><strong>Opción A: mtcars</strong></p>
+<ul>
+<li>Explorá la relación entre eficiencia, peso, potencia y características del motor</li>
+<li>Incluí al menos 4 tipos diferentes de gráficos</li>
+<li>Identificá 3 insights interesantes</li>
+</ul>
+<p><strong>Opción B: wage1</strong></p>
+<ul>
+<li>Analizá los factores que influyen en los salarios</li>
+<li>Compará diferencias por género, educación, experiencia</li>
+<li>Incluí análisis de distribuciones y relaciones</li>
+</ul>
+<p><strong>Opción C: hprice1</strong></p>
+<ul>
+<li>Explorá qué factores determinan el precio de las casas</li>
+<li>Analizá relaciones entre precio, tamaño, ubicación, características</li>
+</ul>
+<p><strong>Requisitos mínimos:</strong></p>
+<ol>
+<li>Al menos 4 gráficos diferentes</li>
+<li>Uso de al menos 3 tipos de geom diferentes</li>
+<li>Personalización de colores y temas</li>
+<li>Títulos y etiquetas apropiados</li>
+<li>Al menos un gráfico con facetas</li>
+<li>Conclusiones escritas sobre los hallazgos</li>
+</ol>
+</div>
+</body>
+
+</html>

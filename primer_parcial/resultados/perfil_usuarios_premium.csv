@@ -1,0 +1,501 @@
+"id_alquila","gasto_total","num_transacciones","edad","sexo","provincia_nacimiento","cantidad_alquileres","calificacion_media"
+4796,8443432,28,32,"Masculino","Chaco",38,2.6
+96,8257630,33,66,"Masculino","Santa Cruz",28,4
+4595,8069312,33,63,"Femenino","Salta",34,4.5
+389,7961800,34,20,"Femenino","Formosa",0,3.1
+4055,7956289,32,55,"Femenino","Neuquén",17,1.3
+1491,7803181,34,61,"Femenino","Tucumán",16,1.6
+3595,7742678,36,45,"Masculino","Neuquén",27,2.9
+789,7632956,32,70,"Femenino","Entre Ríos",13,4
+4844,7616158,30,59,"Femenino","La Pampa",1,3.3
+349,7522766,34,36,"Masculino","CABA",25,4.6
+1895,7511422,24,60,"Femenino","Tierra del Fuego",40,2.4
+2791,7469730,29,53,"Femenino","Entre Ríos",41,1.2
+2569,7465235,29,22,"Femenino","Chubut",19,4.7
+1921,7402104,27,23,"Masculino","Río Negro",49,1.6
+3575,7369696,26,49,"Femenino","Chaco",26,2.7
+4019,7346840,35,29,"Masculino","Corrientes",48,1.5
+2696,7329595,28,34,"Femenino","Misiones",49,2.5
+1754,7311345,31,65,"Masculino","CABA",14,1.8
+3063,7274985,29,24,"Femenino","Catamarca",0,4.4
+4074,7263101,30,18,"Femenino","La Pampa",8,3.9
+3345,7243389,30,53,"Femenino","Córdoba",50,4.8
+89,7205236,33,19,"Femenino","Neuquén",45,3.6
+3511,7200434,28,66,"Masculino","Santa Cruz",47,2.4
+4254,7125847,29,54,"Masculino","Santa Fe",21,1
+969,7116218,33,38,"Masculino","Catamarca",23,2.9
+3728,7109921,28,68,"Femenino","Chubut",47,2.4
+1074,7106721,22,53,"Femenino","Tierra del Fuego",42,1.6
+3310,7082678,25,19,"Femenino","Santiago del Estero",42,2.4
+1258,7077622,29,44,"Masculino","Córdoba",24,2
+4154,7063623,31,27,"Masculino","La Pampa",18,2.8
+1240,7048011,29,48,"Femenino","Chaco",27,1.5
+1406,7031294,27,18,"Masculino","Catamarca",37,4.9
+2871,7027492,29,29,"Femenino","San Juan",46,5
+3907,6980613,24,21,"Femenino","Chubut",30,1.6
+4526,6960420,32,18,"Femenino","Córdoba",4,1.4
+926,6957965,27,27,"Femenino","San Luis",49,3
+4338,6930201,31,25,"Femenino","Formosa",36,1.6
+3245,6911720,27,57,"Masculino","Santa Cruz",11,4.5
+4112,6887946,26,42,"Femenino","Santiago del Estero",43,3.5
+953,6871178,27,42,"Femenino","Chaco",48,3.5
+3385,6867638,27,64,"Femenino","Salta",20,2.1
+4668,6862579,20,21,"Femenino","Corrientes",21,1.1
+3705,6858285,30,28,"Masculino","Córdoba",35,2.9
+1124,6851769,27,60,"Femenino","Corrientes",18,2.5
+2543,6848927,30,27,"Masculino","Corrientes",20,1.6
+932,6836568,30,30,"Femenino","Santiago del Estero",10,1.5
+3083,6828464,26,32,"Femenino","Formosa",11,1.1
+3775,6822705,24,48,"Femenino","San Juan",35,1.9
+419,6821032,26,65,"Masculino","San Luis",13,2.5
+3910,6794110,33,32,"Femenino","Tucumán",30,2.4
+2945,6788205,28,20,"Masculino","Catamarca",8,1.6
+3033,6786643,27,39,"Masculino","Santiago del Estero",50,2.7
+1873,6781493,18,25,"Femenino","Jujuy",49,1.7
+249,6770737,31,51,"Femenino","San Juan",14,1.4
+3364,6767775,30,24,"Masculino","Jujuy",29,2.5
+1091,6749114,27,63,"Masculino","Chaco",46,2.6
+3589,6742777,27,19,"Femenino","Neuquén",48,4.5
+2096,6735831,26,32,"Femenino","Formosa",27,3.4
+719,6729672,34,66,"Femenino","Tierra del Fuego",46,2.9
+4985,6715508,25,19,"Masculino","Chaco",22,1.6
+448,6706236,26,67,"Masculino","Santa Cruz",20,3.8
+185,6701990,33,41,"Masculino","Entre Ríos",48,2.2
+3702,6697304,29,61,"Femenino","CABA",6,1.2
+456,6679176,28,20,"Masculino","Mendoza",18,2.2
+1200,6657449,32,55,"Masculino","Corrientes",28,3.6
+300,6625573,26,50,"Femenino","Salta",11,2.3
+1528,6616519,31,26,"Masculino","Tierra del Fuego",22,4.1
+840,6611245,32,30,"Femenino","Jujuy",3,4.7
+3464,6602327,23,18,"Femenino","La Rioja",1,2.8
+4860,6589341,25,65,"Femenino","Catamarca",6,1.4
+4349,6588180,31,18,"Femenino","Córdoba",29,1.7
+370,6581980,27,55,"Femenino","Misiones",49,4.6
+4697,6573530,26,66,"Femenino","San Juan",32,2.1
+2252,6568727,30,20,"Femenino","La Pampa",39,3.8
+1900,6561054,22,32,"Femenino","Chaco",29,2.7
+637,6551382,28,32,"Masculino","Río Negro",22,1.5
+3818,6538481,23,46,"Masculino","Mendoza",46,2.6
+3287,6531928,24,70,"Masculino","Catamarca",17,1.2
+2127,6525062,26,28,"Femenino","Chaco",39,4.3
+4742,6525023,25,68,"Masculino","CABA",4,4.9
+3940,6524069,29,65,"Femenino","Catamarca",47,3.1
+3960,6522654,23,24,"Femenino","Neuquén",39,5
+3948,6520284,22,20,"Masculino","Catamarca",28,4.9
+2070,6512314,30,23,"Femenino","Santa Fe",1,4.2
+2050,6506383,30,70,"Masculino","La Rioja",12,4
+1595,6499985,24,38,"Masculino","Tierra del Fuego",18,2.7
+4645,6480383,28,67,"Masculino","Tierra del Fuego",15,1.4
+1938,6475476,24,25,"Femenino","San Luis",46,3
+1410,6463722,31,45,"Femenino","San Luis",21,3.1
+4471,6445071,21,48,"Femenino","Formosa",19,3
+297,6442453,28,61,"Femenino","Salta",27,4.7
+4261,6427845,24,48,"Femenino","La Pampa",30,3.5
+1241,6425361,30,68,"Masculino","Tierra del Fuego",38,1.1
+904,6422121,32,67,"Femenino","Formosa",25,1.9
+685,6419637,29,62,"Femenino","Río Negro",34,1.6
+3281,6416832,31,33,"Masculino","Chubut",37,2.1
+2697,6413211,29,37,"Masculino","Santa Cruz",15,1.7
+274,6396823,26,47,"Masculino","La Pampa",49,1.8
+82,6381235,21,62,"Masculino","CABA",34,1.7
+2779,6374058,24,54,"Masculino","Corrientes",10,4.4
+3989,6372704,24,30,"Femenino","La Pampa",31,3.2
+3444,6363854,33,22,"Masculino","Buenos Aires",25,1.7
+1308,6359711,23,53,"Femenino","Santa Cruz",0,1.9
+2039,6352798,22,20,"Masculino","Tierra del Fuego",12,3.2
+4059,6347501,32,31,"Masculino","Neuquén",8,3.7
+1687,6334600,27,42,"Femenino","Buenos Aires",33,3.9
+2105,6331483,26,67,"Femenino","San Luis",37,2.3
+1473,6320406,27,37,"Femenino","Chaco",3,2.5
+1042,6318802,26,20,"Femenino","Corrientes",5,1.2
+1731,6305604,24,30,"Femenino","La Pampa",34,3.3
+821,6289805,28,41,"Masculino","Neuquén",49,1.6
+3732,6289257,27,56,"Masculino","Tucumán",33,2
+4189,6281198,22,25,"Masculino","Santa Fe",9,1
+3256,6279443,24,41,"Masculino","Salta",2,4.4
+3578,6277692,29,69,"Masculino","Río Negro",34,1.6
+3029,6277098,29,43,"Femenino","Río Negro",42,1.7
+153,6273797,29,34,"Femenino","Chaco",44,1.7
+741,6269499,28,67,"Masculino","Chubut",41,3.5
+603,6260617,26,56,"Femenino","Chubut",18,1.5
+4064,6255840,21,47,"Femenino","Catamarca",45,2
+4274,6254128,27,48,"Femenino","Misiones",0,4.6
+3993,6251244,25,40,"Femenino","Santa Fe",15,3.6
+4847,6245496,28,66,"Femenino","Jujuy",13,1.1
+551,6244980,30,25,"Femenino","Santiago del Estero",11,2.1
+511,6238694,32,68,"Femenino","Formosa",43,3.6
+4507,6235730,27,67,"Femenino","Tucumán",27,4.6
+2496,6234127,24,61,"Femenino","CABA",10,2.1
+730,6229078,31,41,"Masculino","Salta",17,1.2
+1688,6228604,27,49,"Masculino","La Pampa",38,2.2
+734,6228314,27,23,"Masculino","Tucumán",12,3.5
+2130,6227399,24,30,"Femenino","Salta",27,2
+156,6224640,26,48,"Masculino","Salta",37,3.2
+3483,6224609,31,30,"Masculino","Mendoza",4,1
+3877,6224329,27,28,"Masculino","Santiago del Estero",46,3.9
+3712,6221138,23,69,"Masculino","Corrientes",33,1.1
+727,6215437,25,49,"Masculino","San Luis",15,1.3
+1210,6214007,27,52,"Femenino","San Juan",33,4.8
+4034,6208609,27,20,"Femenino","La Pampa",46,3.6
+1307,6205020,24,28,"Femenino","Misiones",40,4.1
+1515,6201571,28,41,"Masculino","Santiago del Estero",35,1.1
+1635,6195112,27,18,"Masculino","CABA",21,1.1
+2058,6190499,28,48,"Masculino","Neuquén",9,4.6
+3162,6184278,26,32,"Masculino","Tucumán",44,4.5
+836,6180757,29,25,"Femenino","Mendoza",24,3.6
+3657,6178663,26,59,"Femenino","Chaco",14,3.5
+438,6171031,27,66,"Masculino","Tucumán",16,4.4
+3481,6170726,25,51,"Masculino","San Juan",15,2.5
+2494,6170014,28,40,"Femenino","Tucumán",44,1.6
+580,6158590,27,64,"Masculino","San Juan",10,4
+4979,6147571,29,29,"Femenino","La Rioja",43,1.1
+1637,6144702,24,44,"Masculino","Río Negro",16,1.7
+4987,6139552,28,68,"Masculino","Jujuy",17,3.5
+2312,6132320,34,28,"Masculino","Santiago del Estero",41,3
+1100,6114919,34,65,"Femenino","Tucumán",9,4.6
+4029,6112276,28,48,"Masculino","La Pampa",43,4.4
+1242,6111086,28,65,"Femenino","Tierra del Fuego",12,2.2
+4727,6105063,26,60,"Femenino","Catamarca",29,1.9
+3766,6093310,25,49,"Masculino","San Luis",27,4.1
+2914,6088667,26,61,"Masculino","La Pampa",28,4.1
+2552,6080532,27,44,"Femenino","Chubut",38,3.8
+682,6080259,28,27,"Masculino","Chubut",26,4.4
+4807,6079809,30,21,"Masculino","Santa Fe",30,2.5
+2170,6073773,28,23,"Masculino","Buenos Aires",21,2.9
+3513,6068772,29,43,"Masculino","Entre Ríos",13,2.6
+4648,6066414,26,31,"Masculino","Córdoba",38,3.1
+4951,6062260,35,55,"Femenino","Chubut",24,5
+3477,6059330,22,47,"Masculino","Neuquén",42,4.5
+1867,6057479,21,32,"Femenino","Catamarca",37,1.2
+4419,6052547,27,47,"Femenino","CABA",20,3.3
+833,6048416,24,21,"Femenino","Río Negro",3,1.7
+4758,6045941,30,60,"Masculino","San Luis",25,4.1
+2046,6045650,24,67,"Femenino","Entre Ríos",35,4
+4562,6044398,24,33,"Femenino","Santa Cruz",41,4.5
+1461,6031901,30,46,"Femenino","Chubut",8,2.7
+2845,6027111,28,57,"Femenino","La Pampa",9,1.2
+3192,6022876,26,21,"Masculino","Salta",4,2.6
+2006,6020165,21,56,"Masculino","Entre Ríos",12,3.6
+1173,6017120,28,56,"Masculino","Santa Cruz",5,4.4
+3837,6007083,30,25,"Femenino","Formosa",38,2.1
+3251,6002457,27,48,"Femenino","Río Negro",39,2.8
+2327,6002353,26,36,"Masculino","Catamarca",33,3.7
+3159,6001799,24,21,"Masculino","Salta",15,1.2
+1437,5998245,24,43,"Masculino","Santa Cruz",46,4
+3277,5996302,25,38,"Masculino","Santiago del Estero",41,1.5
+2799,5989970,27,23,"Femenino","Río Negro",2,3.7
+4729,5988273,24,45,"Femenino","Santa Cruz",1,1.5
+3124,5986970,27,30,"Masculino","Santiago del Estero",5,1.2
+3405,5981242,31,58,"Femenino","La Rioja",7,3.3
+464,5974190,24,19,"Masculino","Salta",9,5
+4515,5971444,21,53,"Femenino","Formosa",21,3.4
+1471,5970243,23,66,"Masculino","Entre Ríos",10,4.5
+3351,5964768,34,45,"Femenino","Corrientes",7,2.1
+4197,5963816,25,58,"Femenino","Buenos Aires",16,3.6
+3384,5951451,29,60,"Femenino","Catamarca",25,1.7
+4062,5949750,29,27,"Femenino","Chubut",12,3.7
+160,5946739,27,64,"Femenino","Jujuy",0,2.9
+3599,5945260,29,46,"Femenino","La Pampa",20,2.8
+1304,5943879,24,55,"Masculino","Tucumán",49,3.4
+3363,5943489,25,25,"Masculino","San Juan",1,3.3
+816,5943098,24,19,"Masculino","Catamarca",4,2.8
+1125,5942811,22,27,"Masculino","Formosa",3,1
+1984,5927791,25,37,"Masculino","Buenos Aires",46,2.2
+3117,5925012,23,34,"Masculino","Buenos Aires",31,5
+2764,5923998,22,24,"Masculino","Chubut",35,3.9
+865,5923948,27,66,"Femenino","CABA",6,4.8
+3638,5917066,22,28,"Masculino","Chaco",24,1.9
+3247,5914136,25,24,"Masculino","Río Negro",24,4.3
+1682,5908538,25,53,"Femenino","San Juan",14,1.4
+1986,5907135,24,67,"Masculino","Mendoza",37,1.6
+702,5900929,32,21,"Masculino","Buenos Aires",36,1.5
+1851,5899764,27,41,"Femenino","Santa Fe",0,1.2
+3729,5894314,29,37,"Femenino","Misiones",22,2.8
+2022,5893742,31,31,"Masculino","Catamarca",11,1.6
+430,5890339,24,31,"Masculino","Chaco",49,1.3
+1209,5890114,26,61,"Femenino","Formosa",50,3.5
+254,5887859,26,44,"Femenino","Buenos Aires",5,2.8
+844,5886394,28,29,"Masculino","Santa Cruz",17,3
+3763,5884974,27,38,"Femenino","Corrientes",28,4.5
+394,5878479,28,28,"Femenino","Formosa",1,3.7
+176,5872414,27,31,"Masculino","Chaco",36,1.7
+592,5869673,24,56,"Femenino","Santa Fe",39,2.5
+3264,5868852,30,25,"Masculino","Buenos Aires",24,1.4
+4883,5866654,26,34,"Masculino","San Luis",4,2
+3898,5865079,25,33,"Femenino","Córdoba",33,3.6
+4818,5864876,26,64,"Masculino","CABA",17,2.5
+3736,5863462,29,18,"Femenino","CABA",26,4.3
+3326,5861782,23,29,"Femenino","Entre Ríos",7,2.6
+851,5857184,22,34,"Femenino","Chaco",49,1.9
+3321,5855447,27,36,"Femenino","La Pampa",47,2.5
+3878,5854954,22,19,"Femenino","Buenos Aires",3,2.4
+4475,5854270,20,44,"Femenino","Río Negro",3,4.9
+4756,5852654,25,65,"Femenino","Mendoza",28,4.4
+2568,5844159,28,46,"Femenino","Chaco",8,4.5
+2939,5842605,31,62,"Femenino","Tucumán",27,4.8
+1570,5838734,30,48,"Masculino","Río Negro",42,4.4
+4413,5838728,24,33,"Masculino","Neuquén",30,3.5
+4983,5835042,28,42,"Femenino","Tierra del Fuego",22,2.4
+1231,5828229,30,68,"Masculino","Río Negro",18,1.3
+4461,5828104,27,42,"Masculino","Salta",7,1.3
+941,5821088,22,46,"Masculino","Formosa",26,2.2
+310,5819664,25,52,"Femenino","Santiago del Estero",16,3.5
+4157,5818347,25,56,"Femenino","Santiago del Estero",48,1.1
+3158,5817889,29,69,"Femenino","Misiones",17,4
+3692,5813850,28,70,"Masculino","Formosa",16,1.5
+2884,5813441,26,33,"Masculino","Río Negro",8,2.9
+665,5812820,25,55,"Masculino","Santa Fe",7,4.4
+1414,5812818,25,59,"Masculino","San Luis",37,4.4
+3331,5810330,23,33,"Masculino","Córdoba",23,3.7
+2790,5809699,14,37,"Masculino","Tucumán",7,3.5
+1917,5808110,26,69,"Femenino","Tucumán",19,4.5
+944,5805171,29,33,"Femenino","Chaco",32,1.2
+367,5804362,30,27,"Femenino","CABA",22,1.2
+4999,5802616,28,66,"Masculino","Corrientes",4,2.6
+341,5802573,23,20,"Masculino","Santa Fe",34,4.1
+2174,5802154,26,40,"Femenino","San Juan",26,3.3
+647,5801338,24,53,"Masculino","Catamarca",1,1.8
+1197,5799164,22,67,"Masculino","Entre Ríos",23,3.2
+3359,5791298,24,46,"Masculino","Buenos Aires",1,1.5
+569,5791211,28,65,"Femenino","Buenos Aires",30,2.8
+3059,5789972,26,40,"Masculino","Misiones",2,4.9
+4422,5781545,26,20,"Femenino","Buenos Aires",2,2.6
+2379,5780618,27,33,"Femenino","Santa Fe",12,2.6
+2364,5773804,30,19,"Masculino","Chaco",37,4.2
+3278,5772201,30,28,"Femenino","Entre Ríos",42,2.7
+345,5770950,27,21,"Femenino","Chubut",22,4.8
+4918,5770723,29,52,"Masculino","Buenos Aires",2,3.9
+1589,5767875,25,55,"Femenino","Tucumán",1,4.6
+1575,5764053,25,34,"Femenino","Mendoza",47,3.1
+3324,5759592,24,42,"Masculino","La Rioja",29,4.6
+20,5754734,28,35,"Masculino","Santiago del Estero",37,2
+848,5751602,27,42,"Femenino","San Juan",4,1.7
+706,5750788,27,53,"Masculino","Salta",13,3.3
+45,5749929,28,70,"Masculino","Buenos Aires",39,4
+3997,5748438,29,35,"Femenino","Río Negro",38,2.6
+2409,5747302,24,22,"Femenino","Entre Ríos",42,2.8
+532,5745308,32,66,"Femenino","Buenos Aires",43,4
+1115,5743208,29,29,"Masculino","Formosa",28,2.8
+2715,5742032,28,25,"Femenino","Tierra del Fuego",20,2.1
+1343,5740853,26,39,"Femenino","Chaco",30,2.1
+3823,5735699,23,39,"Masculino","San Luis",28,2
+1165,5730987,27,39,"Femenino","Catamarca",30,3.7
+1182,5730644,30,34,"Masculino","Catamarca",17,1.1
+2891,5726073,23,47,"Masculino","Santa Cruz",37,2.9
+994,5725153,27,70,"Femenino","Salta",38,1.8
+2332,5722874,21,33,"Masculino","Santa Cruz",31,3.6
+1408,5721969,22,54,"Femenino","Chaco",44,3.8
+1958,5720290,27,23,"Masculino","Santa Fe",22,4.3
+1450,5714851,29,32,"Masculino","Santa Cruz",8,4.5
+1517,5706283,23,66,"Femenino","Santiago del Estero",15,2.2
+2623,5697085,24,63,"Femenino","Entre Ríos",30,2.2
+4106,5683503,27,42,"Femenino","Misiones",2,3.1
+2624,5682183,29,54,"Masculino","Santa Fe",0,3.3
+832,5678824,32,55,"Masculino","La Rioja",3,2.9
+295,5674225,23,40,"Masculino","Buenos Aires",42,1.7
+2603,5671336,22,27,"Masculino","Catamarca",2,3.9
+4278,5666591,28,68,"Masculino","La Rioja",19,2
+2108,5663170,27,62,"Femenino","Jujuy",7,3.9
+989,5663000,24,32,"Femenino","San Luis",14,4.6
+3739,5662791,23,23,"Masculino","Misiones",33,4.9
+2463,5658449,24,30,"Femenino","Santiago del Estero",39,3.8
+2185,5657575,23,70,"Masculino","Tierra del Fuego",49,2.8
+1346,5657515,22,49,"Masculino","Jujuy",48,2.6
+3915,5652451,23,25,"Femenino","Neuquén",15,4.8
+946,5651944,25,47,"Femenino","Río Negro",23,2.7
+3378,5645848,26,58,"Masculino","Misiones",18,2.3
+3094,5644108,28,30,"Masculino","La Rioja",5,2.9
+1927,5643510,29,22,"Masculino","Chubut",45,1.3
+4127,5638328,27,54,"Femenino","Salta",43,3
+1708,5630787,24,41,"Femenino","Córdoba",9,4.8
+3478,5627903,25,43,"Femenino","La Rioja",3,1.1
+905,5625985,28,38,"Masculino","Buenos Aires",49,2.7
+2713,5625227,27,33,"Femenino","Jujuy",17,3.9
+3711,5621134,23,68,"Masculino","Santa Cruz",0,1.7
+4218,5621107,28,23,"Femenino","Catamarca",38,3.8
+2418,5619247,27,60,"Masculino","CABA",16,1.9
+804,5616709,22,42,"Masculino","Entre Ríos",13,2.9
+2430,5609882,27,34,"Femenino","CABA",23,4.9
+756,5609766,26,46,"Femenino","Misiones",29,2.2
+424,5603976,25,26,"Masculino","Jujuy",10,4.8
+3622,5603103,25,21,"Masculino","Formosa",24,4.9
+2854,5599761,30,31,"Femenino","San Juan",7,1.9
+964,5599193,27,48,"Masculino","Formosa",11,1
+1969,5595213,25,50,"Femenino","Córdoba",43,1.3
+3565,5594221,26,21,"Femenino","Salta",23,1.7
+3609,5592572,22,65,"Masculino","Neuquén",38,2.3
+2881,5591411,19,57,"Femenino","Mendoza",27,1.1
+3089,5589745,22,27,"Masculino","Santiago del Estero",7,4.7
+3587,5588305,28,48,"Masculino","Río Negro",0,3
+201,5586105,22,26,"Masculino","San Luis",21,1.4
+2072,5584430,26,49,"Masculino","Entre Ríos",34,3.3
+1585,5583839,30,39,"Femenino","La Rioja",6,3.3
+2426,5583629,25,53,"Masculino","Tierra del Fuego",23,3.1
+3064,5579831,23,27,"Masculino","San Juan",33,2.1
+809,5578864,26,46,"Masculino","Neuquén",29,1.8
+4313,5575473,26,47,"Masculino","Jujuy",0,1.2
+395,5574030,24,47,"Masculino","Salta",40,2.1
+2944,5573204,29,30,"Masculino","Formosa",45,3.7
+4128,5572816,25,51,"Masculino","Santa Cruz",30,4.9
+4040,5570084,24,18,"Femenino","Buenos Aires",24,1.1
+1707,5567495,23,62,"Masculino","Santiago del Estero",23,3.7
+2194,5565352,26,61,"Masculino","Entre Ríos",8,4
+1535,5565340,21,31,"Femenino","Catamarca",23,4.9
+2562,5563899,23,67,"Femenino","Tierra del Fuego",28,2.8
+2429,5563478,21,64,"Femenino","Río Negro",21,2.8
+1943,5561390,23,51,"Masculino","Misiones",17,1.9
+3071,5560847,25,42,"Femenino","Tierra del Fuego",2,1.3
+3138,5560741,26,49,"Femenino","Río Negro",19,2
+2627,5560208,24,39,"Masculino","Mendoza",8,1.8
+1711,5558848,27,63,"Masculino","Salta",39,2.8
+3747,5558514,22,64,"Masculino","La Pampa",47,2.8
+2821,5556174,24,36,"Masculino","Santa Cruz",5,4.3
+1092,5555688,26,44,"Masculino","CABA",42,1.6
+1639,5555220,23,39,"Femenino","Chaco",45,4.1
+868,5555036,24,18,"Masculino","Salta",9,1.7
+2307,5553513,26,67,"Femenino","Tucumán",22,4.9
+940,5550266,24,66,"Femenino","Mendoza",10,4.9
+1765,5550164,26,27,"Femenino","San Juan",2,3.7
+461,5544682,24,21,"Femenino","Tucumán",40,4.2
+3379,5540171,25,61,"Femenino","Tucumán",27,2.4
+168,5538953,22,67,"Masculino","Córdoba",45,2.8
+1606,5538745,24,32,"Masculino","Jujuy",33,1.6
+1545,5529417,23,39,"Femenino","Catamarca",26,4.8
+1797,5529165,24,25,"Femenino","CABA",19,2.9
+4321,5525066,23,58,"Masculino","Entre Ríos",3,2.7
+2554,5523061,24,23,"Femenino","San Juan",38,4.1
+445,5522054,20,60,"Masculino","Santa Cruz",8,3.7
+4899,5518356,24,48,"Masculino","La Rioja",16,2.3
+405,5514397,21,48,"Femenino","Neuquén",43,1.4
+2893,5509584,26,48,"Femenino","Salta",13,4.5
+3605,5507536,25,64,"Masculino","Corrientes",1,2
+4442,5507517,29,30,"Masculino","Santiago del Estero",38,1
+1690,5504178,26,54,"Masculino","Santa Fe",44,2.8
+3263,5501637,30,52,"Masculino","Tierra del Fuego",22,1
+3003,5499746,17,49,"Femenino","Chaco",34,3.6
+4853,5499100,26,18,"Femenino","Chubut",10,1.6
+1680,5498964,28,59,"Femenino","La Pampa",33,3.3
+1770,5493272,25,27,"Masculino","Entre Ríos",42,3
+1782,5493149,28,66,"Femenino","Chubut",30,4.1
+4322,5492555,23,66,"Femenino","Corrientes",13,2.9
+3128,5489735,21,55,"Femenino","La Pampa",17,1.9
+1385,5489340,21,31,"Masculino","Río Negro",34,2.6
+4341,5489280,18,35,"Masculino","Tierra del Fuego",4,4.1
+107,5487352,24,48,"Masculino","Formosa",9,2.5
+3875,5483681,27,69,"Femenino","Mendoza",47,3
+2618,5482412,29,67,"Masculino","La Rioja",27,4.4
+1433,5474341,20,30,"Femenino","Chaco",11,2.9
+3058,5472289,24,19,"Femenino","Neuquén",20,3.8
+591,5472192,27,66,"Masculino","Corrientes",12,4.1
+2034,5471140,17,48,"Masculino","Mendoza",8,1.3
+4165,5470097,24,63,"Masculino","Formosa",41,4.8
+3796,5466336,27,63,"Femenino","Río Negro",31,2.7
+2393,5464463,20,57,"Masculino","Santiago del Estero",21,1.4
+3525,5460330,23,65,"Femenino","La Rioja",40,1.5
+1185,5459400,29,63,"Masculino","Santa Fe",23,3.5
+4045,5456824,23,20,"Masculino","Chubut",18,1.3
+1122,5456789,23,29,"Femenino","Formosa",18,4.1
+3718,5455110,22,70,"Masculino","San Luis",25,4.8
+342,5454871,20,28,"Femenino","Neuquén",10,2.3
+1522,5453699,31,58,"Femenino","Tucumán",48,1.2
+4660,5450874,23,64,"Femenino","Corrientes",47,1
+2249,5450807,25,65,"Femenino","La Pampa",26,3.6
+2473,5448417,27,33,"Masculino","Formosa",23,3.6
+3838,5447684,25,59,"Masculino","Salta",26,3.6
+2318,5447068,22,62,"Masculino","Tucumán",37,1.4
+2477,5446279,21,31,"Femenino","Río Negro",41,3.7
+720,5445934,23,50,"Femenino","Santa Fe",8,2.7
+4445,5443902,25,27,"Femenino","Chubut",33,1.6
+4794,5439303,25,62,"Masculino","Chubut",40,5
+2577,5439193,22,36,"Masculino","Misiones",50,3.5
+2959,5437883,26,57,"Masculino","Santa Cruz",40,4
+2016,5435658,20,67,"Masculino","Catamarca",37,1.1
+3529,5434264,24,62,"Masculino","CABA",37,2.4
+2628,5433389,28,46,"Masculino","Formosa",46,2
+2375,5431202,24,67,"Femenino","Córdoba",34,3.6
+4861,5428450,26,28,"Femenino","Mendoza",5,2.5
+4193,5423867,26,45,"Masculino","Santa Cruz",22,3.8
+1154,5421233,22,25,"Masculino","Santa Cruz",30,2.6
+2611,5420413,26,58,"Femenino","Buenos Aires",7,2.8
+1176,5419416,29,63,"Masculino","Santa Fe",8,2.4
+3190,5419146,27,59,"Masculino","Formosa",40,1.8
+571,5419111,22,31,"Masculino","Entre Ríos",24,1.4
+3161,5416892,24,42,"Masculino","La Pampa",42,1.9
+2530,5415559,22,65,"Femenino","Entre Ríos",5,1.2
+4290,5413173,22,53,"Femenino","Salta",3,1
+4814,5411815,20,26,"Masculino","Neuquén",24,4.7
+3317,5411791,21,22,"Femenino","Neuquén",10,2.7
+3715,5411094,24,47,"Femenino","Catamarca",33,2.2
+2985,5408724,23,38,"Femenino","Santa Fe",0,4.5
+1330,5408079,20,20,"Femenino","San Luis",21,1.8
+1259,5407408,18,61,"Masculino","Salta",14,3.8
+124,5407075,23,30,"Femenino","Entre Ríos",1,3.1
+1601,5405127,25,69,"Masculino","Formosa",11,1.4
+3557,5403415,32,40,"Femenino","Mendoza",23,4
+4307,5401670,22,18,"Femenino","Santiago del Estero",24,4.8
+3782,5401602,19,55,"Femenino","San Juan",8,4.5
+3931,5398025,29,54,"Masculino","CABA",24,1.2
+2144,5395566,25,58,"Femenino","Chubut",36,4.3
+350,5394789,29,19,"Masculino","Formosa",43,3.6
+34,5391519,19,63,"Masculino","Santiago del Estero",47,1.3
+1489,5388556,26,65,"Masculino","Córdoba",42,2.4
+4373,5384535,25,70,"Masculino","Formosa",15,3.8
+1809,5378732,21,40,"Femenino","Entre Ríos",15,3.9
+3097,5376391,30,41,"Masculino","Neuquén",49,4.6
+1256,5376280,20,42,"Masculino","Tierra del Fuego",19,3.4
+4314,5374632,24,63,"Femenino","San Luis",31,5
+1976,5373082,23,47,"Femenino","Buenos Aires",46,2.5
+3933,5371537,18,50,"Masculino","Santa Cruz",47,1.5
+3142,5370776,27,53,"Masculino","Salta",27,4.7
+4613,5367986,25,49,"Masculino","Neuquén",35,3.4
+4512,5367203,28,69,"Masculino","Córdoba",24,1.2
+1036,5364158,24,19,"Femenino","Salta",39,1.5
+2630,5362678,25,43,"Masculino","Catamarca",6,2.3
+684,5362404,29,22,"Femenino","Tierra del Fuego",16,3.3
+3460,5360173,29,69,"Masculino","Santa Fe",7,3.6
+1153,5358514,29,47,"Masculino","San Juan",22,3.4
+2023,5358457,27,36,"Masculino","Córdoba",38,4.7
+2386,5357579,33,56,"Femenino","Mendoza",47,4.6
+2783,5355709,27,23,"Femenino","San Luis",19,1.1
+4505,5354870,27,26,"Masculino","Catamarca",33,1.6
+2668,5354471,26,51,"Masculino","Tierra del Fuego",21,2.2
+644,5353492,23,18,"Femenino","Córdoba",4,3.4
+3894,5350992,24,64,"Masculino","La Rioja",42,4.3
+4743,5346019,29,34,"Femenino","La Rioja",43,4.2
+321,5344896,27,69,"Femenino","Río Negro",25,2.6
+263,5342372,23,27,"Femenino","Santiago del Estero",23,3.6
+2076,5342065,28,29,"Masculino","La Rioja",47,4.4
+3874,5341381,26,48,"Masculino","Río Negro",38,4.6
+2972,5338681,24,56,"Femenino","La Pampa",18,3.7
+3541,5337959,25,70,"Masculino","San Juan",43,1.7
+2559,5336213,20,46,"Masculino","Buenos Aires",27,3.6
+3090,5334168,19,66,"Masculino","Formosa",46,1.3
+2221,5332624,21,21,"Femenino","Jujuy",4,1.2
+3463,5331793,19,62,"Femenino","CABA",39,4.4
+4522,5331768,27,25,"Masculino","La Rioja",48,3.1
+467,5331220,28,56,"Femenino","San Juan",22,3.9
+2752,5326753,29,43,"Femenino","Santa Cruz",12,5
+281,5325230,26,34,"Femenino","San Juan",6,3
+1422,5324447,23,40,"Masculino","Misiones",6,2
+1024,5323924,27,18,"Femenino","Salta",30,2.9
+3213,5319773,21,37,"Masculino","Córdoba",15,1
+2594,5319625,28,25,"Femenino","Chubut",20,3.8
+3248,5317628,27,59,"Femenino","Santa Fe",13,4.8
+3546,5315085,23,69,"Masculino","Misiones",43,1.7
+2133,5314068,23,43,"Femenino","Chubut",45,1.9
+1547,5309816,25,44,"Masculino","Corrientes",47,1.6
+4260,5309312,25,19,"Femenino","Chaco",11,2.3
+239,5309098,26,65,"Femenino","Tierra del Fuego",49,3.4
+2724,5305653,24,32,"Femenino","Corrientes",6,4
+4782,5304389,19,68,"Femenino","Corrientes",17,2
+1083,5304361,22,22,"Femenino","Catamarca",10,2.2
+2614,5304116,25,33,"Masculino","La Pampa",47,4.3
+2689,5304101,19,49,"Masculino","Chubut",36,4.8
+2198,5300678,22,69,"Masculino","Mendoza",42,2.3
+740,5299464,28,47,"Masculino","Santa Fe",36,2.7
+2904,5297954,19,56,"Masculino","San Luis",21,2.1
+1689,5297525,29,54,"Femenino","San Juan",8,1.5
+820,5296319,32,19,"Masculino","San Luis",28,3.5
+3927,5292194,27,42,"Femenino","Tucumán",9,2
+1516,5289877,24,43,"Masculino","Santiago del Estero",30,3.9
+1623,5288268,24,29,"Femenino","Neuquén",10,3
