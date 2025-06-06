@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 1: Introducción a Machine Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 90%;
+            max-height: 85%;
+            overflow-y: auto;
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1 {
+            color: #4a5568;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin: 25px 0 20px 0;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #4a5568;
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin: 15px 0 10px 0;
+            font-weight: 600;
+        }
+
+        p, li {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .example {
+            background: #f8f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #4a5568;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: #4a5568;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .warning {
+            background: #fed7d7;
+            border: 1px solid #feb2b2;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .success {
+            background: #c6f6d5;
+            border: 1px solid #9ae6b4;
+            color: #2f855a;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+                max-width: 95%;
+                max-height: 90%;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .navigation {
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">0</span>
+        </div>
+
+        <!-- Slide 1: Portada -->
+        <div class="slide active">
+            <h1>🤖 Machine Learning</h1>
+            <div style="text-align: center; margin: 50px 0;">
+                <h2 style="border: none; color: #764ba2;">Conceptos Fundamentales y Principios Generales</h2>
+                <div style="margin: 40px 0; font-size: 1.3em; color: #4a5568;">
+                    <p><strong>Clase 1:</strong> Introducción a Machine Learning</p>
+                    <p style="margin-top: 20px; font-size: 1.1em;">Unidad de Big Data y Machine Learning</p>
+                </div>
+            </div>
+            <div class="highlight">
+                <h3>📋 Agenda de Hoy</h3>
+                <ul>
+                    <li>¿Qué es Machine Learning?</li>
+                    <li>Tipos de aprendizaje y algoritmos</li>
+                    <li>El proceso completo de ML</li>
+                    <li>Conceptos clave universales</li>
+                    <li>Sesgos y consideraciones éticas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 2: ¿Qué es ML? -->
+        <div class="slide">
+            <h1>¿Qué es Machine Learning? 🧠</h1>
+            
+            <div class="highlight">
+                <h3>Definición</h3>
+                <p>Machine Learning es una rama de la inteligencia artificial que permite a las computadoras <strong>aprender y tomar decisiones a partir de datos</strong> sin ser explícitamente programadas para cada tarea específica.</p>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>🧒 Analogía Simple</h3>
+                    <div class="example">
+                        <h4>Enseñar a reconocer perros:</h4>
+                        <p><strong>Programación tradicional:</strong><br>
+                        "Tiene 4 patas, ladra, tiene pelo..."</p>
+                        <p><strong>Machine Learning:</strong><br>
+                        Mostrar miles de fotos de perros y no-perros, el algoritmo aprende por sí mismo</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>⚡ Diferencia Clave</h3>
+                    <div class="code-block">
+Programación tradicional:
+Datos + Programa → Resultado
+
+Machine Learning:
+Datos + Resultado → Programa
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Tipos de Aprendizaje -->
+        <div class="slide">
+            <h1>Tipos de Aprendizaje 📚</h1>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="emoji">👨‍🏫</span>
+                    <h3>Aprendizaje Supervisado</h3>
+                    <p><strong>Qué es:</strong> Aprendemos con ejemplos que ya tienen la "respuesta correcta"</p>
+                    <div class="example">
+                        <strong>Ejemplos:</strong>
+                        <ul style="text-align: left;">
+                            <li>Predecir precios de casas</li>
+                            <li>Detectar spam en emails</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <span class="emoji">🔍</span>
+                    <h3>Aprendizaje No Supervisado</h3>
+                    <p><strong>Qué es:</strong> Encontramos patrones en datos sin "respuestas correctas"</p>
+                    <div class="example">
+                        <strong>Ejemplos:</strong>
+                        <ul style="text-align: left;">
+                            <li>Segmentar clientes</li>
+                            <li>Detectar anomalías</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <span class="emoji">🎮</span>
+                    <h3>Aprendizaje por Refuerzo</h3>
+                    <p><strong>Qué es:</strong> Aprende a través de ensayo y error, recibiendo recompensas</p>
+                    <div class="example">
+                        <strong>Ejemplos:</strong>
+                        <ul style="text-align: left;">
+                            <li>Juegos (AlphaGo)</li>
+                            <li>Autos autónomos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>📖 En este curso nos enfocaremos en:</h3>
+                <ul>
+                    <li><strong>Regresión:</strong> Predecir valores numéricos continuos</li>
+                    <li><strong>Clasificación:</strong> Predecir categorías o clases</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: Aprendizaje No Supervisado - Panorama -->
+        <div class="slide">
+            <h1>Aprendizaje No Supervisado 🔍</h1>
+            
+            <div class="highlight">
+                <h3>🔍 Diferencia Fundamental con Supervisado</h3>
+                <div class="two-column">
+                    <div class="success">
+                        <h4>✅ Aprendizaje Supervisado</h4>
+                        <ul style="text-align: left;">
+                            <li>Tenemos <strong>targets</strong> (respuestas correctas)</li>
+                            <li>Ejemplos: X → Y</li>
+                            <li>Objetivo: Predecir Y para nuevas X</li>
+                            <li>Evaluamos comparando predicción vs realidad</li>
+                        </ul>
+                        <div class="code-block">
+Datos: [Edad, Ingresos] → [Compra: Sí/No]<br>
+Objetivo: Predecir si comprará
+                        </div>
+                    </div>
+                    <div class="warning">
+                        <h4>🔍 Aprendizaje No Supervisado</h4>
+                        <ul style="text-align: left;">
+                            <li><strong>NO hay targets</strong> (no respuestas correctas)</li>
+                            <li>Solo tenemos X</li>
+                            <li>Objetivo: Encontrar patrones ocultos</li>
+                            <li>Evaluamos con métricas internas</li>
+                        </ul>
+                        <div class="code-block">
+Datos: [Edad, Ingresos, Gastos]<br>
+Objetivo: ¿Qué grupos naturales existen?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="emoji">🎯</span>
+                    <h3>Clustering</h3>
+                    <p><strong>Objetivo:</strong> Agrupar datos similares</p>
+                    <p><strong>Pregunta:</strong> "¿Qué segmentos naturales existen en mis datos?"</p>
+                    <div class="example">
+                        <strong>Casos de uso:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Segmentación de clientes</li>
+                            <li>Análisis de mercado</li>
+                            <li>Organización de productos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <span class="emoji">📉</span>
+                    <h3>Reducción de Dimensionalidad</h3>
+                    <p><strong>Objetivo:</strong> Simplificar datos manteniendo información importante</p>
+                    <p><strong>Pregunta:</strong> "¿Cuáles son las variables más importantes?"</p>
+                    <div class="example">
+                        <strong>Casos de uso:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Visualización de datos complejos</li>
+                            <li>Compresión de información</li>
+                            <li>Feature selection automática</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <span class="emoji">🚨</span>
+                    <h3>Detección de Anomalías</h3>
+                    <p><strong>Objetivo:</strong> Identificar puntos "raros" o atípicos</p>
+                    <p><strong>Pregunta:</strong> "¿Qué observaciones son diferentes al resto?"</p>
+                    <div class="example">
+                        <strong>Casos de uso:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Detección de fraude</li>
+                            <li>Control de calidad</li>
+                            <li>Monitoreo de sistemas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Clustering - Detalles -->
+        <div class="slide">
+            <h1>Clustering - Encontrando Grupos Naturales 🎯</h1>
+            
+            <div class="example">
+                <h3>💼 Ejemplo Práctico: Segmentación de Clientes E-commerce</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>📊 Variables disponibles:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li>Frecuencia de compra</li>
+                            <li>Monto promedio por compra</li>
+                            <li>Última compra (recency)</li>
+                            <li>Categorías preferidas</li>
+                            <li>Tiempo como cliente</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>🎯 Clusters encontrados:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li><strong>VIP:</strong> Alta frecuencia, alto monto</li>
+                            <li><strong>Ocasionales:</strong> Baja frecuencia, alto monto</li>
+                            <li><strong>Frecuentes:</strong> Alta frecuencia, bajo monto</li>
+                            <li><strong>En riesgo:</strong> Sin compras recientes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="success" style="margin-top: 15px;">
+                    <strong>💡 Valor de negocio:</strong> Estrategias de marketing personalizadas para cada segmento
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>K-Means</h3>
+                    <p><strong>¿Cómo funciona?</strong> Divide datos en K grupos, minimizando distancia dentro de grupos</p>
+                    <p><strong>Ventajas:</strong> Simple, rápido, escalable</p>
+                    <p><strong>Desventajas:</strong> Requiere definir K a priori, asume clusters esféricos</p>
+                    <div class="code-block">
+1. Elegir K (número de clusters)<br>
+2. Inicializar K centroides<br>
+3. Asignar puntos al centroide más cercano<br>
+4. Actualizar centroides<br>
+5. Repetir hasta convergencia
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Hierarchical Clustering</h3>
+                    <p><strong>¿Cómo funciona?</strong> Construye jerarquía de clusters (dendrograma)</p>
+                    <p><strong>Ventajas:</strong> No requiere definir K, visualización clara</p>
+                    <p><strong>Desventajas:</strong> Computacionalmente costoso para datasets grandes</p>
+                    <div class="example">
+                        <strong>Tipos:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>Aglomerativo:</strong> Bottom-up (une clusters)</li>
+                            <li><strong>Divisivo:</strong> Top-down (divide clusters)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>DBSCAN</h3>
+                    <p><strong>¿Cómo funciona?</strong> Agrupa puntos densos, identifica outliers</p>
+                    <p><strong>Ventajas:</strong> Encuentra clusters de forma arbitraria, detecta outliers</p>
+                    <p><strong>Desventajas:</strong> Sensible a parámetros, problemas con densidades variables</p>
+                    <div class="example">
+                        <strong>Conceptos clave:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>Core points:</strong> Puntos con suficientes vecinos</li>
+                            <li><strong>Border points:</strong> Cerca de core points</li>
+                            <li><strong>Noise:</strong> Outliers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Métricas No Supervisado -->
+        <div class="slide">
+            <h1>Métricas en Aprendizaje No Supervisado 📏</h1>
+            
+            <div class="warning">
+                <h3>🚨 El Desafío: ¿Cómo evaluar sin "respuestas correctas"?</h3>
+                <p>En supervisado comparamos predicción vs realidad. En no supervisado, <strong>no hay realidad conocida</strong>. Usamos métricas <strong>internas</strong> que miden la calidad de los patrones encontrados.</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Silhouette Score</h3>
+                    <div class="code-block">
+Silhouette = (b - a) / max(a, b)<br>
+a = distancia promedio intra-cluster<br>
+b = distancia promedio al cluster más cercano
+                    </div>
+                    <p><strong>Rango:</strong> -1 a 1</p>
+                    <ul style="text-align: left; font-size: 0.9em;">
+                        <li><strong>Cerca de 1:</strong> Clusters bien separados</li>
+                        <li><strong>Cerca de 0:</strong> Clusters superpuestos</li>
+                        <li><strong>Negativo:</strong> Puntos en cluster incorrecto</li>
+                    </ul>
+                    <p><strong>Uso:</strong> Elegir número óptimo de clusters</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Inertia (Within-cluster sum of squares)</h3>
+                    <div class="code-block">
+Inertia = Σ ||xi - centroide||²<br>
+Para todos los puntos xi
+                    </div>
+                    <p><strong>¿Qué mide?</strong> Qué tan compactos son los clusters</p>
+                    <p><strong>Menor es mejor</strong>, pero cuidado con overfitting</p>
+                    <div class="example">
+                        <strong>Elbow Method:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Graficar Inertia vs K</li>
+                            <li>Buscar "codo" en la curva</li>
+                            <li>Balance entre ajuste y simplicidad</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Calinski-Harabasz Index</h3>
+                    <div class="code-block">
+CH = (Between-cluster dispersion / Within-cluster dispersion)<br>
+* (n-k) / (k-1)
+                    </div>
+                    <p><strong>¿Qué mide?</strong> Ratio de separación entre clusters vs compactación dentro</p>
+                    <p><strong>Mayor es mejor</strong></p>
+                    <div class="example">
+                        <strong>Ventajas:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Rápido de calcular</li>
+                            <li>No requiere distancias entre todos los puntos</li>
+                            <li>Buen balance interpretabilidad-performance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Davies-Bouldin Index</h3>
+                    <div class="code-block">
+DB = (1/k) * Σ max(Rij)<br>
+Rij = (Si + Sj) / Mij<br>
+Si = dispersión cluster i<br>
+Mij = distancia entre centroides
+                    </div>
+                    <p><strong>¿Qué mide?</strong> Promedio de similitud entre cada cluster y su más similar</p>
+                    <p><strong>Menor es mejor</strong></p>
+                    <div class="example">
+                        <strong>Interpretación:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Clusters compactos y bien separados → DB bajo</li>
+                            <li>Clusters dispersos o superpuestos → DB alto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>🎯 ¿Cómo elegir la métrica apropiada?</h3>
+                <ul>
+                    <li><strong>Silhouette:</strong> Cuando quieres interpretabilidad clara (-1 a 1)</li>
+                    <li><strong>Inertia + Elbow:</strong> Para K-means, fácil de entender</li>
+                    <li><strong>Calinski-Harabasz:</strong> Balance entre velocidad y calidad</li>
+                    <li><strong>Combinar múltiples métricas</strong> para decisión más robusta</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: Reducción de Dimensionalidad -->
+        <div class="slide">
+            <h1>Reducción de Dimensionalidad 📉</h1>
+            
+            <div class="highlight">
+                <h3>🎯 ¿Por qué reducir dimensiones?</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>📊 El problema de alta dimensionalidad:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li><strong>Curse of dimensionality:</strong> Datos se vuelven "dispersos"</li>
+                            <li><strong>Visualización imposible:</strong> No podemos graficar 100 dimensiones</li>
+                            <li><strong>Ruido:</strong> Muchas variables irrelevantes</li>
+                            <li><strong>Computational cost:</strong> Procesamiento lento</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>✅ Beneficios de reducir dimensiones:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li><strong>Visualización:</strong> Graficar en 2D/3D</li>
+                            <li><strong>Storage:</strong> Menos espacio de almacenamiento</li>
+                            <li><strong>Speed:</strong> Algoritmos más rápidos</li>
+                            <li><strong>Noise reduction:</strong> Eliminar información irrelevante</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>PCA (Principal Component Analysis)</h3>
+                    <p><strong>¿Qué hace?</strong> Encuentra las direcciones de máxima varianza en los datos</p>
+                    <div class="example">
+                        <h4>🔧 Proceso:</h4>
+                        <ol style="text-align: left; font-size: 0.9em;">
+                            <li>Calcular matriz de covarianza</li>
+                            <li>Encontrar eigenvectors (componentes principales)</li>
+                            <li>Ordenar por eigenvalues (varianza explicada)</li>
+                            <li>Proyectar datos en nuevas dimensiones</li>
+                        </ol>
+                    </div>
+                    <div class="success">
+                        <strong>✅ Ventajas:</strong> Interpretable, preserva varianza máxima
+                    </div>
+                    <div class="warning">
+                        <strong>⚠️ Limitaciones:</strong> Solo relaciones lineales, componentes difíciles de interpretar
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>t-SNE</h3>
+                    <p><strong>¿Qué hace?</strong> Preserva similitudes locales, excelente para visualización</p>
+                    <div class="example">
+                        <h4>🎯 Características:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Convierte similitudes en probabilidades</li>
+                            <li>Minimiza diferencia entre distribuciones</li>
+                            <li>Preserva estructura local (vecinos cercanos)</li>
+                        </ul>
+                    </div>
+                    <div class="success">
+                        <strong>✅ Ventajas:</strong> Visualizaciones hermosas, preserva clusters
+                    </div>
+                    <div class="warning">
+                        <strong>⚠️ Limitaciones:</strong> Solo para visualización, no determinístico, lento
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>UMAP</h3>
+                    <p><strong>¿Qué hace?</strong> Similar a t-SNE pero más rápido y preserva estructura global</p>
+                    <div class="example">
+                        <h4>🚀 Ventajas sobre t-SNE:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Más rápido computacionalmente</li>
+                            <li>Preserva estructura global Y local</li>
+                            <li>Más estable entre ejecuciones</li>
+                            <li>Mejor para datasets grandes</li>
+                        </ul>
+                    </div>
+                    <div class="success">
+                        <strong>🎯 Uso típico:</strong> Visualización de datasets complejos (genomics, imágenes, texto)
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>💼 Ejemplo Práctico: Análisis de Productos E-commerce</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>📊 Datos originales (50 dimensiones):</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li>Características del producto (20 vars)</li>
+                            <li>Comportamiento de compra (15 vars)</li>
+                            <li>Reviews y ratings (10 vars)</li>
+                            <li>Datos demográficos (5 vars)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>🎯 Después de PCA (5 dimensiones):</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li>PC1: "Popularidad general" (30% varianza)</li>
+                            <li>PC2: "Precio vs calidad" (20% varianza)</li>
+                            <li>PC3: "Categoría específica" (15% varianza)</li>
+                            <li>PC4: "Estacionalidad" (10% varianza)</li>
+                            <li>PC5: "Nicho specialty" (8% varianza)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="success" style="margin-top: 15px;">
+                    <strong>📈 Resultado:</strong> 83% de la varianza original preservada con solo 5 dimensiones. Visualización clara de segmentos de productos.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Transición a Supervisado -->
+        <div class="slide">
+            <h1>Enfoque del Curso: Aprendizaje Supervisado 🎯</h1>
+            
+            <div class="highlight">
+                <h3>📚 Lo que acabamos de ver vs lo que sigue</h3>
+                <div class="two-column">
+                    <div class="example">
+                        <h4>🔍 Aprendizaje No Supervisado</h4>
+                        <p><strong>Lo que vimos:</strong></p>
+                        <ul style="font-size: 0.9em;">
+                            <li>Clustering (K-means, Hierarchical, DBSCAN)</li>
+                            <li>Reducción dimensionalidad (PCA, t-SNE, UMAP)</li>
+                            <li>Métricas internas (Silhouette, Inertia)</li>
+                            <li>Detección de anomalías</li>
+                        </ul>
+                        <p><strong>Futuro:</strong> Clase dedicada completa a estos temas</p>
+                    </div>
+                    <div class="success">
+                        <h4>✅ Aprendizaje Supervisado</h4>
+                        <p><strong>Resto del curso:</strong></p>
+                        <ul style="font-size: 0.9em;">
+                            <li><strong>Clase 2:</strong> Modelos de Regresión</li>
+                            <li><strong>Clase 3:</strong> Algoritmos de Clasificación</li>
+                            <li><strong>Clase 4:</strong> Modelos de Negocio (Churn, LTV)</li>
+                            <li><strong>Clase 5:</strong> Práctica en R</li>
+                        </ul>
+                        <p><strong>Por qué este enfoque:</strong> Aplicaciones directas en business analytics</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning">
+                <h3>⚠️ Aclaración Importante</h3>
+                <p><strong>Todos los conceptos que siguen son específicos de aprendizaje supervisado:</strong></p>
+                <ul>
+                    <li><strong>Train/Validation/Test split</strong> → Requiere targets conocidos</li>
+                    <li><strong>Métricas de evaluación</strong> (MSE, Accuracy, F1) → Comparan predicción vs realidad</li>
+                    <li><strong>Overfitting/Underfitting</strong> → Como los definimos, necesita validation con targets</li>
+                    <li><strong>Cross-validation</strong> → Evalúa predicciones contra targets conocidos</li>
+                </ul>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>💼 ¿Por qué enfocarnos en Supervisado?</h3>
+                    <ul style="text-align: left; font-size: 0.9em;">
+                        <li><strong>Business value directo:</strong> Predicciones accionables</li>
+                        <li><strong>Casos de uso comunes:</strong> Ventas, churn, pricing</li>
+                        <li><strong>ROI medible:</strong> Impacto cuantificable en métricas de negocio</li>
+                        <li><strong>Base sólida:</strong> Conceptos transferibles a otros tipos</li>
+                    </ul>
+                </div>
+
+                <div class="metric-card">
+                    <h3>🔄 ¿Cuándo usar cada tipo?</h3>
+                    <div class="example">
+                        <p><strong>Usa No Supervisado cuando:</strong></p>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Explorar datos nuevos</li>
+                            <li>No hay targets claros</li>
+                            <li>Buscas insights exploratorios</li>
+                        </ul>
+                        <p><strong>Usa Supervisado cuando:</strong></p>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Hay ejemplos históricos</li>
+                            <li>Objetivo predictivo claro</li>
+                            <li>Necesitas decisiones automatizadas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>🔗 Combinación en la práctica</h3>
+                    <p><strong>Pipeline típico:</strong></p>
+                    <div class="code-block">
+1. EDA + No supervisado<br>
+   (entender datos)<br>
+2. Feature engineering<br>
+3. Supervisado<br>
+   (modelo predictivo)<br>
+4. Deployment y monitoreo
+                    </div>
+                    <p style="font-size: 0.9em;"><strong>Ejemplo:</strong> Clustering para segmentar clientes, luego modelos supervisados para predecir churn en cada segmento</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: El Proceso de ML (ajustado) -->
+        <div class="slide">
+            <h1>El Proceso de Machine Learning (Supervisado) 🔄</h1>
+            
+            <div class="warning">
+                <h3>🎯 Nota: Proceso específico para Aprendizaje Supervisado</h3>
+                <p>Los siguientes pasos asumen que tenemos <strong>targets/etiquetas conocidas</strong>. Para no supervisado, el proceso sería diferente (sin división test/validation, métricas internas, etc.)</p>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="example">
+                    <h3>1️⃣ Definición del Problema</h3>
+                    <ul>
+                        <li>¿Qué queremos predecir? (Variable objetivo/target)</li>
+                        <li>¿Es un problema de regresión o clasificación?</li>
+                        <li>¿Qué datos necesitamos y están disponibles?</li>
+                        <li>¿Cómo se medirá el éxito del modelo?</li>
+                    </ul>
+                </div>
+
+                <div class="example">
+                    <h3>2️⃣ Recolección y Preparación de Datos</h3>
+                    <ul>
+                        <li><strong>Recolección:</strong> Obtener datos relevantes y suficientes (features + targets)</li>
+                        <li><strong>Limpieza:</strong> Manejar valores faltantes, outliers, errores</li>
+                        <li><strong>Transformación:</strong> Normalización, encoding de variables categóricas</li>
+                        <li><strong>Feature Engineering:</strong> Crear variables más informativas</li>
+                    </ul>
+                </div>
+
+                <div class="example">
+                    <h3>3️⃣ Exploración de Datos (EDA)</h3>
+                    <ul>
+                        <li>Entender la distribución de features y target</li>
+                        <li>Identificar correlaciones entre features y target</li>
+                        <li>Detectar patrones, anomalías y visualizar relaciones</li>
+                        <li>Evaluar calidad y completitud de los targets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Proceso ML (continuación) -->
+        <div class="slide">
+            <h1>El Proceso de ML (continuación) 🔄</h1>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="example">
+                    <h3>4️⃣ Selección y Entrenamiento del Modelo</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>Selección del Algoritmo:</h4>
+                            <ul>
+                                <li><strong>Tipo de problema:</strong> Regresión vs Clasificación</li>
+                                <li><strong>Tamaño del dataset:</strong> Pequeño, mediano, grande</li>
+                                <li><strong>Interpretabilidad vs Performance</strong></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>División de Datos:</h4>
+                            <div class="code-block">
+Training Set (70-80%)
+↓
+Validation Set (10-15%)
+↓
+Test Set (10-15%)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>5️⃣ Evaluación y Validación</h3>
+                    <p><strong>Proceso detallado:</strong></p>
+                    <ul>
+                        <li><strong>Entrenar modelo</strong> en training set</li>
+                        <li><strong>Evaluar rendimiento</strong> en validation set</li>
+                        <li><strong>Ajustar hiperparámetros</strong> basado en validation</li>
+                        <li><strong>Repetir</strong> hasta encontrar mejor configuración</li>
+                        <li><strong>Evaluación final</strong> en test set (solo una vez)</li>
+                    </ul>
+                    
+                    <h4>Métricas por tipo de problema:</h4>
+                    <div class="two-column">
+                        <div>
+                            <p><strong>Regresión:</strong></p>
+                            <ul style="font-size: 0.9em;">
+                                <li>MSE: Penaliza errores grandes</li>
+                                <li>RMSE: Interpretable, mismas unidades</li>
+                                <li>MAE: Robusta a outliers</li>
+                                <li>R²: Para stakeholders (% explicado)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p><strong>Clasificación:</strong></p>
+                            <ul style="font-size: 0.9em;">
+                                <li>Accuracy: % predicciones correctas</li>
+                                <li>Precision: Evitar falsos positivos</li>
+                                <li>Recall: Evitar falsos negativos</li>
+                                <li>F1: Balance precision-recall</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="warning" style="margin-top: 15px;">
+                        <strong>⚠️ Detección de problemas:</strong>
+                        <ul>
+                            <li><strong>Overfitting:</strong> Alto train, bajo validation</li>
+                            <li><strong>Underfitting:</strong> Ambos bajos</li>
+                            <li><strong>Data leakage:</strong> Resultados "demasiado buenos"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>6️⃣ Implementación y Monitoreo</h3>
+                    <ul>
+                        <li>Poner el modelo en producción</li>
+                        <li>Monitorear el rendimiento continuo</li>
+                        <li>Reentrenar cuando sea necesario</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Overfitting vs Underfitting -->
+        <div class="slide">
+            <h1>Overfitting vs Underfitting 🎯</h1>
+            
+            <div class="two-column">
+                <div class="warning">
+                    <h3>🔴 Overfitting (Sobreajuste)</h3>
+                    <p><strong>¿Qué es?</strong> El modelo "memoriza" los datos de entrenamiento pero no generaliza bien</p>
+                    
+                    <h4>🧠 Analogías:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li><strong>Estudiante:</strong> Memoriza respuestas del examen de práctica, falla en el examen real</li>
+                        <li><strong>GPS:</strong> Conoce perfectamente CABA pero se pierde en Córdoba</li>
+                        <li><strong>Chef:</strong> Cocina perfectamente UN plato pero no puede adaptar la técnica</li>
+                    </ul>
+                    
+                    <h4>📊 Síntomas:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li>Training accuracy: 98%</li>
+                        <li>Validation accuracy: 65%</li>
+                        <li><strong>Gap grande</strong> entre ambos</li>
+                        <li>Mejora en training pero empeora en validation</li>
+                    </ul>
+                    
+                    <h4>🔧 Soluciones:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li>Regularización (Ridge, Lasso)</li>
+                        <li>Early stopping</li>
+                        <li>Más datos de entrenamiento</li>
+                        <li>Feature selection</li>
+                        <li>Cross-validation</li>
+                    </ul>
+                </div>
+
+                <div class="success">
+                    <h3>🔵 Underfitting (Subajuste)</h3>
+                    <p><strong>¿Qué es?</strong> El modelo es demasiado simple y no captura los patrones importantes</p>
+                    
+                    <h4>🧠 Analogías:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li><strong>Estudiante:</strong> No estudió, no entiende conceptos básicos</li>
+                        <li><strong>Mapa básico:</strong> Solo muestra países, necesitamos direcciones específicas</li>
+                        <li><strong>Receta general:</strong> "Cocinar hasta que esté listo" no sirve para soufflé</li>
+                    </ul>
+                    
+                    <h4>📊 Síntomas:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li>Training accuracy: 60%</li>
+                        <li>Validation accuracy: 58%</li>
+                        <li><strong>Ambos valores bajos</strong> y similares</li>
+                        <li>Learning curves convergen bajo</li>
+                    </ul>
+                    
+                    <h4>🔧 Soluciones:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li>Modelo más complejo</li>
+                        <li>Feature engineering</li>
+                        <li>Más tiempo entrenamiento</li>
+                        <li>Reducir regularización</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>🎯 El Objetivo: Encontrar el Balance Óptimo</h3>
+                <p><strong>Bias-Variance Tradeoff:</strong></p>
+                <ul>
+                    <li><strong>Bias (Sesgo):</strong> Error por simplificaciones del modelo → Underfitting</li>
+                    <li><strong>Variance (Varianza):</strong> Error por sensibilidad a cambios en datos → Overfitting</li>
+                    <li><strong>Objetivo:</strong> Minimizar bias + variance + ruido</li>
+                    <li><strong>Herramientas:</strong> Learning curves, validation curves, cross-validation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 12: División de Datos -->
+        <div class="slide">
+            <h1>División de Datos 📊</h1>
+            
+            <div class="highlight">
+                <h3>🎓 Analogía del Examen</h3>
+                <ul>
+                    <li><strong>Training set:</strong> Material de estudio 📚</li>
+                    <li><strong>Validation set:</strong> Examen de práctica (para saber cómo vamos) 📝</li>
+                    <li><strong>Test set:</strong> Examen final (evaluación definitiva) 🎯</li>
+                </ul>
+                <p style="margin-top: 15px;"><em>Si usáramos el mismo material para estudiar y para el examen final, ¡no sabríamos si realmente aprendimos!</em></p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Training Set (70-80%)</h3>
+                    <p><strong>Propósito:</strong> El modelo aprende patrones aquí</p>
+                    <p><strong>Regla:</strong> Mientras más datos, mejor el aprendizaje</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Validation Set (10-15%)</h3>
+                    <p><strong>Propósito:</strong> Evaluación durante desarrollo, ajuste de hiperparámetros</p>
+                    <p><strong>Simula:</strong> Datos "no vistos" durante entrenamiento</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Test Set (10-15%)</h3>
+                    <p><strong>Propósito:</strong> Evaluación final, estimación de rendimiento en producción</p>
+                    <p><strong>⚠️ REGLA DE ORO:</strong> ¡NUNCA tocar hasta el final!</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>📈 Estrategias Especiales de División</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>📅 División Temporal:</h4>
+                        <div class="code-block">
+2020    2021    2022    2023    2024<br>
+|----Train----|--Val--|--Test--|
+                        </div>
+                        <p><strong>Crucial:</strong> Entrenar con pasado, predecir futuro. Evita data leakage.</p>
+                        
+                        <h4>👥 División Estratificada:</h4>
+                        <p><strong>Problema:</strong> 90% clase A, 10% clase B</p>
+                        <p><strong>Solución:</strong> Mantener proporción en todos los sets</p>
+                    </div>
+                    <div>
+                        <h4>🏥 División por Grupos:</h4>
+                        <p><strong>Ejemplo:</strong> Datos de pacientes de múltiples hospitales</p>
+                        <p><strong>Estrategia:</strong></p>
+                        <div class="code-block">
+Train: Hospitales 1-8<br>
+Validation: Hospital 9<br>
+Test: Hospital 10
+                        </div>
+                        <p><strong>Objetivo:</strong> Evaluar generalización a nuevas instituciones</p>
+                        
+                        <h4>⚠️ Consideraciones importantes:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li>Datos representativos del problema completo</li>
+                            <li>Aleatoriedad en la división</li>
+                            <li>Evitar data leakage temporal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Validación Cruzada -->
+        <div class="slide">
+            <h1>Validación Cruzada (Aprendizaje Supervisado) 🔄</h1>
+            
+            <div class="highlight">
+                <h3>🤔 ¿Por qué una sola división no es suficiente?</h3>
+                <p><strong>Problema de la "suerte":</strong> Una división específica puede ser "fácil" o "difícil". Los resultados pueden variar significativamente.</p>
+                <p><strong>Solución:</strong> Probar múltiples divisiones y promediar resultados.</p>
+                <div class="warning" style="margin-top: 15px;">
+                    <strong>⚠️ Nota:</strong> Cross-validation es específica de supervisado porque necesita targets para evaluar el modelo en cada fold.
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>📋 K-Fold Cross Validation (K=5)</h3>
+                <div class="code-block">
+Iteración 1: [Test][Train][Train][Train][Train] → Score₁<br>
+Iteración 2: [Train][Test][Train][Train][Train] → Score₂<br>
+Iteración 3: [Train][Train][Test][Train][Train] → Score₃<br>
+Iteración 4: [Train][Train][Train][Test][Train] → Score₄<br>
+Iteración 5: [Train][Train][Train][Train][Test] → Score₅<br>
+<br>
+Resultado final: μ = (Score₁ + ... + Score₅)/5<br>
+Confianza: σ = desviación_estándar(Score₁, ..., Score₅)
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div class="success">
+                    <h4>✅ Modelo Consistente</h4>
+                    <ul>
+                        <li>Score promedio: 0.85</li>
+                        <li>Desviación estándar: 0.02</li>
+                        <li><strong>Interpretación:</strong> Modelo predecible y confiable</li>
+                    </ul>
+                </div>
+                <div class="warning">
+                    <h4>⚠️ Modelo Inconsistente</h4>
+                    <ul>
+                        <li>Score promedio: 0.85</li>
+                        <li>Desviación estándar: 0.15</li>
+                        <li><strong>Interpretación:</strong> Revisar modelo o datos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>🔄 Variantes de Cross-Validation</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>Stratified K-Fold:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li>Mantiene proporción de clases</li>
+                            <li><strong>Crítico</strong> en problemas desbalanceados</li>
+                            <li>Si 20% son positivos → cada fold ~20%</li>
+                        </ul>
+                        
+                        <h4>Leave-One-Out (LOO):</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li>K = número de registros</li>
+                            <li>Máximo uso de datos</li>
+                            <li>Computacionalmente costoso</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Time Series CV:</h4>
+                        <div class="code-block" style="font-size: 0.8em;">
+Fold 1: Train[1:100] → Test[101:120]<br>
+Fold 2: Train[1:120] → Test[121:140]<br>
+Fold 3: Train[1:140] → Test[141:160]
+                        </div>
+                        <ul style="font-size: 0.9em;">
+                            <li>Respeta orden temporal</li>
+                            <li><strong>Esencial</strong> para series temporales</li>
+                            <li>Evita mirar al futuro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Feature Engineering -->
+        <div class="slide">
+            <h1>Feature Engineering (Supervisado) 🔧</h1>
+            
+            <div class="highlight">
+                <h3>🎯 ¿Por qué es crucial en aprendizaje supervisado?</h3>
+                <ul>
+                    <li><strong>"Garbage in, garbage out":</strong> Los mejores algoritmos supervisados fallan con features pobres</li>
+                    <li><strong>"Features determine performance ceiling":</strong> Las variables definen qué tan bien PUEDE predecir el target</li>
+                    <li><strong>Relación con target:</strong> En supervisado, creamos features que capturen mejor la relación con la variable objetivo</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>💡 Ejemplo Práctico Detallado - E-commerce</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>Variables Originales:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li>cantidad_compras: 5</li>
+                            <li>monto_total: $50,000</li>
+                            <li>dias_como_cliente: 365</li>
+                            <li>ultima_compra: 2024-05-15</li>
+                            <li>categoria_favorita: "Electrónicos"</li>
+                            <li>edad: 28</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Variables Creadas (Feature Engineering):</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li>monto_promedio_por_compra: $10,000</li>
+                            <li>compras_por_mes: 1.64</li>
+                            <li>cliente_alta_valor: True (>$5K promedio)</li>
+                            <li>dias_desde_ultima_compra: 22</li>
+                            <li>estacionalidad_compras: "Alta en feriados"</li>
+                            <li>edad_al_cuadrado: 784 (relación no-lineal)</li>
+                            <li>ratio_gasto_edad: $1,786 por año de edad</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="success" style="margin-top: 15px;">
+                    <strong>💡 Resultado:</strong> Las variables creadas capturan patrones más ricos que las originales y mejoran significativamente el rendimiento del modelo.
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>🔢 Transformaciones Matemáticas</h3>
+                    <p><strong>Logarítmica:</strong> Para variables sesgadas</p>
+                    <div class="code-block" style="font-size: 0.8em;">
+log_income = log(income + 1)<br>
+Efecto: log(1000)=3, log(10000)=4<br>
+Comprime valores extremos
+                    </div>
+                    <p><strong>Polinomial:</strong> Relaciones no-lineales</p>
+                    <div class="code-block" style="font-size: 0.8em;">
+edad² para productividad<br>
+(primero sube, luego baja)
+                    </div>
+                    <p><strong>Binning:</strong> Edad → Grupos etarios</p>
+                    <div class="code-block" style="font-size: 0.8em;">
+18-25, 26-35, 36-50, 50+
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>📝 Encoding de Variables Categóricas</h3>
+                    <p><strong>One-Hot Encoding:</strong></p>
+                    <div class="code-block" style="font-size: 0.8em;">
+Color: [Rojo, Verde, Azul]<br>
+↓<br>
+Color_Rojo: [1, 0, 0]<br>
+Color_Verde: [0, 1, 0]<br>
+Color_Azul: [0, 0, 1]
+                    </div>
+                    <p><strong>Ordinal Encoding:</strong></p>
+                    <div class="code-block" style="font-size: 0.8em;">
+Educación: [Primaria, Secundaria,<br>
+Universidad, Postgrado]<br>
+Encoded: [1, 2, 3, 4]
+                    </div>
+                    <p><strong>⚠️ Target Encoding:</strong> Relación directa con objetivo, pero propenso a overfitting</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3>⚖️ Escalado y Normalización</h3>
+                    <p><strong>¿Por qué escalar?</strong></p>
+                    <div class="code-block" style="font-size: 0.8em;">
+Sin escalar:<br>
+Edad: 25-35 (rango: 10)<br>
+Salario: 50K-70K (rango: 20K)
+                    </div>
+                    <p style="font-size: 0.9em;">Algoritmos pueden dar más importancia al salario por números más grandes</p>
+                    
+                    <p><strong>Standardización (Z-Score):</strong></p>
+                    <div class="code-block" style="font-size: 0.8em;">
+z = (x - μ) / σ<br>
+Resultado: Media=0, σ=1
+                    </div>
+                    
+                    <p><strong>Min-Max Normalization:</strong></p>
+                    <div class="code-block" style="font-size: 0.8em;">
+normalized = (x - min) / (max - min)<br>
+Resultado: Valores entre 0 y 1
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Métricas de Regresión -->
+        <div class="slide">
+            <h1>Métricas de Evaluación - Regresión 📊</h1>
+            
+            <div class="highlight">
+                <h3>🎯 Principio Fundamental</h3>
+                <p><strong>"You optimize what you measure":</strong> El modelo intentará maximizar la métrica que elijas, así que hay que elegir bien</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>MSE (Mean Squared Error)</h3>
+                    <div class="code-block">MSE = Σ(real - predicción)² / n</div>
+                    <p><strong>Cuándo usar:</strong> Cuando errores grandes son especialmente problemáticos</p>
+                    <p><strong>Ejemplo:</strong> Predecir precios de casas</p>
+                    <div class="code-block" style="font-size: 0.8em;">
+Casa 1: Error=10K → Contribución=100M<br>
+Casa 2: Error=20K → Contribución=400M
+                    </div>
+                    <p><strong>Problema:</strong> Difícil de interpretar (unidades al cuadrado)</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3>RMSE (Root MSE)</h3>
+                    <div class="code-block">RMSE = √MSE</div>
+                    <p><strong>Ventaja:</strong> Mismas unidades que variable original</p>
+                    <p><strong>Interpretación:</strong> "En promedio, nos equivocamos por X unidades"</p>
+                    <p><strong>Sigue penalizando errores grandes</strong>, pero más interpretable que MSE</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3>MAE (Mean Absolute Error)</h3>
+                    <div class="code-block">MAE = Σ|real - predicción| / n</div>
+                    <p><strong>Característica:</strong> Todos los errores importan igual</p>
+                    <p><strong>Ventaja:</strong> Más robusta a outliers que MSE/RMSE</p>
+                    <p><strong>Cuándo usar:</strong> Cuando outliers no deben dominar la métrica</p>
+                </div>
+
+                <div class="metric-card">
+                    <h3>R² (Coef. Determinación)</h3>
+                    <div class="code-block">
+R² = 1 - (SS_residual / SS_total)<br>
+SS_residual = Σ(real - predicción)²<br>
+SS_total = Σ(real - media)²
+                    </div>
+                    <p><strong>Interpretación:</strong></p>
+                    <ul style="text-align: left; font-size: 0.9em;">
+                        <li>R² = 1: Modelo perfecto</li>
+                        <li>R² = 0: Tan bueno como predecir la media</li>
+                        <li>R² < 0: Peor que predecir la media</li>
+                    </ul>
+                    <p><strong>Ejemplo:</strong> R² = 0.85 → "Explica 85% de variabilidad"</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>🏠 ¿Cuál métrica usar cuándo?</h3>
+                <div class="two-column">
+                    <div>
+                        <ul>
+                            <li><strong>Para stakeholders:</strong> R² (fácil de entender)</li>
+                            <li><strong>Optimizar modelo sensible a outliers:</strong> MAE</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><strong>Errores grandes importan más:</strong> RMSE</li>
+                            <li><strong>Comparar modelos:</strong> Cualquiera, pero ser consistente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Métricas de Clasificación -->
+        <div class="slide">
+            <h1>Métricas de Evaluación - Clasificación 🎯</h1>
+            
+            <div class="example">
+                <h3>📋 Matriz de Confusión - La Base de Todo</h3>
+                <div class="code-block">
+                Predicción<br>
+              Pos    Neg<br>
+Real    Pos   TP    FN    <br>
+        Neg   FP    TN    
+                </div>
+                <ul>
+                    <li><strong>TP (True Positives):</strong> Predijimos positivo y era positivo ✓</li>
+                    <li><strong>TN (True Negatives):</strong> Predijimos negativo y era negativo ✓</li>
+                    <li><strong>FP (False Positives):</strong> Predijimos positivo pero era negativo ✗ (Error Tipo I)</li>
+                    <li><strong>FN (False Negatives):</strong> Predijimos negativo pero era positivo ✗ (Error Tipo II)</li>
+                </ul>
+            </div>
+
+            <div class="two-column">
+                <div class="metric-card">
+                    <h3>Precision (Precisión)</h3>
+                    <div class="code-block">Precision = TP / (TP + FP)</div>
+                    <p><strong>Pregunta:</strong> "De los que predije como positivos, ¿cuántos realmente lo eran?"</p>
+                    <p><strong>Cuándo importa:</strong> Falsos positivos son costosos</p>
+                    <div class="example">
+                        <strong>Ejemplos:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>Diagnóstico médico:</strong> No asustar pacientes sanos</li>
+                            <li><strong>Marketing:</strong> No gastar en clientes que no comprarán</li>
+                            <li><strong>Spam detection:</strong> No marcar emails importantes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Recall (Sensibilidad)</h3>
+                    <div class="code-block">Recall = TP / (TP + FN)</div>
+                    <p><strong>Pregunta:</strong> "De todos los positivos reales, ¿cuántos detecté?"</p>
+                    <p><strong>Cuándo importa:</strong> Falsos negativos son costosos</p>
+                    <div class="example">
+                        <strong>Ejemplos:</strong>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>Detección de fraude:</strong> No perder transacciones fraudulentas</li>
+                            <li><strong>Diagnóstico de cáncer:</strong> No perder casos positivos</li>
+                            <li><strong>Seguridad:</strong> No dejar pasar amenazas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>⚖️ Precision vs Recall Tradeoff</h3>
+                <ul>
+                    <li><strong>Alta Precision, Bajo Recall:</strong> Modelo conservador (solo predice positivo cuando está MUY seguro)</li>
+                    <li><strong>Baja Precision, Alto Recall:</strong> Modelo liberal (predice positivo ante cualquier duda)</li>
+                </ul>
+            </div>
+            
+            <div class="success">
+                <h3>🔄 F1-Score: El Balance Perfecto</h3>
+                <div class="code-block">
+F1 = 2 * (Precision * Recall) / (Precision + Recall)
+                </div>
+                <p><strong>¿Qué mide?</strong> Media armónica de precision y recall</p>
+                <p><strong>¿Por qué media armónica?</strong> Penaliza modelos extremos más que la media simple</p>
+                
+                <div class="example">
+                    <h4>📊 Ejemplo Comparativo:</h4>
+                    <div class="two-column">
+                        <div>
+                            <p><strong>Modelo A:</strong></p>
+                            <ul style="font-size: 0.9em;">
+                                <li>Precision: 0.9, Recall: 0.1</li>
+                                <li>Media simple: 0.5</li>
+                                <li><strong>F1-Score: 0.18</strong> ⚠️</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p><strong>Modelo B:</strong></p>
+                            <ul style="font-size: 0.9em;">
+                                <li>Precision: 0.7, Recall: 0.7</li>
+                                <li>Media simple: 0.7</li>
+                                <li><strong>F1-Score: 0.7</strong> ✅</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p><strong>Conclusión:</strong> F1 prefiere modelos balanceados sobre extremos</p>
+                </div>
+                
+                <p><strong>Cuándo usar F1:</strong> Cuando necesitas una sola métrica que balance precision y recall, especialmente con clases desbalanceadas</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Sesgos en los Datos -->
+        <div class="slide">
+            <h1>Sesgos en los Datos ⚠️</h1>
+            
+            <div class="warning">
+                <h3>🚨 ¿Por qué son críticos los sesgos?</h3>
+                <p><strong>Principio fundamental:</strong> Los modelos de ML amplifican los patrones que encuentran en los datos. Si los datos tienen sesgos, el modelo los amplificará y automatizará a escala masiva.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="example">
+                    <h3>📍 Sesgo de Selección</h3>
+                    <p><strong>Problema:</strong> Datos no representativos de la población objetivo</p>
+                    <h4>Ejemplos Detallados:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li><strong>Geográfico:</strong> Credit scoring solo con datos de CABA → No funciona en el interior</li>
+                        <li><strong>Temporal:</strong> Modelo de ventas con datos pre-pandemia → Falla post-pandemia</li>
+                        <li><strong>Supervivencia:</strong> Solo datos de clientes activos → No puede predecir churn</li>
+                        <li><strong>Auto-selección:</strong> Encuestas online → Solo responden muy motivados</li>
+                    </ul>
+                    <div class="warning" style="margin-top: 10px;">
+                        <strong>⚠️ Impacto:</strong> Modelo funciona bien en desarrollo pero falla en producción
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>🔍 Sesgo de Confirmación</h3>
+                    <p><strong>Problema:</strong> Buscar evidencia que confirme nuestras creencias</p>
+                    <h4>En ML ocurre durante:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li><strong>Recolección:</strong> Solo buscar datos que confirmen hipótesis</li>
+                        <li><strong>Feature selection:</strong> Solo incluir variables que "sabemos" importantes</li>
+                        <li><strong>Interpretación:</strong> Enfocarse en casos exitosos, ignorar errores</li>
+                        <li><strong>Validación:</strong> Elegir métricas que favorezcan nuestro modelo</li>
+                    </ul>
+                    <div class="success" style="margin-top: 10px;">
+                        <strong>✅ Solución:</strong> Equipos diversos, exploración exhaustiva, análisis de errores sistemático
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>🏛️ Sesgo Histórico</h3>
+                    <p><strong>Problema:</strong> Perpetuar discriminaciones y patrones problemáticos del pasado</p>
+                    <h4>Casos Reales Críticos:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li><strong>Contratación:</strong> Historial sesgado contra mujeres en tech → Algoritmo las rechaza sistemáticamente</li>
+                        <li><strong>Justicia penal:</strong> Vigilancia histórica desigual → Predicciones sesgadas de reincidencia</li>
+                        <li><strong>Préstamos:</strong> Exclusión financiera histórica → Perpetúa falta de acceso al crédito</li>
+                        <li><strong>Salud:</strong> Investigación médica históricamente en hombres → Diagnósticos menos precisos en mujeres</li>
+                    </ul>
+                    <div class="warning" style="margin-top: 10px;">
+                        <strong>🚨 Círculo vicioso:</strong> Discriminación → Datos sesgados → Modelo sesgado → Más discriminación
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h3>📏 Sesgo de Medición</h3>
+                    <p><strong>Problema:</strong> Variables proxy que ocultan discriminación</p>
+                    <h4>Ejemplos Sutiles:</h4>
+                    <ul style="font-size: 0.9em;">
+                        <li><strong>Código postal:</strong> Proxy de raza/etnia sin mencionarla directamente</li>
+                        <li><strong>Nombre:</strong> Algoritmos infieren origen étnico y discriminan</li>
+                        <li><strong>Historial crediticio:</strong> Refleja desigualdades socioeconómicas pasadas</li>
+                        <li><strong>Etiquetado humano:</strong> Radiografías evaluadas con sesgos de género</li>
+                    </ul>
+                    <div class="warning" style="margin-top: 10px;">
+                        <strong>⚠️ Peligro:</strong> Discriminación con apariencia de neutralidad técnica
+                    </div>
+                </div>
+            </div>
+        </div>
+    	
+	<!-- Slide 20: Bibliografía Recomendada -->
+        <div class="slide">
+            <h1>📚 Bibliografía Recomendada</h1>
+            
+            <div class="metrics-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="metric-card">
+                    <span class="emoji">🐍</span>
+                    <h3>Libros Python - Prácticos</h3>
+                    
+                    <div class="example">
+                        <h4>📖 "Hands-On Machine Learning" - Aurélien Géron</h4>
+                        <p style="font-size: 0.9em;"><strong>🎯 Perfecto para el curso:</strong> Scikit-learn, regresión, clasificación, clustering</p>
+                        <p style="font-size: 0.9em;"><strong>Nivel:</strong> Intermedio | <strong>Código:</strong> Jupyter notebooks completos</p>
+                    </div>
+
+                    <div class="example">
+                        <h4>📖 "Python Machine Learning" - Sebastian Raschka</h4>
+                        <p style="font-size: 0.9em;"><strong>🎯 Enfoque:</strong> Teoría + implementación práctica</p>
+                        <p style="font-size: 0.9em;"><strong>Nivel:</strong> Intermedio-Avanzado | <strong>Fortaleza:</strong> Algoritmos desde cero</p>
+                    </div>
+
+                    <div class="example">
+                        <h4>📖 "Introduction to Machine Learning with Python" - Andreas Müller</h4>
+                        <p style="font-size: 0.9em;"><strong>🎯 Perfecto para principiantes:</strong> Co-autor de scikit-learn</p>
+                        <p style="font-size: 0.9em;"><strong>Nivel:</strong> Principiante-Intermedio | <strong>Enfoque:</strong> Práctico y aplicado</p>
+                    </div>
+
+                    <div class="success">
+                        <h4>🛠️ Bibliotecas clave:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>scikit-learn:</strong> Regresión, clasificación, clustering</li>
+                            <li><strong>pandas:</strong> Manipulación de datos</li>
+                            <li><strong>matplotlib/seaborn:</strong> Visualización</li>
+                            <li><strong>XGBoost:</strong> Modelos avanzados</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <span class="emoji">📊</span>
+                    <h3>Libros R - Prácticos</h3>
+                    
+                    <div class="example">
+                        <h4>📖 "An Introduction to Statistical Learning" - James, Witten, Hastie, Tibshirani</h4>
+                        <p style="font-size: 0.9em;"><strong>🎯 EL clásico:</strong> Perfecto balance teoría-práctica</p>
+                        <p style="font-size: 0.9em;"><strong>Nivel:</strong> Principiante-Intermedio | <strong>Bonus:</strong> Disponible gratis online</p>
+                    </div>
+
+                    <div class="example">
+                        <h4>📖 "Applied Predictive Modeling" - Kuhn & Johnson</h4>
+                        <p style="font-size: 0.9em;"><strong>🎯 Enfoque práctico:</strong> Feature engineering, validación, interpretación</p>
+                        <p style="font-size: 0.9em;"><strong>Nivel:</strong> Intermedio | <strong>Fortaleza:</strong> Casos reales de negocio</p>
+                    </div>
+
+                    <div class="example">
+                        <h4>📖 "Machine Learning with R" - Brett Lantz</h4>
+                        <p style="font-size: 0.9em;"><strong>🎯 Práctico desde cero:</strong> Perfecto para principiantes en R</p>
+                        <p style="font-size: 0.9em;"><strong>Nivel:</strong> Principiante | <strong>Enfoque:</strong> Casos de estudio completos</p>
+                    </div>
+
+                    <div class="success">
+                        <h4>📦 Paquetes clave:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>caret:</strong> Framework ML unificado</li>
+                            <li><strong>randomForest:</strong> Random Forest</li>
+                            <li><strong>glmnet:</strong> Regresión regularizada</li>
+                            <li><strong>cluster:</strong> Algoritmos clustering</li>
+                            <li><strong>tidymodels:</strong> Framework moderno</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>📖 Libros Conceptuales (Independientes del lenguaje)</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>🧠 "The Elements of Statistical Learning" - Hastie, Tibshirani, Friedman</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li><strong>Nivel:</strong> Avanzado</li>
+                            <li><strong>Enfoque:</strong> Fundamentos matemáticos profundos</li>
+                            <li><strong>Ideal para:</strong> Entender teoría detrás de algoritmos</li>
+                            <li><strong>Bonus:</strong> Disponible gratis online</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>🎯 "Pattern Recognition and Machine Learning" - Christopher Bishop</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li><strong>Nivel:</strong> Avanzado</li>
+                            <li><strong>Enfoque:</strong> Perspectiva bayesiana</li>
+                            <li><strong>Ideal para:</strong> Fundamentos probabilísticos</li>
+                            <li><strong>Fortaleza:</strong> Clustering y reducción dimensionalidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="emoji">🌐</span>
+                    <h3>Recursos Online Complementarios</h3>
+                    
+                    <div class="example">
+                        <h4>🎓 Cursos Especializados:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>fast.ai:</strong> Practical Deep Learning (enfoque top-down)</li>
+                            <li><strong>Coursera - Andrew Ng:</strong> Machine Learning Course (clásico)</li>
+                            <li><strong>edX - MIT:</strong> Introduction to Machine Learning</li>
+                        </ul>
+                    </div>
+
+                    <div class="example">
+                        <h4>📄 Papers y Recursos:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>scikit-learn.org:</strong> Documentación excelente con ejemplos</li>
+                            <li><strong>Kaggle Learn:</strong> Micro-cursos gratuitos</li>
+                            <li><strong>Towards Data Science:</strong> Artículos prácticos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <span class="emoji">🎯</span>
+                    <h3>Recomendaciones por Tema</h3>
+                    
+                    <div class="success">
+                        <h4>📊 Para Regresión:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>Python:</strong> Capítulos 3-4 de Géron</li>
+                            <li><strong>R:</strong> Capítulos 3, 6 de ISLR</li>
+                            <li><strong>Avanzado:</strong> Capítulo 3 de ESL</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <h4>🎯 Para Clasificación:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>Python:</strong> Capítulo 3 de Müller</li>
+                            <li><strong>R:</strong> Capítulos 4, 8, 9 de ISLR</li>
+                            <li><strong>Práctico:</strong> Kuhn & Johnson Cap 11-16</li>
+                        </ul>
+                    </div>
+
+                    <div class="example">
+                        <h4>🔍 Para Clustering:</h4>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li><strong>Python:</strong> Capítulo 3 de Géron</li>
+                            <li><strong>R:</strong> Capítulo 10 de ISLR</li>
+                            <li><strong>Teórico:</strong> Bishop Cap 9, 12</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning">
+                <h3>💡 Consejos para el Estudio</h3>
+                <div class="two-column">
+                    <div>
+                        <h4>🚀 Para empezar:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li><strong>Python:</strong> Müller → Géron</li>
+                            <li><strong>R:</strong> ISLR (gratis!) → Kuhn & Johnson</li>
+                            <li><strong>Práctica:</strong> Kaggle datasets + código de libros</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>📈 Para profundizar:</h4>
+                        <ul style="font-size: 0.9em;">
+                            <li><strong>Teoría:</strong> ESL o Bishop</li>
+                            <li><strong>Implementación:</strong> Raschka (Python)</li>
+                            <li><strong>Negocio:</strong> Kuhn & Johnson casos reales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+	
+	</div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prev-btn" onclick="previousSlide()">⬅️ Anterior</button>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">Siguiente ➡️</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = n + 1;
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = (n === 0);
+            document.getElementById('next-btn').disabled = (n === totalSlides - 1);
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                event.preventDefault();
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left (next slide)
+                    nextSlide();
+                } else {
+                    // Swipe right (previous slide)
+                    previousSlide();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
