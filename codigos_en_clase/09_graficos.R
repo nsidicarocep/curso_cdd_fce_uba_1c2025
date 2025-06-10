@@ -27,7 +27,7 @@ ggplot(mtcars, aes(x = mpg, y = hp)) +
     x = "Millas por Galón (MPG)",
     y = "Caballos de Fuerza (HP)"
   ) +
-  theme_minimal()
+  theme_bw()
 
 # Ejemplo 1.2: Agregando color por variable categórica
 ggplot(mtcars, aes(x = mpg, y = hp, color = factor(cyl))) +
@@ -67,6 +67,7 @@ ggplot(mtcars, aes(x = mpg)) +
 # Ejemplo 1.5: Boxplot comparativo
 ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
   geom_boxplot(alpha = 0.7) +
+  geom_jitter() + 
   scale_fill_viridis_d(name = "Cilindros") +
   labs(
     title = "Eficiencia por Número de Cilindros",
@@ -106,10 +107,11 @@ mtcars_labeled <- mtcars %>%
     )
   )
 
-ggplot(mtcars_labeled, aes(x = wt, y = mpg, color = factor(cyl))) +
+plot1 <- ggplot(mtcars_labeled, aes(x = wt, y = mpg, color = factor(cyl))) +
   geom_point(size = 3, alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
-  facet_wrap(~ transmission, scales = "free") +
+  #facet_wrap(~ transmission, scales = "free") +
+  facet_grid(~factor(cyl),scales='free')+
   scale_color_viridis_d(name = "Cilindros") +
   labs(
     title = "Eficiencia por Tipo de Transmisión",
@@ -117,6 +119,8 @@ ggplot(mtcars_labeled, aes(x = wt, y = mpg, color = factor(cyl))) +
     y = "Millas por Galón (MPG)"
   ) +
   theme_minimal()
+
+plot1
 
 # Ejemplo 2.3: Gráfico de barras apiladas
 mtcars_summary <- mtcars %>%
