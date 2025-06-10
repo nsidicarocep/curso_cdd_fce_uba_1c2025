@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Component Analysis - Aprendizaje No Supervisado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            margin: auto;
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px;
+            min-height: 600px;
+            animation: fadeIn 0.5s;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #4a5568;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: #2d3748;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #4a5568;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .equation {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin: 25px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #48bb78;
+        }
+
+        .example {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #e17055;
+        }
+
+        .navigation {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        .visual-demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed #667eea;
+        }
+
+        .step-box {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .pros {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .cons {
+            background: linear-gradient(120deg, #fab1a0 0%, #ffeaa7 100%);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .title-slide {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .title-slide h1 {
+            color: white;
+            border-bottom: 3px solid white;
+            font-size: 3em;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">15</span>
+        </div>
+
+        <!-- Slide 1: Título -->
+        <div class="slide active title-slide">
+            <h1>Principal Component Analysis (PCA)</h1>
+            <div class="subtitle">Aprendizaje No Supervisado</div>
+            <div class="subtitle">Basado en "An Introduction to Statistical Learning"</div>
+            <p style="margin-top: 50px; font-size: 1.2em; line-height: 1.6;">
+                Una técnica fundamental para reducir dimensionalidad y explorar patrones ocultos en nuestros datos
+            </p>
+        </div>
+
+        <!-- Slide 2: ¿Qué es PCA? -->
+        <div class="slide">
+            <h2>¿Qué es el Análisis de Componentes Principales?</h2>
+            
+            <p>Imagina que tienes una gran colección de fotografías tomadas desde diferentes ángulos de un mismo objeto. Aunque cada foto es diferente, todas comparten elementos esenciales que definen ese objeto. PCA es como encontrar esos elementos esenciales en nuestros datos.</p>
+
+            <div class="highlight">
+                <strong>Definición:</strong> PCA es una técnica de reducción de dimensionalidad que encuentra las direcciones de máxima variabilidad en un conjunto de datos multidimensional.
+            </div>
+
+            <p>En lugar de trabajar con muchas variables que pueden estar correlacionadas entre sí, PCA nos ayuda a identificar un número menor de "componentes principales" que capturan la mayor parte de la información importante de nuestros datos originales.</p>
+
+            <div class="example">
+                <strong>Analogía:</strong> Es como tomar una fotografía de una escultura 3D. La foto 2D no captura toda la información, pero si elegimos el ángulo correcto, podemos preservar las características más importantes de la escultura.
+            </div>
+        </div>
+
+        <!-- Slide 3: ¿Por qué necesitamos PCA? -->
+        <div class="slide">
+            <h2>¿Por qué necesitamos PCA?</h2>
+            
+            <h3>La Maldición de la Dimensionalidad</h3>
+            <p>Cuando trabajamos con datos que tienen muchas variables (alta dimensionalidad), enfrentamos varios problemas que pueden hacer que nuestros análisis sean menos efectivos o incluso imposibles de realizar.</p>
+
+            <div class="step-box">
+                <strong>Problema 1: Visualización</strong><br>
+                Es imposible visualizar datos con más de 3 dimensiones de manera directa. ¿Cómo podemos explorar y entender datos con 100 o 1000 variables?
+            </div>
+
+            <div class="step-box">
+                <strong>Problema 2: Ruido</strong><br>
+                Muchas variables pueden contener información redundante o ruido que oscurece los patrones reales en los datos.
+            </div>
+
+            <div class="step-box">
+                <strong>Problema 3: Eficiencia Computacional</strong><br>
+                Los algoritmos de aprendizaje automático se vuelven más lentos y requieren más memoria cuando trabajamos con muchas dimensiones.
+            </div>
+
+            <div class="highlight">
+                <strong>La Solución de PCA:</strong> Encuentra las direcciones más importantes en los datos y proyecta toda la información a un espacio de menor dimensión, preservando la mayor cantidad de información posible.
+            </div>
+        </div>
+
+        <!-- Slide 4: Conceptos Matemáticos Fundamentales -->
+        <div class="slide">
+            <h2>Conceptos Matemáticos Fundamentales</h2>
+            
+            <p>Antes de entender cómo funciona PCA, necesitamos comprender algunos conceptos clave. No te preocupes, vamos a construir esta comprensión paso a paso.</p>
+
+            <h3>1. Varianza</h3>
+            <p>La varianza mide qué tan dispersos están nuestros datos. Una variable con alta varianza tiene puntos muy esparcidos, mientras que una con baja varianza tiene puntos muy agrupados.</p>
+
+            <div class="equation">
+                Var(X) = E[(X - μ)²]
+            </div>
+
+            <h3>2. Covarianza</h3>
+            <p>La covarianza mide cómo dos variables cambian juntas. Si cuando una aumenta, la otra también tiende a aumentar, tienen covarianza positiva.</p>
+
+            <div class="equation">
+                Cov(X,Y) = E[(X - μₓ)(Y - μᵧ)]
+            </div>
+
+            <div class="highlight">
+                <strong>Intuición Clave:</strong> PCA busca las direcciones donde los datos tienen la mayor varianza. Estas direcciones nos dicen dónde está la mayor parte de la "acción" en nuestros datos.
+            </div>
+        </div>
+
+        <!-- Slide 5: ¿Cómo funciona PCA? -->
+        <div class="slide">
+            <h2>¿Cómo funciona PCA? - El Algoritmo</h2>
+            
+            <p>Ahora vamos a entender el proceso paso a paso. Imagina que tienes datos en 2D y quieres reducirlos a 1D preservando la mayor información posible.</p>
+
+            <div class="step-box">
+                <strong>Paso 1: Centrar los datos</strong><br>
+                Restamos la media de cada variable para que el centro de nuestros datos esté en el origen (0,0).
+            </div>
+
+            <div class="step-box">
+                <strong>Paso 2: Calcular la matriz de covarianza</strong><br>
+                Esta matriz nos dice cómo se relacionan todas las variables entre sí.
+            </div>
+
+            <div class="step-box">
+                <strong>Paso 3: Encontrar vectores propios y valores propios</strong><br>
+                Los vectores propios nos dan las direcciones principales, y los valores propios nos dicen cuánta varianza hay en cada dirección.
+            </div>
+
+            <div class="step-box">
+                <strong>Paso 4: Ordenar por importancia</strong><br>
+                Ordenamos los componentes principales por sus valores propios (de mayor a menor varianza).
+            </div>
+
+            <div class="step-box">
+                <strong>Paso 5: Proyectar los datos</strong><br>
+                Transformamos nuestros datos originales al nuevo espacio de componentes principales.
+            </div>
+        </div>
+
+        <!-- Slide 6: Cálculo de Autovalores y Autovectores -->
+        <div class="slide">
+            <h2>Cálculo de Autovalores y Autovectores</h2>
+            
+            <p>Este es el corazón matemático de PCA. Aunque puede parecer intimidante al principio, vamos a desmenuzar estos conceptos de manera que puedas comprenderlos profundamente.</p>
+
+            <h3>¿Qué es un Autovector?</h3>
+            <p>Un autovector es una dirección especial en el espacio. Cuando aplicamos una transformación (multiplicamos por una matriz) a un autovector, este no cambia de dirección, solo se estira o se encoge. Es como si tuviésemos una flecha que, sin importar qué transformación le apliques, siempre apunta hacia la misma dirección.</p>
+
+            <div class="equation">
+                A × v = λ × v
+            </div>
+            <p style="text-align: center; font-style: italic;">Donde A es nuestra matriz, v es el autovector, y λ es el autovalor</p>
+
+            <h3>¿Qué es un Autovalor?</h3>
+            <p>El autovalor (λ) nos dice cuánto se estira o encoge el autovector. En PCA, este valor representa exactamente cuánta varianza hay en esa dirección particular de nuestros datos.</p>
+
+            <div class="highlight">
+                <strong>Conexión con PCA:</strong> La matriz de covarianza de nuestros datos tiene autovectores que nos muestran las direcciones de máxima variación, y sus autovalores nos dicen cuánta variación hay en cada dirección.
+            </div>
+
+            <div class="step-box">
+                <strong>Proceso de Cálculo:</strong><br>
+                1. Formamos la ecuación característica: det(C - λI) = 0<br>
+                2. Resolvemos esta ecuación para encontrar los autovalores λ<br>
+                3. Para cada autovalor, resolvemos (C - λI)v = 0 para encontrar su autovector<br>
+                4. Normalizamos los autovectores para que tengan longitud unitaria
+            </div>
+        </div>
+
+        <!-- Slide 7: Interpretación de Cargas (Loadings) -->
+        <div class="slide">
+            <h2>Cálculo e Interpretación de las Cargas de Componentes</h2>
+            
+            <p>Una vez que tenemos nuestros componentes principales, surge la pregunta crucial: ¿qué significa cada componente? Las cargas (loadings) nos revelan qué variables originales contribuyen más a cada componente principal.</p>
+
+            <h3>¿Qué son las Cargas?</h3>
+            <p>Las cargas son los coeficientes que nos indican cuánto contribuye cada variable original a cada componente principal. Son como los "ingredientes" de la receta que crea cada componente.</p>
+
+            <div class="equation">
+                PC₁ = w₁₁ × X₁ + w₁₂ × X₂ + w₁₃ × X₃ + ... + w₁ₚ × Xₚ
+            </div>
+            <p style="text-align: center; font-style: italic;">Donde w₁ⱼ son las cargas del primer componente principal</p>
+
+            <h3>¿Cómo se Calculan las Cargas?</h3>
+            <p>Aquí está la conexión directa con los autovectores que calculamos antes. Las cargas son exactamente los elementos de los autovectores normalizados de la matriz de covarianza.</p>
+
+            <div class="step-box">
+                <strong>Proceso de Cálculo:</strong><br>
+                1. Tomamos cada autovector obtenido de la matriz de covarianza<br>
+                2. Los normalizamos para que tengan longitud unitaria (norma = 1)<br>
+                3. Cada elemento del autovector normalizado es la carga de esa variable<br>
+                4. Los autovectores se ordenan según sus autovalores (mayor a menor)
+            </div>
+
+            <div class="example">
+                <strong>Ejemplo Numérico:</strong><br>
+                Si el primer autovector es [0.6, 0.8, 0.0] para variables X₁, X₂, X₃:<br>
+                • Carga de X₁ en PC1 = 0.6 (contribución moderada-alta)<br>
+                • Carga de X₂ en PC1 = 0.8 (contribución muy alta)<br>
+                • Carga de X₃ en PC1 = 0.0 (no contribuye a este componente)
+            </div>
+
+            <div class="highlight">
+                <strong>Interpretación Clave:</strong> Valores más cercanos a +1 o -1 indican mayor contribución. El signo nos indica si la variable se correlaciona positiva o negativamente con el componente.
+            </div>
+        </div>
+
+        <!-- Slide 7bis: Interpretación Práctica de Cargas -->
+        <div class="slide">
+            <h2>Interpretación Práctica de las Cargas</h2>
+            
+            <p>Ahora que sabemos cómo se calculan las cargas, veamos cómo usarlas para comprender qué representan nuestros componentes principales en términos del dominio específico de nuestros datos.</p>
+
+            <h3>Estrategia de Interpretación</h3>
+            <p>Para interpretar un componente principal, buscamos patrones en las cargas. Variables con cargas altas y del mismo signo tienden a "moverse juntas" en ese componente.</p>
+
+            <div class="example">
+                <strong>Ejemplo con Datos de Estudiantes:</strong><br>
+                Supongamos que tenemos notas en: Matemática, Física, Química, Literatura, Historia<br><br>
+                <strong>PC1:</strong> Math(0.7), Física(0.8), Química(0.6), Literatura(0.1), Historia(0.2)<br>
+                <em>Interpretación: "Habilidad en ciencias exactas"</em><br><br>
+                <strong>PC2:</strong> Math(0.1), Física(0.2), Química(0.0), Literatura(0.8), Historia(0.7)<br>
+                <em>Interpretación: "Habilidad en humanidades"</em>
+            </div>
+
+            <div class="step-box">
+                <strong>Reglas para Interpretación:</strong><br>
+                • Cargas con valor absoluto > 0.5 son consideradas importantes<br>
+                • Cargas positivas y negativas nos indican direcciones opuestas<br>
+                • La magnitud de la carga indica la importancia de esa variable<br>
+                • Variables con cargas similares en un componente están relacionadas entre sí
+            </div>
+
+            <div class="highlight">
+                <strong>Herramienta Clave:</strong> El gráfico de cargas (loading plot) nos permite visualizar qué variables se agrupan y cómo se relacionan en el espacio de componentes principales. Es fundamental para dar sentido real a nuestros resultados.
+            </div>
+
+            <div class="visual-demo">
+                <h3>💡 Pensá en esto</h3>
+                <p>Si dos variables tienen cargas muy similares en el mismo componente, esto nos indica que están midiendo aspectos relacionados del fenómeno subyacente. Esto puede ayudarnos a simplificar futuros análisis o identificar redundancias en nuestros datos.</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Interpretación Geométrica -->
+        <div class="slide">
+            <h2>Interpretación Geométrica</h2>
+            
+            <p>La mejor manera de entender PCA es visualizarlo geométricamente. Imagina una nube de puntos en el espacio.</p>
+
+            <div class="visual-demo">
+                <h3>🎯 Visualización Conceptual</h3>
+                <p><strong>Datos Originales:</strong> Una nube de puntos dispersos en 2D</p>
+                <p><strong>Primer Componente Principal (PC1):</strong> La línea que mejor "atraviesa" la nube de puntos</p>
+                <p><strong>Segundo Componente Principal (PC2):</strong> Perpendicular a PC1, captura la siguiente mayor variación</p>
+            </div>
+
+            <div class="highlight">
+                <strong>Analogía del Proyector:</strong> Imagina que tienes una linterna y proyectas la sombra de tus datos en una pared. PCA encuentra el ángulo de proyección que hace que la sombra conserve la mayor cantidad de información sobre la forma original de tus datos.
+            </div>
+
+            <p>Los componentes principales son como nuevas "coordenadas" para describir tus datos, pero estas coordenadas están alineadas con las direcciones de mayor variación natural en los datos.</p>
+
+            <div class="example">
+                <strong>Ejemplo Intuitivo:</strong> Si tienes datos sobre altura y peso de personas, el primer componente principal podría representar el "tamaño general" de la persona, combinando tanto altura como peso en una sola medida.
+            </div>
+        </div>
+
+        <!-- Slide 7: Selección del Número de Componentes -->
+        <div class="slide">
+            <h2>¿Cuántos Componentes Principales Necesitamos?</h2>
+            
+            <p>Una de las decisiones más importantes en PCA es determinar cuántos componentes principales conservar. Necesitamos un balance entre simplicidad y preservación de información.</p>
+
+            <h3>1. Criterio de Varianza Explicada</h3>
+            <p>Cada componente principal explica un porcentaje de la varianza total de los datos. Típicamente buscamos conservar entre 80-95% de la varianza original.</p>
+
+            <div class="equation">
+                Varianza Explicada = (Valor Propio / Suma de Todos los Valores Propios) × 100%
+            </div>
+
+            <h3>2. Gráfico de Codo (Scree Plot)</h3>
+            <p>Graficamos los valores propios en orden descendente y buscamos el "codo" donde la contribución de cada componente adicional se vuelve marginal.</p>
+
+            <h3>3. Regla de Kaiser</h3>
+            <p>Conservar solo los componentes con valores propios mayores a 1 (cuando los datos están estandarizados).</p>
+
+            <div class="highlight">
+                <strong>Regla Práctica:</strong> Comienza con suficientes componentes para explicar al menos 85% de la varianza, luego evalúa si puedes reducir más sin perder información crucial para tu análisis.
+            </div>
+        </div>
+
+        <!-- Slide 8: Ejemplo Práctico -->
+        <div class="slide">
+            <h2>Ejemplo Práctico: Análisis de Datos de Vinos</h2>
+            
+            <p>Imaginemos que tenemos un dataset con 13 características químicas de diferentes vinos (acidez, alcohol, pH, etc.) y queremos reducir la dimensionalidad para visualización y análisis.</p>
+
+            <div class="example">
+                <strong>Datos Originales:</strong> 178 vinos × 13 características químicas
+            </div>
+
+            <div class="step-box">
+                <strong>Aplicando PCA:</strong><br>
+                • PC1 explica 36% de la varianza (principalmente relacionado con fenoles y flavonoides)<br>
+                • PC2 explica 19% de la varianza (relacionado con acidez y color)<br>
+                • PC3 explica 11% de la varianza<br>
+                <strong>Total: 66% de la varianza con solo 3 componentes</strong>
+            </div>
+
+            <div class="highlight">
+                <strong>Interpretación:</strong> El primer componente principal podría representar la "intensidad del sabor" del vino, combinando múltiples características relacionadas. El segundo podría relacionarse con la "acidez general" del vino.
+            </div>
+
+            <p>Con PCA podemos visualizar estos 178 vinos en un gráfico 2D usando PC1 y PC2, y potencialmente descubrir grupos naturales de vinos similares que no eran obvios en el espacio original de 13 dimensiones.</p>
+        </div>
+
+        <!-- Slide 9: Aplicaciones de PCA -->
+        <div class="slide">
+            <h2>Aplicaciones de PCA en el Mundo Real</h2>
+            
+            <h3>1. Procesamiento de Imágenes</h3>
+            <p>En reconocimiento facial, PCA puede reducir imágenes de miles de píxeles a unos pocos "eigenfaces" que capturan las características faciales más importantes.</p>
+
+            <h3>2. Análisis Financiero</h3>
+            <p>Reducir cientos de indicadores económicos a unos pocos factores principales que explican los movimientos del mercado.</p>
+
+            <h3>3. Bioinformática</h3>
+            <p>Analizar datos genómicos con miles de genes, identificando patrones principales que diferencian entre condiciones de salud y enfermedad.</p>
+
+            <h3>4. Análisis de Texto</h3>
+            <p>Reducir la dimensionalidad en análisis de documentos, donde cada palabra es una dimensión.</p>
+
+            <div class="example">
+                <strong>Caso de Netflix:</strong> PCA podría ayudar a reducir las miles de películas y programas a unos pocos "géneros latentes" que capturan las preferencias fundamentales de los usuarios.
+            </div>
+
+            <div class="highlight">
+                <strong>Clave del Éxito:</strong> PCA es especialmente útil cuando sospechamos que nuestros datos tienen estructura subyacente o cuando muchas variables están correlacionadas entre sí.
+            </div>
+        </div>
+
+        <!-- Slide 10: Ventajas y Limitaciones -->
+        <div class="slide">
+            <h2>Ventajas y Limitaciones de PCA</h2>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>✅ Ventajas</h3>
+                    <p><strong>Reducción de Ruido:</strong> Elimina variaciones menores que podrían ser ruido</p>
+                    <p><strong>Eficiencia:</strong> Acelera algoritmos posteriores al reducir dimensiones</p>
+                    <p><strong>Visualización:</strong> Permite explorar datos complejos en 2D o 3D</p>
+                    <p><strong>Decorrelación:</strong> Los componentes principales son independientes entre sí</p>
+                    <p><strong>Base Matemática Sólida:</strong> Método bien establecido con propiedades teóricas claras</p>
+                </div>
+                
+                <div class="cons">
+                    <h3>⚠️ Limitaciones</h3>
+                    <p><strong>Linealidad:</strong> Solo encuentra relaciones lineales entre variables</p>
+                    <p><strong>Interpretabilidad:</strong> Los componentes pueden ser difíciles de interpretar</p>
+                    <p><strong>Sensibilidad a Escala:</strong> Variables con escalas grandes dominan el análisis</p>
+                    <p><strong>Pérdida de Información:</strong> Siempre se pierde algo de información original</p>
+                    <p><strong>Outliers:</strong> Valores extremos pueden distorsionar los resultados</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>Recomendación:</strong> Siempre estandariza tus variables antes de aplicar PCA y considera métodos no lineales como t-SNE o UMAP si sospechas relaciones no lineales complejas.
+            </div>
+        </div>
+
+        <!-- Slide 11: PCA vs Otras Técnicas -->
+        <div class="slide">
+            <h2>PCA en el Contexto del Aprendizaje No Supervisado</h2>
+            
+            <p>PCA es una de varias técnicas de aprendizaje no supervisado. Entender cuándo usar cada una te ayudará a elegir la herramienta correcta.</p>
+
+            <h3>PCA vs K-Means Clustering</h3>
+            <p><strong>PCA:</strong> Encuentra direcciones de variación. <strong>K-Means:</strong> Encuentra grupos de puntos similares. Ambos pueden usarse juntos: PCA para reducir dimensiones, luego K-Means para agrupar.</p>
+
+            <h3>PCA vs Factor Analysis</h3>
+            <p><strong>PCA:</strong> Explica varianza observada. <strong>Factor Analysis:</strong> Busca variables latentes que causan correlaciones observadas.</p>
+
+            <h3>PCA vs t-SNE/UMAP</h3>
+            <p><strong>PCA:</strong> Preserva distancias globales, método lineal. <strong>t-SNE/UMAP:</strong> Preservan estructura local, pueden capturar relaciones no lineales.</p>
+
+            <div class="example">
+                <strong>Flujo de Trabajo Típico:</strong><br>
+                1. Exploración inicial con PCA para entender la estructura general<br>
+                2. Si los datos parecen tener estructura no lineal, considerar t-SNE<br>
+                3. Si buscas grupos, aplicar clustering después de reducir dimensiones
+            </div>
+        </div>
+
+        <!-- Slide 12: Conclusiones y Próximos Pasos -->
+        <div class="slide">
+            <h2>Conclusiones y Próximos Pasos</h2>
+            
+            <div class="highlight">
+                <h3>🎯 Puntos Clave para Recordar</h3>
+                <p>PCA es una herramienta poderosa para simplificar datos complejos sin perder las características más importantes. Es tu primera opción cuando necesitas reducir dimensionalidad manteniendo la máxima información posible.</p>
+            </div>
+
+            <h3>Para Profundizar tu Comprensión:</h3>
+
+            <div class="step-box">
+                <strong>1. Práctica con Datos Reales</strong><br>
+                Implementa PCA en datasets como iris, wine, o breast cancer. Observa cómo cambian los resultados con diferentes números de componentes.
+            </div>
+
+            <div class="step-box">
+                <strong>2. Experimenta con Preprocesamiento</strong><br>
+                Compara resultados con y sin estandarización. Observa el impacto de outliers en los componentes principales.
+            </div>
+
+            <div class="step-box">
+                <strong>3. Visualización Interactiva</strong><br>
+                Crea gráficos interactivos de tus componentes principales para entender mejor la estructura de tus datos.
+            </div>
+
+            <div class="example">
+                <strong>Ejercicio Propuesto:</strong> Toma un dataset con más de 5 variables, aplica PCA, y trata de interpretar qué representa cada componente principal en términos del dominio de tu problema.
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; font-style: italic;">
+                "La reducción de dimensionalidad no es solo una técnica matemática, es una forma de encontrar la esencia de nuestros datos."
+            </p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">❮ Anterior</button>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Siguiente ❯</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide;
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') changeSlide(-1);
+            if (event.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

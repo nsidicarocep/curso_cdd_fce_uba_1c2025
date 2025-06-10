@@ -1,0 +1,973 @@
+---
+title: "Cluster Jerárquico en R"
+author: "Nicolás Sidicaro"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    df_print: paged
+  html_notebook:
+    toc: true
+    toc_float: true
+    theme: flatly
+    highlight: tango
+subtitle: Un Enfoque Práctico para Aprendizaje No Supervisado
+---
+
+# Clustering Jerárquico - Análisis Completo en R
+# Basado en "An Introduction to Statistical Learning"
+
+## Instalación y carga de librerías necesarias
+
+```{r setup, include=FALSE}
+# Instalar paquetes si no están instalados
+required_packages <- c("cluster", "factoextra", "dendextend", "corrplot", 
+                      "ggplot2", "gridExtra", "RColorBrewer", "NbClust",
+                      "fpc", "dplyr", "reshape2", "tibble", "pheatmap", "fossil")
+
+for(pkg in required_packages) {
+  if(!require(pkg, character.only = TRUE)) {
+    install.packages(pkg)
+    library(pkg, character.only = TRUE)
+  }
+}
+```
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(cluster)      # Para clustering
+library(factoextra)   # Para visualización de clusters
+library(dendextend)   # Para manipular dendrogramas
+library(corrplot)     # Para matriz de correlación
+library(ggplot2)      # Para gráficos
+library(gridExtra)    # Para organizar gráficos
+library(RColorBrewer) # Para paletas de colores
+library(NbClust)      # Para determinar número óptimo de clusters
+library(fpc)          # Para estadísticas de clustering
+library(dplyr)        # Para manipulación de datos
+library(reshape2)     # Para reestructurar datos
+library(tibble)       # Para column_to_rownames
+library(pheatmap)     # Para heatmaps
+library(fossil)       # Para Adjusted Rand Index
+```
+
+## 1. Preparación de los Datos
+
+Usaremos múltiples datasets para mostrar diferentes aspectos del clustering jerárquico.
+
+```{r data_preparation}
+# Dataset 1: USArrests (datos reales con diferentes escalas)
+data("USArrests")
+head(USArrests)
+summary(USArrests)
+
+# Verificar si hay valores faltantes
+sum(is.na(USArrests))
+
+# Dataset 2: Datos sintéticos para mostrar diferentes estructuras
+set.seed(123)
+# Crear clusters bien separados
+cluster1 <- data.frame(x = rnorm(30, mean = 2, sd = 0.5), 
+                       y = rnorm(30, mean = 2, sd = 0.5))
+cluster2 <- data.frame(x = rnorm(30, mean = 6, sd = 0.5), 
+                       y = rnorm(30, mean = 6, sd = 0.5))
+cluster3 <- data.frame(x = rnorm(30, mean = 2, sd = 0.5), 
+                       y = rnorm(30, mean = 6, sd = 0.5))
+
+synthetic_data <- rbind(cluster1, cluster2, cluster3)
+synthetic_data$true_cluster <- rep(1:3, each = 30)
+
+# Visualizar datos sintéticos
+ggplot(synthetic_data, aes(x = x, y = y, color = factor(true_cluster))) +
+  geom_point(size = 3) +
+  labs(title = "Datos Sintéticos con 3 Clusters Verdaderos",
+       color = "Cluster Real") +
+  theme_minimal()
+```
+
+## 2. Escalado de Variables
+
+**¿Qué buscar en el escalado?**
+
+- **Antes del escalado**: Variables tienen escalas muy diferentes (UrbanPop: 32-91 vs Assault: 45-337)
+
+- **Sin escalado**: Assault dominaría completamente las distancias
+
+- **Después del escalado**: Todas las variables tienen media=0 y sd=1
+
+- **Resultado**: Cada variable contribuye equitativamente a las distancias
+
+- **Recomendación**: SIEMPRE escalar cuando las unidades son diferentes
+
+```{r scaling}
+# Importancia del escalado - Comparación con y sin escalar
+par(mfrow = c(1, 2))
+
+# Sin escalar
+boxplot(USArrests, main = "USArrests - Sin Escalar", las = 2)
+
+# Escalado (estandarización)
+USArrests_scaled <- scale(USArrests)
+boxplot(USArrests_scaled, main = "USArrests - Escalado", las = 2)
+```
+
+```{r scaling_verification, echo=FALSE}
+# Verificar el escalado
+cat("Medias después del escalado:\n")
+print(round(colMeans(USArrests_scaled), 3))
+cat("\nDesviaciones estándar después del escalado:\n")
+print(round(apply(USArrests_scaled, 2, sd), 3))
+```
+
+## 3. Diferentes Medidas de Distancia
+
+**¿Qué buscar en las distancias?**
+
+- **Colores en heatmap**: Rojo = mayor distancia (más diferentes), Blanco = menor distancia (más similares)
+
+- **Euclidiana**: Distancia 'en línea recta', sensible a outliers
+
+- **Manhattan**: Suma diferencias absolutas, más robusta a outliers  
+
+- **Correlación**: Mide patrones similares, no magnitudes
+
+- **Comparación**: Si los valores son muy diferentes entre métodos, indica que la elección de distancia SÍ importa
+
+```{r distance_measures}
+# Calcular diferentes matrices de distancia
+dist_euclidean <- dist(USArrests_scaled, method = "euclidean")
+dist_manhattan <- dist(USArrests_scaled, method = "manhattan")
+dist_maximum <- dist(USArrests_scaled, method = "maximum")
+
+# Para distancia de correlación, necesitamos transponer
+dist_correlation <- as.dist(1 - cor(t(USArrests_scaled)))
+
+# Función para visualizar matriz de distancias
+plot_distance_matrix <- function(dist_matrix, title) {
+  dist_df <- as.matrix(dist_matrix)
+  melted_dist <- melt(dist_df)
+  
+  ggplot(melted_dist, aes(Var1, Var2, fill = value)) +
+    geom_tile() +
+    scale_fill_gradient(low = "white", high = "red") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    labs(title = title, x = "", y = "", fill = "Distancia")
+}
+
+# Visualizar las diferentes matrices de distancia
+p1 <- plot_distance_matrix(dist_euclidean, "Distancia Euclidiana")
+p2 <- plot_distance_matrix(dist_manhattan, "Distancia Manhattan")
+
+grid.arrange(p1, p2, ncol = 2)
+```
+
+```{r distance_comparison_stats, echo=FALSE}
+# Comparar distancias para algunos estados específicos
+cat("Comparación de distancias entre estados seleccionados:\n")
+cat("Euclidiana vs Manhattan para California-Texas:\n")
+cat("Euclidiana:", round(as.matrix(dist_euclidean)["California", "Texas"], 3), "\n")
+cat("Manhattan:", round(as.matrix(dist_manhattan)["California", "Texas"], 3), "\n")
+```
+
+## 4. Diferentes Métodos de Enlace (Linkage)
+
+**¿Qué buscar en los dendrogramas?**
+
+- **Altura**: Distancia a la cual se fusionan clusters (mayor altura = clusters más diferentes al fusionarse)
+
+- **Forma del árbol**:
+
+  - **COMPLETE**: Clusters compactos, alturas bien diferenciadas
+
+  - **SINGLE**: Tiende a crear 'cadenas', sensible a outliers
+
+  - **WARD**: Clusters balanceados, minimiza varianza intra-cluster
+
+  - **AVERAGE**: Compromiso entre Complete y Single
+
+- **Rectángulos**: Muestran los k=4 clusters seleccionados
+
+- **Comparar**: ¿Qué método produce clusters más interpretables? ¿Los grupos tienen sentido conceptual?
+
+```{r linkage_methods}
+# Aplicar diferentes métodos de enlace
+hc_complete <- hclust(dist_euclidean, method = "complete")
+hc_single <- hclust(dist_euclidean, method = "single")
+hc_average <- hclust(dist_euclidean, method = "average")
+hc_ward <- hclust(dist_euclidean, method = "ward.D2")
+hc_centroid <- hclust(dist_euclidean, method = "centroid")
+
+# Función para plotear dendrogramas
+plot_dendrogram <- function(hc_object, title, k = 4) {
+  plot(hc_object, main = title, cex = 0.6, hang = -1)
+  rect.hclust(hc_object, k = k, border = 2:5)
+}
+
+# Crear gráficos de dendrogramas
+par(mfrow = c(2, 3))
+plot_dendrogram(hc_complete, "Complete Linkage")
+plot_dendrogram(hc_single, "Single Linkage")
+plot_dendrogram(hc_average, "Average Linkage")
+plot_dendrogram(hc_ward, "Ward Linkage")
+plot_dendrogram(hc_centroid, "Centroid Linkage")
+
+# Resetear parámetros gráficos
+par(mfrow = c(1, 1))
+```
+
+## 5. Métodos para Determinar el Número Óptimo de Clusters
+
+### 5.1 Método del Codo (Elbow Method)
+
+**¿Qué buscar en el método del codo?**
+
+- **Objetivo**: Encontrar el 'codo' donde la mejora marginal se vuelve pequeña
+
+- **WCSS**: Within Cluster Sum of Squares - menor es mejor
+
+- **Forma ideal**: Curva que baja rápido y luego se aplana
+
+- **Buscar**: El punto donde la curva cambia de pendiente pronunciada a suave
+
+- **Limitación**: A veces el codo no es obvio - método subjetivo
+
+```{r elbow_method}
+# Función para calcular WCSS (Within Cluster Sum of Squares)
+calculate_wcss <- function(data, max_k = 10, method = "ward.D2") {
+  wcss <- numeric(max_k)
+  
+  for(k in 1:max_k) {
+    # Clustering jerárquico
+    hc <- hclust(dist(data), method = method)
+    clusters <- cutree(hc, k = k)
+    
+    # Calcular WCSS
+    wcss[k] <- sum(sapply(1:k, function(i) {
+      cluster_data <- data[clusters == i, , drop = FALSE]
+      if(nrow(cluster_data) > 1) {
+        sum(dist(cluster_data)^2) / (2 * nrow(cluster_data))
+      } else {
+        0
+      }
+    }))
+  }
+  
+  return(wcss)
+}
+
+# Calcular WCSS para diferentes números de clusters
+wcss_values <- calculate_wcss(USArrests_scaled, max_k = 10)
+
+# Plotear método del codo
+elbow_data <- data.frame(k = 1:10, wcss = wcss_values)
+ggplot(elbow_data, aes(x = k, y = wcss)) +
+  geom_line(size = 1, color = "blue") +
+  geom_point(size = 3, color = "red") +
+  scale_x_continuous(breaks = 1:10) +
+  labs(title = "Método del Codo para Determinar k Óptimo",
+       x = "Número de Clusters (k)",
+       y = "Within Cluster Sum of Squares") +
+  theme_minimal()
+
+# Encontrar el codo aproximado
+diff1 <- diff(wcss_values)
+diff2 <- diff(diff1)
+suggested_k_elbow <- which.max(diff2) + 1
+```
+
+```{r elbow_suggestion, echo=FALSE}
+cat("Sugerencia del método del codo: k =", suggested_k_elbow, "\n")
+```
+
+
+### 5.2 Gap Statistic
+
+**¿Qué buscar en el Gap Statistic?**
+
+- **Concepto**: Compara el clustering con datos aleatorios uniformes
+
+- **Gap(k)**: Diferencia entre log(W_k) esperado vs observado
+
+- **Mayor gap**: Indica que k produce clusters más estructurados que el azar
+
+- **Criterios**: FIRSTMAX (primer k donde Gap(k) ≥ Gap(k+1) - SE(k+1)) vs GLOBALMAX (k con gap más alto)
+
+- **Barras de error**: Indican incertidumbre - importantes para la decisión
+
+
+```{r gap_statistic}
+# Calcular Gap Statistic
+gap_stat <- clusGap(USArrests_scaled, 
+                    FUN = function(x, k) {
+                      hc <- hclust(dist(x), method = "ward.D2")
+                      list(cluster = cutree(hc, k = k))
+                    },
+                    K.max = 10, 
+                    B = 50)  # 50 simulaciones
+
+# Plotear Gap Statistic
+fviz_gap_stat(gap_stat) +
+  labs(title = "Gap Statistic para Determinar k Óptimo")
+
+# Imprimir resultados
+print(gap_stat, method = "firstmax")
+```
+
+### 5.3 Silhouette Analysis
+
+**¿Qué buscar en el Silhouette Analysis?**
+
+- **Silhouette Width**: Mide qué tan bien asignado está cada punto (rango: -1 a +1)
+
+  - Cerca de +1: Punto bien asignado a su cluster
+
+  - Cerca de 0: Punto está en la frontera entre clusters  
+
+  - Cerca de -1: Punto probablemente mal asignado
+
+- **Interpretación de promedios**:
+
+  - 0.71-1.00: Estructura fuerte
+
+  - 0.51-0.70: Estructura razonable
+
+  - 0.26-0.50: Estructura débil
+
+  - < 0.25: Sin estructura sustancial
+
+- **Buscar**: El k que maximice el Average Silhouette Width
+
+```{r silhouette_analysis}
+# Función para calcular average silhouette width
+calc_silhouette <- function(data, max_k = 10, method = "ward.D2") {
+  sil_width <- numeric(max_k - 1)
+  
+  for(k in 2:max_k) {
+    hc <- hclust(dist(data), method = method)
+    clusters <- cutree(hc, k = k)
+    sil <- silhouette(clusters, dist(data))
+    sil_width[k-1] <- mean(sil[, 3])
+  }
+  
+  return(sil_width)
+}
+
+# Calcular silhouette widths
+sil_widths <- calc_silhouette(USArrests_scaled, max_k = 10)
+
+# Plotear
+sil_data <- data.frame(k = 2:10, avg_sil = sil_widths)
+ggplot(sil_data, aes(x = k, y = avg_sil)) +
+  geom_line(size = 1, color = "blue") +
+  geom_point(size = 3, color = "red") +
+  scale_x_continuous(breaks = 2:10) +
+  labs(title = "Average Silhouette Width por Número de Clusters",
+       x = "Número de Clusters (k)",
+       y = "Average Silhouette Width") +
+  theme_minimal()
+
+# Encontrar k óptimo
+optimal_k_sil <- which.max(sil_widths) + 1
+```
+
+```{r silhouette_results, echo=FALSE}
+cat("Número óptimo de clusters según Silhouette:", optimal_k_sil, "\n")
+cat("Valor de Silhouette Width:", round(max(sil_widths), 3), "\n")
+```
+
+### 5.4 NbClust - Múltiples Criterios
+
+```{r nbclust_analysis}
+# Usar NbClust para múltiples criterios
+nb_clust_result <- NbClust(USArrests_scaled, 
+                          distance = "euclidean",
+                          min.nc = 2, max.nc = 10,
+                          method = "ward.D2",
+                          index = "all")
+
+# Crear visualización manual de los resultados de NbClust
+# Extraer el número de clusters sugerido por cada criterio
+best_nc_table <- table(nb_clust_result$Best.nc[1,])
+best_nc_df <- data.frame(
+  clusters = as.numeric(names(best_nc_table)),
+  frequency = as.numeric(best_nc_table)
+)
+
+# Plotear resultados
+ggplot(best_nc_df, aes(x = factor(clusters), y = frequency)) +
+  geom_bar(stat = "identity", fill = "steelblue", alpha = 0.7) +
+  geom_text(aes(label = frequency), vjust = -0.3, size = 4) +
+  labs(title = "Número Óptimo de Clusters según Múltiples Criterios",
+       subtitle = paste("Criterios totales evaluados:", length(nb_clust_result$Best.nc[1,])),
+       x = "Número de Clusters",
+       y = "Frecuencia (número de criterios)") +
+  theme_minimal()
+
+# Mostrar resumen
+cat("Resumen de NbClust:\n")
+cat("Número de clusters más frecuentemente sugerido:", 
+    names(sort(best_nc_table, decreasing = TRUE))[1], "\n")
+cat("Criterios que lo sugieren:", max(best_nc_table), "de", 
+    length(nb_clust_result$Best.nc[1,]), "\n\n")
+
+# Mostrar algunos criterios específicos
+if("Best.nc" %in% names(nb_clust_result)) {
+  cat("Algunos criterios individuales:\n")
+  criterios_importantes <- c("KL", "CH", "Hartigan", "CCC", "Scott", "Marriot", "TrCovW", "TraceW")
+  for(criterio in criterios_importantes) {
+    if(criterio %in% colnames(nb_clust_result$Best.nc)) {
+      cat(criterio, ":", nb_clust_result$Best.nc[1, criterio], "clusters\n")
+    }
+  }
+}
+```
+
+## 6. Comparación de Resultados con Diferentes Métodos
+
+**¿Qué buscar en la comparación de métodos?**
+
+- **Adjusted Rand Index (ARI)**: Mide similitud entre dos clusterings
+
+- ARI = 1: Clusterings idénticos
+
+- ARI = 0: Similitud igual al azar
+
+- ARI < 0: Similitud peor que el azar
+
+- **Interpretación ARI**: 0.90-1.00 (casi idénticos), 0.80-0.90 (muy similares), 0.65-0.80 (moderadamente similares), < 0.65 (diferentes)
+
+- **Matriz de confusión**: Muestra cómo se redistribuyen los puntos
+
+- **Si ARI es bajo**: Los métodos producen resultados MUY diferentes - necesitas decidir cuál tiene más sentido teórico
+
+```{r comparison_methods}
+# Aplicar clustering con k=4 usando diferentes métodos de enlace
+k_optimal <- 4
+
+clusters_complete <- cutree(hc_complete, k = k_optimal)
+clusters_single <- cutree(hc_single, k = k_optimal)
+clusters_average <- cutree(hc_average, k = k_optimal)
+clusters_ward <- cutree(hc_ward, k = k_optimal)
+
+# Crear dataframe con resultados
+comparison_df <- data.frame(
+  State = rownames(USArrests),
+  Complete = clusters_complete,
+  Single = clusters_single,
+  Average = clusters_average,
+  Ward = clusters_ward
+)
+
+# Mostrar primeras filas
+head(comparison_df, 10)
+
+# Adjusted Rand Index para comparar similitud entre métodos
+ari_complete_ward <- fossil::adj.rand.index(clusters_complete, clusters_ward)
+ari_complete_single <- fossil::adj.rand.index(clusters_complete, clusters_single)
+```
+
+```{r method_comparison_stats, echo=FALSE}
+cat("Matriz de confusión: Complete vs Ward\n")
+print(table(clusters_complete, clusters_ward))
+
+cat("\nMatriz de confusión: Complete vs Single\n")
+print(table(clusters_complete, clusters_single))
+
+cat("\nAdjusted Rand Index (Complete vs Ward):", round(ari_complete_ward, 3), "\n")
+cat("Adjusted Rand Index (Complete vs Single):", round(ari_complete_single, 3), "\n")
+```
+
+## 7. Análisis de Calidad de Clustering
+
+**¿Qué buscar en el análisis de calidad?**
+
+**Silhouette Plot Detallado:**
+
+- Cada barra = un estado, ordenados por cluster y valor silhouette
+
+- Barras rojas/negativas: Estados mal asignados
+
+- Ancho promedio por cluster: ¿Hay clusters internamente cohesivos?
+
+- Clusters con muchas barras rojas: Problemas de asignación
+
+**Dunn Index:** Cociente entre menor distancia inter-cluster y mayor intra-cluster
+
+- Valores más altos = mejor separación
+
+- > 0.1 se considera aceptable
+
+**Estadísticas por Cluster:**
+
+- ¿Los clusters tienen interpretación sustantiva?
+
+- ¿Las medias por cluster son distintivas?
+
+- ¿Los tamaños de cluster son razonables?
+
+- **Coherencia**: Los clusters deben tener sentido en el dominio del problema
+
+```{r clustering_quality}
+# Usar clustering Ward (generalmente da buenos resultados)
+final_clusters <- cutree(hc_ward, k = k_optimal)
+
+# Silhouette plot detallado
+sil_ward <- silhouette(final_clusters, dist_euclidean)
+fviz_silhouette(sil_ward) +
+  labs(title = "Silhouette Plot - Ward Linkage (k=4)")
+
+# Estadísticas de clustering
+cluster_stats <- cluster.stats(dist_euclidean, final_clusters)
+
+# Función auxiliar para verificar y redondear valores
+safe_round <- function(value, digits = 3) {
+  if(is.null(value) || !is.numeric(value) || is.na(value)) {
+    return("No disponible")
+  } else {
+    return(round(value, digits))
+  }
+}
+
+# Estadísticas de clustering
+cluster_stats <- cluster.stats(dist_euclidean, final_clusters)
+
+# Función auxiliar para verificar y redondear valores
+safe_round <- function(value, digits = 3) {
+  if(is.null(value) || !is.numeric(value) || is.na(value)) {
+    return("No disponible")
+  } else {
+    return(round(value, digits))
+  }
+}
+```
+
+```{r cluster_quality_stats, echo=FALSE}
+cat("Estadísticas de Clustering (Ward, k=4):\n")
+cat("Average Silhouette Width:", safe_round(cluster_stats$avg.silwidth), "\n")
+cat("Dunn Index:", safe_round(cluster_stats$dunn), "\n")
+cat("Within Sum of Squares:", safe_round(cluster_stats$within.cluster.ss), "\n")
+cat("Between Sum of Squares:", safe_round(cluster_stats$between.cluster.ss), "\n")
+cat("Número de clusters:", cluster_stats$cluster.number, "\n")
+cat("Número de observaciones:", cluster_stats$n, "\n")
+```
+
+```{r}
+# Análisis por cluster
+USArrests_clustered <- USArrests_scaled
+USArrests_clustered <- data.frame(USArrests_clustered)
+USArrests_clustered$Cluster <- final_clusters
+
+# Estadísticas por cluster
+cluster_summary <- USArrests_clustered %>%
+  group_by(Cluster) %>%
+  summarise(
+    n = n(),
+    Murder_mean = round(mean(Murder), 2),
+    Assault_mean = round(mean(Assault), 2),
+    UrbanPop_mean = round(mean(UrbanPop), 2),
+    Rape_mean = round(mean(Rape), 2),
+    .groups = 'drop'
+  )
+
+print(cluster_summary)
+```
+
+## 8. Visualización de Resultados
+
+**¿Qué buscar en las visualizaciones?**
+
+**Gráfico PCA:**
+
+- Proyección de datos 4D en 2D para visualización
+
+- % en ejes: proporción de varianza explicada por cada PC
+
+- **Clusters bien separados**: Buenos resultados de clustering
+
+- **Clusters superpuestos**: Puede indicar sobre-segmentación
+
+- **Outliers visibles**: Estados que no encajan bien en ningún cluster
+
+**Heatmap de Perfiles:**
+
+- Muestra características promedio de cada cluster
+
+- **Colores**: Azul = bajo, Blanco = promedio, Rojo = alto
+
+- **Buscar**: Patrones distintivos por cluster
+
+- **Interpretabilidad**: ¿Los perfiles tienen sentido conceptual?
+
+**Validación Visual:**
+
+- ¿Los clusters se ven naturales en PCA?
+
+- ¿Los perfiles son distintivos y coherentes?
+
+- ¿Estados similares están en el mismo cluster?
+
+```{r visualization}
+# PCA para visualización en 2D
+pca_result <- prcomp(USArrests_scaled)
+pca_data <- data.frame(pca_result$x[, 1:2])
+pca_data$Cluster <- factor(final_clusters)
+pca_data$State <- rownames(USArrests)
+
+# Plot PCA con clusters
+ggplot(pca_data, aes(x = PC1, y = PC2, color = Cluster)) +
+  geom_point(size = 3) +
+  geom_text(aes(label = State), vjust = -0.5, size = 2.5) +
+  labs(title = "Clustering Jerárquico - Visualización PCA",
+       subtitle = "Ward Linkage, k=4",
+       x = paste("PC1 (", round(summary(pca_result)$importance[2,1] * 100, 1), "%)"),
+       y = paste("PC2 (", round(summary(pca_result)$importance[2,2] * 100, 1), "%)")) +
+  theme_minimal() +
+  scale_color_brewer(type = "qual", palette = "Set1")
+
+# Heatmap de características por cluster
+USArrests_means <- USArrests_clustered %>%
+  group_by(Cluster) %>%
+  summarise_all(mean, na.rm = TRUE)
+
+# Convertir a matriz con nombres de fila (método base R)
+USArrests_means_matrix <- as.matrix(USArrests_means[, -1])  # Excluir columna Cluster
+rownames(USArrests_means_matrix) <- paste("Cluster", USArrests_means$Cluster)
+
+# Crear heatmap
+pheatmap::pheatmap(USArrests_means_matrix,
+                   scale = "column",
+                   cluster_rows = FALSE,
+                   cluster_cols = FALSE,
+                   main = "Perfil de Clusters - Características Promedio",
+                   color = colorRampPalette(c("blue", "white", "red"))(50))
+```
+
+## 9. Comparación con Diferentes Distancias
+
+**¿Qué buscar en la comparación de distancias?**
+
+- **ARI entre distancias**: Valores altos indican que la elección de distancia no afecta mucho
+
+- **ARI bajos**: Significan que la distancia elegida SÍ importa para estos datos
+
+- **Consistencia**: Si los resultados son muy diferentes, evaluar cuál tiene más sentido teórico
+
+```{r distance_comparison}
+# Aplicar clustering con diferentes distancias
+hc_euclidean <- hclust(dist_euclidean, method = "ward.D2")
+hc_manhattan <- hclust(dist_manhattan, method = "ward.D2")
+hc_correlation <- hclust(dist_correlation, method = "ward.D2")
+
+# Obtener clusters
+clusters_euclidean <- cutree(hc_euclidean, k = 4)
+clusters_manhattan <- cutree(hc_manhattan, k = 4)
+clusters_correlation <- cutree(hc_correlation, k = 4)
+
+# Comparar resultados
+distance_comparison <- data.frame(
+  State = rownames(USArrests),
+  Euclidean = clusters_euclidean,
+  Manhattan = clusters_manhattan,
+  Correlation = clusters_correlation
+)
+
+head(distance_comparison, 10)
+
+# ARI entre diferentes distancias
+ari_euc_man <- fossil::adj.rand.index(clusters_euclidean, clusters_manhattan)
+ari_euc_cor <- fossil::adj.rand.index(clusters_euclidean, clusters_correlation)
+ari_man_cor <- fossil::adj.rand.index(clusters_manhattan, clusters_correlation)
+
+```
+
+```{r distance_ari_comparison, echo=FALSE}
+cat("Comparación de métodos de distancia (ARI):\n")
+cat("Euclidean vs Manhattan:", round(ari_euc_man, 3), "\n")
+cat("Euclidean vs Correlation:", round(ari_euc_cor, 3), "\n")
+cat("Manhattan vs Correlation:", round(ari_man_cor, 3), "\n")
+```
+
+```{r}
+# Visualizar dendrogramas lado a lado
+par(mfrow = c(1, 3))
+plot(hc_euclidean, main = "Distancia Euclidiana", cex = 0.6, hang = -1)
+rect.hclust(hc_euclidean, k = 4, border = 2:5)
+
+plot(hc_manhattan, main = "Distancia Manhattan", cex = 0.6, hang = -1)
+rect.hclust(hc_manhattan, k = 4, border = 2:5)
+
+plot(hc_correlation, main = "Distancia Correlación", cex = 0.6, hang = -1)
+rect.hclust(hc_correlation, k = 4, border = 2:5)
+
+par(mfrow = c(1, 1))
+```
+
+## 10. Aplicación en Datos Sintéticos
+
+**¿Qué buscar en datos sintéticos?**
+
+- **Ventaja**: Conocemos la "verdad" - podemos evaluar qué tan bien funciona el algoritmo
+
+- **ARI alto**: El algoritmo recuperó correctamente la estructura conocida
+
+- **Matriz de confusión**: Muestra exactamente qué puntos se asignaron incorrectamente
+
+- **Gap statistic**: Debería sugerir el número correcto de clusters (k=3)
+
+```{r synthetic_example}
+# Aplicar clustering jerárquico a datos sintéticos
+synthetic_matrix <- as.matrix(synthetic_data[, 1:2])
+dist_synthetic <- dist(synthetic_matrix)
+hc_synthetic <- hclust(dist_synthetic, method = "ward.D2")
+
+# Determinar número óptimo de clusters
+gap_synthetic <- clusGap(synthetic_matrix, 
+                        FUN = function(x, k) {
+                          hc <- hclust(dist(x), method = "ward.D2")
+                          list(cluster = cutree(hc, k = k))
+                        },
+                        K.max = 8, B = 20)
+
+# Plot gap statistic
+fviz_gap_stat(gap_synthetic) +
+  labs(title = "Gap Statistic - Datos Sintéticos")
+
+# Aplicar clustering con k=3
+clusters_synthetic <- cutree(hc_synthetic, k = 3)
+
+# Comparar con clusters verdaderos
+synthetic_results <- data.frame(
+  x = synthetic_data$x,
+  y = synthetic_data$y,
+  True_Cluster = synthetic_data$true_cluster,
+  Predicted_Cluster = clusters_synthetic
+)
+
+# Visualizar resultados
+p1 <- ggplot(synthetic_results, aes(x = x, y = y, color = factor(True_Cluster))) +
+  geom_point(size = 3) +
+  labs(title = "Clusters Verdaderos", color = "Cluster") +
+  theme_minimal()
+
+p2 <- ggplot(synthetic_results, aes(x = x, y = y, color = factor(Predicted_Cluster))) +
+  geom_point(size = 3) +
+  labs(title = "Clusters Predichos", color = "Cluster") +
+  theme_minimal()
+
+grid.arrange(p1, p2, ncol = 2)
+
+# Calcular ARI
+ari_synthetic <- fossil::adj.rand.index(synthetic_data$true_cluster, clusters_synthetic)
+
+```
+
+```{r synthetic_validation, echo=FALSE}
+cat("Adjusted Rand Index (Sintéticos):", round(ari_synthetic, 3), "\n\n")
+cat("Matriz de confusión:\n")
+print(table(Verdadero = synthetic_data$true_cluster, 
+            Predicho = clusters_synthetic))
+```
+
+## 11. Sensibilidad a Outliers
+
+**¿Qué buscar en el análisis de outliers?**
+
+- **Single linkage**: Muy sensible a outliers - puede crear cadenas artificiales
+
+- **Complete linkage**: Más robusto - mantiene clusters compactos
+
+- **Comparación visual**: ¿Cómo cambia la estructura del dendrograma?
+
+- **Identificación**: Los outliers suelen aparecer como ramas separadas en el dendrograma
+
+```{r outlier_sensitivity}
+# Crear datos con outliers
+set.seed(456)
+data_with_outliers <- USArrests_scaled
+# Añadir outliers extremos
+outlier_indices <- sample(nrow(data_with_outliers), 3)
+data_with_outliers[outlier_indices, ] <- data_with_outliers[outlier_indices, ] * 3
+
+# Comparar clustering con y sin outliers
+hc_original <- hclust(dist(USArrests_scaled), method = "single")
+hc_outliers <- hclust(dist(data_with_outliers), method = "single")
+
+# Visualizar diferencias
+par(mfrow = c(1, 3))
+plot(hc_original, main = "Sin Outliers (Single Linkage)", cex = 0.6, hang = -1)
+plot(hc_outliers, main = "Con Outliers (Single Linkage)", cex = 0.6, hang = -1)
+
+# Comparar con método menos sensible a outliers
+hc_complete_outliers <- hclust(dist(data_with_outliers), method = "complete")
+plot(hc_complete_outliers, main = "Con Outliers (Complete Linkage)", cex = 0.6, hang = -1)
+
+par(mfrow = c(1, 1))
+```
+
+```{r outlier_identification, echo=FALSE}
+cat("Estados modificados como outliers:\n")
+cat(paste(rownames(USArrests)[outlier_indices], collapse = ", "), "\n")
+```
+
+## 12. Resumen y Recomendaciones
+
+```{r}
+# Guardar resultados finales
+final_results <- data.frame(
+  State = rownames(USArrests),
+  Cluster = final_clusters,
+  USArrests[, ]
+)
+```
+
+```{r executive_summary, echo=FALSE}
+cat("=== RESUMEN EJECUTIVO ===\n\n")
+
+cat("NÚMERO ÓPTIMO DE CLUSTERS:\n")
+cat("• Gap Statistic sugiere:", which.max(gap_stat$Tab[, "gap"]), "clusters\n")
+cat("• Silhouette sugiere:", optimal_k_sil, "clusters\n")
+cat("• Elbow method sugiere:", suggested_k_elbow, "clusters\n\n")
+
+cat("CALIDAD DEL CLUSTERING FINAL (Ward, k=4):\n")
+cat("• Average Silhouette Width:", safe_round(cluster_stats$avg.silwidth), "\n")
+cat("• Dunn Index:", safe_round(cluster_stats$dunn), "\n\n")
+
+cat("ESTADOS POR CLUSTER:\n")
+for(i in 1:4) {
+  cat("Cluster", i, ":\n")
+  states_in_cluster <- final_results$State[final_results$Cluster == i]
+  cat("  ", paste(states_in_cluster, collapse = ", "), "\n\n")
+}
+```
+
+## Conclusiones y Guía de Interpretación
+
+### 📋 Checklist de Interpretación para Clustering Jerárquico
+
+**Antes del análisis:**
+
+- [ ] ¿Escalé las variables apropiadamente?
+
+- [ ] ¿Verifiqué la presencia de outliers?
+
+- [ ] ¿Las variables están en escalas comparables?
+
+**Durante el análisis:**
+
+- [ ] ¿Comparé múltiples métodos de enlace?
+
+- [ ] ¿Usé varios criterios para determinar k?
+
+- [ ] ¿Evalué diferentes medidas de distancia?
+
+**Evaluación de resultados:**
+
+- [ ] ¿Verifiqué la calidad con silhouette/Dunn?
+
+- [ ] ¿Los clusters tienen interpretación sustantiva?
+
+- [ ] ¿Los resultados son estables ante pequeños cambios?
+
+### 🎯 Valores de Referencia
+
+| Métrica | Excelente | Bueno | Aceptable | Problemático |
+|---------|-----------|-------|-----------|--------------|
+| **Silhouette Width** | >0.7 | 0.5-0.7 | 0.25-0.5 | <0.25 |
+| **Dunn Index** | >0.2 | 0.1-0.2 | 0.05-0.1 | <0.05 |
+| **ARI** | >0.8 | 0.65-0.8 | 0.4-0.65 | <0.4 |
+
+### ⚠️ Señales de Alerta
+
+
+- **Muchas barras rojas** en silhouette plot
+
+- **Clusters muy desbalanceados** en tamaño
+
+- **ARI muy bajo** entre métodos razonables
+
+- **Perfiles de cluster** no interpretables
+
+- **Outliers dominando** la estructura
+
+### ✅ Recomendaciones por Situación
+
+**Método de Enlace:**
+
+- **Ward**: Para clusters compactos y balanceados
+
+- **Complete**: Buena alternativa general, robusta
+
+- **Average**: Compromiso entre Complete y Single
+
+- **Evitar Single**: Con presencia de outliers
+
+**Medida de Distancia:**
+
+- **Euclidiana**: Standard para datos continuos escalados
+
+- **Manhattan**: Menos sensible a outliers
+
+- **Correlación**: Cuando importan patrones vs magnitudes
+
+
+**Preprocesamiento Crítico:**
+
+- Escalado **esencial** con diferentes unidades
+
+- Identificar y tratar outliers
+
+- Considerar transformaciones si es necesario
+
+
+### 🔍 Cuándo Usar Clustering Jerárquico vs K-means
+
+**Usar Clustering Jerárquico cuando:**
+
+
+- La jerarquía natural es importante
+
+- No conoces el número de clusters
+
+- Dataset pequeño-mediano (<10,000 obs)
+
+- Quieres explorar diferentes niveles de granularidad
+
+**Usar K-means cuando:**
+
+- Dataset grande (>10,000 obs)
+
+- Conoces aproximadamente k
+
+- Eficiencia computacional es crítica
+
+- Clusters esféricos son apropiados
+
+### 📊 Interpretación de Este Análisis
+
+Este notebook demuestra que el clustering jerárquico es especialmente valioso para:
+
+- **Análisis exploratorio** donde la estructura jerárquica revela insights
+
+- **Datasets complejos** donde el número óptimo de clusters no es obvio
+
+- **Validación cruzada** de resultados usando múltiples criterios
+
+- **Interpretación sustantiva** de grupos naturales en los datos
+
+El clustering jerárquico proporciona una herramienta robusta para descubrir estructuras ocultas en datos, especialmente cuando se combina con una evaluación cuidadosa de la calidad y interpretabilidad de los resultados.
+
+## Conclusiones
+
+Este notebook demuestra los aspectos clave del clustering jerárquico:
+
+- **Importancia del escalado**: Variables en diferentes escalas pueden dominar la distancia
+
+- **Sensibilidad al método de enlace**: Single linkage es sensible a outliers, Ward produce clusters compactos
+
+- **Selección de k**: Múltiples criterios pueden sugerir diferentes números óptimos
+
+- **Interpretabilidad**: Los dendrogramas proporcionan insight sobre la estructura jerárquica natural
+
+- **Validación**: Siempre evaluar la calidad usando métricas como silhouette width y Dunn index
+
+El clustering jerárquico es especialmente valioso para análisis exploratorio donde la estructura jerárquica es importante y el número de clusters no está predeterminado.

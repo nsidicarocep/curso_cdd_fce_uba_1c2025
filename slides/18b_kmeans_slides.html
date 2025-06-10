@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Means Clustering - Aprendizaje No Supervisado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            animation: slideIn 0.6s ease-in-out;
+            max-width: 1000px;
+            width: 90%;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        h3 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #87ceeb;
+        }
+
+        p, li {
+            font-size: 1.4em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        ul {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        .algorithm-steps {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .step {
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #ffd700;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+        }
+
+        .formula {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.6em;
+            border: 2px solid #ffd700;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .pros, .cons {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .pros {
+            border-left: 5px solid #00ff7f;
+        }
+
+        .cons {
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .visual-demo {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .cluster-visual {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .cluster {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            position: relative;
+        }
+
+        .cluster1 { background: radial-gradient(circle, #ff6b6b, #ff4757); }
+        .cluster2 { background: radial-gradient(circle, #4ecdc4, #26d0ce); }
+        .cluster3 { background: radial-gradient(circle, #ffa726, #ff9500); }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1.1em;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .code-example {
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+            border: 1px solid #87ceeb;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.8em; }
+            p, li { font-size: 1.2em; }
+            .pros-cons { grid-template-columns: 1fr; }
+            .slide { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <h1>K-Means Clustering</h1>
+            <h3>Aprendizaje No Supervisado</h3>
+            <p style="font-size: 1.6em; margin-top: 40px;">
+                Una introducción práctica al algoritmo de clustering más popular
+            </p>
+            <p style="font-size: 1.2em; margin-top: 30px; opacity: 0.8;">
+                Basado en "An Introduction to Statistical Learning"
+            </p>
+        </div>
+
+        <!-- Slide 2: Aprendizaje No Supervisado -->
+        <div class="slide">
+            <h2>¿Qué es el Aprendizaje No Supervisado?</h2>
+            <div class="algorithm-steps">
+                <p style="font-size: 1.6em; margin-bottom: 25px;">
+                    A diferencia del aprendizaje supervisado, aquí <span class="highlight">no tenemos variables respuesta</span>
+                </p>
+                <ul>
+                    <li><strong>Objetivo:</strong> Descubrir patrones ocultos en los datos</li>
+                    <li><strong>No hay "respuestas correctas"</strong> para entrenar el modelo</li>
+                    <li><strong>Exploramos la estructura</strong> subyacente de los datos</li>
+                    <li><strong>Principal técnica:</strong> Clustering (agrupamiento)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: ¿Qué es K-Means? -->
+        <div class="slide">
+            <h2>¿Qué es K-Means?</h2>
+            <div class="visual-demo">
+                <p style="font-size: 1.5em; margin-bottom: 30px;">
+                    Un algoritmo que divide los datos en <span class="highlight">K grupos (clusters)</span>
+                </p>
+                <div class="cluster-visual">
+                    <div class="cluster cluster1">Grupo 1</div>
+                    <div class="cluster cluster2">Grupo 2</div>
+                    <div class="cluster cluster3">Grupo 3</div>
+                </div>
+                <p style="font-size: 1.3em;">
+                    Cada punto pertenece al cluster cuyo <strong>centroide está más cerca</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Algoritmo -->
+        <div class="slide">
+            <h2>Algoritmo K-Means</h2>
+            <div class="algorithm-steps">
+                <div class="step">
+                    <strong>Paso 1:</strong> Elegir el número de clusters K
+                </div>
+                <div class="step">
+                    <strong>Paso 2:</strong> Inicializar K centroides aleatoriamente
+                </div>
+                <div class="step">
+                    <strong>Paso 3:</strong> Asignar cada punto al centroide más cercano
+                </div>
+                <div class="step">
+                    <strong>Paso 4:</strong> Recalcular la posición de cada centroide
+                </div>
+                <div class="step">
+                    <strong>Paso 5:</strong> Repetir pasos 3-4 hasta convergencia
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Función Objetivo -->
+        <div class="slide">
+            <h2>Función Objetivo</h2>
+            <p style="font-size: 1.4em; margin-bottom: 30px;">
+                K-Means minimiza la <span class="highlight">suma de cuadrados dentro de clusters</span>
+            </p>
+            <div class="formula">
+                W(C) = ½ ∑ᵢ₌₁ᴷ ∑ₓ∈Cᵢ ||x - μᵢ||²
+            </div>
+            <ul style="margin-top: 30px;">
+                <li><strong>C:</strong> Asignación de clusters</li>
+                <li><strong>Cᵢ:</strong> Conjunto de puntos en cluster i</li>
+                <li><strong>μᵢ:</strong> Centroide del cluster i</li>
+                <li><strong>||x - μᵢ||²:</strong> Distancia euclidiana al cuadrado</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5.5: Distancias en K-Means -->
+        <div class="slide">
+            <h2>¿Qué Distancia Usa K-Means?</h2>
+            <div class="algorithm-steps">
+                <div style="background: rgba(255,215,0,0.2); padding: 25px; border-radius: 15px; border-left: 5px solid #ffd700; margin: 20px 0;">
+                    <h3 style="color: #ffd700; font-size: 1.8em;">🎯 K-Means = Solo Distancia Euclidiana</h3>
+                    <p style="font-size: 1.3em; margin-top: 15px;">
+                        K-means está <strong>específicamente diseñado</strong> para distancia euclidiana
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 25px 0;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                        <h3 style="color: #87ceeb;">¿Por qué Euclidiana?</h3>
+                        <ul style="margin-top: 15px;">
+                            <li>Los centroides son <strong>medias aritméticas</strong></li>
+                            <li>Minimiza varianza dentro de clusters</li>
+                            <li>Matemáticamente óptima para esta función</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                        <h3 style="color: #ff6b6b;">⚠️ Importante</h3>
+                        <ul style="margin-top: 15px;">
+                            <li><strong>Linkages</strong> son para clustering jerárquico</li>
+                            <li>Para otras distancias → usar <strong>K-medoids</strong></li>
+                            <li>Manhattan, coseno → algoritmos diferentes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <p style="font-size: 1.2em; text-align: center;">
+                        💡 <strong>Clave:</strong> Si necesitas otra distancia, K-means NO es el algoritmo correcto
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Inercia -->
+        <div class="slide">
+            <h2>Concepto de Inercia</h2>
+            <div class="algorithm-steps">
+                <p style="font-size: 1.4em; margin-bottom: 20px;">
+                    La <span class="highlight">inercia</span> mide qué tan compactos son nuestros clusters
+                </p>
+                <div class="formula">
+                    Inercia = ∑ᵢ₌₁ⁿ min(||xᵢ - μⱼ||²)
+                </div>
+                <ul style="margin-top: 25px;">
+                    <li><strong>Menor inercia = clusters más compactos</strong></li>
+                    <li>Con más clusters (K mayor), la inercia siempre decrece</li>
+                    <li>En el extremo: K = n puntos → inercia = 0</li>
+                    <li><strong>Objetivo:</strong> Encontrar el equilibrio óptimo</li>
+                </ul>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 25px;">
+                    <p style="font-size: 1.2em;">
+                        💡 <strong>Clave:</strong> Buscamos el punto donde agregar más clusters no mejora significativamente la inercia
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Método del Codo Detallado -->
+        <div class="slide">
+            <h2>Método del Codo - Análisis Detallado</h2>
+            <div class="visual-demo">
+                <p style="font-size: 1.3em; margin-bottom: 25px;">
+                    Graficamos la <span class="highlight">inercia vs número de clusters</span>
+                </p>
+                <svg width="600" height="300" style="background: rgba(255,255,255,0.1); border-radius: 10px; margin: 20px auto; display: block;">
+                    <!-- Ejes -->
+                    <line x1="50" y1="250" x2="550" y2="250" stroke="white" stroke-width="2"/>
+                    <line x1="50" y1="250" x2="50" y2="30" stroke="white" stroke-width="2"/>
+                    
+                    <!-- Labels -->
+                    <text x="300" y="280" fill="white" text-anchor="middle" font-size="14">Número de Clusters (K)</text>
+                    <text x="25" y="140" fill="white" text-anchor="middle" font-size="14" transform="rotate(-90 25 140)">Inercia</text>
+                    
+                    <!-- Números en ejes -->
+                    <text x="90" y="265" fill="white" text-anchor="middle" font-size="12">1</text>
+                    <text x="150" y="265" fill="white" text-anchor="middle" font-size="12">2</text>
+                    <text x="210" y="265" fill="white" text-anchor="middle" font-size="12">3</text>
+                    <text x="270" y="265" fill="white" text-anchor="middle" font-size="12">4</text>
+                    <text x="330" y="265" fill="white" text-anchor="middle" font-size="12">5</text>
+                    <text x="390" y="265" fill="white" text-anchor="middle" font-size="12">6</text>
+                    <text x="450" y="265" fill="white" text-anchor="middle" font-size="12">7</text>
+                    
+                    <!-- Curva de inercia -->
+                    <polyline points="90,220 150,160 210,120 270,100 330,90 390,85 450,82" 
+                              fill="none" stroke="#ffd700" stroke-width="3"/>
+                    
+                    <!-- Puntos -->
+                    <circle cx="90" cy="220" r="5" fill="#ff6b6b"/>
+                    <circle cx="150" cy="160" r="5" fill="#ff6b6b"/>
+                    <circle cx="210" cy="120" r="5" fill="#ff6b6b"/>
+                    <circle cx="270" cy="100" r="7" fill="#00ff7f" stroke="white" stroke-width="2"/>
+                    <circle cx="330" cy="90" r="5" fill="#ff6b6b"/>
+                    <circle cx="390" cy="85" r="5" fill="#ff6b6b"/>
+                    <circle cx="450" cy="82" r="5" fill="#ff6b6b"/>
+                    
+                    <!-- Flecha apuntando al codo -->
+                    <path d="M 240 70 L 265 95" stroke="#00ff7f" stroke-width="3" marker-end="url(#arrowhead)"/>
+                    <text x="230" y="60" fill="#00ff7f" font-size="14" font-weight="bold">¡CODO!</text>
+                    
+                    <!-- Definir flecha -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                                refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#00ff7f"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p style="font-size: 1.2em; margin-top: 20px;">
+                    <strong>K = 4</strong> parece ser el punto óptimo: mayor reducción de inercia antes del "codo"
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Silhouette Score Detallado -->
+        <div class="slide">
+            <h2>Silhouette Score - Análisis Profundo</h2>
+            <div class="algorithm-steps">
+                <div class="formula" style="font-size: 1.2em;">
+                    s(i) = (b(i) - a(i)) / max(a(i), b(i))
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                        <h3 style="color: #87ceeb; font-size: 1.4em;">a(i): Cohesión</h3>
+                        <p>Distancia promedio del punto i a otros puntos en su mismo cluster</p>
+                        <p style="color: #00ff7f;"><strong>Menor es mejor</strong></p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                        <h3 style="color: #87ceeb; font-size: 1.4em;">b(i): Separación</h3>
+                        <p>Distancia promedio del punto i al cluster más cercano (que no es el suyo)</p>
+                        <p style="color: #00ff7f;"><strong>Mayor es mejor</strong></p>
+                    </div>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;">
+                    <h3 style="color: #ffd700;">Interpretación del Score:</h3>
+                    <ul>
+                        <li><strong>s(i) ≈ 1:</strong> Punto bien asignado a su cluster</li>
+                        <li><strong>s(i) ≈ 0:</strong> Punto en la frontera entre clusters</li>
+                        <li><strong>s(i) ≈ -1:</strong> Punto mal asignado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Comparación Visual Silhouette -->
+        <div class="slide">
+            <h2>Silhouette Score por Número de Clusters</h2>
+            <div class="visual-demo">
+                <svg width="600" height="350" style="background: rgba(255,255,255,0.1); border-radius: 10px; margin: 20px auto; display: block;">
+                    <!-- Ejes -->
+                    <line x1="50" y1="300" x2="550" y2="300" stroke="white" stroke-width="2"/>
+                    <line x1="50" y1="300" x2="50" y2="50" stroke="white" stroke-width="2"/>
+                    
+                    <!-- Labels -->
+                    <text x="300" y="330" fill="white" text-anchor="middle" font-size="14">Número de Clusters (K)</text>
+                    <text x="25" y="175" fill="white" text-anchor="middle" font-size="14" transform="rotate(-90 25 175)">Silhouette Score</text>
+                    
+                    <!-- Líneas de referencia -->
+                    <line x1="50" y1="175" x2="550" y2="175" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="5,5"/>
+                    <text x="555" y="180" fill="rgba(255,255,255,0.6)" font-size="10">0.5</text>
+                    
+                    <!-- Números en ejes -->
+                    <text x="100" y="315" fill="white" text-anchor="middle" font-size="12">2</text>
+                    <text x="175" y="315" fill="white" text-anchor="middle" font-size="12">3</text>
+                    <text x="250" y="315" fill="white" text-anchor="middle" font-size="12">4</text>
+                    <text x="325" y="315" fill="white" text-anchor="middle" font-size="12">5</text>
+                    <text x="400" y="315" fill="white" text-anchor="middle" font-size="12">6</text>
+                    <text x="475" y="315" fill="white" text-anchor="middle" font-size="12">7</text>
+                    
+                    <!-- Barras del Silhouette Score -->
+                    <rect x="85" y="200" width="30" height="100" fill="#ff6b6b" rx="5"/>
+                    <rect x="160" y="120" width="30" height="180" fill="#00ff7f" rx="5"/>
+                    <rect x="235" y="150" width="30" height="150" fill="#ffa726" rx="5"/>
+                    <rect x="310" y="180" width="30" height="120" fill="#ff6b6b" rx="5"/>
+                    <rect x="385" y="220" width="30" height="80" fill="#ff6b6b" rx="5"/>
+                    <rect x="460" y="240" width="30" height="60" fill="#ff6b6b" rx="5"/>
+                    
+                    <!-- Valores -->
+                    <text x="100" y="190" fill="white" text-anchor="middle" font-size="11">0.4</text>
+                    <text x="175" y="110" fill="white" text-anchor="middle" font-size="11" font-weight="bold">0.72</text>
+                    <text x="250" y="140" fill="white" text-anchor="middle" font-size="11">0.6</text>
+                    <text x="325" y="170" fill="white" text-anchor="middle" font-size="11">0.48</text>
+                    <text x="400" y="210" fill="white" text-anchor="middle" font-size="11">0.32</text>
+                    <text x="475" y="230" fill="white" text-anchor="middle" font-size="11">0.24</text>
+                    
+                    <!-- Flecha apuntando al máximo -->
+                    <path d="M 175 85 L 175 105" stroke="#00ff7f" stroke-width="3" marker-end="url(#arrowhead2)"/>
+                    <text x="175" y="75" fill="#00ff7f" font-size="14" font-weight="bold" text-anchor="middle">ÓPTIMO</text>
+                    
+                    <!-- Definir flecha -->
+                    <defs>
+                        <marker id="arrowhead2" markerWidth="10" markerHeight="7" 
+                                refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#00ff7f"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p style="font-size: 1.3em; margin-top: 20px;">
+                    <span class="highlight">K = 3</span> tiene el Silhouette Score más alto (0.72)
+                </p>
+                <p style="font-size: 1.1em; margin-top: 15px;">
+                    💡 <strong>Regla general:</strong> Elegir K con el Silhouette Score máximo
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Comparación de Métodos -->
+        <div class="slide">
+            <h2>Método del Codo vs Silhouette Score</h2>
+            <div class="pros-cons" style="margin-top: 30px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; border-left: 5px solid #ffd700;">
+                    <h3 style="color: #ffd700;">📈 Método del Codo</h3>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>Ventaja:</strong> Intuitivo y fácil de interpretar</li>
+                        <li><strong>Ventaja:</strong> Computacionalmente simple</li>
+                        <li><strong>Desventaja:</strong> El "codo" puede ser subjetivo</li>
+                        <li><strong>Desventaja:</strong> No siempre hay un codo claro</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; border-left: 5px solid #87ceeb;">
+                    <h3 style="color: #87ceeb;">📊 Silhouette Score</h3>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>Ventaja:</strong> Métrica objetiva y cuantitativa</li>
+                        <li><strong>Ventaja:</strong> Considera cohesión y separación</li>
+                        <li><strong>Desventaja:</strong> Más costoso computacionalmente</li>
+                        <li><strong>Desventaja:</strong> Puede favorecer clusters muy separados</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="background: rgba(0,255,127,0.1); padding: 20px; border-radius: 10px; margin-top: 25px; border: 2px solid #00ff7f;">
+                <h3 style="color: #00ff7f; text-align: center;">🎯 Recomendación</h3>
+                <p style="font-size: 1.3em; text-align: center; margin-top: 10px;">
+                    Usa <strong>ambos métodos</strong> y compara resultados. Si coinciden, ¡perfecto! Si no, analiza más profundamente tus datos.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Ventajas y Desventajas -->
+        <div class="slide">
+            <h2>Ventajas y Desventajas</h2>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3 style="color: #00ff7f;">✓ Ventajas</h3>
+                    <ul>
+                        <li>Simple y rápido</li>
+                        <li>Funciona bien con clusters esféricos</li>
+                        <li>Escalable a grandes datasets</li>
+                        <li>Garantiza convergencia</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3 style="color: #ff6b6b;">✗ Desventajas</h3>
+                    <ul>
+                        <li>Necesitas elegir K a priori</li>
+                        <li>Sensible a inicialización</li>
+                        <li>Asume clusters esféricos</li>
+                        <li>Sensible a outliers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Ejemplo en Python -->
+        <div class="slide">
+            <h2>Implementación en Python</h2>
+            <div class="code-example">
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generar datos de ejemplo
+X = np.random.rand(100, 2)
+
+# Aplicar K-Means
+kmeans = KMeans(n_clusters=3, random_state=42)
+labels = kmeans.fit_predict(X)
+
+# Visualizar resultados
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis')
+plt.scatter(kmeans.cluster_centers_[:, 0], 
+           kmeans.cluster_centers_[:, 1], 
+           c='red', marker='x', s=200)
+plt.show()
+            </div>
+        </div>
+
+        <!-- Slide 9: Aplicaciones -->
+        <div class="slide">
+            <h2>Aplicaciones Prácticas</h2>
+            <div class="algorithm-steps">
+                <div class="step">
+                    <strong>Segmentación de Mercado:</strong> Agrupar clientes por comportamiento de compra
+                </div>
+                <div class="step">
+                    <strong>Compresión de Imágenes:</strong> Reducir paleta de colores
+                </div>
+                <div class="step">
+                    <strong>Análisis de Redes Sociales:</strong> Detectar comunidades
+                </div>
+                <div class="step">
+                    <strong>Bioinformática:</strong> Agrupar genes por expresión similar
+                </div>
+                <div class="step">
+                    <strong>Recomendaciones:</strong> Agrupar usuarios con gustos similares
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Conclusiones -->
+        <div class="slide">
+            <h2>Conclusiones Clave</h2>
+            <div class="visual-demo">
+                <ul style="font-size: 1.4em;">
+                    <li><strong>K-Means es simple pero poderoso</strong> para clustering</li>
+                    <li><strong>La elección de K es crucial</strong> para buenos resultados</li>
+                    <li><strong>Funciona mejor</strong> con clusters esféricos y bien separados</li>
+                    <li><strong>Siempre explorar los datos</strong> antes de aplicar el algoritmo</li>
+                    <li><strong>Considerar alternativas</strong> como clustering jerárquico o DBSCAN</li>
+                </ul>
+                <p style="font-size: 1.6em; margin-top: 40px; color: #ffd700;">
+                    ¡El clustering es una herramienta fundamental en Data Science!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">16</span>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)">← Anterior</button>
+        <button class="nav-btn" onclick="changeSlide(1)">Siguiente →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        // Inicializar
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

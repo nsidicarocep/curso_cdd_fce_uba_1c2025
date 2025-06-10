@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustering Jerárquico - Aprendizaje No Supervisado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ffd700, #ffec8c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #ffec8c;
+        }
+
+        p, li {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        ul {
+            text-align: left;
+            display: inline-block;
+        }
+
+        .highlight {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffd700;
+            margin: 20px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .comparison-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dendogram-visual {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .tree-structure {
+            font-family: monospace;
+            font-size: 1.1em;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #ffd700;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">12</span>
+        </div>
+
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <h1>Clustering Jerárquico</h1>
+            <h3>Aprendizaje No Supervisado</h3>
+            <p style="font-size: 1.5em; margin-top: 40px;">Basado en "An Introduction to Statistical Learning"</p>
+            <div class="highlight">
+                <p>Una técnica para descubrir la estructura oculta en los datos mediante la construcción de jerarquías de grupos</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: ¿Qué es? -->
+        <div class="slide">
+            <h2>¿Qué es el Clustering Jerárquico?</h2>
+            <div class="highlight">
+                <p>Es un método de clustering que crea una jerarquía de clusters mediante la fusión o división sucesiva de grupos</p>
+            </div>
+            <ul>
+                <li><strong>No requiere especificar</strong> el número de clusters de antemano</li>
+                <li><strong>Produce un dendrograma</strong> que muestra la estructura jerárquica</li>
+                <li><strong>Determinístico:</strong> siempre produce el mismo resultado</li>
+                <li><strong>Puede revelar</strong> estructuras de datos a múltiples escalas</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Tipos -->
+        <div class="slide">
+            <h2>Tipos de Clustering Jerárquico</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h3>🔺 Aglomerativo (Bottom-up)</h3>
+                    <ul>
+                        <li>Comienza con n clusters (cada observación)</li>
+                        <li>Fusiona iterativamente los clusters más similares</li>
+                        <li>Termina con un solo cluster</li>
+                        <li>Más común en la práctica</li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <h3>🔻 Divisivo (Top-down)</h3>
+                    <ul>
+                        <li>Comienza con un solo cluster</li>
+                        <li>Divide iterativamente en subclusters</li>
+                        <li>Termina con n clusters individuales</li>
+                        <li>Computacionalmente más complejo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Algoritmo Aglomerativo -->
+        <div class="slide">
+            <h2>Algoritmo Aglomerativo</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div>
+                        <strong>1</strong><br>
+                        Calcular distancias
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div>
+                        <strong>2</strong><br>
+                        Fusionar más cercanos
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div>
+                        <strong>3</strong><br>
+                        Actualizar matriz
+                    </div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="step">
+                    <div>
+                        <strong>4</strong><br>
+                        Repetir hasta 1
+                    </div>
+                </div>
+            </div>
+            <div class="highlight">
+                <p><strong>Complejidad:</strong> O(n³) en tiempo y O(n²) en espacio</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Medidas de Distancia -->
+        <div class="slide">
+            <h2>Medidas de Distancia</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h3>Euclidiana</h3>
+                    <p>Distancia "en línea recta" entre puntos. Sensible a escala.</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>Manhattan</h3>
+                    <p>Suma de diferencias absolutas. Menos sensible a outliers.</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>Correlación</h3>
+                    <p>Mide similitud en patrones, no en magnitud.</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>Coseno</h3>
+                    <p>Útil para datos de alta dimensionalidad como texto.</p>
+                </div>
+            </div>
+            <div class="highlight">
+                <p><strong>Importante:</strong> Normalizar los datos cuando las variables tienen diferentes escalas</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Métodos de Enlace -->
+        <div class="slide">
+            <h2>Métodos de Enlace (Linkage)</h2>
+            <ul>
+                <li><strong>Complete Linkage:</strong> Distancia máxima entre clusters → clusters compactos</li>
+                <li><strong>Single Linkage:</strong> Distancia mínima → clusters alargados, sensible a outliers</li>
+                <li><strong>Average Linkage:</strong> Distancia promedio → compromiso balanceado</li>
+                <li><strong>Centroid Linkage:</strong> Distancia entre centroides → puede crear inversiones</li>
+                <li><strong>Ward's Linkage:</strong> Minimiza varianza intra-cluster → clusters esféricos</li>
+            </ul>
+            <div class="highlight">
+                <p><strong>Recomendación:</strong> Complete y Average linkage son los más utilizados</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Dendrograma -->
+        <div class="slide">
+            <h2>El Dendrograma</h2>
+            <div class="dendogram-visual">
+                <div class="tree-structure">
+                    <p style="margin-bottom: 20px;"><strong>Visualización de la jerarquía de clusters</strong></p>
+                    <pre>
+        ┌─────────────────┐
+        │                 │
+    ┌───┴───┐         ┌───┴───┐
+    │       │         │       │
+  ┌─┴─┐   ┌─┴─┐     ┌─┴─┐   ┌─┴─┐
+  A   B   C   D     E   F   G   H
+                    </pre>
+                </div>
+            </div>
+            <ul>
+                <li><strong>Altura:</strong> representa la distancia a la cual se fusionan los clusters</li>
+                <li><strong>Hojas:</strong> observaciones individuales</li>
+                <li><strong>Nodos internos:</strong> clusters formados por fusión</li>
+                <li><strong>Corte horizontal:</strong> determina el número de clusters</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Selección del Número de Clusters -->
+        <div class="slide">
+            <h2>¿Cuántos Clusters Elegir?</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h3>🔍 Inspección Visual</h3>
+                    <p>Buscar "saltos" grandes en el dendrograma</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>📊 Conocimiento del Dominio</h3>
+                    <p>Usar información previa sobre los datos</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>📏 Gap Statistic</h3>
+                    <p>Comparar con datos aleatorios</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>📈 Elbow Method</h3>
+                    <p>Buscar el "codo" en la curva de distancias</p>
+                </div>
+            </div>
+            <div class="highlight">
+                <p><strong>No hay una respuesta única:</strong> La elección depende del problema específico</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Ventajas -->
+        <div class="slide">
+            <h2>Ventajas del Clustering Jerárquico</h2>
+            <ul>
+                <li><strong>📊 Estructura completa:</strong> Revela jerarquías a múltiples niveles</li>
+                <li><strong>🎯 Sin parámetros iniciales:</strong> No necesita k predefinido</li>
+                <li><strong>🔄 Determinístico:</strong> Resultados reproducibles</li>
+                <li><strong>👁️ Interpretable:</strong> El dendrograma es fácil de entender</li>
+                <li><strong>🔧 Flexible:</strong> Muchas opciones de distancia y enlace</li>
+                <li><strong>🌍 Forma agnóstico:</strong> No asume forma específica de clusters</li>
+            </ul>
+            <div class="highlight">
+                <p>Especialmente útil para análisis exploratorio de datos</p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Desventajas -->
+        <div class="slide">
+            <h2>Desventajas del Clustering Jerárquico</h2>
+            <ul>
+                <li><strong>⏱️ Complejidad computacional:</strong> O(n³) - no escala bien</li>
+                <li><strong>🚫 Decisiones irreversibles:</strong> No puede corregir fusiones tempranas</li>
+                <li><strong>🎭 Sensible a outliers:</strong> Especialmente single linkage</li>
+                <li><strong>⚖️ Sensible a escala:</strong> Requiere normalización cuidadosa</li>
+                <li><strong>🔧 Elección de parámetros:</strong> Distancia y enlace afectan resultados</li>
+                <li><strong>💾 Uso de memoria:</strong> O(n²) para matriz de distancias</li>
+            </ul>
+            <div class="highlight">
+                <p>Para datasets grandes (&gt;10,000), considerar alternativas como k-means</p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Comparación con K-means -->
+        <div class="slide">
+            <h2>Jerárquico vs K-means</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h3>🌳 Clustering Jerárquico</h3>
+                    <ul>
+                        <li>Encuentra jerarquías naturales</li>
+                        <li>Determinístico</li>
+                        <li>O(n³) complejidad</li>
+                        <li>No asume número de clusters</li>
+                        <li>Mejor para datasets pequeños</li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <h3>⭕ K-means</h3>
+                    <ul>
+                        <li>Particiones planas</li>
+                        <li>Estocástico</li>
+                        <li>O(n) complejidad</li>
+                        <li>Requiere especificar k</li>
+                        <li>Mejor para datasets grandes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Aplicaciones y Conclusiones -->
+        <div class="slide">
+            <h2>Aplicaciones Prácticas</h2>
+            <ul>
+                <li><strong>🧬 Bioinformática:</strong> Clasificación de genes y proteínas</li>
+                <li><strong>🛒 Marketing:</strong> Segmentación de clientes</li>
+                <li><strong>🌐 Redes sociales:</strong> Comunidades y grupos</li>
+                <li><strong>💼 Finanzas:</strong> Agrupación de activos similares</li>
+                <li><strong>📚 Procesamiento de texto:</strong> Organización de documentos</li>
+                <li><strong>🏥 Medicina:</strong> Clasificación de pacientes</li>
+            </ul>
+            <div class="highlight">
+                <p><strong>Conclusión:</strong> El clustering jerárquico es una herramienta poderosa para descubrir estructuras ocultas en datos, especialmente cuando la jerarquía natural es importante para el análisis</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)">← Anterior</button>
+        <button class="nav-btn" onclick="changeSlide(1)">Siguiente →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') {
+                currentSlide = 0;
+                showSlide(currentSlide);
+            }
+            if (e.key === 'End') {
+                currentSlide = totalSlides - 1;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Inicializar
+        showSlide(0);
+    </script>
+</body>
+</html>

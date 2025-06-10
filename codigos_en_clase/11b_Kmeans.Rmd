@@ -1,0 +1,594 @@
+---
+title: "Kmeans clustering en R"
+author: "Nicolás Sidicaro"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    df_print: paged
+  html_notebook:
+    toc: true
+    toc_float: true
+    theme: flatly
+    highlight: tango
+subtitle: Un Enfoque Práctico para Aprendizaje No Supervisado
+---
+
+# K-Means Clustering en R: Guía Práctica Completa
+
+*Basado en "An Introduction to Statistical Learning" - Capítulo 10*
+
+------------------------------------------------------------------------
+
+## Introducción
+
+El **clustering K-means** es uno de los algoritmos de aprendizaje no supervisado más utilizados en data science. En este notebook exploraremos tanto la teoría como la implementación práctica en R, siguiendo las mejores prácticas del campo.
+
+### Objetivos de Aprendizaje:
+
+-   Implementar K-means desde cero y con funciones de R
+-   Aplicar métodos para seleccionar el número óptimo de clusters (K)
+-   Visualizar y interpretar resultados
+-   Trabajar con datos reales
+
+------------------------------------------------------------------------
+
+## 1. Preparación del Entorno
+
+Primero cargaremos las librerías necesarias para nuestro análisis:
+
+```{r setup, message=FALSE, warning=FALSE}
+# Cargar librerías esenciales
+library(tidyverse)      # Para manipulación y visualización de datos
+library(cluster)        # Para análisis de clustering
+library(factoextra)     # Para visualización avanzada de clustering
+library(gridExtra)      # Para organizar múltiples gráficos
+library(ggplot2)        # Para gráficos elegantes
+library(NbClust)        # Para métodos de selección de K
+library(fpc)            # Para estadísticas de clustering
+
+# Configurar tema para gráficos
+theme_set(theme_minimal() + 
+          theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold")))
+
+# Fijar semilla para reproducibilidad
+set.seed(123)
+```
+
+------------------------------------------------------------------------
+
+## 2. Generación de Datos Sintéticos
+
+Comenzaremos con un ejemplo simple usando datos sintéticos para entender el comportamiento del algoritmo:
+
+```{r generate_data}
+# Crear datos sintéticos con 3 grupos naturales
+n <- 150  # número total de puntos
+
+# Grupo 1: centrado en (2, 2)
+grupo1 <- data.frame(
+  x = rnorm(50, mean = 2, sd = 0.5),
+  y = rnorm(50, mean = 2, sd = 0.5),
+  grupo_real = "Grupo 1"
+)
+
+# Grupo 2: centrado en (6, 6)
+grupo2 <- data.frame(
+  x = rnorm(50, mean = 6, sd = 0.5),
+  y = rnorm(50, mean = 6, sd = 0.5),
+  grupo_real = "Grupo 2"
+)
+
+# Grupo 3: centrado en (2, 6)
+grupo3 <- data.frame(
+  x = rnorm(50, mean = 2, sd = 0.5),
+  y = rnorm(50, mean = 6, sd = 0.5),
+  grupo_real = "Grupo 3"
+)
+
+# Combinar todos los datos
+datos_sinteticos <- rbind(grupo1, grupo2, grupo3)
+
+# Visualizar los datos originales
+ggplot(datos_sinteticos, aes(x = x, y = y, color = grupo_real)) +
+  geom_point(size = 3, alpha = 0.7) +
+  labs(title = "Datos Sintéticos con 3 Grupos Naturales",
+       x = "Variable X", y = "Variable Y",
+       color = "Grupo Real") +
+  scale_color_manual(values = c("red", "blue", "green"))
+```
+
+------------------------------------------------------------------------
+
+## 3. Implementación Básica de K-Means
+
+Ahora aplicaremos K-means a nuestros datos sintéticos:
+
+```{r basic_kmeans}
+# Preparar datos para clustering (solo variables numéricas)
+datos_numericos <- datos_sinteticos[, c("x", "y")]
+
+# Aplicar K-means con K=3 (sabemos que hay 3 grupos)
+kmeans_resultado <- kmeans(datos_numericos, centers = 3, nstart = 25)
+
+# Examinar la estructura del resultado
+print("Información del clustering:")
+print(kmeans_resultado)
+
+# Agregar las asignaciones de cluster a nuestros datos
+datos_sinteticos$cluster_kmeans <- as.factor(kmeans_resultado$cluster)
+
+# Visualizar resultados
+p1 <- ggplot(datos_sinteticos, aes(x = x, y = y, color = grupo_real)) +
+  geom_point(size = 3, alpha = 0.7) +
+  labs(title = "Grupos Reales", color = "Grupo") +
+  scale_color_manual(values = c("red", "blue", "green"))
+
+p2 <- ggplot(datos_sinteticos, aes(x = x, y = y, color = cluster_kmeans)) +
+  geom_point(size = 3, alpha = 0.7) +
+  geom_point(data = as.data.frame(kmeans_resultado$centers), 
+             aes(x = x, y = y), color = "black", size = 5, shape = 4, stroke = 2) +
+  labs(title = "Clustering K-Means (K=3)", color = "Cluster") +
+  scale_color_manual(values = c("red", "blue", "green"))
+
+grid.arrange(p1, p2, ncol = 2)
+```
+
+### Interpretación de Resultados
+
+El algoritmo K-means nos proporciona información valiosa:
+
+```{r interpret_results}
+cat("Número de puntos en cada cluster:\n")
+print(table(kmeans_resultado$cluster))
+
+cat("\nCentroides de cada cluster:\n")
+print(kmeans_resultado$centers)
+
+cat("\nInercia total (sum of squares within clusters):\n")
+print(kmeans_resultado$tot.withinss)
+
+cat("\nPorcentaje de variabilidad explicada:\n")
+variabilidad_explicada <- (kmeans_resultado$betweenss / kmeans_resultado$totss) * 100
+print(paste0(round(variabilidad_explicada, 2), "%"))
+```
+
+------------------------------------------------------------------------
+
+## 4. Método del Codo (Elbow Method)
+
+¿Pero qué pasa si no conocemos el número óptimo de clusters? Implementemos el método del codo:
+
+```{r elbow_method}
+# Función para calcular la inercia para diferentes valores de K
+calcular_inercia <- function(datos, max_k = 10) {
+  inercias <- numeric(max_k)
+  
+  for (k in 1:max_k) {
+    kmeans_temp <- kmeans(datos, centers = k, nstart = 25)
+    inercias[k] <- kmeans_temp$tot.withinss
+  }
+  
+  return(data.frame(
+    K = 1:max_k,
+    Inercia = inercias
+  ))
+}
+
+# Calcular inercias para K de 1 a 10
+resultados_codo <- calcular_inercia(datos_numericos, max_k = 10)
+
+# Visualizar el método del codo
+ggplot(resultados_codo, aes(x = K, y = Inercia)) +
+  geom_line(size = 1.2, color = "blue") +
+  geom_point(size = 3, color = "red") +
+  geom_vline(xintercept = 3, linetype = "dashed", color = "green", size = 1) +
+  labs(title = "Método del Codo para Selección de K",
+       x = "Número de Clusters (K)",
+       y = "Inercia (Within Sum of Squares)") +
+  annotate("text", x = 3.5, y = max(resultados_codo$Inercia) * 0.8, 
+           label = "K óptimo = 3", color = "green", size = 4, fontface = "bold") +
+  scale_x_continuous(breaks = 1:10)
+
+print(resultados_codo)
+```
+
+------------------------------------------------------------------------
+
+## 5. Análisis Silhouette
+
+Implementemos también el análisis de Silhouette para confirmar nuestro K óptimo:
+
+```{r silhouette_analysis}
+# Función para calcular Silhouette Score para diferentes K
+calcular_silhouette <- function(datos, max_k = 10) {
+  silhouette_scores <- numeric(max_k - 1)  # No se puede calcular para K=1
+  
+  for (k in 2:max_k) {
+    kmeans_temp <- kmeans(datos, centers = k, nstart = 25)
+    sil_score <- cluster::silhouette(kmeans_temp$cluster, dist(datos))
+    silhouette_scores[k-1] <- mean(sil_score[, "sil_width"])
+  }
+  
+  return(data.frame(
+    K = 2:max_k,
+    Silhouette_Score = silhouette_scores
+  ))
+}
+
+# Calcular Silhouette scores
+resultados_silhouette <- calcular_silhouette(datos_numericos, max_k = 10)
+
+# Visualizar resultados
+ggplot(resultados_silhouette, aes(x = K, y = Silhouette_Score)) +
+  geom_line(size = 1.2, color = "purple") +
+  geom_point(size = 3, color = "orange") +
+  geom_vline(xintercept = which.max(resultados_silhouette$Silhouette_Score) + 1, 
+             linetype = "dashed", color = "green", size = 1) +
+  labs(title = "Análisis Silhouette para Selección de K",
+       x = "Número de Clusters (K)",
+       y = "Silhouette Score Promedio") +
+  annotate("text", x = which.max(resultados_silhouette$Silhouette_Score) + 1.5, 
+           y = max(resultados_silhouette$Silhouette_Score) * 0.9, 
+           label = paste("K óptimo =", which.max(resultados_silhouette$Silhouette_Score) + 1), 
+           color = "green", size = 4, fontface = "bold") +
+  scale_x_continuous(breaks = 2:10)
+
+print(resultados_silhouette)
+```
+
+### Comparación de Métodos
+
+```{r compare_methods}
+# Encontrar K óptimo según cada método
+k_codo <- 3  # Visualmente identificado del gráfico del codo
+k_silhouette <- which.max(resultados_silhouette$Silhouette_Score) + 1
+
+cat("Comparación de métodos para seleccionar K:\n")
+cat(paste("Método del Codo:", k_codo, "\n"))
+cat(paste("Silhouette Score:", k_silhouette, "\n"))
+
+if (k_codo == k_silhouette) {
+  cat("¡Ambos métodos coinciden! K óptimo =", k_codo, "\n")
+} else {
+  cat("Los métodos difieren. Se recomienda analizar más profundamente.\n")
+}
+```
+
+------------------------------------------------------------------------
+
+## 6. Análisis Detallado del Clustering Óptimo
+
+Analicemos en detalle el clustering con K=3:
+
+```{r detailed_analysis}
+# Aplicar K-means con K óptimo
+kmeans_final <- kmeans(datos_numericos, centers = 3, nstart = 25)
+
+# Calcular y visualizar el silhouette plot detallado
+sil_analisis <- cluster::silhouette(kmeans_final$cluster, dist(datos_numericos))
+
+# Crear gráfico de silhouette
+fviz_silhouette(sil_analisis) +
+  labs(title = "Análisis Silhouette Detallado (K=3)")
+
+# Estadísticas por cluster
+datos_sinteticos$cluster_final <- as.factor(kmeans_final$cluster)
+
+estadisticas_cluster <- datos_sinteticos %>%
+  group_by(cluster_final) %>%
+  summarise(
+    n_puntos = n(),
+    x_promedio = round(mean(x), 2),
+    y_promedio = round(mean(y), 2),
+    x_sd = round(sd(x), 2),
+    y_sd = round(sd(y), 2),
+    .groups = 'drop'
+  )
+
+print("Estadísticas por cluster:")
+print(estadisticas_cluster)
+```
+
+------------------------------------------------------------------------
+
+## 7. Ejemplo con Datos Reales: Dataset Iris
+
+Ahora trabajemos con un dataset real para ver cómo se comporta K-means en la práctica:
+
+```{r iris_example}
+# Cargar dataset iris (sin la variable Species para clustering no supervisado)
+data(iris)
+iris_datos <- iris[, 1:4]  # Solo variables numéricas
+iris_especies_reales <- iris$Species
+
+# Estandarizar los datos (muy importante para K-means)
+iris_escalado <- scale(iris_datos)
+
+cat("Primeras filas del dataset Iris (escalado):\n")
+print(head(iris_escalado))
+
+# Aplicar método del codo
+inercias_iris <- numeric(10)
+for (k in 1:10) {
+  kmeans_temp <- kmeans(iris_escalado, centers = k, nstart = 25)
+  inercias_iris[k] <- kmeans_temp$tot.withinss
+}
+
+# Calcular Silhouette scores para Iris
+silhouette_iris <- numeric(9)
+for (k in 2:10) {
+  kmeans_temp <- kmeans(iris_escalado, centers = k, nstart = 25)
+  sil_score <- cluster::silhouette(kmeans_temp$cluster, dist(iris_escalado))
+  silhouette_iris[k-1] <- mean(sil_score[, "sil_width"])
+}
+
+# Crear gráficos de selección de K para Iris
+p1_iris <- ggplot(data.frame(K = 1:10, Inercia = inercias_iris), 
+                  aes(x = K, y = Inercia)) +
+  geom_line(size = 1.2, color = "blue") +
+  geom_point(size = 3, color = "red") +
+  labs(title = "Método del Codo - Dataset Iris", 
+       x = "Número de Clusters (K)", y = "Inercia")
+
+p2_iris <- ggplot(data.frame(K = 2:10, Silhouette = silhouette_iris), 
+                  aes(x = K, y = Silhouette)) +
+  geom_line(size = 1.2, color = "purple") +
+  geom_point(size = 3, color = "orange") +
+  labs(title = "Silhouette Score - Dataset Iris", 
+       x = "Número de Clusters (K)", y = "Silhouette Score")
+
+grid.arrange(p1_iris, p2_iris, ncol = 2)
+```
+
+### Aplicar K-means al Dataset Iris
+
+```{r iris_kmeans}
+# Aplicar K-means con K=3 (sabemos que hay 3 especies)
+kmeans_iris <- kmeans(iris_escalado, centers = 3, nstart = 25)
+
+# Crear dataframe para análisis
+iris_resultados <- data.frame(
+  iris_datos,
+  Especie_Real = iris_especies_reales,
+  Cluster_KMeans = as.factor(kmeans_iris$cluster)
+)
+
+# Tabla de confusión
+tabla_confusion <- table(iris_resultados$Especie_Real, iris_resultados$Cluster_KMeans)
+print("Tabla de Confusión (Especies vs Clusters):")
+print(tabla_confusion)
+
+# Calcular precisión
+precision <- sum(diag(tabla_confusion)) / sum(tabla_confusion)
+cat(paste("\nPrecisión del clustering:", round(precision * 100, 2), "%\n"))
+```
+
+### Visualización Multidimensional
+
+```{r iris_visualization}
+# Realizar PCA para visualización en 2D
+pca_iris <- prcomp(iris_escalado, center = FALSE, scale. = FALSE)
+
+# Crear dataframe con componentes principales
+iris_pca <- data.frame(
+  PC1 = pca_iris$x[, 1],
+  PC2 = pca_iris$x[, 2],
+  Especie_Real = iris_especies_reales,
+  Cluster_KMeans = as.factor(kmeans_iris$cluster)
+)
+
+# Gráficos comparativos
+p1_pca <- ggplot(iris_pca, aes(x = PC1, y = PC2, color = Especie_Real)) +
+  geom_point(size = 3, alpha = 0.7) +
+  labs(title = "Especies Reales (PCA)", color = "Especie") +
+  theme(legend.position = "bottom")
+
+p2_pca <- ggplot(iris_pca, aes(x = PC1, y = PC2, color = Cluster_KMeans)) +
+  geom_point(size = 3, alpha = 0.7) +
+  labs(title = "Clusters K-Means (PCA)", color = "Cluster") +
+  theme(legend.position = "bottom")
+
+grid.arrange(p1_pca, p2_pca, ncol = 2)
+
+# Mostrar la varianza explicada por cada componente principal
+cat("Varianza explicada por cada componente principal:\n")
+print(summary(pca_iris))
+```
+
+------------------------------------------------------------------------
+
+## 8. Diagnóstico y Validación del Clustering
+
+Evaluemos la calidad de nuestro clustering con diferentes métricas:
+
+```{r clustering_diagnostics}
+# Usar la librería factoextra para análisis más avanzado
+library(factoextra)
+
+# Calcular múltiples métricas de validación
+cat("=== MÉTRICAS DE VALIDACIÓN ===\n\n")
+
+# 1. Silhouette Score promedio
+sil_iris <- cluster::silhouette(kmeans_iris$cluster, dist(iris_escalado))
+cat("1. Silhouette Score promedio:", round(mean(sil_iris[, "sil_width"]), 3), "\n")
+
+# 2. Calinski-Harabasz Index
+ch_index <- cluster.stats(dist(iris_escalado), kmeans_iris$cluster)$ch
+cat("2. Calinski-Harabasz Index:", round(ch_index, 2), "\n")
+
+# 3. Davies-Bouldin Index
+db_index <- cluster.stats(dist(iris_escalado), kmeans_iris$cluster)$dunn
+cat("3. Dunn Index:", round(db_index, 3), "\n")
+
+# 4. Within Sum of Squares
+cat("4. Within Sum of Squares:", round(kmeans_iris$tot.withinss, 2), "\n")
+
+# 5. Between Sum of Squares / Total Sum of Squares
+bss_tss_ratio <- kmeans_iris$betweenss / kmeans_iris$totss
+cat("5. BSS/TSS ratio:", round(bss_tss_ratio, 3), "\n")
+
+# Visualización del silhouette plot
+fviz_silhouette(sil_iris) +
+  labs(title = "Análisis Silhouette - Dataset Iris")
+```
+
+------------------------------------------------------------------------
+
+## 9. Comparación con Clustering Jerárquico
+
+Comparemos nuestros resultados con clustering jerárquico:
+
+```{r hierarchical_comparison}
+# Clustering jerárquico
+dist_matrix <- dist(iris_escalado)
+hc_ward <- hclust(dist_matrix, method = "ward.D2")
+
+# Cortar el dendrograma para obtener 3 clusters
+clusters_jerarquico <- cutree(hc_ward, k = 3)
+
+# Crear dendrograma
+plot(hc_ward, main = "Dendrograma - Clustering Jerárquico", 
+     xlab = "", sub = "", cex = 0.8)
+rect.hclust(hc_ward, k = 3, border = 2:4)
+
+# Comparar resultados
+comparacion <- data.frame(
+  Especie_Real = iris_especies_reales,
+  KMeans = kmeans_iris$cluster,
+  Jerarquico = clusters_jerarquico
+)
+
+cat("Comparación de métodos de clustering:\n")
+cat("Correlación K-Means vs Jerárquico:", 
+    round(cor(kmeans_iris$cluster, clusters_jerarquico), 3), "\n")
+
+# Tabla de contingencia
+print("Tabla de contingencia K-Means vs Jerárquico:")
+print(table(kmeans_iris$cluster, clusters_jerarquico))
+```
+
+------------------------------------------------------------------------
+
+## 10. Buenas Prácticas y Recomendaciones
+
+### Checklist para K-Means Exitoso:
+
+```{r best_practices, eval=FALSE}
+# ✅ ANTES DE APLICAR K-MEANS:
+
+# 1. Explorar y limpiar los datos
+summary(datos)
+plot(datos)
+
+# 2. Estandarizar/escalar variables
+datos_escalados <- scale(datos)
+
+# 3. Remover outliers si es necesario
+# Métodos: boxplots, z-scores, análisis visual
+
+# 4. Verificar correlaciones altas entre variables
+cor(datos)
+
+# ✅ DURANTE EL ANÁLISIS:
+
+# 1. Usar múltiples inicializaciones
+kmeans(datos, centers = k, nstart = 25)
+
+# 2. Probar diferentes valores de K
+# Usar método del codo Y silhouette score
+
+# 3. Validar con múltiples métricas
+# Silhouette, Calinski-Harabasz, Davies-Bouldin
+
+# ✅ DESPUÉS DEL CLUSTERING:
+
+# 1. Interpretar los centroides
+print(modelo$centers)
+
+# 2. Analizar la composición de cada cluster
+table(clusters, variable_categorica)
+
+# 3. Visualizar resultados
+# PCA, t-SNE para alta dimensionalidad
+
+# 4. Validar con conocimiento del dominio
+```
+
+### Cuándo NO usar K-Means:
+
+```{r when_not_to_use, eval=FALSE}
+# ❌ NO usar K-Means cuando:
+
+# 1. Los clusters no son esféricos
+# Alternativa: DBSCAN, clustering jerárquico
+
+# 2. Los clusters tienen densidades muy diferentes
+# Alternativa: Gaussian Mixture Models
+
+# 3. Hay mucho ruido/outliers
+# Alternativa: DBSCAN, clustering robusto
+
+# 4. Los clusters tienen tamaños muy diferentes
+# Alternativa: clustering basado en densidad
+
+# 5. Las variables tienen escalas muy diferentes y no se pueden estandarizar
+# Alternativa: métodos que manejan variables categóricas
+```
+
+------------------------------------------------------------------------
+
+## 11. Ejercicio Práctico
+
+Te propongo un ejercicio para consolidar el aprendizaje:
+
+```{r exercise, eval=FALSE}
+# EJERCICIO: Analizar el dataset mtcars
+data(mtcars)
+
+# Tareas:
+# 1. Explora el dataset mtcars
+# 2. Selecciona variables relevantes para clustering
+# 3. Escala los datos apropiadamente
+# 4. Aplica el método del codo y silhouette analysis
+# 5. Ejecuta K-means con el K óptimo
+# 6. Interpreta los clusters obtenidos
+# 7. ¿Qué tipos de autos agrupa cada cluster?
+
+# Código de inicio:
+head(mtcars)
+# Tu código aquí...
+```
+
+------------------------------------------------------------------------
+
+## 12. Conclusiones
+
+### Puntos Clave del K-Means:
+
+1.  **Simplicidad y Eficiencia**: K-means es rápido y fácil de implementar
+2.  **Preparación de Datos**: El escalado es crucial para buenos resultados
+3.  **Selección de K**: Combinar método del codo con silhouette score
+4.  **Validación**: Usar múltiples métricas para evaluar calidad
+5.  **Interpretación**: Los centroides son clave para entender los clusters
+6.  **Limitaciones**: Asume clusters esféricos y de tamaño similar
+
+### Próximos Pasos:
+
+-   Explorar clustering jerárquico
+-   Aprender DBSCAN para clusters de forma irregular
+-   Estudiar Gaussian Mixture Models
+-   Aplicar técnicas de reducción de dimensionalidad (PCA, t-SNE)
+
+------------------------------------------------------------------------
+
+## Referencias
+
+-   James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). *An Introduction to Statistical Learning*. Springer.
+-   Kassambara, A. (2017). *Practical Guide to Cluster Analysis in R*. STHDA.
+-   Documentación de R: `?kmeans`, `?cluster`, `?factoextra`
+
+------------------------------------------------------------------------
+
+*Notebook creado para el aprendizaje de K-Means clustering en R*\
+*Fecha: Junio 2025*
