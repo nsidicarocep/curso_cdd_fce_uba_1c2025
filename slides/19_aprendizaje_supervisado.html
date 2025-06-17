@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Clasificación Supervisada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            animation: slideIn 0.5s ease-out;
+            overflow-y: auto;
+            max-height: 85vh;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #34495e;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+
+        h4 {
+            font-size: 1.4em;
+            color: #34495e;
+            margin: 20px 0 10px 0;
+        }
+
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .math-formula {
+            background: #f8f9ff;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .algorithm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .algorithm-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .complexity-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        .low-complexity { background: #d4edda; color: #155724; }
+        .medium-complexity { background: #fff3cd; color: #856404; }
+        .high-complexity { background: #f8d7da; color: #721c24; }
+
+        .hyperparams {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .metrics-section {
+            background: linear-gradient(135deg, #e8f4f8, #f1f8ff);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .theory-section {
+            background: linear-gradient(135deg, #fff5f5, #ffe6e6);
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            backdrop-filter: blur(10px);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .intro-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .point-card {
+            background: linear-gradient(135deg, #fff, #f8f9ff);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .point-card:hover {
+            transform: scale(1.05);
+            border-color: #667eea;
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .example-card {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #0ea5e9;
+        }
+
+        .example-card h4 {
+            color: #0c4a6e;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide-counter">
+            <span id="slideNum">1</span> / <span id="totalSlides">11</span>
+        </div>
+
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <div class="intro-content">
+                <h1>Modelos de Clasificación Supervisada</h1>
+                <p style="font-size: 1.5em; margin: 30px 0; color: #667eea;">Una introducción teórica y práctica basada en An Introduction to Statistical Learning</p>
+                
+                <div class="key-points">
+                    <div class="point-card">
+                        <span class="emoji">🎯</span>
+                        <h4>6 Algoritmos Clave</h4>
+                        <p>Con fundamentos matemáticos</p>
+                    </div>
+                    <div class="point-card">
+                        <span class="emoji">⚙️</span>
+                        <h4>Hiperparámetros</h4>
+                        <p>Optimización y tuning</p>
+                    </div>
+                    <div class="point-card">
+                        <span class="emoji">📊</span>
+                        <h4>Métricas</h4>
+                        <p>Evaluación rigurosa</p>
+                    </div>
+                    <div class="point-card">
+                        <span class="emoji">🏛️</span>
+                        <h4>Aplicaciones</h4>
+                        <p>Ciencias sociales y economía</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Overview -->
+        <div class="slide">
+            <h2>Clasificación Supervisada: Panorama General</h2>
+            
+            <h3>🎯 Marco Teórico</h3>
+            <p>Dado un conjunto de entrenamiento {(x₁, y₁), (x₂, y₂), ..., (xₙ, yₙ)} donde x ∈ ℝᵈ son las características y y ∈ {1, 2, ..., K} son las clases, buscamos una función f: ℝᵈ → {1, 2, ..., K} que minimice el error de clasificación esperado.</p>
+            
+            <div class="math-formula">
+                <strong>Riesgo de Bayes:</strong> R* = E[min_k P(Y ≠ k | X)]<br>
+                <strong>Frontera de Bayes:</strong> {x : P(Y = j | X = x) = P(Y = k | X = x), j ≠ k}
+            </div>
+            
+            <h3>📋 Algoritmos por Paradigma</h3>
+            <div class="algorithm-grid">
+                <div class="algorithm-card">
+                    <h4>Instance-Based</h4>
+                    <span class="complexity-badge low-complexity">k-NN</span>
+                    <p>Clasificación por similaridad local</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>Discriminativos</h4>
+                    <span class="complexity-badge low-complexity">Reg. Logística</span>
+                    <span class="complexity-badge high-complexity">SVM</span>
+                    <p>Modelan P(Y|X) directamente</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>Generativos</h4>
+                    <span class="complexity-badge low-complexity">Naive Bayes</span>
+                    <p>Modelan P(X|Y) y P(Y)</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>Tree-Based</h4>
+                    <span class="complexity-badge medium-complexity">Árboles</span>
+                    <span class="complexity-badge medium-complexity">Random Forest</span>
+                    <p>Particionamiento recursivo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Aplicaciones en Ciencias Sociales y Economía -->
+        <div class="slide">
+            <h2>Aplicaciones en Ciencias Sociales y Economía</h2>
+            
+            <div class="example-card">
+                <h4>🏛️ Ciencia Política</h4>
+                <ul>
+                    <li><strong>Predicción electoral:</strong> Random Forest para predecir voto basado en demografía, historial electoral</li>
+                    <li><strong>Análisis de sentimiento político:</strong> Naive Bayes en tweets/discursos para clasificar posiciones</li>
+                    <li><strong>Detección de polarización:</strong> SVM para clasificar textos legislativos por ideología</li>
+                </ul>
+            </div>
+
+            <div class="example-card">
+                <h4>💰 Economía y Finanzas</h4>
+                <ul>
+                    <li><strong>Credit scoring:</strong> Regresión logística para aprobación de préstamos (interpretabilidad regulatoria)</li>
+                    <li><strong>Detección de fraude:</strong> Random Forest para transacciones anómalas</li>
+                    <li><strong>Trading algorítmico:</strong> SVM para señales de compra/venta basadas en indicadores técnicos</li>
+                    <li><strong>Segmentación de clientes:</strong> k-NN para clasificar comportamiento de compra</li>
+                </ul>
+            </div>
+
+            <div class="example-card">
+                <h4>📊 Sociología y Demografía</h4>
+                <ul>
+                    <li><strong>Movilidad social:</strong> Árboles de decisión para predecir clase socioeconómica futura</li>
+                    <li><strong>Abandono escolar:</strong> Random Forest usando variables socioeconómicas y académicas</li>
+                    <li><strong>Mercado laboral:</strong> Regresión logística para probabilidad de desempleo</li>
+                </ul>
+            </div>
+
+            <div class="example-card">
+                <h4>🏥 Políticas Públicas</h4>
+                <ul>
+                    <li><strong>Asignación de recursos:</strong> SVM para priorizar programas sociales</li>
+                    <li><strong>Evaluación de políticas:</strong> Naive Bayes para clasificar éxito/fracaso de intervenciones</li>
+                    <li><strong>Planificación urbana:</strong> k-NN para clasificar zonas de riesgo social</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: k-NN -->
+        <div class="slide">
+            <h2>k-Nearest Neighbors (k-NN)</h2>
+            
+            <div class="theory-section">
+                <h3>🔬 Fundamento Teórico</h3>
+                <p>k-NN es un método no paramétrico que estima la función de regresión mediante promediado local. Para clasificación, usa la regla de votación mayoritaria entre los k vecinos más cercanos.</p>
+            </div>
+
+            <div class="math-formula">
+                <strong>Regla de decisión:</strong> ĉ(x) = argmax_j Σ_{i∈N_k(x)} I(y_i = j)<br><br>
+                <strong>Distancia Minkowski:</strong> d_p(x,z) = (Σ|x_j - z_j|^p)^(1/p)<br>
+                <strong>Error de clasificación:</strong> E[L] → 2R* cuando k → ∞, k/n → 0 (Cover & Hart, 1967)
+            </div>
+            
+            <h3>✅ Ventajas Teóricas</h3>
+            <ul>
+                <li><strong>Consistencia universal:</strong> Converge al clasificador de Bayes bajo condiciones generales</li>
+                <li><strong>No asume distribución:</strong> Free de suposiciones sobre P(X,Y)</li>
+                <li><strong>Adaptabilidad local:</strong> Se ajusta automáticamente a la complejidad local</li>
+                <li><strong>Simplicidad conceptual:</strong> Interpretación geométrica directa</li>
+            </ul>
+            
+            <h3>❌ Limitaciones Teóricas</h3>
+            <ul>
+                <li><strong>Maldición de la dimensionalidad:</strong> En alta dimensión, todos los puntos son equidistantes</li>
+                <li><strong>Complejidad computacional:</strong> O(nd) por predicción sin estructuras de datos</li>
+                <li><strong>Sensibilidad al ruido:</strong> Vecinos ruidosos afectan directamente la predicción</li>
+                <li><strong>Frontera irregular:</strong> Puede generar fronteras de decisión muy complejas</li>
+            </ul>
+            
+            <div class="hyperparams">
+                <h4>🔧 Hiperparámetros y Su Impacto</h4>
+                <ul>
+                    <li><strong>k:</strong> Controla el bias-variance tradeoff (k pequeño → alta varianza, k grande → alto bias)</li>
+                    <li><strong>Métrica de distancia:</strong> p=1 (Manhattan, robusta a outliers), p=2 (Euclidiana, estándar)</li>
+                    <li><strong>Esquema de pesos:</strong> Uniforme vs. 1/distancia (reduce influencia de vecinos lejanos)</li>
+                </ul>
+            </div>
+            
+            <p><strong>Complejidad:</strong> Entrenamiento O(1), Predicción O(nd) donde n=muestras, d=dimensiones</p>
+        </div>
+
+        <!-- Slide 5: Regresión Logística -->
+        <div class="slide">
+            <h2>Regresión Logística</h2>
+            
+            <div class="theory-section">
+                <h3>🔬 Fundamento Teórico</h3>
+                <p>Modelo discriminativo que usa la función logística para mapear cualquier valor real a (0,1), interpretable como probabilidad. Basado en el modelo lineal generalizado con función de enlace logit.</p>
+            </div>
+
+            <div class="math-formula">
+                <strong>Modelo:</strong> P(Y = 1|X) = 1/(1 + e^(-X^T β))<br>
+                <strong>Log-odds:</strong> log(p/(1-p)) = X^T β<br>
+                <strong>Verosimilitud:</strong> L(β) = Π P(Y_i|X_i)^Y_i (1-P(Y_i|X_i))^(1-Y_i)<br>
+                <strong>Log-verosimilitud:</strong> ℓ(β) = Σ[Y_i X_i^T β - log(1 + e^(X_i^T β))]
+            </div>
+            
+            <h3>✅ Propiedades Estadísticas</h3>
+            <ul>
+                <li><strong>Estimador MLE:</strong> Máxima verosimilitud asegura consistencia y eficiencia asintótica</li>
+                <li><strong>Interpretabilidad:</strong> e^β_j es el odds ratio para un cambio unitario en x_j</li>
+                <li><strong>Probabilidades calibradas:</strong> Output directamente interpretable como probabilidad</li>
+                <li><strong>Frontera lineal:</strong> Genera fronteras de decisión lineales en el espacio original</li>
+            </ul>
+            
+            <h3>❌ Limitaciones Matemáticas</h3>
+            <ul>
+                <li><strong>Linealidad en log-odds:</strong> Asume relación lineal entre X y log(p/(1-p))</li>
+                <li><strong>Separación perfecta:</strong> MLE no existe si las clases son linealmente separables</li>
+                <li><strong>Multicolinealidad:</strong> Inestabilidad en estimaciones con X^T X singular</li>
+                <li><strong>Distribución asintótica:</strong> Intervalos de confianza válidos solo con muestras grandes</li>
+            </ul>
+            
+            <div class="hyperparams">
+                <h4>🔧 Regularización y Optimización</h4>
+                <ul>
+                    <li><strong>C (regularización):</strong> C = 1/λ donde λ es parámetro de regularización Ridge/Lasso</li>
+                    <li><strong>penalty='l2':</strong> ||β||₂² (Ridge) - shrinkage continuo hacia 0</li>
+                    <li><strong>penalty='l1':</strong> ||β||₁ (Lasso) - selección automática de variables</li>
+                    <li><strong>solver:</strong> 'lbfgs' (L-BFGS), 'newton-cg' (Newton-CG), 'sag' (SAG)</li>
+                </ul>
+            </div>
+            
+            <p><strong>Complejidad:</strong> Entrenamiento O(nd × iter), Predicción O(d) donde iter depende de convergencia</p>
+        </div>
+
+        <!-- Slide 6: Naive Bayes -->
+        <div class="slide">
+            <h2>Naive Bayes</h2>
+            
+            <div class="theory-section">
+                <h3>🔬 Fundamento Teórico</h3>
+                <p>Clasificador probabilístico basado en el teorema de Bayes con la suposición "naive" de independencia condicional entre características. Es un modelo generativo que estima P(X|Y) y P(Y).</p>
+            </div>
+
+            <div class="math-formula">
+                <strong>Teorema de Bayes:</strong> P(Y=k|X) = P(X|Y=k)P(Y=k) / P(X)<br>
+                <strong>Suposición Naive:</strong> P(X|Y=k) = Π P(X_j|Y=k)<br>
+                <strong>Clasificador:</strong> ĉ(x) = argmax_k P(Y=k) Π P(X_j=x_j|Y=k)<br>
+                <strong>Log-probabilidades:</strong> log P(Y=k|X) ∝ log P(Y=k) + Σ log P(X_j|Y=k)
+            </div>
+            
+            <h3>✅ Propiedades Teóricas</h3>
+            <ul>
+                <li><strong>Optimal bajo independencia:</strong> Si las características son realmente independientes, es el clasificador de Bayes</li>
+                <li><strong>Robustez sorprendente:</strong> Funciona bien incluso cuando la independencia se viola moderadamente</li>
+                <li><strong>Eficiencia paramétrica:</strong> Requiere estimar solo O(dk) parámetros</li>
+                <li><strong>Manejo natural de múltiples clases:</strong> Extensión directa a K > 2</li>
+            </ul>
+            
+            <h3>❌ Limitaciones Teóricas</h3>
+            <ul>
+                <li><strong>Independencia condicional:</strong> Rara vez se cumple en datos reales</li>
+                <li><strong>Estimación de probabilidades:</strong> Puede asignar probabilidad 0 a combinaciones no vistas</li>
+                <li><strong>Correlaciones perdidas:</strong> Ignora interacciones entre características</li>
+                <li><strong>Calibración:</strong> Probabilidades pueden estar mal calibradas</li>
+            </ul>
+            
+            <div class="hyperparams">
+                <h4>🔧 Variantes y Parámetros</h4>
+                <ul>
+                    <li><strong>alpha (Laplace smoothing):</strong> P(X_j|Y=k) = (N_jk + α)/(N_k + α|V_j|)</li>
+                    <li><strong>Gaussian NB:</strong> Asume P(X_j|Y=k) ~ N(μ_jk, σ²_jk)</li>
+                    <li><strong>Multinomial NB:</strong> Para conteos/frecuencias, común en texto</li>
+                    <li><strong>Bernoulli NB:</strong> Para características binarias</li>
+                </ul>
+            </div>
+            
+            <p><strong>Complejidad:</strong> Entrenamiento O(nd), Predicción O(cd) donde c=clases, d=características</p>
+        </div>
+
+        <!-- Slide 7: Árboles de Decisión -->
+        <div class="slide">
+            <h2>Árboles de Decisión</h2>
+            
+            <div class="theory-section">
+                <h3>🔬 Fundamento Teórico</h3>
+                <p>Algoritmo de particionamiento recursivo que construye un árbol binario mediante la selección greedy de splits que maximizan la pureza. Aproxima funciones mediante regiones constantes a trozos.</p>
+            </div>
+
+            <div class="math-formula">
+                <strong>Impureza de Gini:</strong> G = Σ p_k(1-p_k) = 1 - Σ p_k²<br>
+                <strong>Entropía:</strong> H = -Σ p_k log(p_k)<br>
+                <strong>Ganancia de información:</strong> IG(S,A) = H(S) - Σ |S_v|/|S| H(S_v)<br>
+                <strong>Función objetivo:</strong> min Σ N_L G_L + N_R G_R sujeto a split óptimo
+            </div>
+            
+            <h3>✅ Propiedades Algorítmicas</h3>
+            <ul>
+                <li><strong>Invarianza a transformaciones monotónicas:</strong> Robustez a escalamiento de características</li>
+                <li><strong>Selección automática de características:</strong> Variables irrelevantes naturalmente ignoradas</li>
+                <li><strong>Manejo de no linealidades:</strong> Captura interacciones complejas sin especificación previa</li>
+                <li><strong>Interpretabilidad completa:</strong> Cada predicción explicable por un conjunto de reglas</li>
+            </ul>
+            
+            <h3>❌ Limitaciones Teóricas</h3>
+            <ul>
+                <li><strong>Overfitting extremo:</strong> Sin poda, puede memorizar completamente los datos de entrenamiento</li>
+                <li><strong>Inestabilidad:</strong> Alta varianza - pequeños cambios pueden generar árboles muy diferentes</li>
+                <li><strong>Bias en splits:</strong> Favorece características con más valores únicos</li>
+                <li><strong>Fronteras ortogonales:</strong> Dificultad con fronteras diagonales</li>
+            </ul>
+            
+            <div class="hyperparams">
+                <h4>🔧 Control de Complejidad</h4>
+                <ul>
+                    <li><strong>max_depth:</strong> Controla directamente la complejidad del modelo (depth = log₂(leaves))</li>
+                    <li><strong>min_samples_split:</strong> Evita splits en muestras pequeñas (threshold estadístico)</li>
+                    <li><strong>min_samples_leaf:</strong> Asegura representatividad estadística en hojas</li>
+                    <li><strong>min_impurity_decrease:</strong> Threshold para ganancia mínima de información</li>
+                    <li><strong>ccp_alpha:</strong> Costo-complejidad para poda post-construcción</li>
+                </ul>
+            </div>
+            
+            <p><strong>Complejidad:</strong> Entrenamiento O(n log n × d), Predicción O(log n) promedio, O(n) peor caso</p>
+        </div>
+
+        <!-- Slide 8: SVM -->
+        <div class="slide">
+            <h2>Support Vector Machines (SVM)</h2>
+            
+            <div class="theory-section">
+                <h3>🔬 Fundamento Teórico</h3>
+                <p>Basado en la teoría de minimización del riesgo estructural (SRM). Encuentra el hiperplano que maximiza el margen entre clases, implementando el principio inductivo de máximo margen.</p>
+            </div>
+
+            <div class="math-formula">
+                <strong>Problema primal:</strong> min ½||w||² + C Σξᵢ sujeto a yᵢ(w^T xᵢ + b) ≥ 1 - ξᵢ<br>
+                <strong>Problema dual:</strong> max Σαᵢ - ½ΣΣαᵢαⱼyᵢyⱼK(xᵢ,xⱼ)<br>
+                <strong>Función de decisión:</strong> f(x) = sign(ΣαᵢyᵢK(xᵢ,x) + b)<br>
+                <strong>Condiciones KKT:</strong> αᵢ(yᵢf(xᵢ) - 1 + ξᵢ) = 0
+            </div>
+            
+            <h3>✅ Propiedades Teóricas</h3>
+            <ul>
+                <li><strong>Principio de máximo margen:</strong> Maximiza la distancia mínima entre clases</li>
+                <li><strong>Teoría VC:</strong> Generalization bound basado en la dimensión VC del espacio de características</li>
+                <li><strong>Kernel trick:</strong> Mapeo implícito a espacios de alta dimensión sin costo computacional explícito</li>
+                <li><strong>Sparsity:</strong> Solo los vectores de soporte (αᵢ > 0) influyen en la predicción</li>
+            </ul>
+            
+            <h3>❌ Limitaciones Matemáticas</h3>
+            <ul>
+                <li><strong>Escalabilidad:</strong> Complejidad O(n³) del problema de optimización cuadrática</li>
+                <li><strong>Selección de kernel:</strong> No hay teoría sistemática para elegir K(·,·) óptimo</li>
+                <li><strong>Probabilidades:</strong> No produce probabilidades naturalmente (requiere calibración)</li>
+                <li><strong>Ruido y outliers:</strong> Sensible a puntos mal etiquetados en la frontera</li>
+            </ul>
+            
+            <div class="hyperparams">
+                <h4>🔧 Kernels y Regularización</h4>
+                <ul>
+                    <li><strong>C:</strong> Trade-off entre margen y error de entrenamiento (C→∞: hard margin)</li>
+                    <li><strong>kernel='rbf':</strong> K(x,z) = exp(-γ||x-z||²), γ controla la "localidad"</li>
+                    <li><strong>kernel='poly':</strong> K(x,z) = (γx^T z + r)^d, captura interacciones de orden d</li>
+                    <li><strong>gamma:</strong> 1/(2σ²) en RBF, controla el radio de influencia</li>
+                </ul>
+            </div>
+            
+            <p><strong>Complejidad:</strong> Entrenamiento O(n² a n³), Predicción O(|SV| × d) donde |SV| = número de vectores de soporte</p>
+        </div>
+
+        <!-- Slide 9: Random Forest -->
+        <div class="slide">
+            <h2>Random Forest</h2>
+            
+            <div class="theory-section">
+                <h3>🔬 Fundamento Teórico</h3>
+                <p>Método ensemble que combina bagging con selección aleatoria de características. Basado en la teoría de agregación de predictores y la reducción de varianza mediante averaging.</p>
+            </div>
+
+            <div class="math-formula">
+                <strong>Predicción ensemble:</strong> ĉ(x) = argmax_k Σᵦ I(T_b(x) = k)<br>
+                <strong>Bootstrap sample:</strong> S_b ~ Multinomial(n, 1/n, ..., 1/n)<br>
+                <strong>Error OOB:</strong> err_OOB = (1/n) Σᵢ I(ĉ₋ᵢ(xᵢ) ≠ yᵢ)<br>
+                <strong>Varianza:</strong> Var[Ê] = ρσ² + (1-ρ)σ²/B donde ρ = correlación entre árboles
+            </div>
+            
+            <h3>✅ Propiedades Estadísticas</h3>
+            <ul>
+                <li><strong>Reducción de varianza:</strong> Averaging de B predictores reduce varianza por factor B</li>
+                <li><strong>Consistencia:</strong> Converge al límite de Bagging cuando B → ∞</li>
+                <li><strong>Error OOB:</strong> Estimación insesgada del error de generalización sin validation set</li>
+                <li><strong>Feature importance:</strong> Medida natural via disminución promedio de impureza</li>
+            </ul>
+            
+            <h3>❌ Limitaciones Teóricas</h3>
+            <ul>
+                <li><strong>Overfitting en ruido:</strong> Puede hacer overfitting en datasets muy ruidosos</li>
+                <li><strong>Correlación residual:</strong> Árboles siguen correlacionados a pesar de randomización</li>
+                <li><strong>Interpretabilidad perdida:</strong> Imposible extraer reglas simples del ensemble</li>
+                <li><strong>Bias hacia categorías frecuentes:</strong> Hereda sesgos de árboles individuales</li>
+            </ul>
+            
+            <div class="hyperparams">
+                <h4>🔧 Control del Ensemble</h4>
+                <ul>
+                    <li><strong>n_estimators:</strong> Número de árboles B (más árboles → menor varianza, rendimientos decrecientes)</li>
+                    <li><strong>max_features:</strong> m ≈ √d reduce correlación entre árboles</li>
+                    <li><strong>bootstrap:</strong> True para bagging, False para pasting</li>
+                    <li><strong>oob_score:</strong> Calcula estimación OOB del error</li>
+                    <li><strong>random_state:</strong> Controla reproducibilidad del proceso aleatorio</li>
+                </ul>
+            </div>
+            
+            <p><strong>Complejidad:</strong> Entrenamiento O(B × n log n × d × √d), Predicción O(B × log n × d)</p>
+        </div>
+
+        <!-- Slide 10: Métricas de Evaluación -->
+        <div class="slide">
+            <h2>Métricas de Evaluación</h2>
+            
+            <div class="theory-section">
+                <h3>🔬 Fundamento Estadístico</h3>
+                <p>Las métricas de evaluación cuantifican diferentes aspectos del performance del clasificador. Cada métrica captura un trade-off específico entre tipos de errores.</p>
+            </div>
+
+            <div class="math-formula">
+                <strong>Matriz de Confusión:</strong> C[i,j] = #{(x,y) : y = i, ĉ(x) = j}<br>
+                <strong>Accuracy:</strong> (TP + TN)/(TP + TN + FP + FN)<br>
+                <strong>Precision:</strong> TP/(TP + FP), <strong>Recall:</strong> TP/(TP + FN)<br>
+                <strong>F₁-Score:</strong> 2/(1/Precision + 1/Recall) = 2TP/(2TP + FP + FN)
+            </div>
+            
+            <div class="metrics-section">
+                <h3>📊 Métricas Avanzadas</h3>
+                
+                <h4>Para Clasificación Probabilística</h4>
+                <ul>
+                    <li><strong>Log-Loss (Cross-entropy):</strong> -Σ y log(p̂) + (1-y) log(1-p̂)</li>
+                    <li><strong>Brier Score:</strong> Σ(p̂ - y)² (scoring rule propia)</li>
+                    <li><strong>Calibration:</strong> E[Y|p̂ = p] = p para todo p</li>
+                </ul>
+                
+                <h4>Métricas Robustas</h4>
+                <ul>
+                    <li><strong>AUC-ROC:</strong> ∫ TPR(FPR⁻¹(t)) dt, invariante a threshold</li>
+                    <li><strong>AUC-PR:</strong> Mejor para datos desbalanceados</li>
+                    <li><strong>Matthews Correlation Coefficient:</strong> φ = (TP×TN - FP×FN)/√((TP+FP)(TP+FN)(TN+FP)(TN+FN))</li>
+                </ul>
+                
+                <h4>Multi-clase</h4>
+                <ul>
+                    <li><strong>Macro-averaging:</strong> (1/K) Σ metric_k (trata clases igualmente)</li>
+                    <li><strong>Micro-averaging:</strong> metric(Σ TP_k, Σ FP_k, Σ FN_k) (ponderado por frecuencia)</li>
+                    <li><strong>Weighted-averaging:</strong> Σ w_k × metric_k donde w_k = support_k</li>
+                </ul>
+            </div>
+            
+            <h3>🎯 Consideraciones Estadísticas</h3>
+            <ul>
+                <li><strong>Intervalos de confianza:</strong> Bootstrap o aproximación normal para cuantificar incertidumbre</li>
+                <li><strong>Significancia estadística:</strong> Test de McNemar para comparar clasificadores</li>
+                <li><strong>Cross-validation:</strong> k-fold o stratified para estimación insesgada</li>
+                <li><strong>Corrección de Bonferroni:</strong> Para comparaciones múltiples</li>
+            </ul>
+        </div>
+
+        <!-- Slide 11: Comparación y Resumen -->
+        <div class="slide">
+            <h2>Comparación Teórica y Guía de Selección</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Algoritmo</th>
+                        <th>Tipo</th>
+                        <th>Suposiciones</th>
+                        <th>Frontera de Decisión</th>
+                        <th>Complejidad Modelo</th>
+                        <th>Interpretabilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>k-NN</strong></td>
+                        <td>No paramétrico</td>
+                        <td>Localidad + suavidad</td>
+                        <td>Irregular, no linear</td>
+                        <td>O(n) memoria</td>
+                        <td>Media (vecindario)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reg. Logística</strong></td>
+                        <td>Paramétrico</td>
+                        <td>Linealidad en log-odds</td>
+                        <td>Linear</td>
+                        <td>O(d) parámetros</td>
+                        <td>Alta (coeficientes)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Naive Bayes</strong></td>
+                        <td>Generativo</td>
+                        <td>Independencia condicional</td>
+                        <td>Linear (log-prob)</td>
+                        <td>O(dk) parámetros</td>
+                        <td>Media (probabilidades)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Árboles</strong></td>
+                        <td>No paramétrico</td>
+                        <td>Estructura jerárquica</td>
+                        <td>Rectángulos ortogonales</td>
+                        <td>O(n) nodos</td>
+                        <td>Muy alta (reglas)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SVM</strong></td>
+                        <td>No paramétrico</td>
+                        <td>Máximo margen</td>
+                        <td>Flexible (kernel)</td>
+                        <td>O(|SV|) vectores</td>
+                        <td>Baja (kernel)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Random Forest</strong></td>
+                        <td>Ensemble</td>
+                        <td>Sabiduría de multitudes</td>
+                        <td>Promedio de rectángulos</td>
+                        <td>O(Bn) nodos</td>
+                        <td>Media (importancia)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>🎯 Marco de Selección Teórico</h3>
+            <div class="algorithm-grid">
+                <div class="algorithm-card">
+                    <h4>📊 Datos pequeños (n < 1000)</h4>
+                    <p>Naive Bayes, Regresión Logística, k-NN</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>🔍 Alta dimensionalidad (d > n)</h4>
+                    <p>Regresión Logística (L1), SVM, Naive Bayes</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>🎭 No linealidad</h4>
+                    <p>SVM (RBF), Random Forest, k-NN</p>
+                </div>
+                <div class="algorithm-card">
+                    <h4>⚖️ Interpretabilidad crítica</h4>
+                    <p>Árboles de Decisión, Regresión Logística</p>
+                </div>
+            </div>
+            
+            <div class="theory-section">
+                <h3>📈 Principios de Selección de Modelos</h3>
+                <ol>
+                    <li><strong>Principio de parsimonia (Occam's Razor):</strong> Modelo más simple que explique los datos</li>
+                    <li><strong>Bias-Variance Tradeoff:</strong> Balance entre sesgo y varianza según tamaño muestral</li>
+                    <li><strong>No Free Lunch Theorem:</strong> No existe un algoritmo universalmente superior</li>
+                    <li><strong>Validación cruzada:</strong> Estimación honesta del error de generalización</li>
+                    <li><strong>Ensemble methods:</strong> Combinación reduce riesgo de selección subóptima</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)">◀ Anterior</button>
+        <button class="nav-btn" onclick="changeSlide(1)">Siguiente ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('slideNum').textContent = currentSlide + 1;
+        }
+        
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) changeSlide(1);  // Swipe left
+            if (touchEndX - touchStartX > 50) changeSlide(-1); // Swipe right
+        });
+    </script>
+</body>
+</html>
